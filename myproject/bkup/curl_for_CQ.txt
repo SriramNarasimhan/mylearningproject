@@ -1,0 +1,131 @@
+
+######################## GENERAL ##########################
+
+# To access any site
+curl http://www.cognizant.com
+
+# To access any secured site [-k is to ignore certificate error, if any]
+curl -k https://www.google.co.in
+
+# To access through proxy
+curl -v -x <proxy-ip>:<proxy-port> -U "<proxy-username>":"<proxy-password>" www.google.com
+
+# To download through proxy
+curl -v -x <proxy-ip>:<proxy-port> -U "<proxy-username>":"<proxy-password>" "http://download.cdn.mozilla.net/pub/mozilla.org/firefox/releases/20.0.1/win32/en-US/Firefox%20Setup%2020.0.1.exe" > Firefox_Setup.exe
+
+
+############################# CQ ###########################
+
+#######################
+## Bundle operations ##
+#######################
+
+# To get the details of a bundle
+curl -v -u admin:admin -k http://localhost:4502/system/console/bundles/<bundlename>.json
+# Example
+curl -v -u admin:admin -k http://localhost:4502/system/console/bundles/com.day.cq.cq-widgets.json
+
+# To install a bundle
+curl -k -v -u admin:admin -F action=install -F bundlestartlevel=20 -F bundlefile=@"<jar file path>" https://localhost:7503/system/console/bundles
+# Example
+curl -k -v -u admin:admin -F action=install -F bundlestartlevel=20 -F bundlefile=@"/home/user/com.adobe.granite.ui.commons-5.5.14.jar" https://localhost:7503/system/console/bundles
+
+# To stop a bundle
+curl -u admin:admin -F action=stop -k http://localhost:4502/system/console/bundles/<bundlename> 
+
+# To start a bundle
+curl -u admin:admin -F action=start -k http://localhost:4502/system/console/bundles/<bundlename>
+
+######################
+## Node Operations  ##
+######################
+
+# To delete a node
+curl -u admin:admin -F :operation=delete -F :applyTo=/var/clientlibs/ -k http://localhost:7503/
+
+# To create a page
+curl -k -u admin:admin -F"jcr:primaryType=cq:Page" https://localhost:4503/content/showserverinfo
+curl -k -u admin:admin -F"jcr:title=showserverinfo" -F"cq:template=/libs/collab/commons/templates/form" -F"sling:resourceType=collab/commons/components/formpage" -F"jcr:primaryType=cq:PageContent" https://localhost:4503/content/showserverinfo/jcr:content
+curl -k -u admin:admin -F"jcr:primaryType=nt:unstructured" -F"sling:resourceType=foundation/components/parsys" https://localhost:4503/content/showserverinfo/jcr:content/par
+curl -k -u admin:admin -F"jcr:primaryType=nt:unstructured" -F"sling:resourceType=foundation/components/text" -F"text=Server123" -F"textIsRich=true" https://localhost:4503/content/showserverinfo/jcr:content/par/text
+
+# To delete a page
+curl -u admin:admin -F":operation=delete" http://localhost:4502/content/showserverinfo
+
+# To upload a image (background.png) to a node (/libs/cq/core/content/login/bg/)
+curl -v -u admin:admin -T background.png http://localhost:4502/libs/cq/core/content/login/bg/
+
+# To update password in a replication/flush agent
+curl --data transportPassword=<password> --user admin:admin -k https://localhost:4503/etc/replication/agents.publish/flush/jcr:content
+
+# To get details of a replication/flush agent
+curl -k -u admin:admin https://localhost:4503/etc/replication/agents.publish/flush/jcr:content.json
+
+# To disable a replication/flush agent
+curl -D- -k -u admin:admin -X POST -F enabled=false https://localhost:4503/etc/replication/agents.publish/flush/jcr:content
+
+# To update URL in a replication/flush agent
+curl -D- -k -u admin:admin -X POST -F transportUri="http://localhost/invalidation_only/dispatcher/invalidate.cache" https://localhost:4503/etc/replication/agents.publish/flush/jcr:content
+
+
+########################
+## Package Operations ##
+########################
+
+# To upload a package
+curl -u admin:admin -F package=@/opt/apps/backup/apps-env-config-prod.zip -k https://localhost:4503/crx/packmgr/service/.json/?cmd=upload
+
+# To download a package
+curl -u admin:admin http://localhost:4502/etc/packages/<proj-name>/apps-env-config-prod.zip > apps-env-config-prod.zip
+
+# To install a package
+curl -u admin:admin -X POST -k https://localhost:4503/crx/packmgr/service/.json/etc/packages/<proj-name>/<proj-name>-group1-a.zip?cmd=install
+
+# To replicate a package
+curl -u admin:admin -X POST -k https://localhost:4503/crx/packmgr/service/.json/etc/packages/<proj-name>/apps-env-config-prod.zip?cmd=replicate
+
+# To delete a package
+curl -u admin:admin -X POST -k https://localhost:4503/crx/packmgr/service/.json/etc/packages/<proj-name>/<proj-name>-group1-a.zip?cmd=delete
+
+# To list the packages on the CQ server
+curl -u admin:admin http://localhost:4502/crx/packmgr/service.jsp?cmd=ls 
+
+# To check whether a package is installed on the server [output must be 200 OK]
+
+curl -u admin:admin -k -D- https://localhost:4503/etc/packages/<proj-name>/<proj-name>-group1-a.zip/jcr:content/vlt:definition/lastUnpacked.json 2>/dev/null | head -1
+
+
+
+#######################
+## Backup Operations ##
+#######################
+
+# To initiate a full backup to a zip output file 
+curl -u admin:admin -X POST "http://localhost:4502/crx/config/backup.jsp?action=add&zipFileName=/opt/apps/adobe/cq5/backup/backup_dev_20120825_2230.zip"
+
+# To initiate a full backup to a output folder 
+curl -u admin:admin -X POST "http://localhost:4502/crx/config/backup.jsp?action=add&zipFileName=/opt/apps/adobe/cq5/backup/bkpfolder"
+
+
+
+##################################
+## DataStore Garbage Collection ##
+##################################
+
+curl -u admin:admin -X POST --data delete=true -H "Referer: http://localhost:4502/system/console/jmx/com.adobe.granite%3Atype%3DRepository" http://localhost:4502/system/console/jmx/com.adobe.granite%3Atype%3DRepository/op/runDataStoreGarbageCollection/java.lang.Boolean
+
+		
+
+
+
+*********
+curl -u admin:admin -X POST -k http://localhost:4502/crx/packmgr/service/.json/etc/packages/ra_packages/brand-tablet-content-export-1.0-2015-05-14_12_23_35_572.zip?cmd=install
+
+
+curl -u admin:admin -k -D- http://localhost:4504/etc/packages/my_packages/CloudDeployment_tablet_.zip/jcr:content/vlt:definition/lastUnpacked.json 2>/dev/null | head -1
+
+vlt rcp -b 100 -r -u -n http://admin:admin@localhost:4502/crx/-/jcr:root/content/whg-ecomm/rd1/di/en_us/homepage http://admin:admin@localhost:4504/crx/-/jcr:root/content/whg-ecomm/rd1/di/en_us/homepage
+
+select * from nt:file where jcr:path like '/content/dam/hotel-images/DI/%' and contains(*, 'cq5dam') and contains(*, '1280.960')
+
+http://localhost:4502/system/console/configMgr/com.wyn.tablet.servlets.PackageCreator

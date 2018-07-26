@@ -1,0 +1,52 @@
+IN AEM 6.0,
+
+sling service user mapper service instead of login service - instead of loginAdministrative(null)--Apache Sling Service User Mapper
+
+
+\company-ui\src\main\content\jcr_root
+
+vlt --credentials admin:admin co http://localhost:4502/crx/ . --force
+
+
+
+Recording link -- https://my.adobeconnect.com/p25nmohopm3/
+
+
+Contact - vmitra@adobe.com
+===================================================
+
+Training recorded sessions
+
+==Developer==
+(Day1)https://my.adobeconnect.com/p2mbe6m8f8u/
+(Day2)https://my.adobeconnect.com/p35t8ucy57s/
+
+==Advanced Developer==
+(Day1)https://my.adobeconnect.com/p25nmohopm3/
+(Day2)https://my.adobeconnect.com/p807misd93q/
+
+Part 1 - https://my.adobeconnect.com/p7sevqcwclg/
+Part 2 - https://my.adobeconnect.com/p9fypvkrai4/
+
+==Back end Developer==
+===Day 1(March 9)===
+https://my.adobeconnect.com/p4wwpm9fs2s/
+===Day 2(March 10)===
+https://my.adobeconnect.com/p5htlumzrwb/
+
+===========================================
+mvn archetype:generate -DarchetypeGroupId=com.day.jcr.vault -DarchetypeArtifactId=multimodule-content-package-archetype -DarchetypeVersion=1.0.2 -DarchetypeRepository=adobe-public-releases
+
+mvn eclipse:eclipse -DdownloadSources=true -DdownloadJavadocs=true
+
+vlt --credentials admin:admin co http://localhost:4502/crx/ . --force
+
+select * from nt:base where jcr:path like '/content/geometrixx-outdoors/en/%' and sling:resourceType='geometrixx-outdoors/components/page_sidebar_right'
+
+AEM 6.0 jar start
+java -Xmx1280m -XX:MaxPermSize=256m -XX:+HeapDumpOnOutOfMemoryError -jar aem-author-4504.jar -gui -nobrowser
+
+
+Versions with AEM 6.1
+maven 3.2.5
+java 1.7.79(uninstall and reinstall java)

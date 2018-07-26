@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    height="500"
+    title="Composite Field"
+    width="800"
+    xtype="dialog">
+    <items
+        jcr:primaryType="cq:Widget"
+        xtype="tabpanel">
+        <items jcr:primaryType="cq:WidgetCollection">
+            <compositelist
+                jcr:primaryType="cq:Widget"
+                title="Composite Field"
+                xtype="panel">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <compositelistfield
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Click the '+' to add a new image list"
+                        fieldLabel="Composite List"
+                        name="./compositelist"
+                        xtype="multifield">
+                        <fieldConfig
+                            jcr:primaryType="cq:Widget"
+                            name="./comp"
+                            xtype="cq.compositefield">
+                            <items jcr:primaryType="cq:WidgetCollection">
+                                <text
+                                    jcr:primaryType="cq:Widget"
+                                    fieldLabel="Text"
+                                    name="./tt"
+                                    width="155"
+                                    xtype="textfield"/>
+                                <path
+                                    jcr:primaryType="cq:Widget"
+                                    fieldLabel="Path"
+                                    name="./pp"
+                                    width="155"
+                                    xtype="pathfield"/>
+                            </items>
+                        </fieldConfig>
+                    </compositelistfield>
+                </items>
+            </compositelist>
+        </items>
+    </items>
+    <listeners
+        jcr:primaryType="nt:unstructured"
+        beforesubmit="function(dialog){&#xa;var title=dialog.getField(&quot;./tt&quot;).getValue();&#xa;var path=dialog.getField(&quot;./pp&quot;).getValue();&#xa;return true;&#xa;}"/>
+</jcr:root>

@@ -1,0 +1,4 @@
+#base=js
+jquery-1.6.3.min.js
+jquery.dataTables.js
+jquery.dataTables.min.js

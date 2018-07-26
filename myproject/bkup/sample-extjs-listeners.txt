@@ -1,0 +1,28 @@
+function(comp) {
+alert("hi");
+var dialog = this.findParentByType('dialog'); 
+dialog.on('loadcontent', function(dlg){ 
+var canRegister = dialog.find('name', './canRegister'); 
+alert("hi",canRegister);
+if(canRegister[0].getValue() != '') { 
+CQ.I18n.getMessage('Re-Connect to Test&Target');
+} });  }
+
+
+
+function(comp, val, isChecked) {
+    if(comp.getValue() == '') {
+	comp.setValue('0');alert("if");
+    } else {comp.setValue('1');alert("else");}
+}
+
+/*hide or show component based on checked value */
+    this.isChecked ? alert("yes");this.setValue('0') : alert("no");this.setValue('1'); 
+
+function(comp, val, isChecked) {alert("hi");
+    var panel = comp.findParentByType("panel");
+    var canreg = panel.getComponent("canreg");
+    if(canreg.getValue() == '') {
+	canreg.setValue('0');
+    } else {canreg.setValue('1');}
+}

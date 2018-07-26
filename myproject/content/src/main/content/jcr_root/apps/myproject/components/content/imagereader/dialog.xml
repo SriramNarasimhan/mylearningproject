@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    title="Image Reader"
+    width="500"
+    xtype="dialog">
+    <items
+        jcr:primaryType="cq:Widget"
+        xtype="tabpanel">
+        <items jcr:primaryType="cq:WidgetCollection">
+            <imagereader
+                jcr:primaryType="cq:Widget"
+                title="Composite Field"
+                xtype="panel">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <imagereader
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Choose path to render images below it"
+                        fieldLabel="DAM Path"
+                        name="./damPath"
+                        rootPath="/content/dam"
+                        xtype="pathfield">
+                        <listeners
+                            jcr:primaryType="nt:unstructured"
+                            dialogselect="function(pathfield, path, anchor) {var pathParts=path.split('/');  if(this.value.slice(0,1) === '/' &amp;&amp; this.value.indexOf('.') >0){ alert(&quot;Cannot choose an asset. Please choose any folder.&quot;); pathfield.setValue(&quot;&quot;); return false;}}"/>
+                    </imagereader>
+                </items>
+            </imagereader>
+        </items>
+    </items>
+</jcr:root>

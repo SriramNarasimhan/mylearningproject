@@ -1,0 +1,15 @@
+apache-tomcat-7.0.25
+Beyond Compare
+java - jdk1.7.0_72, maven 3.2.1, aem 5.6.1
+Notepad++
+WinSCP3
+Putty
+eclipse kepler
+GitHub
+Chrome
+firefox
+bitkinex
+Brackets
+Juniper Networks
+Accurev
+Apache HTTP server

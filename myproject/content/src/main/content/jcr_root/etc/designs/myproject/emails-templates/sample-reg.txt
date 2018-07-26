@@ -1,0 +1,9 @@
+
+Welcome, ${userId}!
+
+Please find your details below:
+
+Username  - ${userId}          
+Password  - ${pwd}          
+
+If you experience any problems please contact us.

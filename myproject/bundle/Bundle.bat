@@ -1,0 +1,1 @@
+start cmd /k mvn clean install -Dmaven.test.skip=true -P autoInstallBundle
