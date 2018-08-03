@@ -1,0 +1,66 @@
+<sly data-sly-use.configServiceUse="${'com.suntrust.dotcom.utils.ConfigServiceUse' @ property='bootstrap.js.path'}"/>
+<sly data-sly-use.analyticsGlobalDataLayerHelper="com.suntrust.dotcom.utils.AnalyticsGlobalDataLayerHelper"/>
+
+<script type="text/javascript">
+	var pageName = "${analyticsGlobalDataLayerHelper.pageName @ context='scriptString'}";
+	var hier1 = "${analyticsGlobalDataLayerHelper.hier1 @ context='scriptString'}";
+	var pageSet = "${analyticsGlobalDataLayerHelper.pageSet @ context='scriptString'}";
+	var taxonomyPageClass = "${analyticsGlobalDataLayerHelper.taxonomyPageClass @ context='scriptString'}";
+	var taxonomyProducts = "${analyticsGlobalDataLayerHelper.taxonomyProducts @ context='scriptString'}";
+	var taxonomySegment = "${analyticsGlobalDataLayerHelper.taxonomySegment @ context='scriptString'}";
+	var taxonomyLOB = "${analyticsGlobalDataLayerHelper.taxonomyLOB @ context='scriptString'}";
+	var taxonomyCircumstance = "${analyticsGlobalDataLayerHelper.taxonomyCircumstance @ context='scriptString'}";
+	var taxonomyContentType = "${analyticsGlobalDataLayerHelper.taxonomyContentType @ context='scriptString'}";
+	//var pageURL = "${analyticsGlobalDataLayerHelper.pageURL @ context='scriptString'}";
+	var canonicalURL = "${analyticsGlobalDataLayerHelper.canonicalUrl @ context='scriptString'}";
+	var siteLanguage = "${analyticsGlobalDataLayerHelper.siteLanguage @ context='scriptString'}";
+	var bootstrapEnableFlag = "${configServiceUse.property @ context='scriptString'}";
+
+	if(bootstrapEnableFlag)
+	{
+		// Start error page GDL handling  - US26407 
+		var patt1 = /[|]error[|]/i;
+		var result = pageName.match(patt1);
+		
+		if(result == "|error|")
+		{
+			console.log("pageType : Error Page");
+			window.dataLayer.pageSet = "Error";
+			window.dataLayer.pageName = "";
+		    window.dataLayer.hier1 = "STcom|ErrorPage";
+		    window.dataLayer.pageType = "errorPage";
+		}
+		
+		else
+		{
+			window.dataLayer.pageName = pageName;
+		    window.dataLayer.hier1 = hier1;
+		    window.dataLayer.pageSet = pageSet;
+		}
+		//End error page GDL handling - US26407 
+		window.dataLayer.eVar18 = "${analyticsGlobalDataLayerHelper.pageId @context='scriptString'}";
+	    window.dataLayer.prop36 = taxonomyPageClass;
+	    window.dataLayer.prop38 = taxonomyProducts;
+	    window.dataLayer.prop39 = taxonomySegment;
+	    window.dataLayer.prop40 = taxonomyLOB;
+	    window.dataLayer.prop41 = taxonomyCircumstance;
+	    window.dataLayer.prop42 = taxonomyContentType;
+	    window.dataLayer.eVar53 = canonicalURL;
+	    window.dataLayer.prop43 = siteLanguage;
+	    window.dataLayer.eVar64 = '';
+
+		//Bootstrap delay in Bootstrap library initialization
+        if (!window.dataLayer.AEMBootstrapInitialized)
+        {
+            console.log("inside bootstrap initializer");
+            Bootstrapper.ensEvent.trigger("AEMBootstrapInitialized"); //Trigger Ensighten event to check the libary load status
+        }
+		if (window.dataLayer.AEMBootstrapInitialized)
+		{
+            console.log("sending tag bootstrap event");
+            Bootstrapper.ensEvent.trigger("STcomAEMPageLoad");
+	    }
+	}
+</script>
+ <!-- Page-Id: ${analyticsGlobalDataLayerHelper.pageId @context='scriptString'} -->
+    	

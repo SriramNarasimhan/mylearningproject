@@ -1,0 +1,544 @@
+<div
+		data-sly-use.mbeanObj="${'com.suntrust.dotcom.components.DynamicListComponent'  @sortby=properties.sortby, contextPath=properties.contextPath, resultCount=properties.resultLimit, criteriaForRule=properties.additionalCriteriaForRule}"
+		data-sly-unwrap>
+	<div
+			data-sly-test="${(wcmmode.edit || wcmmode.design) && !properties.contextPath}">Configure
+		Dynamic List Component</div>
+</div>
+
+
+<!--  Test Auto deploy using TFS Build Server -->
+
+
+<div data-sly-test="${mbeanObj.mBean}" data-sly-unwrap>
+	<div data-sly-test="${properties.style=='titlelist'}" data-sly-unwrap>
+		<section class="suntrust-aside-dynamic-list">
+			<div class="analytics-placeholder" style="display: none">${properties.style}</div>
+			<div class="suntrust-promoted-ad-space">
+				<h3 class="suntrust-promoted-title suntrust-underlined-heading">${properties.heading @context='html'}</h3>
+				<div data-sly-list.items="${mbeanObj.mBean}" data-sly-unwrap>
+					<ul data-sly-test="${itemsList.index == 0}" data-sly-list.itemsList="${items.items}">
+						<li>
+							<sly data-sly-test="${itemsList.target == '_smallmodal' || itemsList.target == '_mediummodal' || itemsList.target == '_largemodal'}">
+	
+								<div data-sly-test="${itemsList.title}" data-sly-unwrap>
+									<div data-sly-test="${!itemsList.titleTags}" data-sly-unwrap>
+										<a class="suntrust-tools-and-calculators-list-link"
+										   data-anchor="${itemsList.linkURL}" data-modal="${itemsList.target}"
+										   title="${itemsList.title}"
+										   data-suntrust-class="suntrust-content-modalWindow" >${itemsList.title}</a>
+									</div>
+									<div data-sly-test="${itemsList.titleTags}" data-sly-unwrap>
+										<a class="suntrust-tools-and-calculators-list-link"
+										   data-anchor="${itemsList.linkURL}" data-modal="${itemsList.target}"
+										   title="${itemsList.titleTags}" data-suntrust-class="suntrust-content-modalWindow">${itemsList.title}</a>
+									</div>
+								</div>
+								<div data-sly-test="${!itemsList.title}" data-sly-unwrap>
+									<div data-sly-test="${!itemsList.titleTags}" data-sly-unwrap>
+										<a class="suntrust-tools-and-calculators-list-link"
+										   data-anchor="${itemsList.linkURL}" data-modal="${itemsList.target}"
+										   title="${itemsList.pageTitle}" data-suntrust-class="suntrust-content-modalWindow" >${itemsList.pageTitle}</a>
+									</div>
+									<div data-sly-test="${itemsList.titleTags}" data-sly-unwrap>
+										<a class="suntrust-tools-and-calculators-list-link"
+										   data-anchor="${itemsList.linkURL}" data-modal="${itemsList.target}"
+										   title="${itemsList.titleTags}" data-suntrust-class="suntrust-content-modalWindow" >${itemsList.pageTitle}</a>
+									</div>
+								</div>
+							</sly>
+							<sly data-sly-test="${!itemsList.target || itemsList.target == '_self' || itemsList.target == '_blank'}">
+								<div data-sly-test="${itemsList.title}" data-sly-unwrap>
+									<div data-sly-test="${!itemsList.titleTags}" data-sly-unwrap>
+										<a class="suntrust-tools-and-calculators-list-link"
+										   href="${itemsList.linkURL}" target="${itemsList.target}"
+										   title="${itemsList.title}">${itemsList.title}</a>
+									</div>
+									<div data-sly-test="${itemsList.titleTags}" data-sly-unwrap>
+										<a class="suntrust-tools-and-calculators-list-link"
+										   href="${itemsList.linkURL}" target="${itemsList.target}"
+										   title="${itemsList.titleTags}">${itemsList.title}</a>
+									</div>
+								</div>
+								<div data-sly-test="${!itemsList.title}" data-sly-unwrap>
+									<div data-sly-test="${!itemsList.titleTags}" data-sly-unwrap>
+										<a class="suntrust-tools-and-calculators-list-link"
+										   href="${itemsList.linkURL}" target="${itemsList.target}"
+										   title="${itemsList.pageTitle}">${itemsList.pageTitle}</a>
+									</div>
+									<div data-sly-test="${itemsList.titleTags}" data-sly-unwrap>
+										<a class="suntrust-tools-and-calculators-list-link"
+										   href="${itemsList.linkURL}" target="${itemsList.target}"
+										   title="${itemsList.titleTags}">${itemsList.pageTitle}</a>
+									</div>
+								</div>
+							</sly>
+	
+						</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+	</div>
+	
+	
+	<div data-sly-test="${properties.style=='summarylist'}" data-sly-unwrap>
+		<section class="component-dynamic-summarylist">
+			<div class="analytics-placeholder" style="display: none">${properties.style}</div>
+			<div data-sly-test="${properties.heading}" data-sly-unwrap>
+				<div class="suntrust-education-center-bg-color">
+					<div
+							class="col-md-offset-1 col-md-11 suntrust-education-center-header-container">
+						<div class="suntrust-education-center-heading-div">
+							<h2 class="suntrust-education-center-heading">${properties.heading @context='html'}</h2>
+						</div>
+					</div>
+				</div>
+			</div>
+	
+			<div class="suntrust-summaryUnorderedlist">
+				<div
+						class="col-md-offset-1 col-md-11 suntrust-education-center-article-list-container">
+					<div data-sly-list.items="${mbeanObj.mBean}" data-sly-unwrap>
+						<div
+								data-sly-test="${properties.hidethumbnails == 'true' && properties.hidetags == 'false'}"
+								data-sly-unwrap>
+							<ul class="suntrust-article-list font-size-resource-center"
+								data-sly-test="${itemsList.index == 0}"
+								data-sly-list.itemsList="${items.items}">
+								<li class="suntrust-article-list-item ${itemsList.thumbnailIconClassName} row">
+									<div data-sly-test="${properties.hidethumbnails == 'false'}"
+										 data-sly-unwrap>
+										<div class="col-lg-3  col-xs-3 suntrust-article-img-container">
+											<img src="${itemsList.thumbnailPath}"
+												 title="${itemsList.altTags}" alt="${itemsList.altTags}"
+												 class="img-responsive suntrust-article-preview-img">
+										</div>
+									</div>
+									<div
+											class="col-lg-9 col-xs-9 suntrust-main-article-preview suntrust-article-preview-with-image">
+										<h3 class="suntrust-article-preview-title">
+											<div data-sly-test="${itemsList.title}" data-sly-unwrap>
+												<div data-sly-test="${itemsList.titleTags}" data-sly-unwrap>
+													<a class="suntrust-article-preview-title"
+													   title="${itemsList.titleTags}" href="${itemsList.linkURL}"
+													   target="${itemsList.target}">${itemsList.title}</a>
+												</div>
+												<div data-sly-test="${!itemsList.titleTags}" data-sly-unwrap>
+													<a class="suntrust-article-preview-title"
+													   title="${itemsList.title}" href="${itemsList.linkURL}"
+													   target="${itemsList.target}">${itemsList.title}</a>
+												</div>
+											</div>
+	
+											<div data-sly-test="${!itemsList.title}" data-sly-unwrap>
+												<div data-sly-test="${itemsList.titleTags}" data-sly-unwrap>
+													<a class="suntrust-article-preview-title"
+													   title="${itemsList.titleTags}" href="${itemsList.linkURL}"
+													   target="${itemsList.target}">${itemsList.pageTitle}</a>
+												</div>
+												<div data-sly-test="${!itemsList.titleTags}" data-sly-unwrap>
+													<a class="suntrust-article-preview-title"
+													   title="${itemsList.pageTitle}" href="${itemsList.linkURL}"
+													   target="${itemsList.target}">${itemsList.pageTitle}</a>
+												</div>
+											</div>
+										</h3>
+										<div data-sly-test="${itemsList.description}" data-sly-unwrap>
+											<p>${itemsList.description @context='html'}</p>
+										</div>
+										<div data-sly-test="${!itemsList.description}" data-sly-unwrap>
+											<div data-sly-test="${itemsList.pageDescription}"
+												 data-sly-unwrap>
+												<p>${itemsList.pageDescription @context='html'}</p>
+											</div>
+										</div>
+									</div>
+									<div data-sly-test="${properties.hidetags == 'false'}"
+										 data-sly-unwrap>
+										<div data-sly-test="${itemsList.tags}" data-sly-unwrap>
+											<div class="suntrust-article-tags-container">
+												<span class="suntrust-tag">tags</span>
+												<div class="suntrust-resource-tags-list">
+													<div data-sly-list.tagsList="${itemsList.tags}"
+														 data-sly-unwrap>
+														<span> <a class="suntrust-article-tags-list-item"
+																  href="#" target="_self">${tagsList}</a> <span>,</span>
+														</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+	
+								</li>
+							</ul>
+						</div>
+	
+	
+						<div
+								data-sly-test="${properties.hidethumbnails == 'false' && properties.hidetags == 'true'}"
+								data-sly-unwrap>
+							<ul class="suntrust-article-list"
+								data-sly-test="${itemsList.index == 0}"
+								data-sly-list.itemsList="${items.items}">
+								<li class="suntrust-article-list-item ${itemsList.thumbnailIconClassName} row">
+									<div data-sly-test="${properties.hidethumbnails == 'false'}"
+										 data-sly-unwrap>
+										<sly data-sly-test=${itemsList.thumbnailPath}>
+											<div class="col-lg-3  col-xs-3 suntrust-article-img-container">
+												<img src=${itemsList.thumbnailPath}
+													 title="${itemsList.altTags}" alt="${itemsList.altTags}"
+													 class="img-responsive suntrust-article-preview-img">
+											</div>
+										</sly>
+									</div>
+									<div
+											class="${itemsList.thumbnailPath?'col-lg-9 col-xs-9 suntrust-main-article-preview suntrust-article-preview-with-image':'col-lg-9 col-xs-9 suntrust-main-article-preview suntrust-article-preview-no-image'}">
+										<h3 class="suntrust-article-preview-title">
+											<div data-sly-test="${itemsList.title}" data-sly-unwrap>
+												<div data-sly-test="${itemsList.titleTags}" data-sly-unwrap>
+													<a class="suntrust-article-preview-title"
+													   title="${itemsList.titleTags}" href="${itemsList.linkURL}"
+													   target="${itemsList.target}">${itemsList.title}</a>
+												</div>
+												<div data-sly-test="${!itemsList.titleTags}" data-sly-unwrap>
+													<a class="suntrust-article-preview-title"
+													   title="${itemsList.title}" href="${itemsList.linkURL}"
+													   target="${itemsList.target}">${itemsList.title}</a>
+												</div>
+											</div>
+	
+											<div data-sly-test="${!itemsList.title}" data-sly-unwrap>
+												<div data-sly-test="${itemsList.titleTags}" data-sly-unwrap>
+													<a class="suntrust-article-preview-title"
+													   title="${itemsList.titleTags}" href="${itemsList.linkURL}"
+													   target="${itemsList.target}">${itemsList.pageTitle}</a>
+												</div>
+												<div data-sly-test="${!itemsList.titleTags}" data-sly-unwrap>
+													<a class="suntrust-article-preview-title"
+													   title="${itemsList.pageTitle}" href="${itemsList.linkURL}"
+													   target="${itemsList.target}">${itemsList.pageTitle}</a>
+												</div>
+											</div>
+										</h3>
+										<div data-sly-test="${itemsList.description}" data-sly-unwrap>
+											<p>${itemsList.description @context='html'}</p>
+										</div>
+										<div data-sly-test="${!itemsList.description}" data-sly-unwrap>
+											<div data-sly-test="${itemsList.pageDescription }"
+												 data-sly-unwrap>
+												<p>${itemsList.pageDescription @context='html'}</p>
+											</div>
+										</div>
+									</div>
+									<div data-sly-test="${properties.hidetags == 'false'}"
+										 data-sly-unwrap>
+										<div data-sly-test="${itemsList.tags}" data-sly-unwrap>
+											<div class="suntrust-article-tags-container">
+												<span class="suntrust-tag">tags</span>
+												<div class="suntrust-resource-tags-list">
+													<div data-sly-list.tagsList="${itemsList.tags}"
+														 data-sly-unwrap>
+														<span> <a class="suntrust-article-tags-list-item"
+																  href="#" target="_self">${tagsList}</a> <span>,</span>
+														</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+	
+						<div
+								data-sly-test="${properties.hidethumbnails == 'true' && properties.hidetags == 'true'}"
+								data-sly-unwrap>
+							<ul class="suntrust-article-list font-size-resource-center"
+								data-sly-test="${itemsList.index == 0}"
+								data-sly-list.itemsList="${items.items}">
+								<li class="suntrust-article-list-item ${itemsList.thumbnailIconClassName} row">
+									<div data-sly-test="${properties.hidethumbnails == 'false'}"
+										 data-sly-unwrap>
+										<div class="col-lg-3  col-xs-3 suntrust-article-img-container">
+											<img src="${itemsList.thumbnailPath}"
+												 title="${itemsList.altTags}" alt="${itemsList.altTags}"
+												 class="img-responsive suntrust-article-preview-img">
+										</div>
+									</div>
+									<div
+											class="col-lg-9 col-xs-9 suntrust-main-article-preview suntrust-article-preview-with-image">
+										<h3 class="suntrust-article-preview-title">
+											<div data-sly-test="${itemsList.title}" data-sly-unwrap>
+												<div data-sly-test="${itemsList.titleTags}" data-sly-unwrap>
+													<a class="suntrust-article-preview-title"
+													   title="${itemsList.titleTags}" href="${itemsList.linkURL}"
+													   target="${itemsList.target}">${itemsList.title}</a>
+												</div>
+												<div data-sly-test="${!itemsList.titleTags}" data-sly-unwrap>
+													<a class="suntrust-article-preview-title"
+													   title="${itemsList.title}" href="${itemsList.linkURL}"
+													   target="${itemsList.target}">${itemsList.title}</a>
+												</div>
+											</div>
+	
+											<div data-sly-test="${!itemsList.title}" data-sly-unwrap>
+												<div data-sly-test="${itemsList.titleTags}" data-sly-unwrap>
+													<a class="suntrust-article-preview-title"
+													   title="${itemsList.titleTags}" href="${itemsList.linkURL}"
+													   target="${itemsList.target}">${itemsList.pageTitle}</a>
+												</div>
+												<div data-sly-test="${!itemsList.titleTags}" data-sly-unwrap>
+													<a class="suntrust-article-preview-title"
+													   title="${itemsList.pageTitle}" href="${itemsList.linkURL}"
+													   target="${itemsList.target}">${itemsList.pageTitle}</a>
+												</div>
+											</div>
+										</h3>
+										<div data-sly-test="${itemsList.description}" data-sly-unwrap>
+											<p>${itemsList.description @context='html'}</p>
+										</div>
+										<div data-sly-test="${!itemsList.description}" data-sly-unwrap>
+											<div data-sly-test="${itemsList.pageDescription}"
+												 data-sly-unwrap>
+												<p>${itemsList.pageDescription @context='html'}</p>
+											</div>
+										</div>
+									</div>
+									<div data-sly-test="${properties.hidetags == 'false'}"
+										 data-sly-unwrap>
+										<div data-sly-test="${itemsList.tags}" data-sly-unwrap>
+											<div class="suntrust-article-tags-container">
+												<span class="suntrust-tag">tags</span>
+												<div class="suntrust-resource-tags-list">
+													<div data-sly-list.tagsList="${itemsList.tags}"
+														 data-sly-unwrap>
+														<span> <a class="suntrust-article-tags-list-item"
+																  href="#" target="_self">${tagsList}</a> <span>,</span>
+														</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+	
+						<div
+								data-sly-test="${properties.hidethumbnails == 'false' && properties.hidetags == 'false'}"
+								data-sly-unwrap>
+							<ul class="suntrust-article-list"
+								data-sly-test="${itemsList.index == 0}"
+								data-sly-list.itemsList="${items.items}">
+								<li class="suntrust-article-list-item ${itemsList.thumbnailIconClassName} row">
+									<div data-sly-test="${properties.hidethumbnails == 'false'}"
+										 data-sly-unwrap>
+										<sly data-sly-test=${itemsList.thumbnailPath}>
+											<div class="col-lg-3  col-xs-3 suntrust-article-img-container">
+												<img src="${itemsList.thumbnailPath}"
+													 title="${itemsList.altTags}" alt="${itemsList.altTags}"
+													 class="img-responsive suntrust-article-preview-img">
+											</div>
+										</sly>
+									</div>
+									<div
+											class="${itemsList.thumbnailPath?'col-lg-9 col-xs-9 suntrust-main-article-preview suntrust-article-preview-with-image':'col-lg-9 col-xs-9 suntrust-main-article-preview suntrust-article-preview-no-image'}">
+										<h3 class="suntrust-article-preview-title">
+											<div data-sly-test="${itemsList.title}" data-sly-unwrap>
+												<div data-sly-test="${itemsList.titleTags}" data-sly-unwrap>
+													<a class="suntrust-article-preview-title"
+													   title="${itemsList.titleTags}" href="${itemsList.linkURL}"
+													   target="${itemsList.target}">${itemsList.title}</a>
+												</div>
+												<div data-sly-test="${!itemsList.titleTags}" data-sly-unwrap>
+													<a class="suntrust-article-preview-title"
+													   title="${itemsList.title}" href="${itemsList.linkURL}"
+													   target="${itemsList.target}">${itemsList.title}</a>
+												</div>
+											</div>
+	
+											<div data-sly-test="${!itemsList.title}" data-sly-unwrap>
+												<div data-sly-test="${itemsList.titleTags}" data-sly-unwrap>
+													<a class="suntrust-article-preview-title"
+													   title="${itemsList.titleTags}" href="${itemsList.linkURL}"
+													   target="${itemsList.target}">${itemsList.pageTitle}</a>
+												</div>
+												<div data-sly-test="${!itemsList.titleTags}" data-sly-unwrap>
+													<a class="suntrust-article-preview-title"
+													   title="${itemsList.pageTitle}" href="${itemsList.linkURL}"
+													   target="${itemsList.target}">${itemsList.pageTitle}</a>
+												</div>
+											</div>
+										</h3>
+										<div data-sly-test="${itemsList.description}" data-sly-unwrap>
+											<p>${itemsList.description @context='html'}</p>
+										</div>
+										<div data-sly-test="${!itemsList.description}" data-sly-unwrap>
+											<div data-sly-test="${itemsList.pageDescription}"
+												 data-sly-unwrap>
+												<p>${itemsList.pageDescription @context='html'}</p>
+											</div>
+										</div>
+									</div>
+	
+									<div data-sly-test="${properties.hidetags == 'false'}"
+										 data-sly-unwrap>
+										<div data-sly-test="${itemsList.tags}" data-sly-unwrap>
+											<div class="suntrust-article-tags-container">
+												<span class="suntrust-tag">tags</span>
+												<div class="suntrust-resource-tags-list">
+													<div data-sly-list.tagsList="${itemsList.tags}"
+														 data-sly-unwrap>
+														<span> <a class="suntrust-article-tags-list-item"
+																  href="#" target="_self">${tagsList}</a> <span>,</span>
+														</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="load-more row">
+				<button class="suntrust-load-more button center-block"
+						data-visible-items-limit="${properties.pagesize}">${properties.cta @context='html'}</button>
+			</div>
+		</section>
+	</div>
+	
+	
+	
+	<div data-sly-test="${properties.style=='thumbnail'}" data-sly-unwrap>
+		<section class="suntrust-component-dynamicthumbnaillist" data-sly-list.items="${mbeanObj.mBean}">
+			<div class="analytics-placeholder" style="display: none">${properties.style}</div>
+			<ul class="suntrust-article-list" data-sly-test="${itemsList.index == 0}" data-sly-list.itemsList="${items.items}">
+				<li class="suntrust-article-list-item col-md-4 col-sm-4 col-xs-12" data-sly-test=${itemsList.thumbnailPath}>
+					<div data-sly-test="${itemsList.title}" data-sly-unwrap>
+						<div data-sly-test="${!itemsList.titleTags}" data-sly-unwrap>
+							<div data-sly-test="${itemsList.target == '_smallmodal' || itemsList.target == '_mediummodal' || itemsList.target == '_largemodal'}" data-sly-unwrap>
+								<a title="${itemsList.title}" data-anchor="${itemsList.linkURL}"
+								   data-modal="${itemsList.target}" data-suntrust-class="suntrust-content-modalWindow" class="suntrust-article-list-title">
+							</div>
+							<div data-sly-test="${!itemsList.target || itemsList.target == '_self' || itemsList.target == '_blank'}" data-sly-unwrap>
+								<a title="${itemsList.title}" href="${itemsList.linkURL}"
+								   target="${itemsList.target}" class="suntrust-article-list-title">
+							</div>
+						</div>
+						<div data-sly-test="${itemsList.titleTags}" data-sly-unwrap>
+							<div data-sly-test="${itemsList.target == '_smallmodal' || itemsList.target == '_mediummodal' || itemsList.target == '_largemodal'}" data-sly-unwrap>
+								<a title="${itemsList.titleTags}" data-anchor="${itemsList.linkURL}"
+								   data-modal="${itemsList.target}" data-suntrust-class="suntrust-content-modalWindow" class="suntrust-article-list-title">
+							</div>
+							<div data-sly-test="${!itemsList.target || itemsList.target == '_self' || itemsList.target == '_blank'}" data-sly-unwrap>
+								<a title="${itemsList.titleTags}" href="${itemsList.linkURL}"
+								   target="${itemsList.target}" class="suntrust-article-list-title">
+							</div>
+						</div>
+					</div>
+					<div data-sly-test="${!itemsList.title}" data-sly-unwrap>
+						<div data-sly-test="${!itemsList.titleTags}" data-sly-unwrap>
+							<div data-sly-test="${itemsList.target == '_smallmodal' || itemsList.target == '_mediummodal' || itemsList.target == '_largemodal'}" data-sly-unwrap>
+								<a title="${itemsList.pageTitle}" data-anchor="${itemsList.linkURL}"
+								   data-modal="${itemsList.target}" data-suntrust-class="suntrust-content-modalWindow" class="suntrust-article-list-title">
+							</div>
+							<div data-sly-test="${!itemsList.target || itemsList.target == '_self' || itemsList.target == '_blank'}" data-sly-unwrap>
+								<a title="${itemsList.pageTitle}" href="${itemsList.linkURL}"
+								   target="${itemsList.target}" class="suntrust-article-list-title">
+							</div>
+						</div>
+						<div data-sly-test="${itemsList.titleTags}" data-sly-unwrap>
+							<div data-sly-test="${itemsList.target == '_smallmodal' || itemsList.target == '_mediummodal' || itemsList.target == '_largemodal'}" data-sly-unwrap>
+								<a title="${itemsList.titleTags}" data-anchor="${itemsList.linkURL}"
+								   data-modal="${itemsList.target}" data-suntrust-class="suntrust-content-modalWindow" class="suntrust-article-list-title">
+							</div>
+							<div data-sly-test="${!itemsList.target || itemsList.target == '_self' || itemsList.target == '_blank'}" data-sly-unwrap>
+								<a title="${itemsList.titleTags}" href="${itemsList.linkURL}"
+								   target="${itemsList.target}" class="suntrust-article-list-title">
+							</div>
+						</div>
+					</div>
+					<div class="suntrust-thumbnail-img-container ${itemsList.thumbnailIconClassName}">
+						<img class="img-responsive" src="${itemsList.thumbnailPath}" title="${itemsList.altTags}" alt="${itemsList.altTags}"> 
+						<span class="suntrust-accessible-text">icon that represents a article</span>
+					</div>
+					<div data-sly-test="${itemsList.title}" data-sly-unwrap>
+						<h3 class="suntrust-article-caption-bottom">${itemsList.title}</h3></a>
+					</div>
+					<div data-sly-test="${!itemsList.title}" data-sly-unwrap>
+						<h3 class="suntrust-article-caption-bottom">${itemsList.pageTitle}</h3></a>
+					</div>
+				</li>
+			</ul>
+		</section>
+	</div>
+</div>
+<div data-sly-test="${!mbeanObj.mBean && properties.contextPath && (wcmmode.edit || wcmmode.design)}" data-sly-unwrap>
+	<p>Configured values has no results or the results are already displayed in this page by dynamic list component</p>
+</div>
+
+<!-- 
+
+THIS PIECE OF ANALYTICS CODE IS MOVED TO ENSIGTHEN.
+THIS SECTION OF CODE SHOULD NOT BE DELETED AND SHOULD BE ALWAYS COMMENTED.
+THIS CODE IS FOR REFERENCE PURPOSE ONLY.
+
+<script>
+                "use strict";
+//Dynamic List Title View on click event
+$("a.suntrust-tools-and-calculators-list-link").on("click", function() {
+console.log("Dynamic List Title View is clicked.");
+  // dynamicListType is style. 
+  var dynamicListType = $(this).closest("section.suntrust-aside-dynamic-list").find("div.analytics-placeholder").text();
+  // dynamicListLinkTitle is the cliscked link text
+  var dynamicListLinkTitle = $(this).text();
+  console.log("Selected style type : " + dynamicListType);
+  console.log("Clicked link value : " + dynamicListLinkTitle);
+  // pass the dynamicListType and dynamicListLinkTitle to the analytics engine. 
+  passAnalyticsValue(dynamicListType, dynamicListLinkTitle);
+});
+
+//Dynamic List Thumbnail View on click event
+$("a.suntrust-article-list-title").on("click", function() {
+console.log("Dynamic List Thumbnail View is clicked.");
+  // dynamicListType is style. 
+  var dynamicListType = $(this).closest("section.suntrust-component-dynamicthumbnaillist").find("div.analytics-placeholder").text();
+  // dynamicListLinkTitle is the cliscked link text
+  var dynamicListLinkTitle = $(this).find("h3.suntrust-article-caption-bottom").text();
+  console.log("Selected style type : " + dynamicListType);
+  console.log("Clicked link value : " + dynamicListLinkTitle);
+  // pass the dynamicListType and dynamicListLinkTitle to the analytics engine. 
+  passDynamicListValuesToAnalyticEngine(dynamicListType, dynamicListLinkTitle);
+});
+
+//Dynamic List Summary View on click event
+$("a.suntrust-article-preview-title").on("click", function() {
+console.log("Dynamic List Summary View is clicked.");
+  // dynamicListType is style. 
+  var dynamicListType = $(this).closest("section.component-dynamic-summarylist").find("div.analytics-placeholder").text();
+  // dynamicListLinkTitle is the cliscked link text
+  var dynamicListLinkTitle = $(this).text();
+  console.log("Selected style type : " + dynamicListType);
+  console.log("Clicked link value : " + dynamicListLinkTitle);
+  // pass the dynamicListType and dynamicListLinkTitle to the analytics engine. 
+  passDynamicListValuesToAnalyticEngine(dynamicListType, dynamicListLinkTitle);
+});
+                
+                function passDynamicListValuesToAnalyticEngine(dynamicListType, dynamicListLinkTitle) {
+                  try {
+                    var dynamicListView = window.dataLayer.pageName + '|' + dynamicListType;
+                    s.linkTrackVars = 'eVar45,events';
+                    s.linkTrackEvents = 'event23';
+                    s.eVar45 = dynamicListType + " : " + dynamicListLinkTitle;
+                    s.events = 'event23';
+                    console.log("dynamicListView : " + dynamicListView);
+                    //logTrack(window.debugMode, s);
+                    s.tl(this, 'o', dynamicListView);
+                  } catch (e) {}
+                }
+</script> -->

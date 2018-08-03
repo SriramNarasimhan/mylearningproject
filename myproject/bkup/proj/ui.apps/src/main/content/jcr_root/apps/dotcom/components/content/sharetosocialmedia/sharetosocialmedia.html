@@ -1,0 +1,47 @@
+<div data-sly-test="${!properties.align && (wcmmode.edit || wcmmode.design)}">Configure Share To Social Media Component</div>
+
+<div class="suntrust-article-social-container">
+<div class="clearfix relative">
+    <!-- AddThis Button BEGIN -->
+    <div class="${properties.align == 'right' ? 'addthis_toolbox_right addthis_default_style addthis_20x20_style clearfix' : 'addthis_toolbox_left addthis_default_style addthis_20x20_style clearfix'}">
+    <!-- div class="addthis_toolbox_right addthis_default_style addthis_20x20_style clearfix" -->
+        <div class="tool-box-wrapper ">
+			<div data-sly-test="${properties.facebookCheckbox}" data-sly-unwrap>
+                <a class="addthis_button_facebook"></a>
+			</div>
+			<!-- div data-sly-test="${properties.facebooklikeCheckbox}" data-sly-unwrap>
+			 <a class="no-count addthis_button_facebook_like" fb:like:layout="box_count" fb:like:width="100"></a>
+			</div-->
+			<div data-sly-test="${properties.linkdinCheckbox}" data-sly-unwrap>
+                <a class="addthis_button_linkedin"></a>
+			</div>
+			<div data-sly-test="${properties.twitterCheckbox}" data-sly-unwrap>
+                <a class="no-count addthis_button_twitter" tw:count="none"></a>
+			</div>
+			<div data-sly-test="${properties.pinterestCheckbox}" data-sly-unwrap>
+				<a class="addthis_button_pinterest_share"></a>
+			</div>
+			<div data-sly-test="${properties.googleCheckbox}" data-sly-unwrap>
+                <a class="addthis_button_google_plusone" g:plusone:count="false"></a>
+			</div>
+        </div>
+    <div class="atclear"></div>
+	</div>
+    <script src="https://s7.addthis.com/js/300/addthis_widget.js#pubid=ap" type="text/javascript"></script>
+    <script type="text/javascript">        
+		var addthis_config = { data_track_addressbar: true, data_track_clickback: true };
+        var addthis_share = {
+                url_transforms: {
+                shorten: {
+                    twitter: 'bitly',
+                    google_plusone: 'bitly',
+                    linkedin: 'bitly'
+                }
+            },
+            shorteners: {
+                bitly: {}
+            }
+        };
+	</script>
+</div>
+</div>

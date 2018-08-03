@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!--/*
+    Copyright 2016 Adobe Systems Incorporated
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+*/-->
+<sly data-sly-test="${!(wcmmode.edit || wcmmode.design)}">
+    <sly data-sly-use.classObj="${'com.suntrust.dotcom.components.ArticleWrapperComponent'}" />
+    <sly data-sly-test="${classObj.getSuffix == 'nosuffix'}">
+        ${classObj.bindArticleWrapper}
+    </sly>
+</sly>
+<div class="suntrust-grid-column suntrust-grid-column-1 last-component-relatedcontent suntrust-grid-8">
+	<div class="${(wcmmode.edit || wcmmode.design)? 'container author-content-block' : ''}">
+        <sly data-sly-include="/libs/wcm/foundation/components/page/body.html"/>
+    </div>
+    <input type="hidden" value="Financial" itemprop="genre" />
+    <sly data-sly-test=${pageProperties.itempropauthor}>
+        <input type="hidden" value="${pageProperties.itempropauthor}" itemprop="author"/>
+    </sly>
+    <sly data-sly-test=${!pageProperties.itempropauthor}>
+        <input type="hidden" value="www.suntrust.com" itemprop="author"/>
+    </sly>
+    <input type="hidden" value="${properties.jcr:description}" itemprop="description"/>
+</div>

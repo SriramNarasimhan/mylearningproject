@@ -1,0 +1,60 @@
+<div data-sly-test="${!properties.text}">Configure Speed Bump Component</div>
+
+<div data-sly-test="${(wcmmode.edit || wcmmode.design) && properties.text}" data-sly-unwrap>
+	<div class="suntrust-maint-page author-mode">
+	    <div class="suntrust-maint-message-container">
+	        ${properties.text @context='html'}
+	        <button class="suntrust-maint-button" onclick="redirectURL()">${properties.ctaLabel @context='html'}</button>
+	        <p>
+				<a href="#" class="suntrust-maint-link" onclick="cancelRedirect()">${properties.linkLabel @context='html'}</a>
+			</p>
+	    </div>
+	    <div class="suntrust-maint-footer">
+	        <p>${properties.footer @context='html'}</p>
+	        <div class="suntrust-logo" style="background-image:url(${properties.linkURL @context='uri'});"></div>
+	    </div>
+	</div>
+</div>
+<div data-sly-test="${!(wcmmode.edit || wcmmode.design) && properties.text}" data-sly-unwrap>
+	<div class="suntrust-maint-page">
+	    <div class="suntrust-maint-message-container">
+	        ${properties.text @context='html'}
+	        <button class="suntrust-maint-button" onclick="redirectURL()">${properties.ctaLabel @context='html'}</button>
+	        <p>
+				<a href="#" class="suntrust-maint-link" onclick="cancelRedirect()">${properties.linkLabel @context='html'}</a>
+			</p>
+	    </div>
+	    <div class="suntrust-maint-footer">
+	        <p>${properties.footer @context='html'}</p>
+	        <div class="suntrust-logo" style="background-image:url(${properties.linkURL @context='uri'});"></div>
+	    </div>
+	</div>
+</div>
+<script type="text/javascript">
+		if($(".suntrust-maint-page").length!=0){
+			$('body').addClass("speedBump");
+			$('html').addClass("speedBumpSection");
+		}
+		$(".author-mode").parents().find("body.speedBump").addClass("speedBumpSection");
+		var queryParam = getURLParameter('url');
+        if(queryParam != ""){
+        	var finalUrl = queryParam.split('url=');
+        }    
+		var encodedtech = window.decodeURIComponent(queryParam);		
+        function cancelRedirect() {
+            this.close();
+        }
+        function redirectURL() {
+            window.location.replace(finalUrl[1]);
+        }
+		function getURLParameter(sParam)
+		{
+			var sPageURL = window.decodeURIComponent(window.location.search.substring(1));
+            var hash = window.location.hash.substr(1);
+            if(hash != "")
+            	var pageurl = sPageURL+"#"+hash;
+            else
+				var pageurl = sPageURL;
+            return pageurl;    
+		}		
+</script>

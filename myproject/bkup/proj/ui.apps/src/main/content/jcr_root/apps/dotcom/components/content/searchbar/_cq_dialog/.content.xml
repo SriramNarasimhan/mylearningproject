@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Search Bar"
+    sling:resourceType="cq/gui/components/authoring/dialog"
+    helpPath="https://www.adobe.com/go/aem_cmp_list_v1">
+    <content
+        granite:class="core-wcm-list-v1"
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <general
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="General"
+                        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <column
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <cta
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                        fieldDescription="Sets the CTA label for search button."
+                                        fieldLabel="CTA*"
+                                        name="./cta"
+                                        required="{Boolean}true"/>
+                                    <placeholder
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                        fieldDescription="Sets the CTA label for search button."
+                                        fieldLabel="Placeholder Text*"
+                                        name="./placeholderText"
+                                        required="{Boolean}true"/>
+                                    <search-result-text
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                        fieldDescription="Sets the string which gets appended to the result count."
+                                        fieldLabel="Search Result Text*"
+                                        name="./searchResultText"
+                                        required="{Boolean}true"/>
+                                    <url
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                        allowBlank="{Boolean}false"
+                                        fieldDescription="Set the navigation url"
+                                        fieldLabel="Url"
+                                        name="./linkURL"
+                                        rootPath="/content"/>
+                                    <validation-error-message
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                        fieldDescription="Sets the validation error message to the search field when user inputs only special characters in the search field."
+                                        fieldLabel="Input field validation Error Message*"
+                                        name="./validationErrorMessage"
+                                        required="{Boolean}true"/>
+                                    <suggestioncount
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="/libs/granite/ui/components/foundation/form/numberfield"
+                                        defaultValue="{Long}5"
+                                        fieldDescription="Suggestion count for the typeahead"
+                                        fieldLabel="Suggestion Count"
+                                        min="{Long}1"
+                                        name="./suggestioncount"/>
+                                    <dictionarysearchpath
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                        fieldDescription="Dictionary Lookup Path from DAM file"
+                                        fieldLabel="Dictionary Lookup Path"
+                                        name="./dictpath"
+                                        rootPath="/content/dam"/>
+                                </items>
+                            </column>
+                        </items>
+                    </general>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

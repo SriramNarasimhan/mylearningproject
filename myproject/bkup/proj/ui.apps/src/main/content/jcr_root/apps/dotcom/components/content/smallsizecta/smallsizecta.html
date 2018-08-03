@@ -1,0 +1,60 @@
+<sly data-sly-test="${wcmmode.edit || wcmmode.design}">Configure Small Size CTA</sly>
+
+<div class="small-calltoaction">
+	<div class="small-calltoaction-wrapper ${properties.linecolor}">
+		<div class="small-calltoaction-heading">${properties.headline @context='html'}</div>
+		<div class="small-calltoaction-content">
+			<div class="small-calltoaction-content-img">
+				<sly data-sly-test="${properties.ctaicon}">
+					<img alt="${properties.alttext}" src="${properties.ctaicon}" />
+				</sly>
+			</div>
+			<div class="small-calltoaction-content-text">
+				${properties.ctatext @context='html'}
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- 
+
+THIS PIECE OF ANALYTICS CODE IS MOVED TO ENSIGTHEN. Ensighen custom Tag name is STcom_AEM_SmallSizeCTA.
+THIS SECTION OF CODE SHOULD NOT BE DELETED AND SHOULD BE ALWAYS COMMENTED.
+THIS CODE IS FOR REFERENCE PURPOSE ONLY.
+
+<script>
+"use strict";
+//Check DFS Analytics Tracking
+
+	//Tab click event					
+	$('div.small-calltoaction-content a').click(function() {
+		try
+		{
+			var eVar45Text = 'STcom|NewAccountStart|DownloadMobileApp';
+			passSmallCTALinkValuesToAnalyticEngine(eVar45Text);
+		}	
+		catch(err)
+		{
+			console.log("Exception caught in custom analytics tag small cta anchor click event: " + err.message);
+		}
+	});
+											
+	function passSmallCTALinkValuesToAnalyticEngine(eVar45Text) 
+	{
+		try
+		{
+			 console.log("eVar45Text : " + eVar45Text);
+			 s.linkTrackVars='eVar45,events'; 
+			 s.linkTrackEvents='event23'; 
+			 s.eVar45=eVar45Text; 
+			 s.events='event23'; 
+			 s.tl(this,'o',eVar45Text);
+		}
+		catch(err)
+		{
+			console.log("Exception caught in custom analytics tag small cta anchor click event: " + err.message);
+		}
+	}
+
+
+</script> -->

@@ -1,0 +1,648 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Contact us"
+    sling:resourceType="cq/gui/components/authoring/dialog"
+    helpPath="https://www.adobe.com/go/aem6_2_docs_component_en#Text &amp; Image - Sightly">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/foundation/container">
+        <layout
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/foundation/layouts/tabs"
+            type="nav"/>
+        <items jcr:primaryType="nt:unstructured">
+        
+       	<opacitySetting
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Opacity Setting"
+                sling:resourceType="granite/ui/components/foundation/section">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <fieldset
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/fieldset">
+                                <layout
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                             <!-- Checked checkbox will result in a Boolean property of true-->
+                            
+											<invocaFlagCheckbox
+												jcr:primaryType="nt:unstructured"
+												sling:resourceType="granite/ui/components/foundation/form/checkbox"
+												text="Enable Invoca Opacity"
+												fieldDescription="Select checkbox if the contact us component needs to be displayed after sometime."
+												name="./invocaFlagCheckbox"
+												value="true"/>
+											<invocaFlagCheckboxType
+												jcr:primaryType="nt:unstructured"
+												sling:resourceType="granite/ui/components/foundation/form/hidden"
+												name="./invocaFlagCheckbox@TypeHint"
+												value="Boolean"/>
+                                        </items>
+                                    </column>
+                                </items>
+                            </fieldset>
+                        </items>
+                    </column>
+                </items>
+            </opacitySetting>            
+            <contactus
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Set 1"
+                sling:resourceType="granite/ui/components/foundation/section">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <fieldset
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/fieldset">
+                                <layout
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <heading
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                fieldDescription="Provide the heading"
+                                                fieldLabel="Heading"
+                                                name="./heading"/>
+                                            <headingicon
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/fileupload"
+                                                allowUpload="{Boolean}false"
+                                                autoStart="{Boolean}false"
+                                                class="cq-droptarget"
+                                                fieldDescription="Sets the image to displayed"
+                                                fieldLabel="Heading Icon"
+                                                fileNameParameter="./fileName"
+                                                fileReferenceParameter="./fileReference"
+                                                mimeTypes="[image]"
+                                                multiple="{Boolean}false"
+                                                name="./file"
+                                                title="Upload Image Asset"
+                                                uploadUrl="${suffix.path}"
+                                                useHTML5="{Boolean}true"/>
+                                            <alttext
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                fieldDescription="Alt text for image"
+                                                fieldLabel="Alt Text"
+                                                maxlength="{Long}100"
+                                                name="./alttext"/>                                           
+                                            <liveengage
+                                                jcr:primaryType="nt:unstructured"
+                                                class="cq-dialog-dropdown-showhide"
+                                                cq-dialog-dropdown-showhide-target=".list-option-listfrom-showhide-target"
+                                                sling:resourceType="granite/ui/components/foundation/form/select"
+                                                fieldDescription="Select LiveEngage account"
+                                                fieldLabel="Select LiveEngage account"                                                
+                                                name="./liveengagecontactus">                                                    
+                                                 <datasource
+												      jcr:primaryType="nt:unstructured"
+												      sling:resourceType="/apps/dotcom/components/contactus_datasource"
+												      value="value"
+												      text="text"/>                                                                                            
+                                            </liveengage> 
+                                            <loDataPersistcontactusCheckbox
+												jcr:primaryType="nt:unstructured"
+												sling:resourceType="granite/ui/components/foundation/form/checkbox"
+												text="Lo Persistence For Chat (LE)"
+												fieldDescription="Enable/Disable Lo for LiveEngage"
+												name="./loDataPersistcontactusCheckbox"
+												value="true"/>
+											<loDataPersistcontactusCheckboxType
+												jcr:primaryType="nt:unstructured"
+												sling:resourceType="granite/ui/components/foundation/form/hidden"
+												name="./loDataPersistcontactusCheckbox@TypeHint"
+												value="Boolean"/>    
+											<!-- Start US19707 -->											
+                                            <phonenumber
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/multifield"
+                                                class="full-width"
+                                                fieldDescription="Click 'Add Field' to add a new phone numbers to contactus"
+                                                fieldLabel="Phone Numbers">
+                                                <field
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/fieldset"
+                                                    acs-commons-nested="JSON_STORE"
+                                                    name="./iItems">
+                                                    <layout
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
+                                                        method="absolute"/>
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <column
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/foundation/container">
+                                                            <items jcr:primaryType="nt:unstructured">
+                                                                <icon
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                                                    allowBlank="{Boolean}true"
+                                                                    fieldDescription="Sets an icon for the component"
+                                                                    fieldLabel="Icon"
+                                                                    name="./icon"
+                                                                    rootPath="/content/dam"/>
+                                                                <alttext
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                                    fieldDescription="Alt text for image"
+                                                                    fieldLabel="Alt Text"
+                                                                    maxlength="{Long}100"
+                                                                    name="./iconalttext"/>
+                                                                <phonenumber
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                                    fieldDescription="Enter valid Phone Number"
+                                                                    fieldLabel="Phone Number OR Text"
+                                                                    name="./phone"
+                                                                    required="{Boolean}true"/>
+                                                                <loDataPersistCheckbox
+																	jcr:primaryType="nt:unstructured"
+																	sling:resourceType="granite/ui/components/foundation/form/checkbox"
+																	text="Enable Loan Officer Persistence?"
+																	fieldDescription="Pull Loan officer data from cookies if exist"
+																	name="./loDataPersistCheckbox"
+																	value="true"/>
+																<loDataPersistCheckboxType
+																	jcr:primaryType="nt:unstructured"
+																	sling:resourceType="granite/ui/components/foundation/form/hidden"
+																	name="./loDataPersistCheckbox@TypeHint"
+																	value="Boolean"/>    
+                                                                <minidesc
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                                    fieldDescription="Enter valid side description(optional)"
+                                                                    fieldLabel="Mini description"
+                                                                    name="./minidesc"/>
+                                                                <subdesc
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                                    fieldDescription="Enter valid sub description(optional)"
+                                                                    fieldLabel="Sub description"
+                                                                    name="./subdesc"/>
+                                                                <url
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                                                    allowBlank="{Boolean}false"
+                                                                    fieldDescription="Sets the url target for the social media link"
+                                                                    fieldLabel="Url"
+                                                                    name="./linkURL"
+                                                                    rootPath="/content"/>
+                                                                <urlParams
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                                    fieldDescription="Url Params provided should be concatenated onto the url e.g. /path/to/url?param1=value1&amp;param2=value2"
+                                                                    fieldLabel="Url Params"
+                                                                    name="./urlParams"/>
+                                                                <target
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/foundation/form/select"
+                                                                    class="cq-dialog-dropdown-showhide"
+                                                                    cq-dialog-dropdown-showhide-target=".list-option-listfrom-showhide-target"
+                                                                    fieldDescription="Sets the window target for the link."
+                                                                    fieldLabel="Target"
+                                                                    name="./target">
+                                                                    <items jcr:primaryType="nt:unstructured">
+                                                                        <self
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            text="Default"
+                                                                            value="_self"/>
+                                                                        <blank
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            text="Blank"
+                                                                            value="_blank"/>
+                                                                    </items>
+                                                                </target>
+                                                                <titleTag
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                                    fieldDescription="Sets title tag"
+                                                                    fieldLabel="Title Tag"
+                                                                    name="./titleTag"/>                                                                    
+																<!-- End US19707 -->
+                                                            </items>
+                                                        </column>
+                                                    </items>
+                                                </field>
+                                            </phonenumber>
+                                            <disclaimer
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textarea"
+                                                fieldDescription="Enter valid disclaimer description(Optional)"
+                                                fieldLabel="Disclaimer"
+                                                name="./disclaimer"/>
+                                        </items>
+                                    </column>
+                                </items>
+                            </fieldset>
+                        </items>
+                    </column>
+                </items>
+            </contactus>
+            <supportus
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Set 2"
+                sling:resourceType="granite/ui/components/foundation/section">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <fieldset
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/fieldset">
+                                <layout
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <heading
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                fieldDescription="Provide the heading"
+                                                fieldLabel="Heading"
+                                                name="./headingsup"/>
+                                            <headingicon
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/fileupload"
+                                                allowUpload="{Boolean}false"
+                                                autoStart="{Boolean}false"
+                                                class="cq-droptarget"
+                                                fieldDescription="Sets the image to displayed"
+                                                fieldLabel="Heading Icon"
+                                                fileNameParameter="./supfileName"
+                                                fileReferenceParameter="./supfileReference"
+                                                mimeTypes="[image]"
+                                                multiple="{Boolean}false"
+                                                name="./supfile"
+                                                title="Upload Image Asset"
+                                                uploadUrl="${suffix.path}"
+                                                useHTML5="{Boolean}true"/>
+                                            <alttext
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                fieldDescription="Alt text for image"
+                                                fieldLabel="Alt Text"
+                                                maxlength="{Long}100"
+                                                name="./supportalttext"/>                                            
+                                            <liveengage
+                                                jcr:primaryType="nt:unstructured"
+                                                class="cq-dialog-dropdown-showhide"
+                                                cq-dialog-dropdown-showhide-target=".list-option-listfrom-showhide-target"
+                                                sling:resourceType="granite/ui/components/foundation/form/select"
+                                                fieldDescription="Select LiveEngage account"
+                                                fieldLabel="Select LiveEngage account"                                                
+                                                name="./liveengagesupportus">                                                    
+                                                 <datasource
+												      jcr:primaryType="nt:unstructured"
+												      sling:resourceType="/apps/dotcom/components/contactus_datasource"
+												      value="value"
+												      text="text"/>                                                                                            
+                                            </liveengage> 
+                                            <loDataPersistsupportusCheckbox
+												jcr:primaryType="nt:unstructured"
+												sling:resourceType="granite/ui/components/foundation/form/checkbox"
+												text="Lo Persistence For Chat (LE)"
+												fieldDescription="Enable/Disable Lo for LiveEngage"
+												name="./loDataPersistsupportusCheckbox"
+												value="true"/>
+											<loDataPersistsupportusCheckboxType
+												jcr:primaryType="nt:unstructured"
+												sling:resourceType="granite/ui/components/foundation/form/hidden"
+												name="./loDataPersistsupportusCheckbox@TypeHint"
+												value="Boolean"/>    
+											<!-- Start US19707 -->												                                                               											
+                                            <phonenumber
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/multifield"
+                                                class="full-width"
+                                                fieldDescription="Click 'Add Field' to add a new phone numbers to contactus"
+                                                fieldLabel="Phone Numbers">
+                                                <field
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/fieldset"
+                                                    acs-commons-nested="JSON_STORE"
+                                                    name="./aItems">
+                                                    <layout
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
+                                                        method="absolute"/>
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <column
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/foundation/container">
+                                                            <items jcr:primaryType="nt:unstructured">
+                                                                <icon
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                                                    allowBlank="{Boolean}true"
+                                                                    fieldDescription="Sets an icon for the component"
+                                                                    fieldLabel="Icon"
+                                                                    name="./icon"
+                                                                    rootPath="/content/dam"/>
+                                                                <alttext
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                                    fieldDescription="Alt text for image"
+                                                                    fieldLabel="Alt Text"
+                                                                    maxlength="{Long}100"
+                                                                    name="./iconalttext"/>
+                                                                <phonenumber
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                                    fieldDescription="Enter valid Phone Number"
+                                                                    fieldLabel="Phone Number OR Text"
+                                                                    name="./phone"
+                                                                    required="{Boolean}true"/>
+                                                                    <!-- Start US19707 -->
+																<loDataPersistCheckbox
+																	jcr:primaryType="nt:unstructured"
+																	sling:resourceType="granite/ui/components/foundation/form/checkbox"
+																	text="Enable Loan Officer Persistence?"
+																	fieldDescription="Pull Loan officer data from cookies if exist"
+																	name="./loDataPersistCheckbox"
+																	value="true"/>
+																<loDataPersistCheckboxCheckboxType
+																	jcr:primaryType="nt:unstructured"
+																	sling:resourceType="granite/ui/components/foundation/form/hidden"
+																	name="./loDataPersistCheckbox@TypeHint"
+																	value="Boolean"/>	
+                                                                <minidesc
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                                    fieldDescription="Enter valid side description(optional)"
+                                                                    fieldLabel="Mini description"
+                                                                    name="./minidesc"/>
+                                                                <subdesc
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                                    fieldDescription="Enter valid sub description(optional)"
+                                                                    fieldLabel="Sub description"
+                                                                    name="./subdesc"/>
+                                                                <url
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                                                    allowBlank="{Boolean}false"
+                                                                    fieldDescription="Sets the url target for the social media link"
+                                                                    fieldLabel="Url"
+                                                                    name="./linkURL"
+                                                                    rootPath="/content"/>
+                                                                <urlParams
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                                    fieldDescription="Url Params provided should be concatenated onto the url e.g. /path/to/url?param1=value1&amp;param2=value2"
+                                                                    fieldLabel="Url Params"
+                                                                    name="./urlParams"/>
+                                                                <target
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/foundation/form/select"
+                                                                    class="cq-dialog-dropdown-showhide"
+                                                                    cq-dialog-dropdown-showhide-target=".list-option-listfrom-showhide-target"
+                                                                    fieldDescription="Sets the window target for the link."
+                                                                    fieldLabel="Target"
+                                                                    name="./target">
+                                                                    <items jcr:primaryType="nt:unstructured">
+                                                                        <self
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            text="Default"
+                                                                            value="_self"/>
+                                                                        <blank
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            text="Blank"
+                                                                            value="_blank"/>
+                                                                    </items>
+                                                                </target>
+                                                                <titleTag
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                                    fieldDescription="Sets title tag"
+                                                                    fieldLabel="Title Tag"
+                                                                    name="./titleTag"/>                                                                    
+																<!-- End US19707 -->
+                                                            </items>
+                                                        </column>
+                                                    </items>
+                                                </field>
+                                            </phonenumber>
+                                            <disclaimer
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textarea"
+                                                fieldDescription="Enter valid disclaimer description(Optional)"
+                                                fieldLabel="Disclaimer"
+                                                name="./disclaimersup"/>
+                                        </items>
+                                    </column>
+                                </items>
+                            </fieldset>
+                        </items>
+                    </column>
+                </items>
+            </supportus>
+            <mail
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Mail"
+                sling:resourceType="granite/ui/components/foundation/section">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <fieldset
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/fieldset">
+                                <layout
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <heading
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                fieldDescription="Provide the heading"
+                                                fieldLabel="Heading"
+                                                name="./multiheading"/>
+                                            <multiicon
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/fileupload"
+                                                allowUpload="{Boolean}false"
+                                                autoStart="{Boolean}false"
+                                                class="cq-droptarget"
+                                                fieldDescription="Sets the image to displayed"
+                                                fieldLabel="Heading Icon"
+                                                fileNameParameter="./multifileName"
+                                                fileReferenceParameter="./multifileReference"
+                                                mimeTypes="[image]"
+                                                multiple="{Boolean}false"
+                                                name="./multifile"
+                                                title="Upload Image Asset"
+                                                uploadUrl="${suffix.path}"
+                                                useHTML5="{Boolean}true"/>
+                                            <alttext
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                fieldDescription="Alt text for image"
+                                                fieldLabel="Alt Text"
+                                                maxlength="{Long}100"
+                                                name="./mailalttext"/>
+                                            <description
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                fieldDescription="Provide the Description "
+                                                fieldLabel="Description "
+                                                name="./description"/>
+                                            <subdescription
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                fieldDescription="Provide the Sub Description "
+                                                fieldLabel="Sub Description "
+                                                name="./subdescription"/>
+                                            <text
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                                fieldLabel="Additional Description "
+                                                name="./text"
+                                                useFixedInlineToolbar="{Boolean}true">
+                                                <rtePlugins
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceSuperType="/apps/dotcom/components/content/globalrte/cq:dialog/content/items/column/items/text/rtePlugins"/>
+                                                <uiSettings
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceSuperType="/apps/dotcom/components/content/globalrte/cq:dialog/content/items/column/items/text/uiSettings"/>
+                                                <htmlRules
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceSuperType="/apps/dotcom/components/content/globalrte/cq:dialog/content/items/column/items/text/htmlRules"/>
+                                            </text>
+                                        </items>
+                                    </column>
+                                </items>
+                            </fieldset>
+                        </items>
+                    </column>
+                </items>
+            </mail>
+            <wiretransfer
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Wire Transfer"
+                sling:resourceType="granite/ui/components/foundation/section">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <fieldset
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/fieldset">
+                                <layout
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <heading
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                fieldDescription="Provide the heading"
+                                                fieldLabel="Heading"
+                                                name="./wireheading"/>
+                                            <multiicon
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/fileupload"
+                                                allowUpload="{Boolean}false"
+                                                autoStart="{Boolean}false"
+                                                class="cq-droptarget"
+                                                fieldDescription="Sets the image to displayed"
+                                                fieldLabel="Heading Icon"
+                                                fileNameParameter="./wirefileName"
+                                                fileReferenceParameter="./wirefileReference"
+                                                mimeTypes="[image]"
+                                                multiple="{Boolean}false"
+                                                name="./wirefile"
+                                                title="Upload Image Asset"
+                                                uploadUrl="${suffix.path}"
+                                                useHTML5="{Boolean}true"/>
+                                            <alttext
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                fieldDescription="Alt text for image"
+                                                fieldLabel="Alt Text"
+                                                maxlength="{Long}100"
+                                                name="./wirealttext"/>
+                                            <description
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                fieldDescription="Provide the Description "
+                                                fieldLabel="Description "
+                                                name="./wiredescription"/>
+                                            <subdescription
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                fieldDescription="Provide the Sub Description "
+                                                fieldLabel="Sub Description "
+                                                name="./wiresubdesc"/>
+                                            <text
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                                fieldLabel="Additional Description "
+                                                name="./wireadditional"
+                                                useFixedInlineToolbar="{Boolean}true">
+                                                <rtePlugins
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceSuperType="/apps/dotcom/components/content/globalrte/cq:dialog/content/items/column/items/text/rtePlugins"/>
+                                                <uiSettings
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceSuperType="/apps/dotcom/components/content/globalrte/cq:dialog/content/items/column/items/text/uiSettings"/>
+                                                <htmlRules
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceSuperType="/apps/dotcom/components/content/globalrte/cq:dialog/content/items/column/items/text/htmlRules"/>
+                                            </text>
+                                        </items>
+                                    </column>
+                                </items>
+                            </fieldset>
+                        </items>
+                    </column>
+                </items>
+            </wiretransfer>
+        </items>
+    </content>
+</jcr:root>

@@ -1,0 +1,44 @@
+<sly data-sly-use.locationObj="com.suntrust.dotcom.components.LocationAddressMultiComponent">
+	<sly data-sly-test="${!locationObj.mBean && (wcmmode.edit || wcmmode.design)}">Configure Advisor Address</sly>
+</sly>
+<div class="clearfix">
+	<a href="javascript:void(0);" class="location_tog visible-xs"><span>-</span><strong>${'hide-locations' @ i18n}</strong></a>
+	<div class="people_location_details">
+		<sly data-sly-list.itemsObj="${locationObj.mBean}">
+			<sly data-sly-list.itemsList="${itemsObj.items}">
+						<div class="people_location_details_individual">
+						<div data-sly-test="${itemsListList.count == 1}" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress" class="location_addr">
+							<sly data-sly-test="${itemsList.locationName}"><a href="#"><strong>${itemsList.locationName @context='html'}</strong></a></sly>
+                            <sly data-sly-test="${itemsList.address}"><p itemprop="streetAddress">${itemsList.address @context='html'}</p></sly><p><sly data-sly-test="${itemsList.city}"><span itemprop="addressLocality">${itemsList.city @context='html'}, </span></sly><sly data-sly-test="${itemsList.state}"><span itemprop="addressRegion">${itemsList.state @context='html'}</span></sly><sly data-sly-test="${itemsList.zipCode}"><span itemprop="postalCode"> ${itemsList.zipCode @context='html'}</span></sly></p>
+						</div>
+						<div data-sly-test="${itemsListList.count > 1}" class="location_addr">
+							<sly data-sly-test="${itemsList.locationName}"><a href="#"><strong>${itemsList.locationName @context='html'}</strong></a></sly>
+							<sly data-sly-test="${itemsList.address}"><p>${itemsList.address @context='html'}</p></sly><p><sly data-sly-test="${itemsList.city}">${itemsList.city @context='html'}, </sly><sly data-sly-test="${itemsList.state}">${itemsList.state @context='html'}</sly> <sly data-sly-test="${itemsList.zipCode}">${itemsList.zipCode @context='html'}</sly></p>							
+						</div>
+						 <div>
+							<div class="location_phone location_distance clearfix" style="display:none">
+								<div class="location_phone_icon">
+									<img src="${'distance_icon' @ i18n}" alt="${'distance_icon' @ i18n}"/>
+								</div>
+								<div class="location_distance_details">
+									<h5><strong>${'distance' @ i18n}</strong></h5>
+									<p>
+										<span class="addressDistance" data-distance="miles" data-longitude="${itemsList.longitude}" data-latitude="${itemsList.latitude}"><span></span></span>
+										<span>|</span>
+										<!-- sly data-sly-test.concatenated="${'{0}, {1}, {2}, {3}' @ format=[itemsList.address, itemsList.city,itemsList.state,itemsList.zipCode]}">
+											<span class="addressDirection" data-address="${concatenated}">${'get-directions' @ i18n}</span>											
+										</sly-->
+										<span tabindex="0" class="addressDirection" data-longitude="${itemsList.longitude}" data-latitude="${itemsList.latitude}">${'get-directions' @ i18n}</span>
+									</p>
+								</div>
+							</div>
+						</div> 
+					</div>
+				<sly data-sly-test="${itemsList.rowClose}">
+					<div class="people_location_divider clearfix"> </div>
+				</sly>
+				
+			</sly>
+		</sly>
+	</div>
+</div>

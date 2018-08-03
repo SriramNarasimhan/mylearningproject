@@ -1,0 +1,373 @@
+<sly data-sly-use.mbeanObj1="com.suntrust.dotcom.utils.GenericUtil"/>
+
+<sly data-sly-use.configServiceUseComplianceReviewer="${'com.suntrust.dotcom.utils.ConfigServiceUse' @ property='dotcom-compliance-reviewer'}"/>
+<sly data-sly-use.configServiceUseLegalReviewer="${'com.suntrust.dotcom.utils.ConfigServiceUse' @ property='dotcom-legal-reviewer'}"/>
+<sly data-sly-use.aemBestPracticesDocPath="${'com.suntrust.dotcom.utils.ConfigServiceUse' @ property='aem.best.practices.doc.path'}"/>
+
+<sly data-sly-use.complianceReviewer="${'com.suntrust.dotcom.utils.GenericUtil'  @text=configServiceUseComplianceReviewer.property}"/>
+<sly data-sly-use.legalReviewer="${'com.suntrust.dotcom.utils.GenericUtil'  @text=configServiceUseLegalReviewer.property}"/>
+
+<h1>Content Intake Form</h1>
+
+
+<form method="#" enctype="multipart/form-data" id="fileUploadForm">
+            
+        <table border=0 cellspacing=7 cellpadding=0 class="formTable">
+            <tr>
+                <td colspan='2' align='right'>
+                    <hr class="lineBottom">
+                </td>
+            </tr>
+            <tr>
+                <td colspan='2'>
+                    <div class="mandatoryCheck" style="display:none;">Please Fill all the mandatory fields</div>
+                </td>
+            </tr>
+			
+            <tr valign='top'>
+                <td class='iw-base-text-field-label dataFieldLabel'>Workflow Type *</td>
+                <td class='iw-base-text-field-data dataFieldinput'>
+                    <select class='iw-base-text-field-data' name='wftype' id='wftype' onchange=showText(this);>
+                        <option value="NA">Choose One</option>
+                        <option value="Expedited">Expedited</option>
+                        <option value="Standard">Standard</option>
+                    </select>
+                </td>
+            </tr>
+			
+            <tr valign='top'>
+                <td class='iw-base-text-field-label dataFieldLabel'>Job Type *</td>
+                <td class='iw-base-text-field-data'>
+                    <select class='iw-base-text-field-data' name='Jobtype' id='Jobtype'>
+						<option value="">Choose One</option>
+						<option value="STcomGeneralRequest">ST.com - General Request</option>
+						<option value="STcomShelfspaceRequest">ST.com - Shelfspace</option>
+						<option value="STcomResourceCenterRequest">ST.com - Resource Center</option>
+						<option value="STcomPeopleFinderRequest">ST.com - People Finder</option>
+						<option value="STcomMortgageRates">ST.com - Mortgage Rates</option>
+						<option value="STcomMicrositeLandingPageRequest">ST.com - Microsite/LandingPage</option>
+						<option value="STcomLocationsRequest">ST.com - Locations</option>
+						<option value="MomentumOnUpRequest">MomentumOnUp</option>
+						<option value="onUpRequest">onUp</option>
+						<option value="NACContentReview">NAC Content Review</option>
+						<option value="RealTimeOfferContent">Real Time Offer Content</option>
+						<option value="DAMAssetUploadRequest">DAM Asset Upload (non-video)</option>
+						<option value="DAMVideoUploadRequest">DAM Video Upload</option>
+						<option value="OtherRequest">Other</option>
+					</select>
+                </td>
+            </tr>
+           
+            <tr valign='top'>
+                <td class='iw-base-text-field-label dataFieldLabel'>Name *</td>
+                <td class='iw-base-text-field-data'>
+                    <input value='${mbeanObj1.loggedInUserName}' class='iw-base-text-field-data inputtextField' name='Name' id='Name' type=text readonly size=60>
+                </td>  
+            </tr>
+			
+            <tr valign='top'>
+                <td class='iw-base-text-field-label dataFieldLabel'>Email *</td>
+                <td class='iw-base-text-field-data'>
+                    <input value='${mbeanObj1.loggedInUserEmail}' class='iw-base-text-field-data inputtextField' name='Email' id='Email' type=text readonly size=60>
+					</td>                    
+            </tr>
+            
+            <tr valign='top'>
+                <td class='iw-base-text-field-label dataFieldLabel'>RACF *</td>
+                <td class='iw-base-text-field-data'>
+                    <input value='${mbeanObj1.loggedInUserID}' class='iw-base-text-field-data inputtextField' name='racf' id='racf' type=text readonly size=60>
+                </td> 
+            </tr>
+			
+			<tr valign='top'><td class='iw-base-text-field-label dataFieldLabel'>Compliance Reviewer *</td>
+				 <td class='iw-base-text-field-data'>
+					 <select class='iw-base-text-field-data' name='cmbComplianceSingleUser' id='cmbComplianceSingleUser'>
+						<option selected value='N/A'>Select One</option>
+						<sly data-sly-list.keyName="${complianceReviewer.aEMGroupUsers}">
+							<option value='${keyName}'>${complianceReviewer.aEMGroupUsers[keyName]}</option>
+						</sly>						
+					 </select>
+				 </td>
+			</tr>
+
+            <tr valign='top'>
+                <td class='iw-base-text-field-label dataFieldLabel'>Legal Reviewer</td>
+                <td class='iw-base-text-field-data'>
+                    <select class='iw-base-text-field-data' name='cmbLegalSingleUser' id='cmbLegalSingleUser'> 
+                        <option selected value = 'Select One'>Select One</option>
+						<sly data-sly-list.keyName="${legalReviewer.aEMGroupUsers}">
+							<option value='${keyName}'>${legalReviewer.aEMGroupUsers[keyName]}</option>
+						</sly>
+                    </select>
+                </td>
+            </tr>
+
+            <tr valign='top'>
+                <td class='iw-base-text-field-label dataFieldLabel'>Request Title/Page Name *</td>
+                <td class='iw-base-text-field-data'>
+                    <input class='iw-base-text-field-data pageNameValid inputtextField' name='PageName' id="contentIntakePageName" type=text size=60 ">
+				</td>
+			</tr>
+			
+
+			<tr valign='top'><td class='iw-base-text-field-label dataFieldLabel'>Existing URL (if applicable)</td>
+				 <td class='iw-base-text-field-data'>
+					<input id="existing-url" class='iw-base-text-field-data inputtextField' name='loc' type=text size=60 id='loc'>
+				</td>
+			</tr>
+			
+			<tr valign='top'><td class='iw-base-text-field-label dataFieldLabel'>Job Description *</td>
+				 <td class='iw-base-text-field-data'>
+					<textarea maxlength="1000" class='iw-base-text-field-data textAreasize' name='iw_submit_comment' id="iw_submit_comment_id" rows=8 cols=8></textarea> 
+				</td>
+			</tr>
+			
+			<!-- <tr valign='top'><td class='iw-base-text-field-label dataFieldLabel'>Suggested Tags</td>
+				 <td class='iw-base-text-field-data'>
+					<input class='iw-base-text-field-data inputtextField' name='tag' type=text size=60 id='tag'>
+				</td>
+			</tr> -->
+
+			<tr valign='top'><td class='iw-base-text-field-label dataFieldLabel'>Upload File (single file or .zip only)</td>
+				 <td>
+					 <div class="loadfile ">
+						<input type='file' id="fileUpolad" name="fileUpolad"/>
+						<span id='val'></span>
+						<span id='button'>Select File</span>
+					</div>
+                    <div class="assetUploadGL">Please use lowercase and do not use spaces or special characters in file names. <a href="${aemBestPracticesDocPath.property}" target="blank">Refer to best practices guide.</a></div>
+				 </td>
+			</tr>
+
+			<tr valign='top'><td class='iw-base-text-field-label dataFieldLabel'>Replacing Existing Asset?</td>
+				<td class='iw-base-text-field-data'>
+					<select class='iw-base-text-field-data' name='replaceAsset' id='replaceAsset'>
+                    	<option selected>Dont Know</option>
+						<option>Yes</option>
+						<option>No</option>
+					</select>
+				</td>
+			</tr>
+			
+			<tr valign='top'>
+				<td class='iw-base-text-field-label dataFieldLabel'>Asset(s) Expiration</td>
+				<td>
+					<select name='ExpirationMonth' id='ExpirationMonth' onChange='validateDate(this)' class="monthdateClass">
+						<option value='0'>Month</option>
+						<option value='1'>Jan</option>
+						<option value='2'>Feb</option>
+						<option value='3'>Mar</option>
+						<option value='4'>Apr</option>
+						<option value='5'>May</option>
+						<option value='6'>Jun</option>
+						<option value='7'>Jul</option>
+						<option value='8'>Aug</option>
+						<option value='9'>Sep</option>
+						<option value='10'>Oct</option>
+						<option value='11'>Nov</option>
+						<option value='12'>Dec</option>
+						</select> 
+						/ 
+					<select name='ExpirationDay' id='ExpirationDay' onChange='validateDate(this)' class="monthdateClass">
+						<option value='00'selected>Day</option>
+						<option value='1'>1</option>
+						<option value='2'>2</option>
+						<option value='3'>3</option>
+						<option value='4'>4</option>
+						<option value='5'>5</option>
+						<option value='6'>6</option>
+						<option value='7'>7</option>
+						<option value='8'>8</option>
+						<option value='9'>9</option>
+						<option value='10'>10</option>
+						<option value='11'>11</option>
+						<option value='12'>12</option>
+						<option value='13'>13</option>
+						<option value='14'>14</option>
+						<option value='15'>15</option>
+						<option value='16'>16</option>
+						<option value='17'>17</option>
+						<option value='18'>18</option>
+						<option value='19'>19</option>
+						<option value='20'>20</option>
+						<option value='21'>21</option>
+						<option value='22'>22</option>
+						<option value='23'>23</option>
+						<option value='24'>24</option>
+						<option value='25'>25</option>
+						<option value='26'>26</option>
+						<option value='27'>27</option>
+						<option value='28'>28</option>
+						<option value='29'>29</option>
+						<option value='30'>30</option>
+						<option value='31'>31</option>
+					</select> 
+					/ 
+						<select name='ExpirationYear' id='ExpirationYear' class="monthdateClass">
+						<option value='2010'>2010</option>
+						<option value='2011'>2011</option>
+						<option value='2012'>2012</option>
+						<option value='2013'>2013</option>
+						<option value='2014'>2014</option>
+						<option value='2015'>2015</option>
+						<option value='2016'>2016</option>
+						<option value='2017'>2017</option>
+						<option value='2018'>2018</option>
+						<option value='2019'>2019</option>
+						<option value='2020'>2020</option>
+						<option value='2021'>2021</option>
+						<option value='2022'>2022</option>
+						<option value='2023'>2023</option>
+						<option value='2024'>2024</option>
+						<option value='2025'>2025</option>
+						<option value='2026'>2026</option>
+						<option value='2027'>2027</option>
+						<option value='2028'>2028</option>
+						<option value='2029'>2029</option>
+						<option value='2030'>2030</option>
+					</select>
+				</td>
+			</tr>
+
+			<tr valign='top'>
+				<td class='iw-base-text-field-label dataFieldLabel'>Asset Comments</td>
+				<td>
+					<textarea name='PublishComments' id='PublishComments' rows='4' class="textAreasize" onChange='checkForPublish(this)'></textarea>
+				</td>
+			</tr>
+			
+			<tr valign='top'>
+				<td class='iw-base-text-field-label dataFieldLabel'>Publish</td>
+				<td class='iw-base-text-field-data'>
+
+
+					<input class='iw-base-text-field-data' name='PublishType' type=radio value="Whenever It Is Ready" id=po11 checked/>
+					<label for="po11" class="suntrust-labelContent">Whenever It Is Ready</label> 
+					<input class='iw-base-text-field-data' name='PublishType' type=radio  id=po22 value="Exactly On"/>
+					<label for="po22" class="suntrust-labelContent">Exactly On</label> 
+					<input class='iw-base-text-field-data' name='PublishType' type=radio  id=po33 value="Not Before"/>
+					<label for="po33" class="suntrust-labelContent">Not Before</label> 
+				</td>
+			</tr>
+	
+	
+			<tr valign='top'>
+				<td class='iw-base-text-field-label dataFieldLabel'>Planned Publish Date </td>
+					<td>
+						<select name='PublishMonth' id='PublishMonth' onChange='validateDates(this)'>
+							<option value='0'>Month</option>
+							<option value='1'>Jan</option>
+							<option value='2'>Feb</option>
+							<option value='3'>Mar</option>
+							<option value='4'>Apr</option>
+							<option value='5'>May</option>
+							<option value='6'>Jun</option>
+							<option value='7'>Jul</option>
+							<option value='8'>Aug</option>
+							<option value='9'>Sep</option>
+							<option value='10'>Oct</option>
+							<option value='11'>Nov</option>
+							<option value='12'>Dec</option>
+							</select> 
+							/ 
+							<select name='PublishDay' id='PublishDay' onChange='validateDates(this)'>
+								<option value='00'selected>Day</option>
+								<option value='1'>1</option>
+								<option value='2'>2</option>
+								<option value='3'>3</option>
+								<option value='4'>4</option>
+								<option value='5'>5</option>
+								<option value='6'>6</option>
+								<option value='7'>7</option>
+								<option value='8'>8</option>
+								<option value='9'>9</option>
+								<option value='10'>10</option>
+								<option value='11'>11</option>
+								<option value='12'>12</option>
+								<option value='13'>13</option>
+								<option value='14'>14</option>
+								<option value='15'>15</option>
+								<option value='16'>16</option>
+								<option value='17'>17</option>
+								<option value='18'>18</option>
+								<option value='19'>19</option>
+								<option value='20'>20</option>
+								<option value='21'>21</option>
+								<option value='22'>22</option>
+								<option value='23'>23</option>
+								<option value='24'>24</option>
+								<option value='25'>25</option>
+								<option value='26'>26</option>
+								<option value='27'>27</option>
+								<option value='28'>28</option>
+								<option value='29'>29</option>
+								<option value='30'>30</option>
+								<option value='31'>31</option>
+							</select> 
+							/ 
+							<select name='PublishYear' id='PublishYear'>
+								<option value='2010'>2010</option>
+								<option value='2011'>2011</option>
+								<option value='2012'>2012</option>
+								<option value='2013'>2013</option>
+								<option value='2014'>2014</option>
+								<option value='2015'>2015</option>
+								<option value='2016'>2016</option>
+								<option value='2017'>2017</option>
+								<option value='2018'>2018</option>
+								<option value='2019'>2019</option>
+								<option value='2020'>2020</option>
+								<option value='2021'>2021</option>
+								<option value='2022'>2022</option>
+								<option value='2023'>2023</option>
+								<option value='2024'>2024</option>
+								<option value='2025'>2025</option>
+								<option value='2026'>2026</option>
+								<option value='2027'>2027</option>
+								<option value='2028'>2028</option>
+								<option value='2029'>2029</option>
+								<option value='2030'>2030</option>
+							</select>
+				</td>
+			</tr>  
+			
+			<tr>
+                <td colspan='2'>
+                    <div id = "formSubmissionStatus"></div>
+                </td>
+            </tr>
+   
+
+<tr><td colspan='2' align='right'>
+  <div style="display:none; "><img src="/iw-cc/base/images/clear.gif " alt="Spacer " width="10 " height="5 "></div>
+  <hr class="lineBottom ">
+  <div class="iw-base-hr " style="display:none; "><img src="/iw-cc/base/images/clear.gif " alt="Divider " height="5 " width="1 "></div>
+  <div style="display:none; "><img src="/iw-cc/base/images/clear.gif " alt="Spacer " width="10 " height="2 "></div>
+  <table cellspacing="10 " cellpadding="0 " border="0 " class="buttonTable ">
+  <tr>
+  <td nowrap>
+    <table cellspacing="0 " cellpadding="10 " border="0 ">
+    <tr>
+    <!--<td width="1 "><img src="/iw-cc/base/images/dialog_btn_left.gif "/></td>-->
+    <td nowrap valign="middle " align="middle ">
+      <a id="submitButtonBottom" href="javascript:void(0);" onClick="formSubmit(this);" class="iw-base-actionlist-link suntrust-tertiary-button_CTAs">Submit</a>
+      <!--<input id="submitButtonBottom" value="Submit" onClick="formSubmit(this);" class="iw-base-actionlist-link suntrust-tertiary-button_CTAs" />-->
+    </td>
+    <!--<td width="1 "><img src="/iw-cc/base/images/dialog_btn_right.gif "/></td>
+	<td></td>-->
+    </tr>
+    </table>
+  </td>
+
+  </tr>
+  </table>
+</td></tr>
+  
+ </table>
+<script>
+	$('#PublishYear').val((new Date).getFullYear()).change();
+    $('#ExpirationYear').val((new Date).getFullYear()).change();
+    $('#PublishYear').on("change",function() {validateDates(this)});
+    $('#ExpirationYear').on("change",function() {validateDate(this)});
+</script> 
+</form>

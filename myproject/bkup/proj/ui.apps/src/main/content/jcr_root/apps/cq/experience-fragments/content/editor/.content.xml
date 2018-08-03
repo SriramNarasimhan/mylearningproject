@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        jcr:primaryType="nt:unstructured"
+        jcr:title="AEM Sites Page Editor"
+        sling:resourceType="cq/gui/components/authoring/editors/core"
+        extraClientLibs="[cq.authoring.editor.sites.page,cq.authoring.editor.plugin.annotate,cq.authoring.editor.plugin.cfm,cq.authoring.editor.plugin.foundation,cq.authoring.editor.plugin.manuscript,cq.authoring.editor.plugin.dps,cq.authoring.editor.plugin.target,cq.authoring.editor.plugin.designimporter,cq.authoring.editor.plugin.msm,cq.authoring.editor.plugin.commerce,cq.authoring.editor.plugin.segment,cq.authoring.editor.plugin.campaign,cq.authoring.editor.plugin.mobile,cq.authoring.editor.plugin.screens,cq.authoring.editor.plugin.activitymap,cq.authoring.editor.sites.page.hook,cq.authoring.editor.hook,cq.authoring.editor.hook.assetfinder,cq.experiencefragments.authoring]">
+        <content jcr:primaryType="nt:unstructured">
+            <items/>
+        </content>
+    </jcr:content>
+</jcr:root>

@@ -1,0 +1,37 @@
+<div data-sly-use.PromoObj="${'com.suntrust.dotcom.components.PromoLogoComponent' @pagePath=currentPage.Path}" data-sly-unwrap></div>
+<div data-sly-use.PromoText="${'com.suntrust.dotcom.components.PromoTextComponent' @pagePath=currentPage.Path}" data-sly-unwrap></div>
+
+
+<section role="main" id="main-content" tabindex="-1" class="no-outline row-border-bottom-gray">
+			<div class="container">
+				
+					<div class="col-lg-12">
+						<section role="main" class="clearfix">
+							<div class="component-html sun-component">  
+								<div class="">
+									<div class="logo-container-left">
+										<div data-sly-test="${!PromoObj.imageReference && (wcmmode.edit || wcmmode.design)}" data-sly-unwrap>
+											Please upload logo in page properties
+										</div>
+										<div data-sly-test="${PromoObj.imageReference}" data-sly-unwrap>
+											<img id="monup-logo" src="${PromoObj.imageReference}" alt="${PromoObj.imageAlt}">	
+										</div>
+									</div>	
+									
+									<div class="logo-container-right">
+										<div data-sly-test="${!properties.image && (wcmmode.edit || wcmmode.design)}" data-sly-unwrap>
+											Please upload company logo in dialog
+										</div>
+										<div data-sly-test="${properties.image}" data-sly-unwrap>
+											<img id="company-logo" src="${properties.image}" alt="${properties.alttext ? properties.alttext : PromoText.promoCompany}">				
+										</div>	
+									</div>
+								</div>	
+							</div>
+
+
+						</section>
+					</div>                               
+				
+			</div>
+</section>

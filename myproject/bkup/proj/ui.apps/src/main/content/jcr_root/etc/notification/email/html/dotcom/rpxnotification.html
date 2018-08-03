@@ -1,0 +1,42 @@
+Subject:${subject}-${status}
+
+<style>
+pre, body{
+	font-family: 'Trebuchet MS', sans-serif;
+}
+body{
+	margin:4;
+}
+</style>
+<table>
+<tr>
+<td>
+<p style="margin:0;padding:0;line-height:115%;background:#00294d; padding:7px 0 7px 10px;"><span style="color:white;">
+<b>RPX Nightly Job</b>: <span style="color:white;">${status}</span></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span style="font-family: 'Trebuchet MS', sans-serif;">${mailbody}</p>
+</td>
+</tr>
+<td>
+<div align="center" style="text-align:center"><i><span style="font-family: 'Trebuchet MS', sans-serif;"><hr size="2" width="100%" align="center">
+</span></i></div>
+<span style="font-family:&quot;Trebuchet MS&quot;,&quot;sans-serif&quot;;
+color:#1F497D;mso-bidi-font-weight:bold">RPX URLs and Connection Status</span>
+<p ><span style="font-size: 16pt; font-family: 'Trebuchet MS', sans-serif;">${rpxUrls}</span></p>
+</td>
+</tr>
+<tr>
+<td>
+<div align="center" style="text-align:center"><i><span style="font-family: 'Trebuchet MS', sans-serif;"><hr size="2" width="100%" align="center">
+</span></i></div>
+</td>
+</tr>
+<tr>
+<td>
+<p><span style="font-family: 'Trebuchet MS', sans-serif;">Environment: ${environment}</span></p>
+</td>
+</tr>
+</table>

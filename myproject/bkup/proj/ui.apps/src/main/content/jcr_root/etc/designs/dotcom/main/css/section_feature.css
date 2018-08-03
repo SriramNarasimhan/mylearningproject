@@ -1,0 +1,340 @@
+﻿body {
+}
+/***Section Feature Start***/
+ul.suntrust-feature-list-details {
+    list-style-type: none;
+    margin: 0px;
+    padding: 20px 0;
+    overflow: hidden;
+}
+.suntrust-feature-list-details>li {
+    margin-bottom: 10px;
+}
+div.suntrust-sectionfeature-image-container, div.suntrust-sectionfeature-info {
+    display: inline-block;
+    vertical-align: top;
+}
+.suntrust-sectionfeature-image-container {
+    max-width: 110px;
+	width: 15%;
+}
+.suntrust-feature-image {
+    width: 80px;
+    height: 80px;
+}
+.suntrust-sectionfeature-info {
+    zoom: 1;
+    width: 75%;
+    margin-left: 5%;
+}
+.SingleColumn  .col-lg-12 .suntrust-feature-list-with-link .suntrust-sectionfeature-image-container {
+	width: auto;
+}
+.SingleColumn  .col-lg-12 .suntrust-feature-list-with-link .suntrust-sectionfeature-info {
+	margin-left: 4%;
+}
+
+.suntrust-sectionfeature-info p 
+{
+	margin-bottom:20px;
+}
+.suntrust-feature-name {
+    font-size: 24px;
+    line-height: 24px;
+    margin-bottom: 20px;
+    margin-top: 0px;
+    color: #333;
+}
+.suntrust-sectionfeature-info a {
+    color: #003b71;
+}
+.suntrust-sectionfeature-info a:hover,.suntrust-sectionfeature-info a:focus {
+    text-decoration: none;
+    color: #C94C06;
+}
+.suntrust-feature-link-button a
+{
+	color:#fff;
+}
+
+/*Section Feature Column Type start*/
+.sectionfeature .suntrust-four-col-info>li {
+    -ms-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    float: left;
+    text-align: left;
+    padding: 0px;
+	width: 25%;
+}
+
+
+.suntrust-four-col-info .suntrust-feature-image {
+	height: auto;
+}
+/*Section Feature Column Type End*/
+
+/* Suntrust finance home improvements Start */
+.suntrust-feature-list-with-link h4,
+.suntrust-feature-list-with-button h4 {
+	font-size: 24px;
+    line-height: 24px;
+    margin-bottom: 20px;
+    margin-top: 0px;
+    color: #333;
+}
+.suntrust-feature-list-with-link p {
+	margin-bottom: 0;
+}
+.suntrust-feature-list-with-button p {
+	margin-bottom: 20px;
+}
+.suntrust-feature-list-with-link li,
+.suntrust-feature-list-with-button li {
+	margin-bottom: 45px;
+}
+.suntrust-feature-list-with-link a {
+	color: #003b71;
+}
+.suntrust-feature-list-with-link a:hover,
+.suntrust-feature-list-with-link a:focus {
+	text-decoration: none;
+    color: #C94C06;
+}
+.suntrust-feature-list-with-button span {
+	display: block;
+    margin-top: 20px;
+}
+.suntrust-feature-list-with-button a {
+    -webkit-transition: all .15s ease-in;
+    -moz-transition: all .15s ease-in;
+    -o-transition: all .15s ease-in;
+    -ms-transition: all .15s ease-in;
+    transition: all .15s ease-in;
+    -webkit-border-radius: 3px;
+    -webkit-background-clip: padding-box;
+    -moz-border-radius: 3px;
+    -moz-background-clip: padding;
+    border-radius: 3px;
+    background-clip: padding-box;
+    padding: 15px 30px;
+    font-size: 18px;
+    line-height: 18px;
+    cursor: pointer;
+    outline: none;
+    background-image: none;    
+	display:inline-block;
+}
+.suntrust-feature-list-with-button a:hover,
+.suntrust-feature-list-with-button a:focus {
+	outline: none;
+	text-decoration: none;
+}
+.suntrust-feature-list-with-button a {
+	border: 1px solid #ccc;
+    background-color: #fff;
+	color: #05457d!important;
+}
+.suntrust-feature-list-with-button a:hover,
+.suntrust-feature-list-with-button a:focus {	
+	background-color: #ffffff;
+	background-image: -moz-linear-gradient(-90deg, #ffffff, #f2f2f2);
+	background-image: -webkit-linear-gradient(-90deg, #ffffff, #f2f2f2);
+	background-image: -o-linear-gradient(-90deg, #ffffff, #f2f2f2);
+	background-image: linear-gradient(180deg, #ffffff, #f2f2f2);
+	color: #333;
+}
+.suntrust-feature-list-with-button a.suntrust-blue-button {
+	background-color: #00467f;
+	color: #fff !important;
+}
+.suntrust-feature-list-with-button a.suntrust-blue-button:hover,
+.suntrust-feature-list-with-button a.suntrust-blue-button:focus {
+	background-color: #00467f;
+	color: #fff !important;
+	background-image: -moz-linear-gradient(-90deg, #00467f, #0d365a);
+	background-image: -webkit-linear-gradient(-90deg, #00467f, #0d365a);
+	background-image: -o-linear-gradient(-90deg, #00467f, #0d365a);
+	background-image: linear-gradient(180deg, #00467f, #0d365a);
+}
+.suntrust-feature-list-with-button a.suntrust-orange-button {
+	background-color: #C94C06;
+	color: #fff !important;
+}
+.suntrust-feature-list-with-button a.suntrust-orange-button:hover,
+.suntrust-feature-list-with-button a.suntrust-orange-button:focus {
+	background-color: #963F04;
+	color: #fff !important;
+}
+.suntrust-feature-list-with-button a.suntrust-grey-button {
+	border: 1px solid #ccc;
+    background-color: #f5f5f5;
+	color: #003b71!important;
+}
+.suntrust-feature-list-with-button a.suntrust-grey-button:hover,
+.suntrust-feature-list-with-button a.suntrust-grey-button:focus {
+	text-decoration: none;
+	color: #C94C06 !important;
+	background-image: none;
+}
+/* Suntrust finance home improvements End */
+
+/* Suntrust Product and Services Start */
+ul.suntrust-checking-accounts-feature {
+    list-style: outside none none;
+    margin: 30px 0;
+    padding: 0px;
+}
+.sectionfeature .suntrust-six-col-info>li {
+    -ms-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 0px;
+	float: left;
+}
+
+.sectionFtImgTopItmContainer{
+	width: 100%;
+	padding: 15px 0;
+}
+.suntrust-six-col-info>li>a {
+	display: inline-block;
+}
+
+ul.suntrust-checking-accounts-feature .sun-checking-accounts-links-text {
+	display: block;
+    color: #003b71;
+    margin-top: 7px;
+    font-size: 15px;
+    padding: 0 30px;
+}
+
+ul.suntrust-checking-accounts-feature .sun-checking-accounts-text {
+	display: block;
+    color: #000000;
+    margin-top: 7px;
+    font-size: 15px;
+    padding: 0 30px;
+}
+
+ul.suntrust-checking-accounts-feature a.sun-checking-accounts-links:hover .sun-checking-accounts-links-text,
+ul.suntrust-checking-accounts-feature a.sun-checking-accounts-links:focus .sun-checking-accounts-links-text  {
+	color: #C94C06 !important;
+}
+.suntrust-dynamic-width img {
+	width: 82px;
+    height: 82px;
+	max-width: 60%;
+}
+.sun-checking-accounts-links:focus span {
+	color: #C94C06;
+	outline: 0;
+}
+.accordion .suntrust-four-col-info>li, .accordion .suntrust-six-col-info>li {
+	height: auto !important;
+}
+.suntrust-section3A .accordion .suntrust-six-col-info>li:nth-child(5),.suntrust-section3A .accordion .suntrust-four-col-info>li:nth-child(3) {
+    clear: both;
+}
+/* Suntrust Product and Services End */
+@media (min-width: 940px) and (max-width: 1199px){
+    .suntrust-dynamic-width img {
+        width: 100% !important;
+        height: 100% !important;
+        max-width:45%;
+    }
+}
+@media (max-width: 600px)
+{
+	.suntrust-sectionfeature-image-container {
+		width: 100%;
+		margin-bottom: 15px;
+	}
+	.suntrust-sectionfeature-info {
+		margin-left: 0;
+		width: 100%;
+	}
+	.suntrust-feature-image {
+		/*width: auto;*/
+		height: auto;
+	}
+	.sectionfeature .suntrust-six-col-info>li {
+		width: auto;
+		text-align: left;
+		position: relative;
+		height: 64px;
+		padding-left: 70px;
+		margin-bottom:15px;
+		float: none;		
+	}
+	.sectionfeature .suntrust-six-col-info>li .sun-checking-accounts-links-glyph {
+		position: absolute;
+		left: 0;
+		top: 0;
+		height: 50px;
+		width: 50px;
+	}
+	.sectionfeature ul.suntrust-checking-accounts-feature .sun-checking-accounts-links-text {
+		display: inline-block;
+		vertical-align: top;
+		margin-top: 0;
+		padding: 0;
+	}
+}
+@media (max-width: 768px)
+{
+	.suntrust-feature-image {
+		/*width: auto;*/
+		height: auto;
+	}
+	.sectionfeature .suntrust-four-col-info>li {
+		float: none;
+		width: 100%;
+		margin-bottom: 10px;
+		padding: 0;
+	}
+	.accordion .suntrust-six-col-info>li:nth-child(4) {
+		clear: both;
+	}
+}
+@media (max-width: 767px) {
+.SingleColumn .col-xs-12 ul.suntrust-feature-list-details,
+.SingleColumn .col-xs-12 ul.suntrust-checking-accounts-feature {
+	padding: 0 15px;
+}
+
+.suntrust-section3A.col-xs-12 ul.suntrust-feature-list-details,
+.suntrust-section3A.col-xs-12 ul.suntrust-checking-accounts-feature,
+.suntrust-section3B.col-xs-12 ul.suntrust-feature-list-details,
+.suntrust-section3B.col-xs-12 ul.suntrust-checking-accounts-feature{
+	padding: 0 30px;
+}
+}
+@media screen and (min-width: 768px)
+{
+	/*.suntrust-four-col-info>li {
+		padding: 0;
+	}*/
+	ul.suntrust-four-col-info .suntrust-sectionfeature-image-container {
+		width: 25%;
+	}
+	ul.suntrust-four-col-info .suntrust-sectionfeature-info {
+		width: 60%;
+	}
+	.rowContainer .suntrust-section3A ul.suntrust-feature-list-details {
+		padding-left: 15px;
+	}
+}
+@media screen and (min-width: 1000px) {
+	.accordion .suntrust-six-col-info>li {
+		width: 23% !important;
+	}
+}
+@media screen and (max-width: 740px){
+	.suntrust-desktop-only {
+	    display: none;
+	}
+}

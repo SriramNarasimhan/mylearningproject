@@ -1,0 +1,524 @@
+﻿.toAvoid{
+
+}
+.dcm-tooltip {
+    position: relative;
+    display: inline-block;
+}
+.dcm-tooltip,.dcm-tooltip-right,.dcm-tooltip-left,.dcm-tooltip-top-small,.dcm-tooltip-top-large {
+	outline: none;
+}
+.dcm-tooltip .dcm-tooltiptext {
+    visibility: hidden;
+    width: 240px;
+    color: #fff;
+    text-align: left;
+    padding: 13px 6px 15px 16px;
+    position: absolute;
+    z-index: 1;
+    opacity: .8;
+    left: 4px;
+    top: -114px;
+    font-size: 13px;
+    height: auto;
+    max-height: 180px;
+    background-color: rgba(51, 51, 51, .90);
+}
+
+.dcm-tooltip:after {
+    content: '?';
+    display: inline-block;
+    font-family: sans-serif;
+    font-weight: bold;
+    text-align: center;
+    width: 15px;
+    height: 15px;
+    font-size: 12px;
+    line-height: 14px;
+    border-radius: 1.2ex;
+    margin-right: 4px;
+    padding: 0;
+    color: #fff;
+    background: #707070 ;
+    border: 1px solid #707070 ;
+    text-decoration: none;
+    cursor: pointer;
+    position: relative;
+    top: 0;
+	left: 3px;
+}  
+
+.dcm-tooltip:hover .dcm-tooltiptext,
+.dcm-tooltip:focus .dcm-tooltiptext,
+.dcm-tooltip-right:focus .dcm-tooltiptext-right,
+.dcm-tooltip-left:focus .dcm-tooltiptext-left,
+.dcm-tooltip-top-small:focus .dcm-tooltiptext-top-small,
+.dcm-tooltip-top-large:focus .dcm-tooltiptext-top-large {
+    visibility: visible;
+    opacity: 1;
+    outline: none;
+}
+
+.dcm-tooltip .dcm-tooltiptext::after {
+   content: "";
+   position: absolute;
+    top: 108px;
+    left: 5px;
+    margin-left: -4px;
+    border-width: 6px;
+    border-style: solid;
+    border-color: #333 transparent transparent transparent;
+    opacity: .9;
+}
+
+.dcm-tool-tip-header {
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+    display: block;
+}
+
+.dcm-tooltip-right {
+    position: relative;
+    display: inline-block;
+}
+.dcm-tooltip-right .dcm-tooltiptext-right {
+    visibility: hidden;
+    width: 240px;
+    color: #fff;
+    text-align: left;
+    padding: 13px 6px 15px 16px;
+    position: absolute;
+    z-index: 1;
+    opacity: .8;
+    left: -244px;
+    top: -50px;
+    font-size: 13px;
+    height: auto;
+    max-height: 180px;
+    background-color: rgba(51, 51, 51, .90);
+}
+
+.dcm-tooltip-right:after {
+    content: '?';
+    display: inline-block;
+    font-family: sans-serif;
+    font-weight: bold;
+    text-align: center;
+    width: 15px;
+    height: 15px;
+    font-size: 12px;
+    line-height: 14px;
+    border-radius: 1.2ex;
+    margin-right: 4px;
+    padding: 0;
+    color: #fff;
+    background: #707070 ;
+    border: 1px solid #707070 ;
+    text-decoration: none;
+    cursor: pointer;
+    position: relative;
+    top: 0;
+	left: 3px;
+} 
+
+.dcm-tooltip-right:hover .dcm-tooltiptext-right {
+    visibility: visible;
+    opacity: 1;
+}
+
+.dcm-tooltip-right .dcm-tooltiptext-right::after {
+   content: "";
+   position: absolute;
+    top: 55px;
+    left: 244px;
+    margin-left: -4px;
+    border-width: 6px;
+    border-style: solid;
+    border-color: transparent transparent transparent #333;
+    opacity: .9;
+}
+.dcm-tooltip-left {
+    position: relative;
+    display: inline-block;
+}
+.dcm-tooltip-left .dcm-tooltiptext-left {
+    visibility: hidden;
+    width: 240px;
+    color: #fff;
+    text-align: left;
+    padding: 13px 6px 15px 16px;
+    position: absolute;
+    z-index: 1;
+    opacity: .8;
+    left: 26px;
+    top: -37px;
+    font-size: 13px;
+    height: auto;
+    max-height: 180px;
+    background-color: rgba(51, 51, 51, .90);
+}
+
+.dcm-tooltip-left:after {
+    content: '?';
+    display: inline-block;
+    font-family: sans-serif;
+    font-weight: bold;
+    text-align: center;
+    width: 15px;
+    height: 15px;
+    font-size: 12px;
+    line-height: 14px;
+    border-radius: 1.2ex;
+    margin-right: 4px;
+    padding: 0;
+    color: #fff;
+    background: #707070 ;
+    border: 1px solid #707070 ;
+    text-decoration: none;
+    cursor: pointer;
+    position: relative;
+    top: 0;
+	left: 3px;
+} 
+
+.dcm-tooltip-left:hover .dcm-tooltiptext-left {
+    visibility: visible;
+    opacity: 1;
+}
+
+.dcm-tooltip-left .dcm-tooltiptext-left::after {
+   content: "";
+   position: absolute;
+    top: 41px;
+    left: -8px;
+    margin-left: -4px;
+    border-width: 6px;
+    border-style: solid;
+    border-color: transparent #333 transparent transparent;
+    opacity: .9;
+}
+
+.dcm-tooltip-top-small .dcm-tooltiptext-top-small {
+    visibility: hidden;
+    width: 240px;
+    color: #fff;
+    text-align: left;
+    padding: 13px 6px 15px 16px;
+    position: absolute;
+    z-index: 1;
+    opacity: .8;
+    left: -95px;
+    top: -95px;
+    font-size: 13px;
+    height: auto;
+    max-height: 180px;
+    background-color: rgba(51, 51, 51, .90);
+}
+
+.dcm-tooltip-top-small:after {
+    content: '?';
+    display: inline-block;
+    font-family: sans-serif;
+    font-weight: bold;
+    text-align: center;
+    width: 15px;
+    height: 15px;
+    font-size: 12px;
+    line-height: 14px;
+    border-radius: 1.2ex;
+    margin-right: 4px;
+    padding: 0;
+    color: #fff;
+    background: #707070 ;
+    border: 1px solid #707070 ;
+    text-decoration: none;
+    cursor: pointer;
+    position: relative;
+    top: 0;
+	left: 3px;
+} 
+
+.dcm-tooltip-top-small .dcm-tooltiptext-top-small::after {
+   content: "";
+   position: absolute;
+    top: 88px;
+    left: 103px;
+    margin-left: -4px;
+    border-width: 6px;
+    border-style: solid;
+    border-color: #333 transparent transparent transparent;
+    opacity: .9;
+}
+
+.dcm-tooltip-top-small {
+    position: relative;
+    display: inline-block;
+}
+
+.dcm-tooltip-top-small:hover .dcm-tooltiptext-top-small {
+    visibility: visible;
+    opacity: 1;
+}
+
+.dcm-tooltip-top-large {
+    position: relative;
+    display: inline-block;
+}
+.dcm-tooltip-top-large .dcm-tooltiptext-top-large {
+    visibility: hidden;
+    width: 240px;
+    color: #fff;
+    text-align: left;
+    padding: 13px 6px 15px 16px;
+    position: absolute;
+    z-index: 1;
+    opacity: .8;
+    left: -104px;
+    top: -137px;
+    font-size: 13px;
+    height: auto;
+    max-height: 180px;
+    background-color: rgba(51, 51, 51, .90);
+}
+
+.dcm-tooltip-top-large:after {
+    content: '?';
+    display: inline-block;
+    font-family: sans-serif;
+    font-weight: bold;
+    text-align: center;
+    width: 15px;
+    height: 15px;
+    font-size: 12px;
+    line-height: 14px;
+    border-radius: 1.2ex;
+    margin-right: 4px;
+    padding: 0;
+    color: #fff;
+    background: #707070 ;
+    border: 1px solid #707070 ;
+    text-decoration: none;
+    cursor: pointer;
+    position: relative;
+    top: 0;
+	left: 3px;
+} 
+
+.dcm-tooltip-top-large:hover .dcm-tooltiptext-top-large {
+    visibility: visible;
+    opacity: 1;
+}
+
+.dcm-tooltip-top-large .dcm-tooltiptext-top-large::after {
+   content: "";
+   position: absolute;
+    top: 128px;
+    left: 112px;
+    margin-left: -4px;
+    border-width: 6px;
+    border-style: solid;
+    border-color: #333 transparent transparent transparent;
+    opacity: .9;
+}
+
+
+@media only screen and (max-width: 600px) {
+.dcm-tooltip .dcm-tooltiptext {
+    visibility: hidden;
+    color: #fff;
+    text-align: left;
+    padding: 13px 6px 15px 16px;
+    position: absolute;
+    z-index: 1;
+    opacity: .8;
+    left: -3px;
+    top: 20px;
+    font-size: 13px;
+    background-color: rgba(51, 51, 51, .90);
+    width: 170px;
+}
+
+.dcm-tooltip:after {
+    content: '?';
+    display: inline-block;
+    font-family: sans-serif;
+    font-weight: bold;
+    text-align: center;
+    width: 15px;
+    height: 15px;
+    font-size: 12px;
+    line-height: 14px;
+    border-radius: 1.2ex;
+    margin-right: 4px;
+    padding: 0;
+    color: #fff;
+    background: #707070 ;
+    border: 1px solid #707070 ;
+    text-decoration: none;
+    cursor: pointer;
+    position: relative;
+    top: 0;
+	left: 3px;
+} 
+
+.dcm-tooltip-left .dcm-tooltiptext-left {
+    visibility: hidden;
+    width: 333px;
+    color: #fff;
+    text-align: left;
+    padding: 13px 6px 15px 16px;
+    position: fixed;
+    z-index: 1;
+    opacity: .8;
+    left: 0;
+    top: 147px;
+    font-size: 18px;
+    height: auto;
+    max-height: 180px;
+    background-color: rgba(51, 51, 51, .90);
+    margin: 20px;
+}
+
+.dcm-tooltip-left .dcm-tooltiptext-left::after {
+    content: "";
+    position: absolute;
+    top: 41px;
+    left: -8px;
+    margin-left: -4px;
+    border-width: 6px;
+    border-style: solid;
+    border-color: transparent #333 transparent transparent;
+    opacity: 0;
+}
+
+.dcm-tooltip-left:after {
+    content: '?';
+    display: inline-block;
+    font-family: sans-serif;
+    font-weight: bold;
+    text-align: center;
+    width: 15px;
+    height: 15px;
+    font-size: 12px;
+    line-height: 14px;
+    border-radius: 1.2ex;
+    margin-right: 4px;
+    padding: 0;
+    color: #fff;
+    background: #707070 ;
+    border: 1px solid #707070 ;
+    text-decoration: none;
+    cursor: pointer;
+    position: relative;
+    top: 0;
+	left: 3px;
+} 
+
+.dcm-tooltip-right .dcm-tooltiptext-right {
+    visibility: hidden;
+    width: 333px;
+    color: #fff;
+    text-align: left;
+    padding: 13px 6px 15px 16px;
+    position: fixed;
+    z-index: 1;
+    opacity: .8;
+    left: 0;
+    top: 147px;
+    font-size: 18px;
+    height: auto;
+    max-height: 180px;
+    background-color: rgba(51, 51, 51, .90);
+    margin: 20px;
+}
+
+.dcm-tooltip-right:after {
+    content: '?';
+    display: inline-block;
+    font-family: sans-serif;
+    font-weight: bold;
+    text-align: center;
+    width: 15px;
+    height: 15px;
+    font-size: 12px;
+    line-height: 14px;
+    border-radius: 1.2ex;
+    margin-right: 4px;
+    padding: 0;
+    color: #fff;
+    background: #707070 ;
+    border: 1px solid #707070 ;
+    text-decoration: none;
+    cursor: pointer;
+    position: relative;
+    top: 0;
+	left: 3px;
+} 
+
+.dcm-tooltip-top-small .dcm-tooltiptext-top-small {
+    visibility: hidden;
+    width: 333px;
+    color: #fff;
+    text-align: left;
+    padding: 13px 6px 15px 16px;
+    position: fixed;
+    z-index: 1;
+    opacity: .8;
+    left: 0;
+    top: 147px;
+    font-size: 18px;
+    height: auto;
+    max-height: 180px;
+    background-color: rgba(51, 51, 51, .90);
+    margin: 20px;
+}
+
+.dcm-tooltip-top-small .dcm-tooltiptext-top-small::after {
+    content: "";
+    position: absolute;
+    top: 128px;
+    left: 112px;
+    margin-left: -4px;
+    border-width: 6px;
+    border-style: solid;
+    border-color: #333 transparent transparent transparent;
+    opacity: 0;
+}
+
+.dcm-tooltip-top-large .dcm-tooltiptext-top-large {
+    visibility: hidden;
+    width: 333px;
+    color: #fff;
+    text-align: left;
+    padding: 13px 6px 15px 16px;
+    position: fixed;
+    z-index: 1;
+    opacity: .8;
+    left: 0;
+    top: 147px;
+    font-size: 18px;
+    height: auto;
+    max-height: 180px;
+    background-color: rgba(51, 51, 51, .90);
+    margin: 20px;
+}
+
+.dcm-tooltip-top-large .dcm-tooltiptext-top-large::after {
+    content: "";
+    position: absolute;
+    top: 128px;
+    left: 112px;
+    margin-left: -4px;
+    border-width: 6px;
+    border-style: solid;
+    border-color: #333 transparent transparent transparent;
+    opacity: 0;
+}
+.dcm-tool-tip-header {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    display: block;
+}
+}

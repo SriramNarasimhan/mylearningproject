@@ -1,0 +1,4 @@
+function check() {
+	workflowData.getMetaDataMap().put("terminated", "yes");
+	return true;
+}

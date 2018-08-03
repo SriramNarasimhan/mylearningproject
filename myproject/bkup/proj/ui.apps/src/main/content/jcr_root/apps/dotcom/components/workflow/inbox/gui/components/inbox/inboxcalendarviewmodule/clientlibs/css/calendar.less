@@ -1,0 +1,210 @@
+/*
+ * ADOBE CONFIDENTIAL
+ *
+ * Copyright 2016 Adobe Systems Incorporated
+ * All Rights Reserved.
+ *
+ * NOTICE:  All information contained herein is, and remains
+ * the property of Adobe Systems Incorporated and its suppliers,
+ * if any.  The intellectual and technical concepts contained
+ * herein are proprietary to Adobe Systems Incorporated and its
+ * suppliers and may be covered by U.S. and Foreign Patents,
+ * patents in process, and are protected by trade secret or copyright law.
+ * Dissemination of this information or reproduction of this material
+ * is strictly forbidden unless prior written permission is obtained
+ * from Adobe Systems Incorporated.
+ */
+
+.cq-inbox-calendar {
+  height: 100%;
+  overflow: hidden;
+
+  #projectCalFilter {
+    right: 0.8rem;
+    position:absolute;
+    top: .4rem;
+  }
+
+  .cq-inbox-calendarview {
+      height:92%;
+  }
+
+  .coral-Aeon-content {
+    height: 100%;
+    margin-top: 0;
+    padding-top: 0;
+    padding-bottom: 5px;
+  }
+
+  .coral-Aeon-displayContent {
+    height: 100%;
+  }
+
+  .coral-FixedColumn-column {
+    display: block;
+    width: 100%;
+  }
+
+  .coral-Aeon-navButtons {
+    position: absolute;
+    left: 40%;
+    top: 1rem;
+  }
+
+  #aem-inboxcal-all .coral-Icon{
+    color: rgb(255, 255, 255);
+    display:none;
+  }
+
+  #aem-cal-planned .coral-Icon {
+    color: #a5d273;
+    display:none;
+  }
+
+  #aem-cal-progress .coral-Icon {
+    color: #87beff;
+    display:none;
+  }
+
+  #aem-cal-soon .coral-Icon {
+    color: #fad269;
+    display:none;
+  }
+
+  #aem-cal-due .coral-Icon {
+    color: #fa7d73;
+    display:none;
+  }
+
+  .coral-Aeon-gridHeader {
+    padding-top: 10px;
+  }
+
+  .aeon-Card .aeon-Card-fields .aeon-Field {
+    margin-top: 0.25rem;
+  }
+
+  .aeon-Card .aeon-Card-fields .aeon-Field .aeon-Field-image {
+    height: 1.5rem;
+  }
+
+  .coral-Well:nth-child(even) {
+    display: none;
+  }
+
+  .coral-Aeon, .coral-Aeon-header {
+    position: relative !important;
+  }
+
+  @media screen and (max-width: 1500px){
+    .coral-Aeon .coral-Aeon-header .coral-Aeon-modeButton {
+      margin-left: 0px;
+      margin-right: 0px;
+    }
+
+    .coral-ButtonGroup-item.coral-Button {
+          padding-left: 5px;
+          padding-right: 5px;
+        }
+
+        #aem-inboxcal-all,
+        #aem-cal-planned,
+        #aem-cal-progress,
+        #aem-cal-soon,
+        #aem-cal-due {
+          font-size: .7125rem;
+          min-width: 2.5rem;
+          padding: .525rem .4375rem;
+        }
+    }
+
+  @media screen and (max-width: 1100px){
+      .coral-Aeon .coral-Aeon-header .coral-Aeon-modeButton {
+        font-size: .8rem;
+        margin: .0625rem;
+      }
+
+    .coral-Aeon-dateRangePicker {
+      padding-left: .2rem;
+      padding-right: .2rem;
+
+      .coral-Aeon-dateRangePicker-item.coral-Aeon-dateRangePicker-display {
+        padding-left: 0;
+      }
+
+      .coral-Aeon-dateRangePicker-item {
+        margin-right: 0rem;
+        font-size: .7125rem;
+        padding-left: 5px;
+      }
+    }
+
+    #aem-inboxcal-all,
+    #aem-cal-planned,
+    #aem-cal-progress,
+    #aem-cal-soon,
+    #aem-cal-due {
+      padding: 0px;
+      min-width: 2.5rem;
+
+      coral-button-label {
+        display: none;
+      }
+
+      .coral-Icon {
+        display: block;
+      }
+
+      .coral-Icon.coral-Icon--clock.coral-Icon--sizeS {
+        margin-right: 0;
+      }
+    }
+  }
+
+  @media screen and (max-width: 650px){
+    #aem-inboxcal-all,
+    #aem-cal-planned,
+    #aem-cal-progress,
+    #aem-cal-soon,
+    #aem-cal-due {
+      min-width: 2.0rem;
+    }
+  }
+
+  @media screen and (max-width: 625px){
+        #projectCalFilter {
+          display:none !important;
+        }
+
+        .coral-Aeon-navButtons {
+          position:static;
+        }
+  }
+
+  @media screen and (max-width: 450px) {
+      .cq-inbox-calendarview {
+        width: 450px;
+      }
+
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+}
+
+
+
+.aeon-Details-fields .aeon-Field .aeon-Field-image {
+  max-height: 32px;
+}
+.foundation-layout-table .foundation-collection-item.foundation-collection-navigator {
+  cursor: pointer;
+}
+
+//Fix for IE.  The injected hidden field in the calendar is setting a position absolute value which causes
+// the calendar not to render properly.
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  /* IE10+ CSS styles go here */
+  [data="about:blank"] {
+    position:relative !important;
+  }
+}

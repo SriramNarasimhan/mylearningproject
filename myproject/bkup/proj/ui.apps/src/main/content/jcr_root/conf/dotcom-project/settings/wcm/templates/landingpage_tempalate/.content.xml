@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Template">
+    <jcr:content
+        cq:lastModified="{Date}2017-05-09T11:28:14.822-04:00"
+        cq:lastModifiedBy="UIRR17"
+        cq:lastReplicated="{Date}2017-06-06T08:41:30.468-04:00"
+        cq:lastReplicatedBy="UIKS34"
+        cq:lastReplicationAction="Activate"
+        cq:templateType="/conf/dotcom-project/settings/wcm/template-types/dotcom-project"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Landingpage_Tempalate"
+        status="enabled"/>
+</jcr:root>

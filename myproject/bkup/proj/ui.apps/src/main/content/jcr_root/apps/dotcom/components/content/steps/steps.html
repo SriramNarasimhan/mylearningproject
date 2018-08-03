@@ -1,0 +1,31 @@
+<div data-sly-use.StepsbeanObj="com.suntrust.dotcom.components.StepsComponent" data-sly-unwrap>
+	<div data-sly-test="${!StepsbeanObj.mBean && (wcmmode.edit || wcmmode.design)}">Configure Steps Dialog</div>
+</div>
+
+<div class="">
+    <div class="suntrust-stepsContainer row sun-body-component">
+        <div class="${properties.styles=='blue' ? 'suntrust-steps-blue' : 'suntrust-steps-orange'}">
+        <h3>${properties.title @context='html'}</h3>
+            <div class="">
+					<div data-sly-test="${StepsbeanObj.mBean && properties.iItems}" data-sly-unwrap>
+                    <div data-sly-list.items="${StepsbeanObj.mBean}">
+                      <ul class="suntrust-three-col-info modified-four-col" data-sly-list.itemsList="${items.items}">
+                       <li class="col-lg-3 col-sm-3">
+                           <div role="img" aria-label="${itemsList.StepsAlttext}" class="suntrust-feature-image-container"></div>
+                           <div class="suntrust-feature-info">
+                               <p class="suntrust-feature-name">${itemsList.stepsHeading @context='html'}</p>
+                               <div data-sly-test="${itemsList.stepsImage}" data-sly-unwrap>
+                                <img class="stepsContImg" src="${itemsList.stepsImage}" alt="${itemsList.StepsImageAlttext}" />
+                               </div>
+                               <div data-sly-test="${!itemsList.stepsImage}" data-sly-unwrap>
+                                <p>${itemsList.stepsDescription @context='html'}</p>
+                               </div>
+                           </div>
+                       </li>
+                      </ul>
+					</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

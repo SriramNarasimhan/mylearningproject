@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured">
+    <task jcr:primaryType="nt:unstructured">
+        <default
+            jcr:primaryType="nt:unstructured"
+            jcr:title="Default Task Type"
+            url="/apps/dotcom/components/workflow/inbox/content/inbox/details/task.html"/>
+        <config jcr:primaryType="nt:unstructured">
+            <usage-data-collection
+                jcr:primaryType="nt:unstructured"
+                inboxUrl="/libs/cq/experiencelog/content/wizard/opt-in.html"
+                tasktype="usage-data-collection"/>
+            <analytics-targeting
+                jcr:primaryType="nt:unstructured"
+                inboxUrl="/libs/cq/cloudservicesprovisioning/content/wizard/opt-in.html"
+                tasktype="analytics-targeting"/>
+        </config>
+    </task>
+    <workitem jcr:primaryType="nt:unstructured">
+        <default
+            jcr:primaryType="nt:unstructured"
+            jcr:title="Default Workitem Type"
+            url="/apps/dotcom/components/workflow/inbox/content/inbox/details/workitem.html"/>
+        <FailureItem
+            jcr:primaryType="nt:unstructured"
+            url="/apps/dotcom/components/workflow/inbox/content/inbox/details/failureitem.html"/>
+    </workitem>
+</jcr:root>

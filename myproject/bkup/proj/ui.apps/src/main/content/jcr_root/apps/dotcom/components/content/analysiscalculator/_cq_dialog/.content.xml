@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Funding Analysis Calculator"
+    sling:resourceType="cq/gui/components/authoring/dialog"
+    helpPath="https://www.adobe.com/go/aem6_2_docs_component_en#Text &amp; Image - Sightly">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/foundation/container">
+        <layout
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/foundation/layouts/tabs"
+            type="nav"/>
+        <items jcr:primaryType="nt:unstructured">
+            <annualexpense
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Annual Expenses"
+                sling:resourceType="granite/ui/components/foundation/section">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <expensesectionheader
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textarea"
+                                fieldDescription="Set the Expenses Section Header amount"
+                                fieldLabel="Expenses Section Header"
+                                name="./expensesectionheader"/>
+                            <expensefields
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/multifield"
+                                class="full-width"
+                                fieldDescription="Click 'Add Field' to add a new fee structure"
+                                fieldLabel="Field n">
+                                <field
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/foundation/form/fieldset"
+                                    acs-commons-nested="JSON_STORE"
+                                    name="./expenses">
+                                    <layout
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
+                                        method="absolute"/>
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <column
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/container">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <fields
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/textarea"
+                                                    fieldDescription="Enter field value"
+                                                    fieldLabel="Field n"
+                                                    name="./expensefieldvalue"
+                                                    required="{Boolean}true"/>
+                                                <schooltype1annual
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                    fieldDescription="Enter School Type 1 Sample Amount"
+                                                    fieldLabel="School Type 1 Sample Amount"
+                                                    name="./schooltypeoneannual"/>
+                                                <schooltype2annual
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                    fieldDescription="Enter School Type 2 Sample Amount"
+                                                    fieldLabel="School Type 2 Sample Amount"
+                                                    name="./schooltypetwoannual"/>
+                                                <schooltype3annual
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                    fieldDescription="Enter School Type 3 Sample Amount"
+                                                    fieldLabel="School Type 3 Sample Amount"
+                                                    name="./schooltypethreeannual"/>
+                                                <schooltype4annual
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                    fieldDescription="Enter School Type 4 Sample Amount"
+                                                    fieldLabel="School Type 4 Sample Amount"
+                                                    name="./schooltypefourannual"/>
+                                            </items>
+                                        </column>
+                                    </items>
+                                </field>
+                            </expensefields>
+                            <annualexpensetotal
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textarea"
+                                fieldDescription="Set the Annual Expense Subtotal amount"
+                                fieldLabel="Expenses Subtotal"
+                                name="./annualexpensetotal"/>
+                        </items>
+                    </column>
+                </items>
+            </annualexpense>
+            <aidandscholarship
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Annual Aid"
+                sling:resourceType="granite/ui/components/foundation/section">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <annualaidsectionheader
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textarea"
+                                fieldDescription="Set the Annual Aid Section Header amount"
+                                fieldLabel="Annual Aid Section Header"
+                                name="./annualaidsectionheader"/>
+                            <aidsfields
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/multifield"
+                                class="full-width"
+                                fieldDescription="Click 'Add Field' to add a new fee structure"
+                                fieldLabel="Field n">
+                                <field
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/foundation/form/fieldset"
+                                    acs-commons-nested="JSON_STORE"
+                                    name="./aids">
+                                    <layout
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
+                                        method="absolute"/>
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <column
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/container">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <fields
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/textarea"
+                                                    fieldDescription="Enter field value"
+                                                    fieldLabel="Field n"
+                                                    name="./aidfieldvalue"
+                                                    required="{Boolean}true"/>
+                                                <schooltype1aid
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                    fieldDescription="Enter School Type 1 Sample Amount"
+                                                    fieldLabel="School Type 1 Sample Amount"
+                                                    name="./schooltypeoneaid"/>
+                                                <schooltype2aid
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                    fieldDescription="Enter School Type 2 Sample Amount"
+                                                    fieldLabel="School Type 2 Sample Amount"
+                                                    name="./schooltypetwoaid"/>
+                                                <schooltype3aid
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                    fieldDescription="Enter School Type 3 Sample Amount"
+                                                    fieldLabel="School Type 3 Sample Amount"
+                                                    name="./schooltypethreeaid"/>
+                                                <schooltype4aid
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                    fieldDescription="Enter School Type 4 Sample Amount"
+                                                    fieldLabel="School Type 4 Sample Amount"
+                                                    name="./schooltypefouraid"/>
+                                            </items>
+                                        </column>
+                                    </items>
+                                </field>
+                            </aidsfields>
+                            <aidsubtotal
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textarea"
+                                fieldDescription="Set the Annual Aid Subtotal amount"
+                                fieldLabel="Aid SubTotal"
+                                name="./aidsubtotal"/>
+                        </items>
+                    </column>
+                </items>
+            </aidandscholarship>
+            <annualcollegesavings
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Annual College Savings"
+                sling:resourceType="granite/ui/components/foundation/section">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <annualsavingsheader
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textarea"
+                                fieldDescription="Set the Annual College Savings Header amount"
+                                fieldLabel="Annual College Savings Header"
+                                name="./annualsavingsheader"/>
+                            <savingfields
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/multifield"
+                                class="full-width"
+                                fieldDescription="Click 'Add Field' to add a new fee structure"
+                                fieldLabel="Field n">
+                                <field
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/foundation/form/fieldset"
+                                    acs-commons-nested="JSON_STORE"
+                                    name="./savings">
+                                    <layout
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
+                                        method="absolute"/>
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <column
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/container">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <fields
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/textarea"
+                                                    fieldDescription="Enter field value"
+                                                    fieldLabel="Field n"
+                                                    name="./savingfieldvalue"
+                                                    required="{Boolean}true"/>
+                                                <schooltype1college
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                    fieldDescription="Enter School Type 1 Sample Amount"
+                                                    fieldLabel="School Type 1 Sample Amount"
+                                                    name="./schooltypeonecollege"/>
+                                                <schooltype2college
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                    fieldDescription="Enter School Type 2 Sample Amount"
+                                                    fieldLabel="School Type 2 Sample Amount"
+                                                    name="./schooltypetwocollege"/>
+                                                <schooltype3college
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                    fieldDescription="Enter School Type 3 Sample Amount"
+                                                    fieldLabel="School Type 3 Sample Amount"
+                                                    name="./schooltypethreecollege"/>
+                                                <schooltype4college
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                    fieldDescription="Enter School Type 4 Sample Amount"
+                                                    fieldLabel="School Type 4 Sample Amount"
+                                                    name="./schooltypefourcollege"/>
+                                            </items>
+                                        </column>
+                                    </items>
+                                </field>
+                            </savingfields>
+                            <annualsavingsubtotal
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textarea"
+                                fieldDescription="Set the Annual Saving Subtotal amount"
+                                fieldLabel="Annual Savings Subtotal"
+                                name="./annualsavingsubtotal"/>
+                        </items>
+                    </column>
+                </items>
+            </annualcollegesavings>
+            <annualsubtotal
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Annual Subtotals"
+                sling:resourceType="granite/ui/components/foundation/section">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <annualsubtotals
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textarea"
+                                fieldDescription="Set the Annual Subtotal amount"
+                                fieldLabel="Annual Subtotals Header"
+                                name="./annualsubtotals"/>
+                            <annualexpensesubtotal
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textarea"
+                                fieldDescription="Set the Annual Expense Subtotal amount"
+                                fieldLabel="Annual Expenses Subtotal"
+                                name="./annualexpensesubtotal"/>
+                            <annualcontribution
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textarea"
+                                fieldDescription="Set the Annual Contribution Subtotal amount"
+                                fieldLabel="Annual Contributions"
+                                name="./annualcontribution"/>
+                            <totalfinalcialgap
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textarea"
+                                fieldDescription="Set the Total Financial Gap amount"
+                                fieldLabel="Total Financial Gap"
+                                name="./totalfinalcialgap"/>
+                        </items>
+                    </column>
+                </items>
+            </annualsubtotal>
+            <financialgapmessage
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Financial Gap Message"
+                sling:resourceType="granite/ui/components/foundation/section">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <positivemessage
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Enter Positive Financial Gap message"
+                                fieldLabel="Positive Financial Gap"
+                                name="./positivemessage"/>
+                            <negativemessage
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Enter Negative Financial Gap message"
+                                fieldLabel="Negative Financial Gap"
+                                name="./negativemessage"/>
+                        </items>
+                    </column>
+                </items>
+            </financialgapmessage>
+            <schooltypebutton
+                jcr:primaryType="nt:unstructured"
+                jcr:title="School Type Button Labels"
+                sling:resourceType="granite/ui/components/foundation/section">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <schooltype1
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Enter School Type 1 Button Label"
+                                fieldLabel="School Type 1 Button Label"
+                                name="./schooltype1"/>
+                            <schooltype2
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Enter School Type 2 Button Label"
+                                fieldLabel="School Type 2 Button Label"
+                                name="./schooltype2"/>
+                            <schooltype3
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Enter School Type 3 Button Label"
+                                fieldLabel="School Type 3 Button Label"
+                                name="./schooltype3"/>
+                            <schooltype4
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Enter School Type 4 Button Label"
+                                fieldLabel="School Type 4 Button Label"
+                                name="./schooltype4"/>
+                        </items>
+                    </column>
+                </items>
+            </schooltypebutton>
+        </items>
+    </content>
+</jcr:root>

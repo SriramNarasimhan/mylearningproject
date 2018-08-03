@@ -1,0 +1,85 @@
+<!--/* Adds a Floating Navigation component */-->
+<div data-sly-test="${wcmmode.edit || wcmmode.design}" >Configure Floating Navigation Component</div>
+<div data-sly-use.mbeanObj="${'com.suntrust.dotcom.components.OpenAnAccountComponent'}" data-sly-unwrap></div>
+<div data-sly-test="${properties.navigationitems}" data-sly-unwrap>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-12 col-md-12">				
+				<div class="row visible-xs" id="bbMobileMenu">					
+					<div id="bbMobileGrayBar" class="clearfix">
+						<div class="bbMobileGrayBar_title">${properties.navigationheading @ context='html'}</div>
+						<span id="bbCloseBox"></span>
+					</div>
+					<div id="bbMobileOptionsContainer" class="clearfix">						
+						<div data-sly-test="${mbeanObj.getNavigationItemCount<=8}" data-sly-unwrap>
+							<div id="bbMobileOptionsLeft">
+								<ul>									
+									<div data-sly-test="${mbeanObj.mBean && properties.navigationitems}" data-sly-unwrap>
+										<div data-sly-list.products="${mbeanObj.mBean}" data-sly-unwrap>
+											<div data-sly-test="${productsList.index == 1}" data-sly-list.itemsList="${products.items}" data-sly-unwrap>
+												<div data-sly-test="${itemsListList.index <4}" data-sly-unwrap>
+													<div data-sly-test.urlCheck="${(itemsList.navigationlinkurl=='' ||itemsList.navigationlinkurl=='#')&& (itemsList.navigationanchor!='')}" data-sly-unwrap>
+														<li><a href="#${itemsList.navigationanchor}" title="${itemsList.navigationtitletag}" target="${itemsList.navigationtarget}">${itemsList.navigationlinktext @ context='html'}</a></li>						
+													</div>
+													<div data-sly-test="${!urlCheck}" data-sly-unwrap>
+														<li><a href="${itemsList.navigationlinkfullurl}" title="${itemsList.navigationtitletag}" target="${itemsList.navigationtarget}">${itemsList.navigationlinktext @ context='html'}</a></li>						
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</ul>
+							</div>
+							<div data-sly-test="${ mbeanObj.getNavigationItemCount>4 && mbeanObj.getNavigationItemCount<=8}" data-sly-unwrap>
+								<div id="bbMobileOptionsRight">
+									<ul>									
+										<div data-sly-test="${mbeanObj.mBean && properties.navigationitems}" data-sly-unwrap>
+											<div data-sly-list.products="${mbeanObj.mBean}" data-sly-unwrap>
+												<div data-sly-test="${productsList.index == 1}" data-sly-list.itemsList="${products.items}" data-sly-unwrap>
+													<div data-sly-test="${itemsListList.index >=4}" data-sly-unwrap>
+														<div data-sly-test.urlCheck="${(itemsList.navigationlinkurl=='' ||itemsList.navigationlinkurl=='#')&& (itemsList.navigationanchor!='')}" data-sly-unwrap>
+															<li><a href="#${itemsList.navigationanchor}" title="${itemsList.navigationtitletag}" target="${itemsList.navigationtarget}">${itemsList.navigationlinktext @ context='html'}</a></li>						
+														</div>
+														<div data-sly-test="${!urlCheck}" data-sly-unwrap>
+															<li><a href="${itemsList.navigationlinkfullurl}" title="${itemsList.navigationtitletag}" target="${itemsList.navigationtarget}">${itemsList.navigationlinktext @ context='html'}</a></li>						
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>								
+				</div>
+			</div>
+		</div>
+	</div>
+
+    <ul class="suntrust-accounts-comparison-list clearfix" data-suntrust-class="compare-account-list">
+        <li id="bbStickyNavBox" class="suntrust-accounts-comparison-list-item">
+            <div data-sly-test="${properties.navigationheading}" data-sly-unwrap>
+                <div id="bbNavHeader"><p>${properties.navigationheading @ context='html'}</p></div>
+            </div>
+            <div>
+                <div id="bbNavListContainer">
+                    <ul id="bbNavList">
+                        <div data-sly-test="${mbeanObj.mBean && properties.navigationitems}" data-sly-unwrap>
+                            <div data-sly-list.products="${mbeanObj.mBean}" data-sly-unwrap>
+                                <div data-sly-test="${productsList.index == 1}" data-sly-list.itemsList="${products.items}" data-sly-unwrap>
+									<div data-sly-test.urlCheck="${(itemsList.navigationlinkurl=='' ||itemsList.navigationlinkurl=='#')&& (itemsList.navigationanchor!='')}" data-sly-unwrap>
+										<li><a href="#${itemsList.navigationanchor}" title="${itemsList.navigationtitletag}" target="${itemsList.navigationtarget}">${itemsList.navigationlinktext @ context='html'}</a></li>						
+									</div>
+									<div data-sly-test="${!urlCheck}" data-sly-unwrap>
+										<li><a href="${itemsList.navigationlinkfullurl}" title="${itemsList.navigationtitletag}" target="${itemsList.navigationtarget}">${itemsList.navigationlinktext @ context='html'}</a></li>						
+									</div>
+                                </div>
+                            </div>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>

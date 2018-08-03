@@ -1,0 +1,36 @@
+
+
+<section>
+    <sly data-sly-resource="${@path='hero_content_par', resourceType='wcm/foundation/components/parsys'}" />
+HERO HEADER	
+</section>
+
+
+<section>
+Row Container
+    <sly data-sly-resource="${@path='main_content_parr', resourceType='wcm/foundation/components/parsys'}" />
+</section>
+
+<!-- Below code will be placed in ankle_par once row container component is ready -->
+<section class="suntrust-dynamicStaticListContainer">
+	<div class="container-fluid">
+	<div class="row">
+		<div class="col-lg-8 col-sm-8 col-xs-12 suntrust-leftPanel">
+			<div class="suntrust-dynamicList"> 
+            	DYNAMIC LIST
+                <sly data-sly-resource="${@path='dynamic_list_par', resourceType='wcm/foundation/components/parsys'}" />
+            </div>
+		</div>
+		<div class="col-xs-12 col-sm-4 col-lg-4 suntrust-rightPanel">
+			<div class="suntrust-staticList"> 
+            	STATIC LIST
+                <sly data-sly-resource="${@path='static_list_par', resourceType='wcm/foundation/components/parsys'}" />
+            </div>
+			<div class="suntrust-contactUs"> 
+            	CONTACT US
+                <sly data-sly-resource="${@path='contact_us_par', resourceType='wcm/foundation/components/parsys'}" />
+            </div>
+		</div>
+	</div>
+	</div>
+</section>

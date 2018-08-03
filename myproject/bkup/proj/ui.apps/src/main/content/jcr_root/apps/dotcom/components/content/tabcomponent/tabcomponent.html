@@ -1,0 +1,67 @@
+<div data-sly-use.TabbeanObj="com.suntrust.dotcom.components.TabComponent" data-sly-unwrap>
+	<div class="suntrust-footer-site-links-list-item"
+		data-sly-test="${!TabbeanObj.mBean && !properties.tabstyle && (wcmmode.edit || wcmmode.design)}">Configure Tab Dialog</div>
+</div>
+<div data-sly-use.utilObj="com.suntrust.dotcom.utils.GenericUtil"data-sly-unwrap></div>
+
+<section class="rowContainer container-wrappedMode">
+
+	<div class="row">
+		<div data-sly-test="${wcmmode.edit || wcmmode.design}" data-sly-unwrap>
+			<h1 data-sly-text="${properties.tabstyle}">Enter Style</h1>
+				<ul>
+					<div data-sly-list.items="${TabbeanObj.mBean}" data-sly-unwrap>
+						<div data-sly-list.itemsList="${items.items}" data-sly-unwrap>
+							<li>
+							<a href="#">${itemsList.tabname ? itemsList.tabname : '#TabName' @context='html'}</a> 
+							<sly data-sly-resource="${itemsList.tabid @ resourceType='wcm/foundation/components/parsys'}"></sly>
+							</li>
+						</div>
+					</div>
+
+				</ul>
+		</div>
+
+		<div data-sly-test="${wcmmode.preview || wcmmode.disabled}" data-sly-unwrap>
+				<div class="${properties.tabstyle=='Alternate Tab' ? 'suntrust-feature-tabset-alt sun-feature-tabs_tabset' : 'sun-feature-tabset sun-feature-tabs_tabset'}">
+					<ul role="tablist" class="tabset-nav-list tabset-nav-list-item">
+						<div data-sly-list.items="${TabbeanObj.mBean}" data-sly-unwrap>
+							<div data-sly-list.itemsList="${items.items}" data-sly-unwrap>
+								<li role="tab" data-anchor="${itemsList.anchorname @context='html'}"><a class="analytics-tabcomponent" href="#">${itemsList.tabname ? itemsList.tabname : '#TabName' @context='html'}</a></li>
+							</div>
+						</div>
+
+					</ul>
+					<div data-sly-list.items="${TabbeanObj.mBean}" data-sly-unwrap>
+						<div data-sly-list.itemsList="${items.items}" data-sly-unwrap>
+							<div role="tabpanel">
+								<sly data-sly-resource="${itemsList.tabid @ resourceType='wcm/foundation/components/parsys'}" />
+							</div>
+						</div>
+					</div>
+				</div>
+		</div>
+	</div>
+</section>
+
+<!-- 
+
+THIS PIECE OF ANALYTICS CODE IS MOVED TO ENSIGTHEN.
+THIS SECTION OF CODE SHOULD NEVER BE DELETED AND SHOULD BE ALWAYS COMMENTED.
+THIS CODE IS FOR REFERENCE PURPOSE ONLY.
+
+<script>
+	
+	//Tab Container on click event
+
+    $("a.analytics-tabcomponent").on("click", function() {
+	
+		//alert("Tab");
+        var tabName = window.dataLayer.pageName + "|" + $(this).text().toLowerCase().replace(/\s+/g, '') + "TabClick";
+		//alert("tabName : " + tabName);
+        s.tl(this, 'o', tabName);
+	
+	});
+
+
+</script>-->

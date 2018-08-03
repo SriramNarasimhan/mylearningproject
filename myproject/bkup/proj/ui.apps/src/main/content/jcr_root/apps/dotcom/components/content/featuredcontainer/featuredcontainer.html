@@ -1,0 +1,40 @@
+<!--/* Adds a featured container component */-->
+<div class="container-fluid">
+   <!--/* To handle if layout is not selected by user and default value is passed */-->
+   <div data-sly-test="${!properties.layout}" data-sly-unwrap>
+      <div class="row suntrust-grid-row suntrust-imagetextcta-panelFlex">
+            <div class="col-lg-4 suntrust-rowFlex col-xs-12 col-sm-4">
+               <sly data-sly-resource="${@path='fc_par_4col_1', resourceType='wcm/foundation/components/parsys'}" />
+            </div>
+            <div class="col-lg-4 suntrust-rowFlex col-xs-12 col-sm-4">
+               <sly data-sly-resource="${@path='fc_par_4col_2', resourceType='wcm/foundation/components/parsys'}" />
+            </div>
+            <div class="col-lg-4 suntrust-rowFlex col-xs-12 col-sm-4">
+               <sly data-sly-resource="${@path='fc_par_4col_3', resourceType='wcm/foundation/components/parsys'}" />
+            </div>
+      </div>
+   </div>
+   <div class="row suntrust-grid-row suntrust-imagetextcta-panelFlex">
+   	  <!--/* Insert 4 column layout */-->
+      <div data-sly-test="${properties.layout=='4-columns'}" data-sly-unwrap>
+         <div class="col-lg-4 suntrust-rowFlex col-xs-12 col-sm-4">
+            <sly data-sly-resource="${@path='fc_par_4col_1', resourceType='wcm/foundation/components/parsys'}" />
+         </div>
+         <div class="col-lg-4 suntrust-rowFlex col-xs-12 col-sm-4">
+            <sly data-sly-resource="${@path='fc_par_4col_2', resourceType='wcm/foundation/components/parsys'}" />
+         </div>
+         <div class="col-lg-4 suntrust-rowFlex col-xs-12 col-sm-4">
+               <sly data-sly-resource="${@path='fc_par_4col_3', resourceType='wcm/foundation/components/parsys'}" />
+            </div>
+      </div>
+      <!--/* Insert 6 column layout */-->
+      <div data-sly-test="${properties.layout=='6-columns'}" data-sly-unwrap>
+         <div class="col-lg-6 suntrust-rowFlex col-xs-12 col-sm-6">
+            <sly data-sly-resource="${@path='fc_par_6col_1', resourceType='wcm/foundation/components/parsys'}" />
+         </div>
+         <div class="col-lg-6 suntrust-rowFlex col-xs-12 col-sm-6">
+            <sly data-sly-resource="${@path='fc_par_6col_2', resourceType='wcm/foundation/components/parsys'}" />
+         </div>
+      </div>
+   </div>
+</div>

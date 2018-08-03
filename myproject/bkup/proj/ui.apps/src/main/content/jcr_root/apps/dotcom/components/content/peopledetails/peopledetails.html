@@ -1,0 +1,199 @@
+<sly
+	data-sly-use.designationsCodeObj="${'com.suntrust.dotcom.components.LocationComponent' @tagName='adv_designationcodes'}" />
+<sly
+	data-sly-use.specialtyObj="${'com.suntrust.dotcom.components.LocationComponent' @tagName='adv_specialty'}" />
+<sly
+	data-sly-use.formObj="${'com.suntrust.dotcom.components.AdvisorEmailForm' @specialty=specialtyObj.getTagId}" />
+
+<div class="clearfix people_profile_cdetails">
+	<div class="people_profile_img">
+		<img itemprop="image" src="${formObj.profileImage}"
+			alt="${pageProperties.adv_firstname @context='html'} ${pageProperties.adv_lastname @context='html'} Photo" />
+	</div>
+	<div id="people-profile-data" class="people_profile_details">
+		<div>
+			<h5>
+				<strong> 
+					<sly data-sly-test="${pageProperties.adv_firstname || pageProperties.adv_lastname}">${pageProperties.adv_firstname @context='html'} ${pageProperties.adv_lastname @context='html'}</sly><sly data-sly-test="${designationsCodeObj.getTagsLength != 0}"><sly data-sly-list.listObj="${designationsCodeObj.getTagsTitle}">, ${listObj}</sly></sly><sly data-sly-test="${pageProperties.adv_title1 @context='html'}">, ${pageProperties.adv_title1 @context='html'}</sly>
+				</strong>
+			</h5>
+			<sly data-sly-test="${pageProperties.adv_title2}">
+			<p>${pageProperties.adv_title2 @context='html'}</p>
+			</sly>
+		</div>
+		<sly data-sly-test="${pageProperties.adv_nmls}">
+		<div class="margin_bottom20">
+			<h5>
+				<strong>${'nmlsr-label' @ i18n}</strong>${pageProperties.adv_nmls}
+			</h5>
+		</div>
+		</sly>
+		<div>
+			<sly data-sly-test.checkAdvPhone="${pageProperties.adv_phone}">
+			<div class="location_phone clearfix">
+				<div class="location_phone_icon">
+					<img src="${'phone_icon' @ i18n}" alt="Phone Number" />
+				</div>
+				<div class="location_phone_details">
+					<h5>
+						<strong>${'phone-label' @ i18n}</strong>
+					</h5>
+					<p>
+						<a href="tel:${pageProperties.adv_phone}"><span itemprop="telephone">${pageProperties.adv_phone}</span></a>
+					</p>
+				</div>
+			</div>
+			</sly>
+			<sly data-sly-test="${pageProperties.adv_cell}">
+			<div class="location_phone clearfix">
+				<div class="location_phone_icon">
+					<img src="${'cell_icon' @ i18n}" alt="Mobile Number" />
+				</div>
+				<div class="location_phone_details">
+					<h5>
+						<strong>${'cell-label' @ i18n}</strong>
+					</h5>
+					<p>
+						<span itemprop="telephone" data-sly-test=${!checkAdvPhone}>${pageProperties.adv_cell}</span>
+						<span data-sly-test=${checkAdvPhone}>${pageProperties.adv_cell}</span>
+					</p>
+				</div>
+			</div>
+			</sly>
+			<sly data-sly-test="${pageProperties.adv_emailaddress}">
+			<div class="location_phone clearfix">
+				<div class="location_phone_icon">
+					<img src="${'email_icon' @ i18n}" alt="Email Address" />
+				</div>
+				<div class="location_phone_details">
+					<h5>
+						<strong>${'email-label' @ i18n}</strong>
+					</h5>
+					<p>
+						<a href="mailto:${pageProperties.adv_emailaddress}"><span itemprop="email">${pageProperties.adv_emailaddress
+							@context='html'}</span></a>
+					</p>
+				</div>
+			</div>
+			</sly>
+			<sly data-sly-test="${pageProperties.adv_fax}">
+			<div class="location_fax clearfix">
+				<div class="location_fax_icon">
+					<img src="${'fax_icon' @ i18n}" alt="Fax Number" />
+				</div>
+				<div class="location_fax_details">
+					<h5>
+						<strong>${'fax-label' @ i18n}</strong>
+					</h5>
+					<p>
+						${pageProperties.adv_fax}
+					</p>
+				</div>
+			</div>
+			</sly>
+			<div class="location_phone clearfix">
+				<div class="location_phone_icon">
+					<img src="${'contact_icon' @ i18n}" alt="Contact advisor link" />
+				</div>
+				<div class="location_phone_details">
+					<h5>
+						<strong>${'contact-label' @ i18n}</strong>
+					</h5>
+					<p>
+						<a
+							href="${formObj.getFormURL}?appname=${formObj.getAppName}&formName=${formObj.getEmailFormName}&subject=${formObj.getSubject}&sendTo=${pageProperties.adv_emailaddress}">${'online-contact-form-label'
+							@ i18n}</a>
+					</p>
+				</div>
+			</div>
+			<sly data-sly-test="${pageProperties.adv_facebook}">
+			<div class="location_phone people_profile_facebook clearfix">
+				<div class="location_phone_icon">
+					<img src="${'facebook_icon' @ i18n}" alt="Advisor facebook page" />
+				</div>
+				<div class="location_phone_details">
+					<h5>
+						<strong>${'visit-on-label' @ i18n}</strong>
+					</h5>
+					<p>
+						<a href="${pageProperties.adv_facebook}">${'facebook-label' @
+							i18n}</a>
+					</p>
+				</div>
+			</div>
+			</sly>
+			<sly data-sly-test="${pageProperties.adv_twitter}">
+			<div class="location_phone people_profile_facebook clearfix">
+				<div class="location_phone_icon">
+					<img src="${'twitter_icon' @ i18n}" alt="Advisor twitter page" />
+				</div>
+				<div class="location_phone_details">
+					<h5>
+						<strong>${'visit-on-label' @ i18n}</strong>
+					</h5>
+					<p>
+						<a href="${pageProperties.adv_twitter}">${'twitter-label' @
+							i18n}</a>
+					</p>
+				</div>
+			</div>
+			</sly>
+			<sly data-sly-test="${pageProperties.adv_linkedin}">
+			<div class="location_phone people_profile_facebook clearfix">
+				<div class="location_phone_icon">
+					<img src="${'linkedin_icon' @ i18n}" alt="Advisor linkedin page" />
+				</div>
+				<div class="location_phone_details">
+					<h5>
+						<strong>${'visit-on-label' @ i18n}</strong>
+					</h5>
+					<p>
+						<a href="${pageProperties.adv_linkedin}">${'linkedin-label' @
+							i18n}</a>
+					</p>
+				</div>
+			</div>
+			</sly>
+			<sly data-sly-test="${pageProperties.adv_youtube}">
+			<div class="location_phone people_profile_facebook clearfix">
+				<div class="location_phone_icon">
+					<img src="${'youtube_icon' @ i18n}" alt="Advisor youtube link" />
+				</div>
+				<div class="location_phone_details">
+					<h5>
+						<strong>${'visit-on-label' @ i18n}</strong>
+					</h5>
+					<p>
+						<a href="${pageProperties.adv_youtube}">${'youtube-label' @
+							i18n}</a>
+					</p>
+				</div>
+			</div>
+			</sly>
+			<sly data-sly-test="${pageProperties.adv_googleplus}">
+			<div class="location_phone people_profile_facebook clearfix">
+				<div class="location_phone_icon">
+					<img src="${'googleplus_icon' @ i18n}"
+						alt="Advisor google plus page" />
+				</div>
+				<div class="location_phone_details">
+					<h5>
+						<strong>${'visit-on-label' @ i18n}</strong>
+					</h5>
+					<p>
+						<a href="${pageProperties.adv_googleplus}">${'google-plus-label'
+							@ i18n}</a>
+					</p>
+				</div>
+			</div>
+			</sly>
+			<sly data-sly-test="${formObj.getApplyNowURL}">
+			<div class="location_phone people_profile_apply_online">
+				<a class="suntrust-promo-cta-button lo-data-persist"
+					href="${formObj.getApplyNowURL}referrerId=${formObj.getEmailAddress}" target="_blank" data-lo-phone="${pageProperties.adv_phone}" data-lo-id="${pageProperties.adv_appstring}" data-lo-nmls="${pageProperties.adv_nmls}" data-lo-email="${formObj.getEmailAddress}" data-lo-mortgageappurl="${formObj.getApplyNowURL}">${'apply-online'
+					@ i18n}</a>
+			</div>			
+			</sly>
+		</div>
+	</div>
+</div>

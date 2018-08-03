@@ -1,0 +1,1218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Animated Hero"
+    sling:resourceType="cq/gui/components/authoring/dialog"
+    helpPath="https://www.adobe.com/go/aem6_2_docs_component_en#Text &amp; Image - Sightly">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/foundation/container">
+        <layout
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/foundation/layouts/tabs"
+            type="nav"/>
+        <items jcr:primaryType="nt:unstructured">
+            <animatedhero
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Animated Hero"
+                sling:resourceType="granite/ui/components/foundation/section">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
+                    margin="{Boolean}false"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <assetsfolder
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                fieldDescription="Sets the path to assets needed for animation"
+                                fieldLabel="Animation Assets Folder"
+                                name="./assetsfolder"
+                                required="{Boolean}true"
+                                rootPath="/content/dam"/>
+                        </items>
+                    </column>
+                </items>
+            </animatedhero>
+            <slide1
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Slide 1"
+                sling:resourceType="granite/ui/components/foundation/section">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <desktopslidename
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Enter side name for desktop analytics tagging"
+                                fieldLabel="Slide Name for Desktop"
+                                name="./desktopslidename1"
+                                required="{Boolean}true"/>
+                            <ctatitle
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Set the CTA title text"
+                                fieldLabel="CTA Title"
+                                name="./ctatitle1"/>
+                            <ctaurl
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                fieldDescription="Enter the URL for CTA link"
+                                fieldLabel="CTA URL"
+                                name="./ctalinkurl1"
+                                rootPath="/content"/>
+                            <ctaurlParams
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Sets the link parameters applied to the button. e.g. param1=value1&amp;param2=value2"
+                                fieldLabel="CTA URL Params"
+                                name="./ctaurlParams1"/>
+                            <ctaanchorTag
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Sets an anchor tag that’s applied to the link generated for the navigation item."
+                                fieldLabel="Anchor Tag"
+                                name="./ctaanchorTag1"/>
+                            <ctatarget
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/select"
+                                class="cq-dialog-dropdown-showhide"
+                                cq-dialog-dropdown-showhide-target=".list-option-listfrom-showhide-target"
+                                fieldDescription="Sets the window target of the link"
+                                fieldLabel="CTA Target"
+                                name="./ctatarget1">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <self
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Default"
+                                        value="_self"/>
+                                    <blank
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Blank"
+                                        value="_blank"/>
+                                </items>
+                            </ctatarget>
+                            <file
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/fileupload"
+                                allowUpload="{Boolean}false"
+                                autoStart="{Boolean}false"
+                                class="cq-droptarget"
+                                fieldDescription="Select Image for the CTA backaground"
+                                fieldLabel="CTA Image"
+                                fileNameParameter="./fileName"
+                                fileReferenceParameter="./fileReference1"
+                                mimeTypes="[image]"
+                                multiple="{Boolean}false"
+                                name="./file"
+                                title="Upload Image Asset"
+                                uploadUrl="${suffix.path}"
+                                useHTML5="{Boolean}true"/>
+                            <alttext
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Enter the alternate text for the CTA Image"
+                                fieldLabel="CTA Image Alternate Text"
+                                maxlength="{Long}100"
+                                name="./ctaimagealttext1"/>
+                            <mobileslides
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/multifield"
+                                class="full-width"
+                                fieldDescription="Configure static slides for mobile view"
+                                fieldLabel="Static Mobile Slides">
+                                <field
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/foundation/form/fieldset"
+                                    acs-commons-nested="JSON_STORE"
+                                    name="./slide1">
+                                    <layout
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
+                                        method="absolute"/>
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <column
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/container">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <mobileslidename
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                    fieldDescription="Enter side name for mobile analytics tagging"
+                                                    fieldLabel="Slide Name for Mobile"
+                                                    name="./mobileslidename"
+                                                    required="{Boolean}true"/>
+                                                <mobilecarouselimage
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                                    fieldDescription="Click Browse to select the appropriate Carousel Image."
+                                                    fieldLabel="Mobile Carousel Image"
+                                                    name="./mobilecarouselimage"
+                                                    required="{Boolean}true"
+                                                    rootPath="/content/dam"/>
+                                                <mobileimagealttext
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                    fieldDescription="Enter the alternate text for the Mobile Carousel Image"
+                                                    fieldLabel="Mobile Image Alt Text"
+                                                    maxlength="{Long}100"
+                                                    name="./mobileimagealttext"/>
+                                                <displaycta
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                                                    defaultChecked="{Boolean}false"
+                                                    fieldDescription="Select to include CTA in the slide"
+                                                    fieldLabel="Display CTA on This Slide?"
+                                                    name="./displaycta"
+                                                    text="Display CTA on This Slide?"
+                                                    uncheckedValue="false"
+                                                    value="true"/>
+                                            </items>
+                                        </column>
+                                    </items>
+                                </field>
+                            </mobileslides>
+                        </items>
+                    </column>
+                </items>
+            </slide1>
+            <slide2
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Slide 2"
+                sling:resourceType="granite/ui/components/foundation/section">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <desktopslidename
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Enter side name for desktop analytics tagging"
+                                fieldLabel="Slide Name for Desktop"
+                                name="./desktopslidename2"
+                                required="{Boolean}true"/>
+                            <ctatitle
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Set the CTA title text"
+                                fieldLabel="CTA Title"
+                                name="./ctatitle2"/>
+                            <ctaurl
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                fieldDescription="Enter the URL for CTA link"
+                                fieldLabel="CTA URL"
+                                name="./ctalinkurl2"
+                                rootPath="/content"/>
+                            <ctaurlParams
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Sets the link parameters applied to the button. e.g. param1=value1&amp;param2=value2"
+                                fieldLabel="CTA URL Params"
+                                name="./ctaurlParams2"/>
+                            <ctaanchorTag
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Sets an anchor tag that’s applied to the link generated for the navigation item."
+                                fieldLabel="Anchor Tag"
+                                name="./ctaanchorTag2"/>
+                            <ctatarget
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/select"
+                                class="cq-dialog-dropdown-showhide"
+                                cq-dialog-dropdown-showhide-target=".list-option-listfrom-showhide-target"
+                                fieldDescription="Sets the window target of the link"
+                                fieldLabel="CTA Target"
+                                name="./ctatarget2">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <self
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Default"
+                                        value="_self"/>
+                                    <blank
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Blank"
+                                        value="_blank"/>
+                                </items>
+                            </ctatarget>
+                            <file
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/fileupload"
+                                allowUpload="{Boolean}false"
+                                autoStart="{Boolean}false"
+                                class="cq-droptarget"
+                                fieldDescription="Select Image for the CTA backaground"
+                                fieldLabel="CTA Image"
+                                fileNameParameter="./fileName"
+                                fileReferenceParameter="./fileReference2"
+                                mimeTypes="[image]"
+                                multiple="{Boolean}false"
+                                name="./file"
+                                title="Upload Image Asset"
+                                uploadUrl="${suffix.path}"
+                                useHTML5="{Boolean}true"/>
+                            <alttext
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Enter the alternate text for the CTA Image"
+                                fieldLabel="CTA Image Alternate Text"
+                                maxlength="{Long}100"
+                                name="./ctaimagealttext2"/>
+                            <mobileslides
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/multifield"
+                                class="full-width"
+                                fieldDescription="Configure static slides for mobile view"
+                                fieldLabel="Static Mobile Slides">
+                                <field
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/foundation/form/fieldset"
+                                    acs-commons-nested="JSON_STORE"
+                                    name="./slide2">
+                                    <layout
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
+                                        method="absolute"/>
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <column
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/container">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <mobileslidename
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                    fieldDescription="Enter side name for mobile analytics tagging"
+                                                    fieldLabel="Slide Name for Mobile"
+                                                    name="./mobileslidename"
+                                                    required="{Boolean}true"/>
+                                                <mobilecarouselimage
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                                    fieldDescription="Click Browse to select the appropriate Carousel Image."
+                                                    fieldLabel="Mobile Carousel Image"
+                                                    name="./mobilecarouselimage"
+                                                    required="{Boolean}true"
+                                                    rootPath="/content/dam"/>
+                                                <mobileimagealttext
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                    fieldDescription="Enter the alternate text for the Mobile Carousel Image"
+                                                    fieldLabel="Mobile Image Alt Text"
+                                                    maxlength="{Long}100"
+                                                    name="./mobileimagealttext"/>
+                                                <displaycta
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                                                    defaultChecked="{Boolean}false"
+                                                    fieldDescription="Select to include CTA in the slide"
+                                                    fieldLabel="Display CTA on This Slide?"
+                                                    name="./displaycta"
+                                                    text="Display CTA on This Slide?"
+                                                    uncheckedValue="false"
+                                                    value="true"/>
+                                            </items>
+                                        </column>
+                                    </items>
+                                </field>
+                            </mobileslides>
+                        </items>
+                    </column>
+                </items>
+            </slide2>
+            <slide3
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Slide 3"
+                sling:resourceType="granite/ui/components/foundation/section">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <desktopslidename
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Enter side name for desktop analytics tagging"
+                                fieldLabel="Slide Name for Desktop"
+                                name="./desktopslidename3"
+                                required="{Boolean}true"/>
+                            <ctatitle
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Set the CTA title text"
+                                fieldLabel="CTA Title"
+                                name="./ctatitle3"/>
+                            <ctaurl
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                fieldDescription="Enter the URL for CTA link"
+                                fieldLabel="CTA URL"
+                                name="./ctalinkurl3"
+                                rootPath="/content"/>
+                            <ctaurlParams
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Sets the link parameters applied to the button. e.g. param1=value1&amp;param2=value2"
+                                fieldLabel="CTA URL Params"
+                                name="./ctaurlParams3"/>
+                            <ctaanchorTag
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Sets an anchor tag that’s applied to the link generated for the navigation item."
+                                fieldLabel="Anchor Tag"
+                                name="./ctaanchorTag3"/>
+                            <ctatarget
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/select"
+                                class="cq-dialog-dropdown-showhide"
+                                cq-dialog-dropdown-showhide-target=".list-option-listfrom-showhide-target"
+                                fieldDescription="Sets the window target of the link"
+                                fieldLabel="CTA Target"
+                                name="./ctatarget3">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <self
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Default"
+                                        value="_self"/>
+                                    <blank
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Blank"
+                                        value="_blank"/>
+                                </items>
+                            </ctatarget>
+                            <file
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/fileupload"
+                                allowUpload="{Boolean}false"
+                                autoStart="{Boolean}false"
+                                class="cq-droptarget"
+                                fieldDescription="Select Image for the CTA backaground"
+                                fieldLabel="CTA Image"
+                                fileNameParameter="./fileName"
+                                fileReferenceParameter="./fileReference3"
+                                mimeTypes="[image]"
+                                multiple="{Boolean}false"
+                                name="./file"
+                                title="Upload Image Asset"
+                                uploadUrl="${suffix.path}"
+                                useHTML5="{Boolean}true"/>
+                            <alttext
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Enter the alternate text for the CTA Image"
+                                fieldLabel="CTA Image Alternate Text"
+                                maxlength="{Long}100"
+                                name="./ctaimagealttext3"/>
+                            <mobileslides
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/multifield"
+                                class="full-width"
+                                fieldDescription="Configure static slides for mobile view"
+                                fieldLabel="Static Mobile Slides">
+                                <field
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/foundation/form/fieldset"
+                                    acs-commons-nested="JSON_STORE"
+                                    name="./slide3">
+                                    <layout
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
+                                        method="absolute"/>
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <column
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/container">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <mobileslidename
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                    fieldDescription="Enter side name for mobile analytics tagging"
+                                                    fieldLabel="Slide Name for Mobile"
+                                                    name="./mobileslidename"
+                                                    required="{Boolean}true"/>
+                                                <mobilecarouselimage
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                                    fieldDescription="Click Browse to select the appropriate Carousel Image."
+                                                    fieldLabel="Mobile Carousel Image"
+                                                    name="./mobilecarouselimage"
+                                                    required="{Boolean}true"
+                                                    rootPath="/content/dam"/>
+                                                <mobileimagealttext
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                    fieldDescription="Enter the alternate text for the Mobile Carousel Image"
+                                                    fieldLabel="Mobile Image Alt Text"
+                                                    maxlength="{Long}100"
+                                                    name="./mobileimagealttext"/>
+                                                <displaycta
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                                                    defaultChecked="{Boolean}false"
+                                                    fieldDescription="Select to include CTA in the slide"
+                                                    fieldLabel="Display CTA on This Slide?"
+                                                    name="./displaycta"
+                                                    text="Display CTA on This Slide?"
+                                                    uncheckedValue="false"
+                                                    value="true"/>
+                                            </items>
+                                        </column>
+                                    </items>
+                                </field>
+                            </mobileslides>
+                        </items>
+                    </column>
+                </items>
+            </slide3>
+            <slide4
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Slide 4"
+                sling:resourceType="granite/ui/components/foundation/section">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <desktopslidename
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Enter side name for desktop analytics tagging"
+                                fieldLabel="Slide Name for Desktop"
+                                name="./desktopslidename4"
+                                required="{Boolean}true"/>
+                            <ctatitle
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Set the CTA title text"
+                                fieldLabel="CTA Title"
+                                name="./ctatitle4"/>
+                            <ctaurl
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                fieldDescription="Enter the URL for CTA link"
+                                fieldLabel="CTA URL"
+                                name="./ctalinkurl4"
+                                rootPath="/content"/>
+                            <ctaurlParams
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Sets the link parameters applied to the button. e.g. param1=value1&amp;param2=value2"
+                                fieldLabel="CTA URL Params"
+                                name="./ctaurlParams4"/>
+                            <ctaanchorTag
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Sets an anchor tag that’s applied to the link generated for the navigation item."
+                                fieldLabel="Anchor Tag"
+                                name="./ctaanchorTag4"/>
+                            <ctatarget
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/select"
+                                class="cq-dialog-dropdown-showhide"
+                                cq-dialog-dropdown-showhide-target=".list-option-listfrom-showhide-target"
+                                fieldDescription="Sets the window target of the link"
+                                fieldLabel="CTA Target"
+                                name="./ctatarget4">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <self
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Default"
+                                        value="_self"/>
+                                    <blank
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Blank"
+                                        value="_blank"/>
+                                </items>
+                            </ctatarget>
+                            <file
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/fileupload"
+                                allowUpload="{Boolean}false"
+                                autoStart="{Boolean}false"
+                                class="cq-droptarget"
+                                fieldDescription="Select Image for the CTA backaground"
+                                fieldLabel="CTA Image"
+                                fileNameParameter="./fileName"
+                                fileReferenceParameter="./fileReference4"
+                                mimeTypes="[image]"
+                                multiple="{Boolean}false"
+                                name="./file"
+                                title="Upload Image Asset"
+                                uploadUrl="${suffix.path}"
+                                useHTML5="{Boolean}true"/>
+                            <alttext
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Enter the alternate text for the CTA Image"
+                                fieldLabel="CTA Image Alternate Text"
+                                maxlength="{Long}100"
+                                name="./ctaimagealttext4"/>
+                            <mobileslides
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/multifield"
+                                class="full-width"
+                                fieldDescription="Configure static slides for mobile view"
+                                fieldLabel="Static Mobile Slides">
+                                <field
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/foundation/form/fieldset"
+                                    acs-commons-nested="JSON_STORE"
+                                    name="./slide4">
+                                    <layout
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
+                                        method="absolute"/>
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <column
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/container">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <mobileslidename
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                    fieldDescription="Enter side name for mobile analytics tagging"
+                                                    fieldLabel="Slide Name for Mobile"
+                                                    name="./mobileslidename"
+                                                    required="{Boolean}true"/>
+                                                <mobilecarouselimage
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                                    fieldDescription="Click Browse to select the appropriate Carousel Image."
+                                                    fieldLabel="Mobile Carousel Image"
+                                                    name="./mobilecarouselimage"
+                                                    required="{Boolean}true"
+                                                    rootPath="/content/dam"/>
+                                                <mobileimagealttext
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                    fieldDescription="Enter the alternate text for the Mobile Carousel Image"
+                                                    fieldLabel="Mobile Image Alt Text"
+                                                    maxlength="{Long}100"
+                                                    name="./mobileimagealttext"/>
+                                                <displaycta
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                                                    defaultChecked="{Boolean}false"
+                                                    fieldDescription="Select to include CTA in the slide"
+                                                    fieldLabel="Display CTA on This Slide?"
+                                                    name="./displaycta"
+                                                    text="Display CTA on This Slide?"
+                                                    uncheckedValue="false"
+                                                    value="true"/>
+                                            </items>
+                                        </column>
+                                    </items>
+                                </field>
+                            </mobileslides>
+                        </items>
+                    </column>
+                </items>
+            </slide4>
+            <slide5
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Slide 5"
+                sling:resourceType="granite/ui/components/foundation/section">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <desktopslidename
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Enter side name for desktop analytics tagging"
+                                fieldLabel="Slide Name for Desktop"
+                                name="./desktopslidename5"
+                                required="{Boolean}true"/>
+                            <ctatitle
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Set the CTA title text"
+                                fieldLabel="CTA Title"
+                                name="./ctatitle5"/>
+                            <ctaurl
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                fieldDescription="Enter the URL for CTA link"
+                                fieldLabel="CTA URL"
+                                name="./ctalinkurl5"
+                                rootPath="/content"/>
+                            <ctaurlParams
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Sets the link parameters applied to the button. e.g. param1=value1&amp;param2=value2"
+                                fieldLabel="CTA URL Params"
+                                name="./ctaurlParams5"/>
+                            <ctaanchorTag
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Sets an anchor tag that’s applied to the link generated for the navigation item."
+                                fieldLabel="Anchor Tag"
+                                name="./ctaanchorTag5"/>
+                            <ctatarget
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/select"
+                                class="cq-dialog-dropdown-showhide"
+                                cq-dialog-dropdown-showhide-target=".list-option-listfrom-showhide-target"
+                                fieldDescription="Sets the window target of the link"
+                                fieldLabel="CTA Target"
+                                name="./ctatarget5">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <self
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Default"
+                                        value="_self"/>
+                                    <blank
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Blank"
+                                        value="_blank"/>
+                                </items>
+                            </ctatarget>
+                            <file
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/fileupload"
+                                allowUpload="{Boolean}false"
+                                autoStart="{Boolean}false"
+                                class="cq-droptarget"
+                                fieldDescription="Select Image for the CTA backaground"
+                                fieldLabel="CTA Image"
+                                fileNameParameter="./fileName"
+                                fileReferenceParameter="./fileReference5"
+                                mimeTypes="[image]"
+                                multiple="{Boolean}false"
+                                name="./file"
+                                title="Upload Image Asset"
+                                uploadUrl="${suffix.path}"
+                                useHTML5="{Boolean}true"/>
+                            <alttext
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Enter the alternate text for the CTA Image"
+                                fieldLabel="CTA Image Alternate Text"
+                                maxlength="{Long}100"
+                                name="./ctaimagealttext5"/>
+                            <mobileslides
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/multifield"
+                                class="full-width"
+                                fieldDescription="Configure static slides for mobile view"
+                                fieldLabel="Static Mobile Slides">
+                                <field
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/foundation/form/fieldset"
+                                    acs-commons-nested="JSON_STORE"
+                                    name="./slide5">
+                                    <layout
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
+                                        method="absolute"/>
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <column
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/container">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <mobileslidename
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                    fieldDescription="Enter side name for mobile analytics tagging"
+                                                    fieldLabel="Slide Name for Mobile"
+                                                    name="./mobileslidename"
+                                                    required="{Boolean}true"/>
+                                                <mobilecarouselimage
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                                    fieldDescription="Click Browse to select the appropriate Carousel Image."
+                                                    fieldLabel="Mobile Carousel Image"
+                                                    name="./mobilecarouselimage"
+                                                    required="{Boolean}true"
+                                                    rootPath="/content/dam"/>
+                                                <mobileimagealttext
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                    fieldDescription="Enter the alternate text for the Mobile Carousel Image"
+                                                    fieldLabel="Mobile Image Alt Text"
+                                                    maxlength="{Long}100"
+                                                    name="./mobileimagealttext"/>
+                                                <displaycta
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                                                    defaultChecked="{Boolean}false"
+                                                    fieldDescription="Select to include CTA in the slide"
+                                                    fieldLabel="Display CTA on This Slide?"
+                                                    name="./displaycta"
+                                                    text="Display CTA on This Slide?"
+                                                    uncheckedValue="false"
+                                                    value="true"/>
+                                            </items>
+                                        </column>
+                                    </items>
+                                </field>
+                            </mobileslides>
+                        </items>
+                    </column>
+                </items>
+            </slide5>
+            <slide6
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Slide 6"
+                sling:resourceType="granite/ui/components/foundation/section">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <desktopslidename
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Enter side name for desktop analytics tagging"
+                                fieldLabel="Slide Name for Desktop"
+                                name="./desktopslidename6"
+                                required="{Boolean}true"/>
+                            <ctatitle
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Set the CTA title text"
+                                fieldLabel="CTA Title"
+                                name="./ctatitle6"/>
+                            <ctaurl
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                fieldDescription="Enter the URL for CTA link"
+                                fieldLabel="CTA URL"
+                                name="./ctalinkurl6"
+                                rootPath="/content"/>
+                            <ctaurlParams
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Sets the link parameters applied to the button. e.g. param1=value1&amp;param2=value2"
+                                fieldLabel="CTA URL Params"
+                                name="./ctaurlParams6"/>
+                            <ctaanchorTag
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Sets an anchor tag that’s applied to the link generated for the navigation item."
+                                fieldLabel="Anchor Tag"
+                                name="./ctaanchorTag6"/>
+                            <ctatarget
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/select"
+                                class="cq-dialog-dropdown-showhide"
+                                cq-dialog-dropdown-showhide-target=".list-option-listfrom-showhide-target"
+                                fieldDescription="Sets the window target of the link"
+                                fieldLabel="CTA Target"
+                                name="./ctatarget6">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <self
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Default"
+                                        value="_self"/>
+                                    <blank
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Blank"
+                                        value="_blank"/>
+                                </items>
+                            </ctatarget>
+                            <file
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/fileupload"
+                                allowUpload="{Boolean}false"
+                                autoStart="{Boolean}false"
+                                class="cq-droptarget"
+                                fieldDescription="Select Image for the CTA backaground"
+                                fieldLabel="CTA Image"
+                                fileNameParameter="./fileName"
+                                fileReferenceParameter="./fileReference6"
+                                mimeTypes="[image]"
+                                multiple="{Boolean}false"
+                                name="./file"
+                                title="Upload Image Asset"
+                                uploadUrl="${suffix.path}"
+                                useHTML5="{Boolean}true"/>
+                            <alttext
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Enter the alternate text for the CTA Image"
+                                fieldLabel="CTA Image Alternate Text"
+                                maxlength="{Long}100"
+                                name="./ctaimagealttext6"/>
+                            <mobileslides
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/multifield"
+                                class="full-width"
+                                fieldDescription="Configure static slides for mobile view"
+                                fieldLabel="Static Mobile Slides">
+                                <field
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/foundation/form/fieldset"
+                                    acs-commons-nested="JSON_STORE"
+                                    name="./slide6">
+                                    <layout
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
+                                        method="absolute"/>
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <column
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/container">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <mobileslidename
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                    fieldDescription="Enter side name for mobile analytics tagging"
+                                                    fieldLabel="Slide Name for Mobile"
+                                                    name="./mobileslidename"
+                                                    required="{Boolean}true"/>
+                                                <mobilecarouselimage
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                                    fieldDescription="Click Browse to select the appropriate Carousel Image."
+                                                    fieldLabel="Mobile Carousel Image"
+                                                    name="./mobilecarouselimage"
+                                                    required="{Boolean}true"
+                                                    rootPath="/content/dam"/>
+                                                <mobileimagealttext
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                    fieldDescription="Enter the alternate text for the Mobile Carousel Image"
+                                                    fieldLabel="Mobile Image Alt Text"
+                                                    maxlength="{Long}100"
+                                                    name="./mobileimagealttext"/>
+                                                <displaycta
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                                                    defaultChecked="{Boolean}false"
+                                                    fieldDescription="Select to include CTA in the slide"
+                                                    fieldLabel="Display CTA on This Slide?"
+                                                    name="./displaycta"
+                                                    text="Display CTA on This Slide?"
+                                                    uncheckedValue="false"
+                                                    value="true"/>
+                                            </items>
+                                        </column>
+                                    </items>
+                                </field>
+                            </mobileslides>
+                        </items>
+                    </column>
+                </items>
+            </slide6>
+            <slide7
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Slide 7"
+                sling:resourceType="granite/ui/components/foundation/section">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <desktopslidename
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Enter side name for desktop analytics tagging"
+                                fieldLabel="Slide Name for Desktop"
+                                name="./desktopslidename7"
+                                required="{Boolean}true"/>
+                            <ctatitle
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Set the CTA title text"
+                                fieldLabel="CTA Title"
+                                name="./ctatitle7"/>
+                            <ctaurl
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                fieldDescription="Enter the URL for CTA link"
+                                fieldLabel="CTA URL"
+                                name="./ctalinkurl7"
+                                rootPath="/content"/>
+                            <ctaurlParams
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Sets the link parameters applied to the button. e.g. param1=value1&amp;param2=value2"
+                                fieldLabel="CTA URL Params"
+                                name="./ctaurlParams7"/>
+                            <ctaanchorTag
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Sets an anchor tag that’s applied to the link generated for the navigation item."
+                                fieldLabel="Anchor Tag"
+                                name="./ctaanchorTag7"/>
+                            <ctatarget
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/select"
+                                class="cq-dialog-dropdown-showhide"
+                                cq-dialog-dropdown-showhide-target=".list-option-listfrom-showhide-target"
+                                fieldDescription="Sets the window target of the link"
+                                fieldLabel="CTA Target"
+                                name="./ctatarget7">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <self
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Default"
+                                        value="_self"/>
+                                    <blank
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Blank"
+                                        value="_blank"/>
+                                </items>
+                            </ctatarget>
+                            <file
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/fileupload"
+                                allowUpload="{Boolean}false"
+                                autoStart="{Boolean}false"
+                                class="cq-droptarget"
+                                fieldDescription="Select Image for the CTA backaground"
+                                fieldLabel="CTA Image"
+                                fileNameParameter="./fileName"
+                                fileReferenceParameter="./fileReference7"
+                                mimeTypes="[image]"
+                                multiple="{Boolean}false"
+                                name="./file"
+                                title="Upload Image Asset"
+                                uploadUrl="${suffix.path}"
+                                useHTML5="{Boolean}true"/>
+                            <alttext
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Enter the alternate text for the CTA Image"
+                                fieldLabel="CTA Image Alternate Text"
+                                maxlength="{Long}100"
+                                name="./ctaimagealttext7"/>
+                            <mobileslides
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/multifield"
+                                class="full-width"
+                                fieldDescription="Configure static slides for mobile view"
+                                fieldLabel="Static Mobile Slides">
+                                <field
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/foundation/form/fieldset"
+                                    acs-commons-nested="JSON_STORE"
+                                    name="./slide7">
+                                    <layout
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
+                                        method="absolute"/>
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <column
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/container">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <mobileslidename
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                    fieldDescription="Enter side name for mobile analytics tagging"
+                                                    fieldLabel="Slide Name for Mobile"
+                                                    name="./mobileslidename"
+                                                    required="{Boolean}true"/>
+                                                <mobilecarouselimage
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                                    fieldDescription="Click Browse to select the appropriate Carousel Image."
+                                                    fieldLabel="Mobile Carousel Image"
+                                                    name="./mobilecarouselimage"
+                                                    required="{Boolean}true"
+                                                    rootPath="/content/dam"/>
+                                                <mobileimagealttext
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                    fieldDescription="Enter the alternate text for the Mobile Carousel Image"
+                                                    fieldLabel="Mobile Image Alt Text"
+                                                    maxlength="{Long}100"
+                                                    name="./mobileimagealttext"/>
+                                                <displaycta
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                                                    defaultChecked="{Boolean}false"
+                                                    fieldDescription="Select to include CTA in the slide"
+                                                    fieldLabel="Display CTA on This Slide?"
+                                                    name="./displaycta"
+                                                    text="Display CTA on This Slide?"
+                                                    uncheckedValue="false"
+                                                    value="true"/>
+                                            </items>
+                                        </column>
+                                    </items>
+                                </field>
+                            </mobileslides>
+                        </items>
+                    </column>
+                </items>
+            </slide7>
+            <slide8
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Slide 8"
+                sling:resourceType="granite/ui/components/foundation/section">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <desktopslidename
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Enter side name for desktop analytics tagging"
+                                fieldLabel="Slide Name for Desktop"
+                                name="./desktopslidename8"
+                                required="{Boolean}true"/>
+                            <ctatitle
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Set the CTA title text"
+                                fieldLabel="CTA Title"
+                                name="./ctatitle8"/>
+                            <ctaurl
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                fieldDescription="Enter the URL for CTA link"
+                                fieldLabel="CTA URL"
+                                name="./ctalinkurl8"
+                                rootPath="/content"/>
+                            <ctaurlParams
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Sets the link parameters applied to the button. e.g. param1=value1&amp;param2=value2"
+                                fieldLabel="CTA URL Params"
+                                name="./ctaurlParams8"/>
+                            <ctaanchorTag
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Sets an anchor tag that’s applied to the link generated for the navigation item."
+                                fieldLabel="Anchor Tag"
+                                name="./ctaanchorTag8"/>
+                            <ctatarget
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/select"
+                                class="cq-dialog-dropdown-showhide"
+                                cq-dialog-dropdown-showhide-target=".list-option-listfrom-showhide-target"
+                                fieldDescription="Sets the window target of the link"
+                                fieldLabel="CTA Target"
+                                name="./ctatarget8">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <self
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Default"
+                                        value="_self"/>
+                                    <blank
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Blank"
+                                        value="_blank"/>
+                                </items>
+                            </ctatarget>
+                            <file
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/fileupload"
+                                allowUpload="{Boolean}false"
+                                autoStart="{Boolean}false"
+                                class="cq-droptarget"
+                                fieldDescription="Select Image for the CTA backaground"
+                                fieldLabel="CTA Image"
+                                fileNameParameter="./fileName"
+                                fileReferenceParameter="./fileReference8"
+                                mimeTypes="[image]"
+                                multiple="{Boolean}false"
+                                name="./file"
+                                title="Upload Image Asset"
+                                uploadUrl="${suffix.path}"
+                                useHTML5="{Boolean}true"/>
+                            <alttext
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Enter the alternate text for the CTA Image"
+                                fieldLabel="CTA Image Alternate Text"
+                                maxlength="{Long}100"
+                                name="./ctaimagealttext8"/>
+                            <mobileslides
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/multifield"
+                                class="full-width"
+                                fieldDescription="Configure static slides for mobile view"
+                                fieldLabel="Static Mobile Slides">
+                                <field
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/foundation/form/fieldset"
+                                    acs-commons-nested="JSON_STORE"
+                                    name="./slide8">
+                                    <layout
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
+                                        method="absolute"/>
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <column
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/container">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <mobileslidename
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                    fieldDescription="Enter side name for mobile analytics tagging"
+                                                    fieldLabel="Slide Name for Mobile"
+                                                    name="./mobileslidename"
+                                                    required="{Boolean}true"/>
+                                                <mobilecarouselimage
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                                    fieldDescription="Click Browse to select the appropriate Carousel Image."
+                                                    fieldLabel="Mobile Carousel Image"
+                                                    name="./mobilecarouselimage"
+                                                    required="{Boolean}true"
+                                                    rootPath="/content/dam"/>
+                                                <mobileimagealttext
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                    fieldDescription="Enter the alternate text for the Mobile Carousel Image"
+                                                    fieldLabel="Mobile Image Alt Text"
+                                                    maxlength="{Long}100"
+                                                    name="./mobileimagealttext"/>
+                                                <displaycta
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                                                    defaultChecked="{Boolean}false"
+                                                    fieldDescription="Select to include CTA in the slide"
+                                                    fieldLabel="Display CTA on This Slide?"
+                                                    name="./displaycta"
+                                                    text="Display CTA on This Slide?"
+                                                    uncheckedValue="false"
+                                                    value="true"/>
+                                            </items>
+                                        </column>
+                                    </items>
+                                </field>
+                            </mobileslides>
+                        </items>
+                    </column>
+                </items>
+            </slide8>
+        </items>
+    </content>
+</jcr:root>

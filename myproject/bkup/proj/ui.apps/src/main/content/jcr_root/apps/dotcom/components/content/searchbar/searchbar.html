@@ -1,0 +1,37 @@
+<div data-sly-test="${(wcmmode.edit || wcmmode.design) && !properties.cta}">Configure Search bar Component</div>
+<div data-sly-test="${properties.cta}">
+	<section id="search" class="jumbotron location-search">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12 col-md-12">
+                    <div class="row search-bg-color">
+                        <div class="search_result_heading">
+                            <div class="search_text_box clearfix">
+                            	<div class="search_text_box_reset">
+                                    <label for="search-input" class="suntrust-accessible-text">${properties.placeholderText}</label>
+                                    <input data-suggestcount="${properties.suggestioncount ? properties.suggestioncount : '5'}" data-searchpath="${properties.dictpath ? properties.dictpath : '/content/suntrust/dotcom/us/en'}" type="search" value="" id="search-input" class="suntrust_search typeahead" placeholder="${properties.placeholderText}" />
+                                    <button type="reset" class="search-cancel-button" data-sun-type="search-cancel-button" data-sun-class="search-cancel-button">
+										<span class="sun-button-text suntrust-accessible-text">Clear</span>
+									</button>
+                                    <button class="suntrust-input-location-button" type="button"></button>
+                                </div>
+                                <a class="suntrust-orange-button search-button" href="javascript:void(0);" target="_self">${properties.cta @context='html'}</a>
+                                <div class="search_text_error_message text-center hide">
+                                    ${properties.validationErrorMessage @context='html'}
+                                </div>
+                            </div>
+                            <div class="search_result_count text-center hide">
+                                <span class="locations_result_count hide">0</span> 
+                                <span class="products_result_count hide">0</span> 
+                                <span class="resources_result_count hide">0</span> 
+                                <span class="people_result_count hide">0</span> 
+                                <span class="faqs_result_count hide">0</span> ${properties.searchResultText @context='html'}
+                            </div>	
+                            <div class="search-bar-url" style="display: none">${properties.linkURL}</div>						
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

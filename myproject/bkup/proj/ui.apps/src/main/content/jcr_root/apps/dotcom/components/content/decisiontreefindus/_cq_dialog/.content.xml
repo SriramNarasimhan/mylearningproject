@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Decision Tree Find Us Component Dialog."
+    sling:resourceType="cq/gui/components/authoring/dialog"
+    helpPath="https://www.adobe.com/go/aem6_2_docs_component_en#List - Sightly">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/foundation/container">
+        <layout
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/foundation/layouts/tabs"
+            type="nav"/>
+        <items jcr:primaryType="nt:unstructured">
+            <content
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Content"
+                sling:resourceType="granite/ui/components/foundation/section">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
+                    margin="{Boolean}false"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <title
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textarea"
+                                fieldDescription="Sets the title displayed in the component"
+                                fieldLabel="Title*"
+                                name="./title"
+                                required="{Boolean}true"/>
+                            <titlewidth
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/select"
+                                class="cq-dialog-dropdown-showhide"
+                                cq-dialog-dropdown-showhide-target=".list-option-listfrom-showhide-target"
+                                fieldDescription="Sets the width of the title"
+                                fieldLabel="Title Width"
+                                name="./titlewidth">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <default
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Default-700px"
+                                        value=""/>
+                                    <_x0038_00px
+                                        jcr:primaryType="nt:unstructured"
+                                        text="800px"
+                                        value="heading-width-800"/>
+                                    <_x0039_00px
+                                        jcr:primaryType="nt:unstructured"
+                                        text="900px"
+                                        value="heading-width-900"/>
+                                    <_x0031_000px
+                                        jcr:primaryType="nt:unstructured"
+                                        text="1000px"
+                                        value="heading-width-1000"/>
+                                    <_x0031_100px
+                                        jcr:primaryType="nt:unstructured"
+                                        text="1100px"
+                                        value="heading-width-1100"/>
+                                    <_x0031_200px
+                                        jcr:primaryType="nt:unstructured"
+                                        text="1200px"
+                                        value="heading-width-1200"/>
+                                </items>
+                            </titlewidth>
+                            <titlealignment
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/select"
+                                class="cq-dialog-dropdown-showhide"
+                                cq-dialog-dropdown-showhide-target=".list-option-listfrom-showhide-target"
+                                fieldDescription="Sets the alignment for text content"
+                                fieldLabel="Text Alignment"
+                                name="./titlealignment">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <right
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Right"
+                                        value="text-align-right"/>
+                                    <left
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Left"
+                                        value="text-align-left"/>
+                                    <center
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Center"
+                                        value="text-align-center"/>
+                                </items>
+                            </titlealignment>
+                            <glyphImage
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                fieldDescription="Browse Glyph Image"
+                                fieldLabel="Glyph Image"
+                                name="./glyphImage"
+                                rootPath="/content/dam"/>
+                            <glyphAlignment
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/select"
+                                class="cq-dialog-dropdown-showhide"
+                                cq-dialog-dropdown-showhide-target=".list-option-listfrom-showhide-target"
+                                fieldDescription="Sets the glyph alt text"
+                                fieldLabel="Glyph Alignment"
+                                name="./glyphAlignment">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <left
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Left"
+                                        value="image-left"/>
+                                    <right
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Right"
+                                        value="image-right"/>
+                                </items>
+                            </glyphAlignment>
+                            <glyphAltText
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Sets the glyph alt text"
+                                fieldLabel="Glyph Alt Text"
+                                name="./glyphAltText"/>
+                            <labelText
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Sets the label text"
+                                fieldLabel="Label Text"
+                                name="./labelText"/>
+                            <buttonText
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Sets the button text"
+                                fieldLabel="Button Text"
+                                name="./buttonText"/>
+                            <normalimage
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                allowBlank="{Boolean}false"
+                                fieldDescription="Sets the url target for normal background image for slide"
+                                fieldLabel="Normal BG Image"
+                                name="./normalslidebgimg"
+                                rootPath="/content"/>
+                            <retinaimage
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                allowBlank="{Boolean}false"
+                                fieldDescription="Sets the url target for retina background image for slide"
+                                fieldLabel="Retina BG Image"
+                                name="./retinaslidebgimg"
+                                rootPath="/content"/>
+                            <mobileimage
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                allowBlank="{Boolean}false"
+                                fieldDescription="Sets the url target for mobile adaptive image for slide"
+                                fieldLabel="Mobile Image"
+                                name="./mobileimg"
+                                rootPath="/content"/>
+                        </items>
+                    </column>
+                </items>
+            </content>
+        </items>
+    </content>
+</jcr:root>

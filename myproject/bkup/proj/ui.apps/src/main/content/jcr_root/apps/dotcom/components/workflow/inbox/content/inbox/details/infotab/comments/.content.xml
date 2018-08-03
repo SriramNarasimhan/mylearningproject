@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    granite:class="content-container taskdetails-tab comment-tab"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Comments"
+    sling:resourceType="granite/ui/components/coral/foundation/container"
+    isCommentTab="{Boolean}true"
+    subFolderName="default"
+    tabid="7c927721-1473-492f-b949-4fa2f82a32a0">
+    <items jcr:primaryType="nt:unstructured">
+        <commentcontainer
+            granite:class="vertical coral-Form--vertical"
+            granite:rel="task-comments-form"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/coral/foundation/form">
+            <items jcr:primaryType="nt:unstructured">
+                <newcomment
+                    granite:class="new-comment-container"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="New Comment"
+                    sling:resourceType="granite/ui/components/coral/foundation/container">
+                    <items jcr:primaryType="nt:unstructured">
+                        <message
+                            granite:rel="task-newcomment-text"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
+                            fieldLabel="New Comment"
+                            name="message"
+                            rows="4"/>
+                        <addcomment
+                            granite:class="coral-Button--primary task-comment-addnew"
+                            granite:rel="task-comment-addnew"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/button"
+                            text="Add">
+                            <granite:data
+                                jcr:primaryType="nt:unstructured"
+                                comment-target-ref=".cq-tasks-comments.regular-comments"/>
+                        </addcomment>
+                    </items>
+                </newcomment>
+                <taskcomments
+                    granite:rel="cq-tasks-comments regular-comments"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/container"
+                    itemscope="itemscope">
+                    <datasource
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="cq/gui/components/projects/admin/datasource/taskcommentdatasource"
+                        itemResourceType="cq/gui/components/projects/admin/taskcomment"
+                        subfolder="default"/>
+                </taskcomments>
+                <posturl
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/form/hidden"
+                    name=":postUrl"
+                    value="${param.item}"/>
+                <redirect
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/form/hidden"
+                    name=":redirect"
+                    value="/apps/dotcom/components/workflow/inbox/content/inbox/details/infotab/comments/items/commentcontainer/items/taskcomments.html?item=${granite:encodeURIComponent(param.item)}"/>
+                <subfolder
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/form/hidden"
+                    name="subFolder"
+                    value="default"/>
+            </items>
+        </commentcontainer>
+    </items>
+</jcr:root>

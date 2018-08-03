@@ -1,0 +1,546 @@
+<sly data-sly-use.configServiceUse="${'com.suntrust.dotcom.utils.ConfigServiceUse' @ property='bootstrap.js.path'}"/>
+
+<sly data-sly-use.configServiceUseiamabusinessowner="${'com.suntrust.dotcom.utils.ConfigServiceUse' @ property='iamabusinessowner'}"/>
+<sly data-sly-use.configServiceUseiamacorporateexecutive="${'com.suntrust.dotcom.utils.ConfigServiceUse' @ property='iamacorporateexecutive'}"/>
+<sly data-sly-use.configServiceUseiamanattorneyorimanageafirm="${'com.suntrust.dotcom.utils.ConfigServiceUse' @ property='iamanattorneyorimanageafirm'}"/>
+<sly data-sly-use.configServiceUseiamaphysicianorimanageapractice="${'com.suntrust.dotcom.utils.ConfigServiceUse' @ property='iamaphysicianorimanageapractice'}"/>
+<sly data-sly-use.configServiceUseiamclosetoretirementorretired="${'com.suntrust.dotcom.utils.ConfigServiceUse' @ property='iamclosetoretirementorretired'}"/>
+<sly data-sly-use.configServiceUseiaminthesportsorentertainmentindustry="${'com.suntrust.dotcom.utils.ConfigServiceUse' @ property='iaminthesportsorentertainmentindustry'}"/>
+<sly data-sly-use.configServiceUseiamjustgettingstartedontheroadtoretirement="${'com.suntrust.dotcom.utils.ConfigServiceUse' @ property='iamjustgettingstartedontheroadtoretirement'}"/>
+<sly data-sly-use.configServiceUseiamlookingforguidanceonmyinvestments="${'com.suntrust.dotcom.utils.ConfigServiceUse' @ property='iamlookingforguidanceonmyinvestments'}"/>
+<sly data-sly-use.configServiceUseiamseekinghomeloanadvice="${'com.suntrust.dotcom.utils.ConfigServiceUse' @ property='iamseekinghomeloanadvice'}"/>
+<sly data-sly-use.configServiceUseihaveinternationalwealthmanagementneeds="${'com.suntrust.dotcom.utils.ConfigServiceUse' @ property='ihaveinternationalwealthmanagementneeds'}"/>
+<sly data-sly-use.configServiceUseihavemadesomeprogressonmyretirementgoals="${'com.suntrust.dotcom.utils.ConfigServiceUse' @ property='ihavemadesomeprogressonmyretirementgoals'}"/>
+<sly data-sly-use.configServiceUseimlookingforstrategiestoprotectmywealththroughoutretirement="${'com.suntrust.dotcom.utils.ConfigServiceUse' @ property='imlookingforstrategiestoprotectmywealththroughoutretirement'}"/>
+
+<sly data-sly-test="${properties.showMoreCta}">
+	<script src="/etc/designs/dotcom/main/js/mapquest.js"></script>
+</sly>
+<!-- Begin of Hidden Div -->
+<sly data-sly-test="${properties.showMoreCta}">
+	<div id="hiddenTemplate" style="display:none;">
+		<div class="profilePath" class="search_result_description_detail_img clearfix">
+			<div>
+				<a target="_self" class="profilePage"><img class="profileImage"></a>
+			</div>
+		</div>
+		<div class="search_result_details_individual_details">
+			<div>
+				<a class="profilePage" target="_self"><strong class="advisorName"></strong></a>
+				<p class="advisorTitle"></p>
+			</div>
+			<div class="search_result_location_contact visible-xs">
+				<div class="search_result_location_phone clearfix">
+					<div class="search_result_location_phone_icon">
+						<img src="/content/dam/suntrust/us/en/elements/2017/graphic-elements/icon_phone.png" >
+					</div>
+					<div class="search_result_location_phone_details">
+						<h5>
+							<strong>Phone</strong>
+						</h5>
+						<p class="advisorPhone">
+							<a class="telNo"></a>
+						</p>
+					</div>
+				</div>
+				<div class="search_result_location_phone clearfix">
+					<div class="search_result_location_phone_icon">
+						<img src="/content/dam/suntrust/us/en/elements/2017/graphic-elements/icon_email.png" >
+					</div>
+					<div class="search_result_location_phone_details">
+						<h5>
+							<strong>Email</strong>
+						</h5>
+						<p class="advisorEmail">
+							<a class="mailId"></a>
+						</p>
+					</div>
+				</div>
+				<div class="search_result_location_phone clearfix">
+					<div class="search_result_location_phone_icon">
+						<img src="/content/dam/suntrust/us/en/elements/2017/graphic-elements/icon_contact.png" >
+					</div>
+					<div class="search_result_location_phone_details">
+						<h5>
+							<strong>Contact</strong>
+						</h5>
+						<p class="advisorContact">
+							<a target="_blank" class="contactFormId">Online Contact Form</a>
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="peopleSearch_togSec">
+				<a href="javascript:void(0);" class="peopleSearch_tog"><span>+</span><strong>Show Locations</strong></a>
+				<div class="locationResults location_show_hide" style="display:none">
+				</div>
+			</div>
+		</div>
+		<div class="search_result_location_contact hidden-xs">
+			<div class="search_result_location_phone clearfix">
+				<div class="search_result_location_phone_icon">
+					<img src="/content/dam/suntrust/us/en/elements/2017/graphic-elements/icon_phone.png" >
+				</div>
+				<div class="search_result_location_phone_details">
+					<h5>
+						<strong>Phone</strong>
+					</h5>
+					<p>
+						<a class="telNo"></a>
+					</p>
+				</div>
+			</div>
+			<div class="search_result_location_phone clearfix">
+				<div class="search_result_location_phone_icon">
+					<img src="/content/dam/suntrust/us/en/elements/2017/graphic-elements/icon_email.png">
+				</div>
+				<div class="search_result_location_phone_details">
+					<h5>
+						<strong>Email</strong>
+					</h5>
+					<p>
+						<a class="mailId"></a>
+					</p>
+				</div>
+			</div>
+			<div class="search_result_location_phone clearfix">
+				<div class="search_result_location_phone_icon">
+					<img src="/content/dam/suntrust/us/en/elements/2017/graphic-elements/icon_contact.png">
+				</div>
+				<div class="search_result_location_phone_details">
+					<h5>
+						<strong>Contact</strong>
+					</h5>
+					<p>
+						<a target="_blank" class="contactFormId">Online Contact Form</a>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</sly>
+<div data-sly-test="${(wcmmode.edit || wcmmode.design) && !properties.showMoreCta}">Configure Search Results Component</div>
+<div data-sly-resource="${'searchbar' @ resourceType='/apps/dotcom/components/content/searchbar'}"></div>
+<div class="integrated-search" data-sly-test="${properties.showMoreCta}">
+	<input class="no-result-text-for-location-filter" type="hidden" value="${properties.locationNoResultTextForFilter}"/>
+	<input class="no-result-text-for-people-filter" type="hidden" value="${properties.peopleNoResultTextForFilter}"/>
+	<input class="no-result-text-for-resources-filter" type="hidden" value="${properties.resourcesNoResultTextForFilter}"/>
+	<input class="number-of-promo-components-in-all-results" type="hidden" value="${properties.numberOfPromoComponentsInAllResults}"/>
+	<input class="number-of-promo-components-in-products" type="hidden" value="${properties.numberOfPromoComponentsInProducts}"/>
+	<input class="number-of-promo-components-in-faqs" type="hidden" value="${properties.numberOfPromoComponentsInFaqs}"/>
+	<input class="number-of-results-in-all-category-search" type="hidden" value=""/>
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="search_result_categories hide">
+					<ul class="search_select text-center hidden-xs">
+						<li><a href="javascript:void(0);" index="all_results" class="active analytics-placeholder-allsch">${properties.allResultsNavbarText @context='html'}</a></li>
+						<li><a href="javascript:void(0);" index="locations" class="analytics-placeholder-locsch">${properties.locationNavbarText @context='html'}</a></li>
+						<li><a href="javascript:void(0);" index="people" class="analytics-placeholder-peoplesch">${properties.peopleNavbarText @context='html'}</a></li>
+						<li><a href="javascript:void(0);" index="products" class="analytics-placeholder-prodsch">${properties.productNavbarText @context='html'}</a></li>
+						<li><a href="javascript:void(0);" index="resources" class="analytics-placeholder-resourcesch">${properties.resourcesNavbarText @context='html'}</a></li>
+						<li><a href="javascript:void(0);" index="faqs" class="analytics-placeholder-faqsch">${properties.faqNavbarText @context='html'}</a></li>
+
+					</ul>
+					<div class="visible-xs">
+						<label for="search_mobile_tab_navigation" class="suntrust-accessible-text">Search Tab Navigation</label>
+						<select class="search_select" name="" id="search_mobile_tab_navigation">
+							<option value="all_results">${properties.allResultsNavbarText @context='html'}</option>
+							<option value="locations">${properties.locationNavbarText @context='html'}</option>
+							<option value="people">${properties.peopleNavbarText @context='html'}</option>
+							<option value="products">${properties.productNavbarText @context='html'}</option>
+							<option value="resources">${properties.resourcesNavbarText @context='html'}</option>
+							<option value="faqs">${properties.faqNavbarText @context='html'}</option>
+						</select>
+
+						<a href="javascript:void(0);" index="locations_filter" class="location mobile-filter-button hide">${properties.locationLeftRailText @context='html'}</a>
+						<a href="javascript:void(0);" index="people_filter" class="people mobile-filter-button hide" title="Filter People Results">${properties.peopleLeftRailText @context='html'}</a>
+						<a href="javascript:void(0);" index="resources_filter" class="resources mobile-filter-button hide" title="Filter Resources Results">${properties.resourcesLeftRailText @context='html'}</a>
+						<div class="mobile_filter_search">
+							<div class="mobile_filter_search_close clearfix">
+								<button class="filter_search_close" data-suntrust-class="suntrust-menu-close">
+									<span class="filter_search_close_text">Close Filter Search</span>
+								</button>
+							</div>
+							<div class="people_filter_mobile hide">
+								<div class="mobile-filter-title text-center">${properties.peopleLeftRailText @context='html'}</div>
+								<div class="filter_tog mobile-speciality-tog">
+									<div class="filter_title">
+										<a href="javascript:void(0);" title="About Me"><span>-</span> About Me(<span id="specialityListCountM"></span>) </a>
+										<div class="people_speciality state_city_selectall_clear" style="display: none;">
+											<a href="javascript:void(0);" class="select_all" title="Select All">${properties.selectAllText}</a> <span>|</span>
+											<a href="javascript:void(0);" class="select_none" title="None">${properties.selectNoneText}</a>
+										</div>
+									</div>
+									<div class="filter_show_hide mobile-speciality"></div>
+								</div>
+
+								<div class="filter_tog mobile-radius-filter">
+									<div class="filter_title">
+										<a href="javascript:void(0);" title="People Radius"><span>+</span> People Radius</a>										
+									</div>
+									<div class="filter_show_hide" style="display: none;">
+										<div class="search_detail_radius_select">
+											<label for="people-radius-mobile" class="suntrust-accessible-text">People Radius</label>
+											<select class="suntrust-selectt" id="people-radius-mobile">
+												<option value="5">5 Miles</option>
+												<option value="10" selected>10 Miles</option>
+												<option value="20">20 Miles</option>
+												<option value="50">50 Miles</option>
+											</select>
+										</div>
+									</div>
+								</div>
+
+								<div class="filter_tog ">
+									<div class="filter_title clearfix">
+										<a href="javascript:void(0);"  area-filter="state_city" class="pull-left" title="State">
+											<span>+</span> State (<span class="state-count"></span>)
+										</a>
+										<div class="people_state state_city_selectall_clear" style="display: none;">
+											<a href="javascript:void(0);" class="select_all" title="Select All">${properties.selectAllText}</a> <span>|</span>
+											<a href="javascript:void(0);" class="select_none" title="None">${properties.selectNoneText}</a>
+										</div>
+									</div>
+									<div class="filter_show_hide mobile-state" style="display: none;"></div>
+								</div>
+
+								<div class="filter_tog">
+									<div class="filter_title clearfix">
+										<a href="javascript:void(0);" area-filter="state_city" title="City" class="pull-left"><span>+</span> City (<span class="city-count">0</span>)</a>
+										<div class="people_city state_city_selectall_clear" style="display: none;">
+											<a href="javascript:void(0);" class="select_all" title="Select All">${properties.selectAllText}</a> <span>|</span>
+											<a href="javascript:void(0);" class="select_none" title="None">${properties.selectNoneText}</a>
+										</div>
+									</div>
+									<div class="filter_show_hide mobile-city" style="display: none;"></div>
+								</div>
+
+								<div class="mobile_filter_submit_reset">
+									<a class="suntrust-promo-cta-button submit" id="mSubmit" title="Done" href="javascript:void(0);">Done</a>
+									<a class="suntrust-promo-cta-button reset" id="mReset" title="Reset" href="javascript:void(0);">Reset</a>
+								</div>
+							</div>
+							<div class="locations_filter_mobile hide">
+								<sly data-sly-include="location_filter_mobile.html"/>
+							</div>
+							<div class="resources_filter_mobile hide">
+								<div class="mobile-filter-title text-center">${properties.resourcesLeftRailText @context='html'}</div>
+								<div class="filter_tog resource-type resource_filter_checkTypes">
+									<div class="filter_title">
+										<a href="javascript:void(0);">
+											<span>-</span> Resource Types (<span class="resources-count">7</span>)
+										</a>
+									</div>
+									<div class="filter_show_hide">
+
+									</div>
+								</div>
+								
+								<div class="filter_tog article-type">
+									<div class="filter_title">
+										<a href="javascript:void(0);">
+											<span>+</span> Article Types (<span class="article-count">7</span>)
+										</a>
+									</div>
+									<div class="filter_show_hide" style="display:none;">
+
+									</div>
+								</div>
+								<div class="mobile_filter_submit_reset">
+									<a class="suntrust-promo-cta-button suntrust_apply" href="javascript:void(0);">Done</a>
+									<a class="suntrust-promo-cta-button suntrust_reset" href="javascript:void(0);">Reset</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div data-sly-use.genricUtilObj1="${'com.suntrust.dotcom.utils.GenericUtil' @helpCenterLink=properties.allResultsLinkURL}"
+		data-sly-unwrap>
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 all_results_no_result zero_result_found hide">
+						<div class="zero_result_text">
+							${properties.allResultsNoResultText @context='html'}
+						</div>
+						<div class="zero_result_help_center">
+							<a href="${genricUtilObj1.urlCheck}" class="clearfix">
+								<div class="zero_result_help_center_img">
+									<img src="/content/dam/suntrust/us/en/elements/2017/graphic-elements/icon_contact.png" />
+								</div>
+								<span>${properties.allResultsHelpCenterLabel @context='html'}</span>
+							</a>
+						</div>
+					</div>
+				</div>
+				<div data-sly-use.genricUtilObj2="${'com.suntrust.dotcom.utils.GenericUtil' @helpCenterLink=properties.locationLinkURL}"
+		data-sly-unwrap>
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 locations_no_result zero_result_found hide">
+						<div class="zero_result_text">
+							${properties.locationNoResultText @context='html'}
+						</div>
+						<div class="zero_result_help_center">
+							<a href="${genricUtilObj2.urlCheck}" class="clearfix">
+								<div class="zero_result_help_center_img">
+									<img src="/content/dam/suntrust/us/en/elements/2017/graphic-elements/icon_contact.png" />
+								</div>
+								<span>${properties.locationHelpCenterLabel @context='html'}</span>
+							</a>
+						</div>
+					</div>
+				</div>
+				<div data-sly-use.genricUtilObj3="${'com.suntrust.dotcom.utils.GenericUtil' @helpCenterLink=properties.peopleLinkURL}"
+		data-sly-unwrap>
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 people_no_result zero_result_found hide">
+					<sly data-sly-test="${'mortgage'== request.requestParameterMap['specialty'][0].toString || 'mortgage mortgage1 '== request.requestParameterMap['specialty'][0].toString}">
+						<div class="no_result_help_center">
+								<div class="no_result_help_center_img">
+									<img src="${properties.icon}" />
+								</div>
+								<span>${properties.customMessage @context='html'}</span>
+						</div>
+					</sly>
+					<sly data-sly-test="${'mortgage'!= request.requestParameterMap['specialty'][0].toString && 'mortgage mortgage1 '!= request.requestParameterMap['specialty'][0].toString}">
+						<div class="zero_result_text">
+							${properties.peopleNoResultText @context='html'}
+						</div>
+					</sly>
+						
+						<div class="zero_result_help_center">
+							<a href="${genricUtilObj3.urlCheck}" class="clearfix">
+								<div class="zero_result_help_center_img">
+									<img src="/content/dam/suntrust/us/en/elements/2017/graphic-elements/icon_contact.png" />
+								</div>
+								<span>${properties.peopleHelpCenterLabel @context='html'}</span>
+							</a>
+						</div>
+					</div>
+				</div>
+				<div data-sly-use.genricUtilObj4="${'com.suntrust.dotcom.utils.GenericUtil' @helpCenterLink=properties.resourcesLinkURL}"
+		data-sly-unwrap>
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 resources_no_result zero_result_found hide">
+						<div class="zero_result_text">
+							${properties.resourcesNoResultText @context='html'}
+						</div>
+						<div class="zero_result_help_center">
+							<a href="${genricUtilObj4.urlCheck}" class="clearfix">
+								<div class="zero_result_help_center_img">
+									<img src="/content/dam/suntrust/us/en/elements/2017/graphic-elements/icon_contact.png" />
+								</div>
+								<span>${properties.resourcesHelpCenterLabel @context='html'}</span>
+							</a>
+						</div>
+					</div>
+				</div>
+				<div data-sly-use.genricUtilObj5="${'com.suntrust.dotcom.utils.GenericUtil' @helpCenterLink=properties.productLinkURL}"
+		data-sly-unwrap>
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 products_no_result zero_result_found hide">
+						<div class="zero_result_text">
+							${properties.productNoResultText @context='html'}
+						</div>
+						<div class="zero_result_help_center">
+							<a href="${genricUtilObj5.urlCheck}" class="clearfix">
+								<div class="zero_result_help_center_img">
+									<img src="/content/dam/suntrust/us/en/elements/2017/graphic-elements/icon_contact.png" />
+								</div>
+								<span>${properties.productHelpCenterLabel @context='html'}</span>
+							</a>
+						</div>
+					</div>
+				</div>
+				<div data-sly-use.genricUtilObj6="${'com.suntrust.dotcom.utils.GenericUtil' @helpCenterLink=properties.faqsLinkURL}"
+		data-sly-unwrap>
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 faqs_no_result zero_result_found hide">
+						<div class="zero_result_text">
+							${properties.faqsNoResultText @context='html'}
+						</div>
+						<div class="zero_result_help_center">
+							<a href="${genricUtilObj6.urlCheck}" class="clearfix">
+								<div class="zero_result_help_center_img">
+									<img src="/content/dam/suntrust/us/en/elements/2017/graphic-elements/icon_contact.png" />
+								</div>
+								<span>${properties.faqsHelpCenterLabel @context='html'}</span>
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="search_result_details clearfix">
+					<div class="search_result_filters_nonProducts search_result_filters col-lg-4 col-md-4 col-sm-4 hidden-xs">
+						<div class="people_filter_desktop hide">
+							<h3> <strong>${properties.peopleLeftRailText}</strong> </h3>
+							<div class="search_by_filter search_detail_speciality search_detail_state_city">
+								<div class="clearfix">
+									<h4> <strong>About Me</strong> (<span id="specialityListCount"></span>) </h4>
+									<div class="people_speciality state_city_selectall_clear">
+										<a href="javascript:void(0);" class="select_all" title="Select All">${properties.selectAllText}</a> <span>|</span>
+										<a href="javascript:void(0);" class="select_none" title="None">${properties.selectNoneText}</a>
+									</div>
+								</div>
+								<div class="search_detail_state_city_select search_detail_speciality_level"></div>
+							</div>
+							<div class="search_by_filter search_detail_people_radius" id="peopleRadius">
+								<h4><strong>People Radius</strong>									
+								</h4>
+								<div class="search_detail_radius_select">
+									<label for="people-radius-desktop" class="suntrust-accessible-text">People Radius</label>
+									<select name="LRDesktop" id="people-radius-desktop">
+										<option value="05">5 Miles</option>
+										<option value="10" selected>10 Miles</option>
+										<option value="20">20 Miles</option>
+										<option value="50">50 Miles</option>
+									</select>
+
+								</div>
+							</div>
+
+							<div class="search_by_filter search_detail_state search_detail_state_city">
+								<div class="clearfix">
+									<h4>
+										<strong>State</strong>(<span id="stateListCount"></span>)
+									</h4>
+									<div class="people_state state_city_selectall_clear">
+										<a href="javascript:void(0);" class="select_all" title="Select All">${properties.selectAllText}</a> <span>|</span>
+										<a href="javascript:void(0);" class="select_none" title="None">${properties.selectNoneText}</a>
+									</div>
+								</div>
+								<div id="stateList" class="search_detail_state_city_select"></div>
+							</div>
+
+							<div class="search_by_filter search_detail_city search_detail_state_city">
+								<div class="clearfix">
+									<h4>
+										<strong>City</strong>(<span id="cityListCount"></span>)
+									</h4>
+									<div class="people_city state_city_selectall_clear">
+										<a href="javascript:void(0);" class="select_all" title="Select All">${properties.selectAllText}</a> <span>|</span>
+										<a href="javascript:void(0);" class="select_none" title="None">${properties.selectNoneText}</a>
+
+									</div>
+								</div>
+								<div id="cityList" class="search_detail_state_city_select"></div>
+							</div>
+
+						</div>
+
+
+						<div class="locations_filter_desktop hide">
+							<sly data-sly-include="location_filter_desktop.html"/>
+						</div>
+						<div class="resources_filter_desktop hide">
+							<h3><strong>${properties.resourcesLeftRailText @context='html'}</strong></h3>
+							<div class="search_filter_result_cat resource-type resource_filter_checkTypes">
+								<h4><strong>Resource Types (<span></span>)</strong></h4>
+								<div class="search_detail_services_level0">
+									
+								</div>
+							</div>
+							<div class="search_filter_result_cat article-type">
+								<h4><strong>Article Types (<span></span>)</strong></h4>
+								<div class="article-type-level-1">
+									
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="search_result_description col-lg-8 col-md-8 col-sm-8 col-xs-12">
+						<div class="search-results">
+							<div class="locations_filter_container hide">
+								<div class="location_mq_results">
+
+								</div>
+								<div class="location_aem_results">
+
+								</div>
+							</div>
+
+							<div class="products_filter_container hide">
+								<div class="search_result_content">
+
+								</div>
+							</div>
+
+							<div class="faqs_filter_container hide">
+								<div class="sun-faqs-page-details">
+									<div class="sun-faqs-page-list sun-faqs-page-list-alt">
+
+									</div>
+								</div>
+							</div>
+							<div class="all_results_filter_container hide">
+							</div>
+							<div class="people_filter_container hide">
+								<div id="searchResult" class="searchResultPeople">
+									<div class="people_mq_results"></div>
+									<div class="people_aem_results"></div>
+								</div>
+							</div>
+							<div class="resources_filter_container hide">
+								<div class="search_result_content">
+								</div>
+							</div>				
+						</div>
+						<div class="location_result_show_more_results hide text-center hidden-xs">
+							<a data-search-visible-items-limit="${properties.pagesize}" href="javascript:void(0);">${properties.showMoreCta @context='html'}</a>
+						</div>
+						<div class="search_result_show_more_results hide text-center hidden-xs">
+							<a data-search-visible-items-limit="${properties.pagesize}" href="javascript:void(0);">${properties.showMoreCta @context='html'}</a>
+						</div>
+						<div class="faq_result_show_more_results hide text-center hidden-xs">
+							<a data-search-visible-items-limit="${properties.pagesize}" href="javascript:void(0);">${properties.showMoreCta @context='html'}</a>
+						</div>
+						<div class="people_result_show_more_results hide text-center hidden-xs">
+							<a data-search-visible-items-limit="${properties.pagesize}" href="javascript:void(0);">${properties.showMoreCta @context='html'}</a>
+						</div>
+						<div class="resources_result_show_more_results hide text-center hidden-xs">
+							<a data-search-visible-items-limit="${properties.pagesize}" href="javascript:void(0);">${properties.showMoreCta @context='html'}</a>
+						</div>
+						<div class="all_result_show_more_results hide text-center hidden-xs">
+							<a data-search-visible-items-limit="${properties.pagesize}" href="javascript:void(0);">${properties.showMoreCta @context='html'}</a>
+						</div>
+					</div>
+					<div class="search_result_filters result_filters_other col-lg-4 col-md-4 col-sm-4 col-xs-12 author_hide">
+						<div class="search_result_filters_all_results hide author_hide" data-text="Place the promotion components for All Results tab here">
+							<sly data-sly-resource="${@path='all_results_promo_par', resourceType='wcm/foundation/components/parsys'}" />
+						</div>
+						<div class="search_result_filters_faqs author_hide" data-text="Place the promotion components for FAQ tab here">
+							<sly data-sly-resource="${@path='faq_promo_par', resourceType='wcm/foundation/components/parsys'}" />
+						</div>
+						<div class="search_result_filters_products hide author_hide" data-text="Place the promotion components for Products tab here">
+							<sly data-sly-resource="${@path='product_promo_par', resourceType='wcm/foundation/components/parsys'}" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</div>
+<div class="advisorConfigs">
+	<input type="hidden" value="I am a business owner" class="${configServiceUseiamabusinessowner.getPropertyArray}"/>
+	<input type="hidden" value="I am a corporate executive" class="${configServiceUseiamacorporateexecutive.getPropertyArray}"/>
+	<input type="hidden" value="I am a physician or I manage a practice" class="${configServiceUseiamaphysicianorimanageapractice.getPropertyArray}"/>
+	<input type="hidden" value="I am an attorney or I manage a firm" class="${configServiceUseiamanattorneyorimanageafirm.getPropertyArray}"/>
+	<input type="hidden" value="I am close to retirement or retired" class="${configServiceUseiamclosetoretirementorretired.getPropertyArray}"/>
+	<input type="hidden" value="I am in the sports or entertainment industry" class="${configServiceUseiaminthesportsorentertainmentindustry.getPropertyArray}"/>
+	<input type="hidden" value="I am just getting started on the road to retirement" class="${configServiceUseiamjustgettingstartedontheroadtoretirement.getPropertyArray}"/>
+	<input type="hidden" value="I am looking for guidance on my investments" class="${configServiceUseiamlookingforguidanceonmyinvestments.getPropertyArray}"/>
+	<input type="hidden" value="I am seeking home loan advice" class="${configServiceUseiamseekinghomeloanadvice.getPropertyArray}"/>
+	<input type="hidden" value="I have international wealth management needs" class="${configServiceUseihaveinternationalwealthmanagementneeds.getPropertyArray}"/>
+	<input type="hidden" value="I have made some progress on my retirement goals" class="${configServiceUseihavemadesomeprogressonmyretirementgoals.getPropertyArray}"/>
+	<input type="hidden" value="I am looking for strategies to protect my wealth throughout retirement" class="${configServiceUseimlookingforstrategiestoprotectmywealththroughoutretirement.getPropertyArray}"/>
+</div>
+<div id="loadingMask"></div>
+<script type="text/javascript">
+//END ANALYTICS TRACKING CODE
+	var authorViewFlag = "${configServiceUse.property @ context='scriptString'}";
+	var currentPageURL = window.location.href;
+	var tabName = currentPageURL.split("#")[1];
+	tabName = (tabName === undefined) ? 'all_results' : tabName;
+
+	if(authorViewFlag && tabName === 'people')
+	{
+		window.dataLayer.pageSet = "STcom_AEM_PF_Search";
+	}
+
+	else if(authorViewFlag)
+	{
+		window.dataLayer.pageSet = "STcom_AEM_FindUs_Search";
+	}
+</script>

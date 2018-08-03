@@ -1,0 +1,8 @@
+<sly data-sly-use.classObj="${'com.suntrust.dotcom.components.ArticleWrapperComponent'}" />
+<sly data-sly-test="${(wcmmode.edit || wcmmode.design)}">
+        ${classObj.bindArticle}
+</sly>
+${classObj.setTagsForHeroHeadline}
+<section>
+    <sly data-sly-resource="${@path='content_par', resourceType='wcm/foundation/components/parsys'}" />
+</section>

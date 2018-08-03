@@ -1,0 +1,20 @@
+function check(){
+try{
+	var path = workflowData.getPayload().toString();
+	var jcrsession = workflowSession.getSession();
+	var node = jcrsession.getNode(path).getNode("jcr:content");
+    if(null != node && ((node.hasProperty("11compliancereviewer") && node.getProperty("11compliancereviewer").getValue() != "" && node.getProperty("11compliancereviewer").getValue() != null) || (node.hasProperty("12compliancereviewer") && node.getProperty("12compliancereviewer").getValue() != "" && node.getProperty("12compliancereviewer").getValue() != null) || (node.hasProperty("13compliancereviewer") && node.getProperty("13compliancereviewer").getValue() != "" && node.getProperty("13compliancereviewer").getValue() != null) || (node.hasProperty("14compliancereviewer") && node.getProperty("14compliancereviewer").getValue() != "" && node.getProperty("14compliancereviewer").getValue() != null) || (node.hasProperty("15compliancereviewer") && node.getProperty("15compliancereviewer").getValue() != "" && node.getProperty("15compliancereviewer").getValue() != null))){
+		workflowData.getMetaDataMap().put("11compliancereviewer", node.getProperty("11compliancereviewer").getValue());
+        workflowData.getMetaDataMap().put("12compliancereviewer", node.getProperty("12compliancereviewer").getValue());
+        workflowData.getMetaDataMap().put("13compliancereviewer", node.getProperty("13compliancereviewer").getValue());
+        workflowData.getMetaDataMap().put("14compliancereviewer", node.getProperty("14compliancereviewer").getValue());
+        workflowData.getMetaDataMap().put("15compliancereviewer", node.getProperty("15compliancereviewer").getValue());
+		return true;
+	}else{		
+        return false;
+    }
+}catch(err) {
+ log.info(err.message);
+ return false;
+}
+}

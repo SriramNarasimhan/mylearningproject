@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    cq:lastReplicated="{Date}2017-06-06T07:06:35.092-04:00"
+    cq:lastReplicatedBy="admin"
+    cq:lastReplicationAction="Activate"
+    jcr:mixinTypes="[cq:ReplicationStatus]"
+    jcr:primaryType="cq:EditConfig">
+    <cq:listeners
+    	jcr:primaryType="cq:EditListenersConfig"
+    	afterdelete="REFRESH_PAGE"
+    	afteredit="REFRESH_PAGE"
+    	aftermove="REFRESH_PAGE"
+    	afterinsert="REFRESH_PAGE"/>
+</jcr:root>

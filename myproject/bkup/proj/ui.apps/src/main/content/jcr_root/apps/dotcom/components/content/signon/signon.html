@@ -1,0 +1,396 @@
+<div data-sly-test.onload="${(wcmmode.edit || wcmmode.design) && pageProperties['cq:template'] == '/apps/dotcom/templates/signontemplate'}" data-sly-unwrap>Configure Sign On Dialog
+    <sly data-sly-include="/apps/dotcom/components/page/page/headlibs.html" />
+</div>
+<div data-sly-use.mbeanObj="${'com.suntrust.dotcom.components.SignOnComponent'}" data-sly-unwrap></div>
+<div data-sly-test="${properties.style}" data-sly-unwrap>
+    <sly data-sly-include="/apps/dotcom/components/page/page/headlibs.html" />
+</div>
+<div id="globalSignon">
+<div data-sly-test="${properties.mode=='loginform'}" data-sly-unwrap>
+    <nav class="suntrust-user-menu" data-suntrust-class="user-menu" data-suntrust-hidden-navs="" id="signonmain">
+        <div class="suntrust-nav-primary">
+			<span class="suntrust-accessible-text" aria-live="assertive" data-suntrust-class="suntrust-user-menu-state">
+				User Menu Default State - Not Signed In
+            </span>
+			<div class="suntrust-dotcom" data-suntrust-class="authenticated-dotcom">
+            	<div class="suntrust-menu-header">
+                	<button class="suntrust-menu-close user-menu-accessibility-trigger" data-suntrust-class="suntrust-menu-close">
+                        <span class="suntrust-accessible-text">Close User Menu</span>
+                    </button>
+                </div>
+                <div class="suntrust-app-banner-wrapper" id="MobileApps-signonblade-${properties.appTypeOlb}"></div>
+                <div class="suntrust-app-banner-wrapper hidden" id="MobileApps-signonblade-${properties.appTypeOcm}"></div>
+			
+            <div data-suntrust-login-form="" class="suntrust-login">
+                <div class="suntrust-login-form" id="suntrust-login-form">
+                    <div class="suntrust-login-form-field">
+                        <label for="bank-segment" class="suntrust-accessible-text">
+                            Choose Bank Segment</label>
+                        <span class="suntrust-accessible-text">Currently selected</span>
+
+                            <select id="bank-segment" name="bank-segment" class="suntrust-bank-segment form-control">
+								<sly data-sly-test="${properties.serviceorder=='olb'}">
+									<option value="signonblade-${properties.appTypeOlb}">${properties.serviceLabelOlb}</option>
+									<option value="signonblade-${properties.appTypeOcm}">${properties.serviceLabelOcm}</option>
+								</sly>
+								<sly data-sly-test="${properties.serviceorder=='ocm'}">	
+									<option value="signonblade-${properties.appTypeOcm}">${properties.serviceLabelOcm}</option>
+									<option value="signonblade-${properties.appTypeOlb}">${properties.serviceLabelOlb}</option>
+								</sly>
+                       		</select>
+                    </div>
+					<div data-sly-list.keyName="${mbeanObj.getSignOnConfigMap}">
+					
+					<div data-sly-test="${keyName == 'olb'}" data-sly-unwrap>
+                    <sly data-sly-test.signOnMaintenanceModeOLB="${mbeanObj.getSignOnConfigMap[keyName]}">
+						<div class="suntrust-login-onlinebanking-form suntrust-signon-login-form" id="SignOn-signonblade-${properties.appTypeOlb}">
+
+                            <div data-sly-test="${signOnMaintenanceModeOLB=='online' || request.requestParameterMap['maintenance-mode-override'][0].toString=='true'}" data-sly-unwrap>
+
+                            <form action="${properties.formActionOlb}" class="signOnLoginForm signonblade-${properties.appTypeOlb}"
+                            method="post" name="loginForm-signonblade-${properties.appTypeOlb}" autocomplete="off" data-encrypt="${properties.useencryptionOlb}" data-appid="signonblade-${properties.appTypeOlb}" data-gateway="${properties.gatewayOlb}" data-apptype="${properties.appTypeOlb}" >
+
+                                    <div data-sly-unwrap data-sly-test="${properties.hideloginformolb=='false'}">
+                                        <div class="suntrust-login-form-field">
+                                            <label for="sign-on-signonblade-${properties.appTypeOlb}-user" class="suntrust-accessible-text">${properties.usernameplaceholderolb}</label>
+                                            <input type="text" title="${properties.usernameplaceholderolb}" class="suntrust-login-input suntrust-login-user-input" placeholder="${properties.usernameplaceholderolb}" id="sign-on-signonblade-${properties.appTypeOlb}-user" autocomplete="off" value=""/>
+                                            
+                                            <input type="hidden" name="username" class="suntrust-login-hidden-user-id" value="" />
+                                            <input type="hidden" name="isEncrypted" class="suntrust-login-input-is-encrypted" value="${properties.useencryptionOlb}" />
+                                        </div>
+
+                                        <div class="${properties.remembermeolb=='true' ? 'suntrust-login-form-field suntrust-remember-me-accessible' : 'suntrust-login-form-field suntrust-no-remember-me-accessible'}">
+                                            <label for="sign-on-signonblade-${properties.appTypeOlb}-password" class="suntrust-accessible-text">${properties.passwordplaceholderolb}</label>
+                                            <input type="password" placeholder="${properties.passwordplaceholderolb}" class="suntrust-login-input suntrust-login-password" id="sign-on-signonblade-${properties.appTypeOlb}-password" title="${properties.passwordplaceholderolb}" value="" autocomplete="off" />
+                                            <input type="hidden" name="password" class="hiddenPassword" value="" />
+                                            <sly data-sly-test="${properties.useencryptionOlb == 'true'}">
+                                            	<input type="hidden" name="rmUsernameSet" value="false" />
+                                            </sly>
+                                            <input type="hidden" class="hiddenPublicKey" value="${properties.publickeyOlb}"/>
+
+                                            <div class="suntrust-remember-me-field" data-sly-test="${properties.remembermeolb}" >
+                                               	<input type="checkbox" id="sign-on-signonblade-${properties.appTypeOlb}-check" data-suntrust-class="suntrust-checkbox" class="suntrust-login-checkbox" name="chkRememberUser" />
+                                                <input type="hidden" name="rememberMe" class="suntrust-login-checkbox-hidden" value="false"/>
+                                                <label for="sign-on-signonblade-${properties.appTypeOlb}-check" class="suntrust-checkbox-label">${properties.remembermetextolb}</label>
+                                            </div>
+                                                <button class="suntrust-login-button" type="submit" value="Submit"><span class="suntrust-accessible-text">Submit Login</span></button>
+                                            <div>
+											<sly data-sly-test="${mbeanObj.mBean && properties.olbHiddenItems}">
+												<sly data-sly-list.items="${mbeanObj.mBean}">
+													<sly data-sly-test="${itemsList.index == 6}" data-sly-list.itemsList="${items.items}">
+														<input type="hidden" name="${itemsList.hiddenName}" value="${itemsList.hiddenValue}"/>
+													</sly>
+												</sly>
+											</sly>
+                                            </div>
+											<sly data-sly-use.encryptScriptOlb="${'com.suntrust.dotcom.components.HeroComponent' @scriptFilePath=properties.encryptionFileOlb}">
+                                            	<script type="text/javascript">${encryptScriptOlb.getScriptContent @ context='unsafe'}</script>
+                                            </sly>
+                                        </div>
+                                    </div>
+                                    <div data-sly-unwrap data-sly-test="${properties.hidesupportcontentolb=='false'}">
+                                        <div data-sly-unwrap data-sly-test="${properties.signonsupportolb}">
+                                            <p>${properties.signonsupportolb @context='html'}</p>
+                                        </div>
+                                        <div data-sly-test="${mbeanObj.mBean && properties.aItems}" data-sly-unwrap>
+                                            <div data-sly-list.items="${mbeanObj.mBean}"data-sly-unwrap>
+                                                <div data-sly-test="${itemsList.index == 0}" data-sly-list.itemsList="${items.items}" data-sly-unwrap>
+                                                    <div class="suntrust-login-form-field">
+                                                        <a href="${itemsList.linkURL}" target="${itemsList.target}">${itemsList.title @context='html'}</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+							
+                           <sly data-sly-test="${request.requestParameterMap['maintenance-mode-override'][0].toString!='true' && signOnMaintenanceModeOLB!='online'}">
+							    <div data-sly-test="${mbeanObj.mBean && properties.iItems}" data-sly-unwrap>
+                                    <div data-sly-list.items="${mbeanObj.mBean}"data-sly-unwrap>
+                                        <div data-sly-test="${itemsList.index == 4}" data-sly-list.itemsList="${items.items}" data-sly-unwrap>
+                                            <sly data-sly-test="${itemsList.messagetypeOlbOffline == signOnMaintenanceModeOLB}">
+                                                <p>${itemsList.maintenancemessageOlbOffline @context='html'} </p>
+                                            </sly>
+											<sly data-sly-test="${itemsList.messagetypeOlbScheduled == signOnMaintenanceModeOLB}">
+                                                <p>${itemsList.maintenancemessageOlbScheduled @context='html'} </p>
+                                            </sly>
+                            				<sly data-sly-test="${itemsList.messagetypeOlbUnScheduled == signOnMaintenanceModeOLB}">
+                                                <p>${itemsList.maintenancemessageOlbUnScheduled @context='html'} </p>
+                                            </sly>
+										</div>
+                                    </div>
+                                </div>
+                            
+							</sly>
+							
+							
+						</div>
+                    </sly>
+					</div>
+					
+					<div data-sly-test="${keyName == 'ocm'}" data-sly-unwrap>
+					<sly data-sly-test.signOnMaintenanceModeOCM="${mbeanObj.getSignOnConfigMap[keyName]}" >
+						<div class="suntrust-login-onlinecashmanager-form suntrust-signon-login-form hidden" id="SignOn-signonblade-${properties.appTypeOcm}">
+
+                            <div data-sly-test="${signOnMaintenanceModeOCM=='online' || request.requestParameterMap['maintenance-mode-override'][0].toString=='true'}" data-sly-unwrap>
+
+                            <form action="${properties.formActionOcm}" class="signOnLoginForm signonblade-${properties.appTypeOcm}"
+                            method="post" name="loginForm-signonblade-${properties.appTypeOcm}" autocomplete="off" data-appid="signonblade-${properties.appTypeOcm}" data-gateway="${properties.gatewayOcm}" data-apptype="${properties.appTypeOcm}" >
+
+                                    <div data-sly-unwrap data-sly-test="${properties.hideloginformocm=='false'}">
+                                        <div class="suntrust-login-form-field">
+                                            <label for="sign-on-signonblade-${properties.appTypeOcm}-user" class="suntrust-accessible-text">${properties.usernameplaceholderocm}</label>
+                                            <input type="text" title="${properties.usernameplaceholderocm}" class="suntrust-login-input suntrust-login-user-input" placeholder="${properties.usernameplaceholderocm}" id="sign-on-signonblade-${properties.appTypeOcm}-user" autocomplete="off" value=""/>
+                                            
+                                            <input type="hidden" name="username" class="suntrust-login-hidden-user-id" value="" />
+                                            <input type="hidden" name="isEncrypted" class="suntrust-login-input-is-encrypted" value="${properties.useencryptionOcm}" />
+                                        </div>
+
+                                        <div class="${properties.remembermeocm=='true' ? 'suntrust-login-form-field suntrust-remember-me-accessible' : 'suntrust-login-form-field suntrust-no-remember-me-accessible'}">
+
+                                            <label for="sign-on-signonblade-${properties.appTypeOcm}-password" class="suntrust-accessible-text">${properties.passwordplaceholderocm}</label>
+                                            <input type="password" placeholder="${properties.passwordplaceholderocm}" class="suntrust-login-input suntrust-login-password" id="sign-on-signonblade-${properties.appTypeOcm}-password" title="${properties.passwordplaceholderocm}" value="" autocomplete="off" />
+                                            <input type="hidden" name="password" class="hiddenPassword" value="" />
+
+                                            <div class="suntrust-remember-me-field" data-sly-test="${properties.remembermeocm}" >
+                                               	<input type="checkbox" id="sign-on-signonblade-${properties.appTypeOcm}-check" data-suntrust-class="suntrust-checkbox" class="suntrust-login-checkbox" name="chkRememberUser" />
+                                                <input type="hidden" name="rememberMe" class="suntrust-login-checkbox-hidden" value="false"/>
+                                                <label for="sign-on-signonblade-${properties.appTypeOcm}-check" class="suntrust-checkbox-label">${properties.remembermetextocm}</label>
+                                            </div>
+
+                                            <button class="suntrust-login-button" type="submit" value="Submit"><span class="suntrust-accessible-text">Submit Login</span></button>
+                                            
+											<div data-sly-test="${mbeanObj.mBean && properties.ocmHiddenItems}">
+												<sly data-sly-list.items="${mbeanObj.mBean}">
+													<sly data-sly-test="${itemsList.index == 7}" data-sly-list.itemsList="${items.items}">
+														<input type="hidden" name="${itemsList.hiddenName}" value="${itemsList.hiddenValue}"/>
+													</sly>
+												</sly>
+											</div>
+                                        </div>
+                                    </div>
+                                    <div data-sly-unwrap data-sly-test="${properties.hidesupportcontentocm=='false'}">
+                                        <div data-sly-unwrap data-sly-test="${properties.signonsupportocm}">
+                                            <p>${properties.signonsupportocm @context='html'}</p>
+                                        </div>
+                                        <div data-sly-test="${mbeanObj.mBean && properties.bItems}" data-sly-unwrap>
+                                            <div data-sly-list.items="${mbeanObj.mBean}"data-sly-unwrap>
+                                                <div data-sly-test="${itemsList.index == 1}" data-sly-list.itemsList="${items.items}" data-sly-unwrap>
+                                                    <div class="suntrust-login-form-field"><a href="${itemsList.linkURL}" target="${itemsList.target}">${itemsList.title @context='html'}</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div> 
+
+							<sly data-sly-test="${request.requestParameterMap['maintenance-mode-override'][0].toString!='true' && signOnMaintenanceModeOCM!='online'}">
+							
+                                <div data-sly-test="${mbeanObj.mBean && properties.jItems}" data-sly-unwrap>
+                                    <div data-sly-list.items="${mbeanObj.mBean}"data-sly-unwrap>
+                                        <div data-sly-test="${itemsList.index == 5}" data-sly-list.itemsList="${items.items}" data-sly-unwrap>
+                                            <sly data-sly-test="${itemsList.messagetypeOcmOffline == signOnMaintenanceModeOCM}" data-sly-unwrap>
+                                                <p>${itemsList.maintenancemessageOcmOffline @context='html'} </p>
+                                            </sly>
+											<sly data-sly-test="${itemsList.messagetypeOcmScheduled == signOnMaintenanceModeOCM}" data-sly-unwrap>
+                                                <p>${itemsList.maintenancemessageOcmScheduled @context='html'} </p>
+                                            </sly>
+                            				<sly data-sly-test="${itemsList.messagetypeOcmUnScheduled == signOnMaintenanceModeOCM}" data-sly-unwrap>
+                                                <p>${itemsList.maintenancemessageOcmUnScheduled @context='html'} </p>
+                                            </sly>
+                                        </div>
+                                    </div>
+                                </div>
+                            
+							</sly>
+							
+							
+						</div>
+					</sly>
+					</div>
+					
+					</div>
+                </div>
+            </div>
+
+            <div data-sly-unwrap data-sly-test="${properties.hideotherservicesolb=='false'}">
+                <div data-sly-unwrap data-sly-test="${properties.otherservicestitleolb || otherserviceslinktextolb || properties.cItems}">
+                    <div class="suntrust-more-services-wrapper online-banking" id="OtherServices-signonblade-${properties.appTypeOlb}">
+                        <span class="suntrust-more-services-text">${properties.otherservicestitleolb @context='html'}</span>
+                        <ul class="suntrust-services-list" data-suntrust-class="submenu-triggers" data-suntrust-rtl-triggers="">
+                            <li>
+                                <a href="" class="suntrust-main-links"><span class="suntrust-accessible-text">Expand</span>${properties.otherserviceslinktextolb @context='html'}</a>
+                                <ul class="suntrust-submenu suntrust-rtl">
+                                    <li class="suntrust-menu-title-back">
+                                        <button class="suntrust-icon-back" data-suntrust-class="suntrust-submenu-back">
+                                            <span class="suntrust-accessible-text">back</span></button>${properties.otherserviceslinktextolb @context='html'}
+                                    </li>
+                                    <div data-sly-test="${mbeanObj.mBean && properties.cItems}" data-sly-unwrap>
+                                        <div data-sly-list.items="${mbeanObj.mBean}"data-sly-unwrap>
+                                            <div data-sly-test="${itemsList.index == 2}" data-sly-list.itemsList="${items.items}" data-sly-unwrap>
+                                                <li><a class="suntrust-rtl-links" href="${itemsList.linkURL}" target="${itemsList.target}">${itemsList.title @context='html'}</a> </li>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div data-sly-unwrap data-sly-test="${properties.hideotherservicesocm=='false'}">
+                <div data-sly-unwrap data-sly-test="${properties.otherservicestitleocm || otherserviceslinktextocm || properties.dItems}">
+                    <div class="suntrust-more-services-wrapper online-cash-manager hidden" id="OtherServices-signonblade-${properties.appTypeOcm}">
+                        <span class="suntrust-more-services-text">${properties.otherservicestitleocm @context='html'}</span>
+                        <ul class="suntrust-services-list" data-suntrust-class="submenu-triggers" data-suntrust-rtl-triggers="">
+                            <li>
+                                <a href="" class="suntrust-main-links"><span class="suntrust-accessible-text">Expand</span>${properties.otherserviceslinktextocm @context='html'}</a>
+                                <ul class="suntrust-submenu suntrust-rtl">
+                                    <li class="suntrust-menu-title-back">
+                                        <button class="suntrust-icon-back" data-suntrust-class="suntrust-submenu-back">
+                                            <span class="suntrust-accessible-text">back</span></button>${properties.otherserviceslinktextocm @context='html'}
+                                    </li>
+                                    <div data-sly-test="${mbeanObj.mBean && properties.dItems}" data-sly-unwrap>
+                                        <div data-sly-list.items="${mbeanObj.mBean}"data-sly-unwrap>
+                                            <div data-sly-test="${itemsList.index == 3}" data-sly-list.itemsList="${items.items}" data-sly-unwrap>
+                                                <li><a class="suntrust-rtl-links" href="${itemsList.linkURL}" target="${itemsList.target}">${itemsList.title @context='html'}</a> </li>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+			</div>
+            <span class="suntrust-accessible-text">End of User Menu
+                <button class="suntrust-menu-close signon-end" data-suntrust-class="suntrust-menu-close">
+                    Close User Menu</button>
+            </span>
+
+
+        </div>
+    </nav>
+
+</div>
+<div data-sly-test="${properties.mode=='freeform'}" data-sly-unwrap>
+    <nav class="suntrust-user-menu" data-suntrust-class="user-menu" data-suntrust-hidden-navs="" id="signonmain">
+        <div class="suntrust-nav-primary">
+			 <span class="suntrust-accessible-text" aria-live="assertive" data-suntrust-class="suntrust-user-menu-state">
+			 User Menu Default State - Not Signed In</span>
+            <div class="suntrust-dotcom" data-suntrust-class="authenticated-dotcom">
+                <div class="suntrust-menu-header">
+                    <button class="suntrust-menu-close user-menu-accessibility-trigger" data-suntrust-class="suntrust-menu-close">
+                        <span class="suntrust-accessible-text">Close User Menu</span>
+                    </button>
+                </div>
+                <div class="suntrust-app-banner-wrapper" id="MobileApps-signonblade-${properties.appTypeOlb}"></div>
+                <div class="suntrust-app-banner-wrapper hidden" id="MobileApps-signonblade-${properties.appTypeOcm}"></div>
+            </div>
+			<div data-suntrust-login-form="" class="suntrust-login">
+                <div class="suntrust-login-form" id="suntrust-login-form">
+					<div class="suntrust-login-form-field">
+						${properties.text @ context='html'}
+					</div>
+                </div>
+            </div>
+
+            <span class="suntrust-accessible-text">End of User Menu
+			 <button class="suntrust-menu-close signon-end" data-suntrust-class="suntrust-menu-close">
+			 Close User Menu</button>
+			 </span>
+        </div>
+    </nav>
+</div>
+</div>
+
+<!-- 
+
+THIS PIECE OF ANALYTICS CODE IS MOVED TO ENSIGTHEN.
+THIS SECTION OF CODE SHOULD NOT BE DELETED AND SHOULD BE ALWAYS COMMENTED.
+THIS CODE IS FOR REFERENCE PURPOSE ONLY.-->
+
+<!-- script>
+"use strict";
+//Other Service Link Click Start
+$("#OtherServices-signonblade-OCM a.suntrust-rtl-links").on("click", function() {
+  console.log("OCM Other service link clicked");
+  var fullLinkText = $(this).text();
+  var texttoremoveindex = fullLinkText.indexOf("Link opens a new window");
+  var linkText = fullLinkText.substring(0, texttoremoveindex);
+  var linkTextfinal = $.trim(linkText);
+  console.log("Link Text: " + linkTextfinal);
+  otherServices_onClick(linkTextfinal);
+});
+
+$("#OtherServices-signonblade-OLB a.suntrust-rtl-links").on("click", function() {
+  console.log("OLB Other service link clicked");
+  var fullLinkText = $(this).text();
+  var texttoremoveindex = fullLinkText.indexOf("Link opens a new window");
+  var linkText = fullLinkText.substring(0, texttoremoveindex);
+  var linkTextfinal = $.trim(linkText);
+  console.log("Link Text: " + linkTextfinal);
+  otherServices_onClick(linkTextfinal);
+});
+
+function otherServices_onClick(linkText) {
+  s.eVar34 = linkText;
+  s.linkTrackVars = "eVar7,eVar8,eVar19,eVar34,eVar39,eVar40,prop50,channel";
+  console.log("otherServices analytics called");
+  s.tl(true, "o", "Other Services");
+}
+//Other Service Link Click End
+
+//Signon button click from hero sign on and right rail Start
+// Right Nav signon click
+$("#SignOn-signonblade-OCM button.suntrust-login-button").on('click', function() {
+  console.log("OCM signon button clicked");
+  var currentPageName = getPageName(window.location.pathname);
+  //pageName is not required for OCM to be passed per Analytic Team 10/12/2017.
+  var buttonName = "signon|OCM";
+  console.log('buttonName: ' + buttonName);
+  signonButtonOnClick(buttonName);
+});
+
+$("#SignOn-signonblade-OLB button.suntrust-login-button").on('click', function() {
+  console.log("OLB signon button clicked");
+  var currentPageName = getPageName(window.location.pathname);
+  //pageName is not required for OCM to be passed per Analytic Team 10/12/2017.
+  var buttonName = "signon|OLB";
+  console.log('buttonName: ' + buttonName);
+  signonButtonOnClick(buttonName);
+});
+
+//Free form signon click
+$('div.suntrust-login-form-field a').on('click', function() {
+  var currentPageName = getPageName(window.location.pathname);
+  var linkName = currentPageName + "|signon|clickhere";
+  console.log('signonlink name: ' + linkName);
+  signonButtonOnClick(linkName);
+});
+
+function signonButtonOnClick(buttonName) {
+  s.linkTrackVars = 'eVar45,events';
+  s.linkTrackEvents = 'event23';
+  s.eVar45 = buttonName;
+  s.events = 'event23';
+  console.log('button or link click analytics called');
+  s.tl(this, 'o', buttonName);
+}
+//Signon button click from hero sign on and right rail Start
+
+// Returns page name
+function getPageName(url) {
+  var index = url.lastIndexOf("/") + 1;
+  var filenameWithExtension = url.substr(index);
+  var filename = filenameWithExtension.split(".")[0];
+  return filename;
+}
+</script -->

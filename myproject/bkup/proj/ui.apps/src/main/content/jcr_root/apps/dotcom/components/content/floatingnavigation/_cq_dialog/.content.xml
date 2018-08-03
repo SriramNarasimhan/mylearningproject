@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Floating Navigation"
+    sling:resourceType="cq/gui/components/authoring/dialog"
+    helpPath="https://www.adobe.com/go/aem6_2_docs_component_en#Text &amp; Image - Sightly">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/foundation/container">
+        <layout
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/foundation/layouts/tabs"
+            type="nav"/>
+        <items jcr:primaryType="nt:unstructured">
+            <content
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Content"
+                sling:resourceType="granite/ui/components/foundation/section">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <navigationheading
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Navigation Header"
+                                fieldLabel="Navigation Header"
+                                name="./navigationheading"/>
+                            <navigationitems
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/multifield"
+                                class="full-width"
+                                fieldDescription="Navigation Item"
+                                fieldLabel="Navigation Item">
+                                <field
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/foundation/form/fieldset"
+                                    acs-commons-nested="JSON_STORE"
+                                    name="./navigationitems">
+                                    <layout
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
+                                        method="absolute"/>
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <column
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/container">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <navigationlinktext
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                    fieldDescription="Navigation Link Text"
+                                                    fieldLabel="Navigation Link Text"
+                                                    name="./navigationlinktext"/>
+                                                <linkurl
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                                    fieldDescription="Select Path to hyperlink"
+                                                    fieldLabel="Navigation Link URL"
+                                                    name="./navigationlinkurl"
+                                                    rootPath="/content"/>
+                                                <urlParams
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                    fieldDescription="Url Params provided should be concatenated onto the url e.g. /path/to/url?param1=value1&amp;param2=value2"
+                                                    fieldLabel="URL Parameters"
+                                                    name="./navigationurlParams"/>
+                                                <anchorTag
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                    fieldDescription="Sets an anchor tag that’s applied to the url e.g. /path/to/url#tag"
+                                                    fieldLabel="Anchor Tag"
+                                                    name="./navigationanchorTag"/>
+                                                <target
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/select"
+                                                    class="cq-dialog-dropdown-showhide"
+                                                    cq-dialog-dropdown-showhide-target=".list-option-listfrom-showhide-target"
+                                                    fieldDescription="Sets the window for target navigation"
+                                                    fieldLabel="Target"
+                                                    name="./navigationtarget">
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <self
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="Default"
+                                                            value="_self"/>
+                                                        <blank
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="Blank"
+                                                            value="_blank"/>
+                                                    </items>
+                                                </target>
+                                                <titletag
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                    fieldDescription="Enter the title tag on hover (max 100 chars)"
+                                                    fieldLabel="Title Tag"
+                                                    maxlength="{Long}100"
+                                                    name="./navigationtitletag"/>
+                                            </items>
+                                        </column>
+                                    </items>
+                                </field>
+                            </navigationitems>
+                        </items>
+                    </column>
+                </items>
+            </content>
+        </items>
+    </content>
+</jcr:root>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:WorkflowLauncher"
+    condition=""
+    conditions="[jcr:content/pageid==]"
+    description="This sets the page id for analytics to track the reporting."
+    disabledFeatures="[]"
+    enabled="{Boolean}true"
+    eventType="{Long}16"
+    excludeList=""
+    features="[]"
+    glob="/content/suntrust/dotcom/us"
+    nodetype="cq:Page"
+    runModes="author"
+    workflow="/etc/workflow/models/dotcom/page-id-generator-workflow/jcr:content/model"/>

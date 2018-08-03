@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured">
+    <timeline
+        jcr:primaryType="nt:unstructured"
+        jcr:title="Timeline"
+        sling:resourceType="cq/gui/components/coral/common/admin/timeline"
+        foundation-collection-rel="cq-damadmin-admin-childpages">
+        <items jcr:primaryType="nt:unstructured">
+            <clientlibs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/includeclientlibs"
+                categories="[dam.gui.coral.admin.timeline,dam.gui.coral.admin.timeline.header,dam.gui.coral.admin.timeline.sorting]"/>
+            <toolbar
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="dam/gui/coral/components/admin/timeline/toolbar">
+                <items jcr:primaryType="nt:unstructured">
+                    <workflows
+                        granite:class="cq-common-admin-timeline-toolbar-actions cq-common-admin-timeline-toolbar-actions-workflow cq-common-admin-timeline-toggleable"
+                        granite:hidden="{Boolean}true"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Start Workflow"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        rel="cq-common-admin-timeline-toolbar-actions-workflow">
+                        <items jcr:primaryType="nt:unstructured">
+                            <form
+                                granite:rel="cq-common-admin-timeline-toolbar-actions-workflow-form"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form"
+                                action="/etc/workflow/instances"
+                                style="vertical">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <model
+                                        granite:id="workflow-model-select-field-dam-timeline"
+                                        granite:rel="cq-common-admin-timeline-toolbar-actions-workflow-select"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                        emptyText="Select a Workflow Model"
+                                        id="workflow-model-select-field-dam-timeline"
+                                        ignoreData="{Boolean}true"
+                                        name="model"
+                                        workflowtags="[dam]">
+                                        <datasource
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="cq/gui/components/coral/common/admin/timeline/events/workflow/datasources/models"/>
+                                    </model>
+                                    <workflowtitle
+                                        granite:id="workflow-title-dam-timeline-text-field"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                        emptyText="Enter title of workflow"
+                                        id="workflow-title-dam-timeline-text-field"
+                                        ignoreData="{Boolean}true"
+                                        name="workflowTitle"/>
+                                    <start
+                                        granite:class="cq-common-admin-timeline-toolbar-actions-button-2cols-last"
+                                        granite:id="start-workflow-dam-timeline-button-field"
+                                        granite:rel="cq-common-admin-timeline-toolbar-actions-workflow-ok"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/button"
+                                        disabled="{Boolean}true"
+                                        id="start-workflow-dam-timeline-button-field"
+                                        text="Start"
+                                        variant="primary"/>
+                                </items>
+                            </form>
+                        </items>
+                    </workflows>
+                </items>
+            </toolbar>
+        </items>
+    </timeline>
+</jcr:root>

@@ -1,0 +1,145 @@
+/* Spacer Adjustment CSS starts*/
+.spacer_10, .spacer_15, .spacer_20, .spacer_25, .spacer_30, .spacer_40, .spacer_50 {
+	display: block;
+	width: auto;
+}
+.spacer_10 {
+	height: 10px;
+}
+.spacer_15 {
+	height: 15px;
+}
+.spacer_20 {
+	height: 20px;
+}
+.spacer_25 {
+	height: 25px;
+}
+.spacer_30 {
+	height: 30px;
+}
+.spacer_40 {
+	height: 40px;
+}
+.spacer_50 {
+	height: 50px;
+}
+/* Spacer Adjustment CSS Ends*/
+
+/* RTE - <ul><li> CSS Starts*/
+.rteSection ul li {
+    margin-bottom: 10px;
+    list-style-type: disc !important;
+}
+
+.rteSection ol li {
+    margin-bottom: 10px;
+	list-style-type: decimal !important;
+}
+.rteSection ul,
+.rteSection ol {
+	list-style-position: outside !important;
+}
+
+.rteSection ul  li ul, .rteSection ul  li ol, 
+.rteSection ol  li ol, .rteSection ol  li ul {
+	padding-top: 10px;
+	margin-bottom: 0;
+}
+.rteSection  ul, .rteSection  ol {
+	padding: 0 0 0 18px;
+    margin-bottom: 20px;
+}
+/* RTE - <ul><li> CSS Ends*/
+
+/*---------Help - Question Mark.css starts----------------*/ 
+.suntrust-help sup:before {
+    content: '?';
+    display: inline-block;
+    font-family: sans-serif;
+    font-weight: bold;
+    text-align: center;
+    width: 15px;
+    height: 15px;
+    font-size: 12px;
+    line-height: 14px;
+    border-radius: 1.2ex;
+    margin-right: 4px;
+    padding: 0;
+    color: #fff;
+    background: #666666;
+    border: 1px solid #666666;
+    text-decoration: none;
+}   
+.suntrust-help sup {
+	top: -2px;
+}
+.suntrust-help:hover sup:before,
+.suntrust-help:focus sup:before{
+	color: #fff;
+    background: #c94c06;
+    border: 1px solid #c94c06;
+   	cursor: pointer;
+}
+/*---------Help - Question Mark.css Ends----------------*/
+
+/*For US40756 - Featured Content modifications start  */
+
+.suntrust-SLfeature .suntrust-feature-links, .suntrust-SLfeature .suntrust-cta-featureholder {
+	position: relative;
+}
+.suntrust-SLfeature .suntrust-cta-featureholder .suntrust-imagetextcta-ctabutton {
+	position: absolute;
+  	bottom: -35px !important;
+}
+.suntrust-SLfeature .suntrust-feature-links .displayBlock {
+	display: block;
+    margin-left: 25px;         
+}
+.suntrust-SLfeature .suntrust-feature-links a:first-child {
+    margin-top: 20px;
+    padding-bottom: 5px;
+}
+.featuredcontent .rteelement ul {
+	padding: 0 0 0 18px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.featuredcontent .rteelement ul {
+	list-style-position: outside !important;
+}
+.suntrust-SLfeature .suntrust-promo-description{
+	padding-bottom: 65px;
+}
+@media (max-width: 767px){
+.suntrust-SLfeature .suntrust-promo-description{
+	padding-bottom: 45px;
+}
+}
+/*For US40756 - Featured Content modifications end */
+/*Green check mark CSS start */
+ul.suntrust-GreenCheck>li:before, .rteSection ul.suntrust-GreenCheck li:before {
+	 font-family:"sun-icons-UXd1Fq6";
+	 font-weight:normal;
+	 font-style:normal;
+	 text-decoration:inherit;
+	 content: "";
+	 color:#3b7;
+	 position:absolute;
+	 left:0;
+}
+
+ul.suntrust-GreenCheck>li {
+	 position:relative;
+	 padding-left:25px;
+}
+
+ul.suntrust-GreenCheck li, .contactUs_accordion .contactUs_content_data ul.suntrust-GreenCheck li, 
+.featuredcontent .rteelement ul.suntrust-GreenCheck li, .rteSection ul.suntrust-GreenCheck li {
+	list-style-type: none !important;
+}
+.featuredcontent .rteelement ul.suntrust-GreenCheck, .rteSection ul.suntrust-GreenCheck, ul.suntrust-GreenCheck {
+	padding: 0;
+}
+
+/*Green check mark CSS ends */

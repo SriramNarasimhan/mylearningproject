@@ -1,0 +1,1717 @@
+
+	<sly data-sly-use.configServiceUse="${'com.suntrust.dotcom.utils.ConfigServiceUse' @ property='bootstrap.js.path'}"/>
+
+	<sly data-sly-use.configServiceUseiamabusinessowner="${'com.suntrust.dotcom.utils.ConfigServiceUse' @ property='iamabusinessowner'}"/>
+	<sly data-sly-use.configServiceUseiamacorporateexecutive="${'com.suntrust.dotcom.utils.ConfigServiceUse' @ property='iamacorporateexecutive'}"/>
+	<sly data-sly-use.configServiceUseiamanattorneyorimanageafirm="${'com.suntrust.dotcom.utils.ConfigServiceUse' @ property='iamanattorneyorimanageafirm'}"/>
+	<sly data-sly-use.configServiceUseiamaphysicianorimanageapractice="${'com.suntrust.dotcom.utils.ConfigServiceUse' @ property='iamaphysicianorimanageapractice'}"/>
+	<sly data-sly-use.configServiceUseiamclosetoretirementorretired="${'com.suntrust.dotcom.utils.ConfigServiceUse' @ property='iamclosetoretirementorretired'}"/>
+	<sly data-sly-use.configServiceUseiaminthesportsorentertainmentindustry="${'com.suntrust.dotcom.utils.ConfigServiceUse' @ property='iaminthesportsorentertainmentindustry'}"/>
+	<sly data-sly-use.configServiceUseiamjustgettingstartedontheroadtoretirement="${'com.suntrust.dotcom.utils.ConfigServiceUse' @ property='iamjustgettingstartedontheroadtoretirement'}"/>
+	<sly data-sly-use.configServiceUseiamlookingforguidanceonmyinvestments="${'com.suntrust.dotcom.utils.ConfigServiceUse' @ property='iamlookingforguidanceonmyinvestments'}"/>
+	<sly data-sly-use.configServiceUseiamseekinghomeloanadvice="${'com.suntrust.dotcom.utils.ConfigServiceUse' @ property='iamseekinghomeloanadvice'}"/>
+	<sly data-sly-use.configServiceUseihaveinternationalwealthmanagementneeds="${'com.suntrust.dotcom.utils.ConfigServiceUse' @ property='ihaveinternationalwealthmanagementneeds'}"/>
+	<sly data-sly-use.configServiceUseihavemadesomeprogressonmyretirementgoals="${'com.suntrust.dotcom.utils.ConfigServiceUse' @ property='ihavemadesomeprogressonmyretirementgoals'}"/>
+	<sly data-sly-use.configServiceUseimlookingforstrategiestoprotectmywealththroughoutretirement="${'com.suntrust.dotcom.utils.ConfigServiceUse' @ property='imlookingforstrategiestoprotectmywealththroughoutretirement'}"/>
+
+
+	<script src="/etc/designs/dotcom/main/js/mapquest.js"></script>
+	<script>
+
+	$(document).ready(function() {
+	
+		
+		var authorViewFlag = "${configServiceUse.property @ context='scriptString'}";
+		hideSections();
+		$("#noResultM").addClass('hide');
+		$("#noResultM").removeClass('show');
+		
+		var limit = 10;
+		var newLimit = 10;
+		var resultObjectSize;
+		var filtered_resultObject = "";
+		var filtered_profilePage = [];
+		var unique_profilePage = "";
+		var counterLen;
+		var floatingObject;
+		var startLat;
+		var startLng;
+		var responseHTML = "";
+		var setCnt = 10;
+		var startSetCnt = 0;
+		var mqSearchText;
+		var searchResultCount = 0;
+		var searchTextBoxClickFlag = false;
+		var userAddress;
+
+		$(document).on('click', '#mReset', function() {
+			$('.mobile_filter_search input[type="checkbox"]').attr('checked', false);
+			$('.sun-checkbox-input-container span').removeClass('sun-checked');
+			$('select.suntrust-select option[value="Select"]').attr('selected', true);
+			$('.sun-select-container span').text('Select');
+		});
+
+		
+		function getUserAddress() {
+			$.ajax({
+				type : "POST",
+				async : false,
+				url : 'https://www.mapquestapi.com/geocoding/v1/address?key=Gmjtd%7Clu6zn1ua2d%2C70%3Do5-l0850&outFormat=json&location=' + startLat + ',' + startLng,
+				dataType : "json",
+				success : function(data) {
+					$.each(data.results, function() {
+					$.each(this, function(key, val) {
+						if (key != null && key != undefined && key == 'locations') {
+						var locationsArr = val;
+						street = locationsArr[0].street;
+						city = locationsArr[0].adminArea5;
+						state = locationsArr[0].adminArea3;
+						zip = locationsArr[0].postalCode;
+						}
+					});
+					});
+					
+					
+					userAddress = street + ',' + city + ',' + state + ',' + zip;
+				},
+				error : function(xhRequest, ErrorText, thrownError) {
+					console.log("Error while fetching user address");
+				}
+			});
+		}
+		
+		navigator.geolocation.getCurrentPosition(function(position) {
+			startLat = position.coords.latitude;
+			// startLat = 36.211822;
+			// startLng = -83.295935;
+			startLng = position.coords.longitude;
+			getUserAddress();
+		});
+
+		$(document).on("click", ".suntrust-input-location-button", function(e) {
+			if (startLat != undefined && startLng != undefined) {
+				getUserAddress();
+			}
+		});
+
+		function milesFinder() {
+			$('.addressDistance').each(function() {
+				var endLat = $(this).attr("latitude");
+				var endLng = $(this).attr("longitude");
+				var distance = updateDistance(startLat, startLng, endLat, endLng);
+				$(this).append("<div class='miles-away' miles=" + distance + ">" + distance + " Miles</div>");
+			});
+		}
+
+		function sortLocationResultBasedOnMiles(selector, attrName) {
+			return $($(selector).toArray().sort(function(a, b) {
+				var aVal = parseFloat($(a).find(".miles-away").attr(attrName)), bVal = parseFloat($(b).find(".miles-away").attr(attrName));
+				return aVal - bVal;
+			}));
+		}
+
+		function updateDistance(startLat, startLng, endLat, endLng) {
+			var start = L.latLng(startLat, startLng);
+			var end = L.latLng(endLat, endLng);
+			var distance = start.distanceTo(end).toFixed(0);
+
+			if (!distance) {
+				distance = 0.00;
+			} else {
+				distance = (Math.round(distance * 0.000621371 * 100) / 100);
+			}
+			return distance;
+		}
+
+		$(document).on("click", ".state_city_selectall_clear a, .search_by_filter input, .people_filter_mobile input", function(e) {
+			var sList = [];
+			var sListSpl = [];
+			var sListState = [];
+			var sListCity = [];
+			var refinedSplResult=[];
+			var refinedStateResult=[];
+			var refinedCityResult=[];
+			var refinedResult=[];
+			var sList_count = [];
+			var selectedVals;
+			var inputCheck;
+			setCnt = 10;
+			startSetCnt = 0;
+
+			if ($(this).parents().hasClass('sun-checkbox-input-field')) {
+				$(this).parent().toggleClass('sun-checked');
+				inputCheck = "input";
+			} else
+				inputCheck = this.text;
+
+			var mobViewCheck = $(this).closest(".filter_tog");
+			if (!mobViewCheck.length) {
+				searchTextBoxClickFlag = false;
+				passDesktopSearchValuesToAnalyticEngine("desktopView");
+			}
+
+			// gets all checked attr, from HTML
+			$('.search_result_filters input[type=checkbox], .filter_tog input[type=checkbox]').each(function() {
+
+				filtered_resultObject = "";
+				filtered_profilePage = [];
+				unique_profilePage = "";
+				var sThisVal;
+				if (inputCheck == 'None' || inputCheck == 'Select All')
+					sThisVal = $(this).parent().hasClass("sun-checked") ? "1" : "0";
+				else
+					sThisVal = $(this).parent().hasClass("sun-checked") ? "1" : "0";
+				if (sThisVal == '1') {
+					//sList.push($(this).attr("data-search-filter") + "/" + $(this).closest('.search_detail_state_city_select').attr('id'));
+					var category = $(this).closest('.search_detail_state_city_select').attr('id');
+					if(window.innerWidth<768) {
+						if (category == "stateListM") {
+							sListState.push($(this).attr("data-search-filter"));
+						}
+						if (category == "cityListM") {
+							sListCity.push($(this).attr("data-search-filter"));
+						}
+						if (category == "advisorSpecialtyListM") {
+							if($(this).attr("data-search-filter").indexOf(',')>0){
+								var splArr = $(this).attr("data-search-filter").split(',');
+								for(var i=0;i<splArr.length;i++) {
+									sListSpl.push(splArr[i]);
+								}
+							} else {
+								sListSpl.push($(this).attr("data-search-filter"));
+							}
+						}
+					} else {
+						if (category == "stateList") {
+							sListState.push($(this).attr("data-search-filter"));
+						}
+						if (category == "cityList") {
+							sListCity.push($(this).attr("data-search-filter"));
+						}
+						if (category == "advisorSpecialtyList") {
+							if($(this).attr("data-search-filter").indexOf(',')>0){
+								var splArr = $(this).attr("data-search-filter").split(',');
+								for(var i=0;i<splArr.length;i++) {
+									sListSpl.push(splArr[i]);
+								}
+							} else {
+								sListSpl.push($(this).attr("data-search-filter"));
+							}
+						}
+					}
+				}
+			});
+
+			sListState = sListState.filter(function(itm, i, sListState) {
+				return i == sListState.indexOf(itm);
+			});
+			sListCity = sListCity.filter(function(itm, i, sListCity) {
+				return i == sListCity.indexOf(itm);
+			});
+			sListSpl = sListSpl.filter(function(itm, i, sListSpl) {
+				return i == sListSpl.indexOf(itm);
+			});
+				
+			// on deselecting all.
+			if (sListState == "" && sListCity == "" && sListSpl == "") {
+				fillAll();
+				if (startLat != undefined && startLng != undefined) {
+					milesFinder();
+					$('.search_result_description .people_filter_container #searchResult .people-mq-result').html(sortLocationResultBasedOnMiles('.people-mq-result .search_result_description_details', 'miles'));
+					$('.search_result_description .people_filter_container #searchResult .people-aem-result').html(sortLocationResultBasedOnMiles('.people-aem-result .search_result_description_details', 'miles'));
+				}else{
+					$('.search_result_description .people_filter_container #searchResult .people-mq-result').html(sortPeopleResultBasedOnPeopleName('.people-mq-result .search_result_description_details', 'miles'));
+					$('.search_result_description .people_filter_container #searchResult .people-aem-result').html(sortPeopleResultBasedOnPeopleName('.people-aem-result .search_result_description_details', 'miles'));
+				}
+				showMoreOption();
+			} else {
+
+				var filterprofPageCounter = 0; // to keep counter adding all
+								
+				var filterSplList,filterStateList,filterCityList;
+
+				for (var ka=0;ka<sListSpl.length;ka++){
+					refinedSplResult = refinedSplResult.concat($.grep(MqOnlyResultsWithoutDuplicates, function(v) {
+						return v.advisor_specialty.toUpperCase() === sListSpl[ka];
+					}));
+				}
+				
+				for (var kb=0;kb<sListState.length;kb++){
+					refinedStateResult = refinedStateResult.concat($.grep(refinedSplResult, function(v) {
+							return v.advisor_state.toUpperCase() === sListState[kb];
+					}));
+				}
+				
+				for (var kc=0;kc<sListCity.length;kc++){
+					refinedCityResult = refinedCityResult.concat($.grep(refinedStateResult, function(v) {
+						return (v.advisor_city.toUpperCase()).indexOf(sListCity[kc]) > -1;
+					}));
+				}
+				
+				filtered_resultObject = refinedCityResult;
+
+				$(filtered_resultObject).each(function() {
+
+					refinedResult[filterprofPageCounter] = this.advisor_profilePage;
+					filterprofPageCounter = filterprofPageCounter + 1;
+				});
+
+				// Get unique pages
+				unique_profilePage = refinedResult.filter(function(itm, i, refinedResult) {
+					return i == refinedResult.indexOf(itm);
+				});
+				
+				
+				function sortByName(a, b){
+				  var aName = a.lastIndexOf('/');
+				  var bName = b.lastIndexOf('/');
+				  var aSubString = a.substr(aName);
+				  var bSubString = b.substr(bName);
+				  return ((aSubString < bSubString) ? -1 : ((aSubString > bSubString) ? 1 : 0));
+				}
+
+				$('#searchResult .people-mq-result').html('');
+				$('#searchResult .people-aem-result').html('');
+
+				for (i = 0; i < unique_profilePage.length; i++) {
+					filePath = unique_profilePage[i] + ".min.html";
+					resultUpdate(filePath);
+				}
+				resultCounter(unique_profilePage.length);
+				if (startLat != undefined && startLng != undefined) {
+					milesFinder();
+					$('.search_result_description .people_filter_container #searchResult .people-mq-result').html(sortLocationResultBasedOnMiles('.people-mq-result .search_result_description_details', 'miles'));
+					$('.search_result_description .people_filter_container #searchResult .people-aem-result').html(sortLocationResultBasedOnMiles('.people-aem-result .search_result_description_details', 'miles'));
+				}else{
+					$('.search_result_description .people_filter_container #searchResult .people-mq-result').html(sortPeopleResultBasedOnPeopleName('.people-mq-result .search_result_description_details', 'miles'));
+					$('.search_result_description .people_filter_container #searchResult .people-aem-result').html(sortPeopleResultBasedOnPeopleName('.people-aem-result .search_result_description_details', 'miles'));
+				}
+				showMoreOption();
+			}
+			if($("#searchResult .people-mq-result").children().length==0 && $("#searchResult .people-aem-result").children().length ==0) {
+				$(".people-aem-result").html("<div class='zero_result_text'>No Result Text During Filter</div>");
+			}
+			e.stopImmediatePropagation();
+		});
+
+		// select all, none, and all check unchecked
+		function fillAll() {
+			$('#searchResult .people-mq-result').html('');
+			$('#searchResult .people-aem-result').html('');
+
+			for (i = 0; i < MqOnlyResultsWithoutDuplicates.length; i++) {
+				var resultObjectAddressItems = MqOnlyResultsWithoutDuplicates[i];
+				var filePath = resultObjectAddressItems.advisor_profilePage + ".min.html";
+				// alert(filePath);
+				resultUpdate(filePath);
+			}
+			resultCounter(MqOnlyResultsWithoutDuplicates.length);
+		}
+
+		
+		var people_result_object_full_response;
+		var MqAndAEMResults=[];		
+		var MqOnlyResultsWithoutDuplicates=[];
+		
+		
+		function sortPeopleResultBasedOnPeopleName(selector, attrName) {
+			var alphabeticallyOrderedDivs = $(selector).sort(function(a, b) {
+				return String.prototype.localeCompare.call($(a).find('#advisorName').text().toLowerCase(), $(b).find('#advisorName').text().toLowerCase());
+			});
+			return alphabeticallyOrderedDivs;
+		}
+		var loc_result_object;
+		var peoplefinder = getParameterByName("searchTerm");	
+		var peopleRadius = getParameterByName("peopleRadius");	
+		var aboutMe = [];
+		var aboutMeList = getParameterByName("speciality");
+		var specialCnt = 0;
+		if(aboutMeList!=null&&aboutMeList!=undefined&&aboutMeList!=''){
+			aboutMeList.split(" ").forEach(function(item) {
+				if(item!=null&&item!=undefined&&item!=''){
+					aboutMe[specialCnt] = "advisor-specialty:"+item;
+					++specialCnt;
+				}
+			});
+		}
+		if(peoplefinder!=null || peopleRadius!=null ||aboutMe!=null){ $('#searchBox').val(peoplefinder); getPeopleResults(); }
+		
+		function getPeopleResults() {
+			var MqOnlyResultsWithoutDuplicatesTemp=[];
+			var MqOnlyResults=[];
+			var AEMOnlyResults=[];
+			MqAndAEMResults=[];
+			if(window.innerWidth<768) {
+				mqSearchText = $('#searchBox').val().trim();
+			} else {
+				mqSearchText = $('.suntrust_search').val().trim();
+			}
+			if(peoplefinder!=undefined && peoplefinder!='' && peoplefinder!=null)
+				mqSearchText = peoplefinder;
+			mqSearchText = encodeURIComponent(mqSearchText);
+			var mqResultObject = "";
+			var flag = "notPresent";
+			
+			setCnt = 10;
+			startSetCnt = 0;
+			$("#searchResult .people-aem-result").children().remove();
+			$("#searchResult .people-mq-result").children().remove();
+			MqOnlyResultsWithoutDuplicates = [];
+
+			if (mqSearchText.trim() == "") {
+				//$('#loadingMask').fadeOut(1000);
+				//hideSections();
+				clickFlag = true;
+			} else {
+				$('#loadingMask').show().focus();
+				var mapQuestResultCount;
+				var mapQuestResultKey = [];
+				var refinedRadiusResult = [];
+				var mqPostalCodesArray=[];
+				var mqPostalCodesString="";
+				var postalCodeMatchingLatLng=[];
+				var strRadius;
+				
+				if(window.innerWidth<768) {
+					var selctedRadiusMobile;
+					selctedRadiusMobile = document.getElementById("LRMobile");
+					strRadius = document.getElementById("LRMobile").options[selctedRadiusMobile.selectedIndex].value;
+				} else {
+					strRadius = 10;
+				}
+				
+				if(peopleRadius!=undefined && peopleRadius!='' && peopleRadius!=null) {
+				console.log("peopleRadius:"+peopleRadius);
+					strRadius = peopleRadius;
+					strRadius = parseInt(strRadius.trim());
+					var strRadiusIndex;
+					if(strRadius == 05) strRadiusIndex = 0;
+					if(strRadius == 10) strRadiusIndex = 1;
+					if(strRadius == 20) strRadiusIndex = 2;
+					if(strRadius == 50) strRadiusIndex = 3;
+					console.log("strRadius:"+strRadius);
+					console.log("strRadiusIndex:"+strRadiusIndex);
+					$("#LRDesktop option[value='"+strRadius+"']").attr('selected', true);
+					$("#uniform-LRDesktop span").text(strRadius+" Miles");
+					$("#LRMobile option[value='"+strRadius+"']").attr('selected', true);
+					$("#uniform-LRMobile span").text(strRadius+" Miles");
+				}
+				
+				$.ajax({
+				type : 'GET',
+				dataType : 'json',
+				crossDomain : true,
+				url : 'https://www.mapquestapi.com/search/v2/radius?origin=' + mqSearchText + '&radius=' + strRadius + '&ambiguities=ignore&hostedData=mqap.32547_SunTrust_Branch_Loc&outFormat=json&key=Gmjtd|lu6zn1ua2d,70=o5-l0850',
+
+				success : function(response) {
+					if(response.info.statusCode != '500'){
+					mqResultObject = response['resultsCount'];
+					mapQuestResultCount = parseInt(response['resultsCount']);
+
+					if (mapQuestResultCount != 0 && response['searchResults'] !=''&& response['searchResults'] !=undefined) {
+						for (var i = 0; i < response['searchResults'].length; i++) {
+							var latitude = response['searchResults'][i].fields.lat;
+							var longitude = response['searchResults'][i].fields.lng;
+							mapQuestResultKey[i] = latitude.toString() + longitude.toString();
+							mqPostalCodesArray[i]=response['searchResults'][i].fields.postal;
+						}
+						mapQuestResultKey = $.unique(mapQuestResultKey);
+						mqPostalCodesArray = $.unique(mqPostalCodesArray); 
+						for(var i=0;i<mqPostalCodesArray.length;i++){
+							if(mqPostalCodesString.length == 0)
+								mqPostalCodesString = mqPostalCodesArray[i];
+							else
+								mqPostalCodesString = mqPostalCodesString + "," +mqPostalCodesArray[i];
+						}
+					}
+					mqPostalCodesString = "mqPostalCodeData"+mqPostalCodesString;
+					$.ajax({
+						type : "GET",
+						url : '/dotcom/search',
+						async: false,
+						data : {"searchString": mqPostalCodesString, "currentDay":new Date().getDay(), "aboutMe":aboutMe, "searchingFor":"People"},
+						success : function(response, textStatus, jqXHR) {
+							people_result_object_full_response = response['people_results'];
+							
+							refinedRadiusResult = people_result_object_full_response;
+							for(var i=0;i<refinedRadiusResult.length;i++){
+								refinedRadiusResult[i].loc_result_type = 'MQ';
+								MqAndAEMResults.push(refinedRadiusResult[i]);
+							}
+							$.ajax({
+								type : 'GET',
+								url : '/dotcom/search',
+								data : {
+									"searchString" : mqSearchText,
+									"currentDay" : new Date().getDay(), 
+									"aboutMe":aboutMe, 
+									"searchingFor":"People"
+								},
+								success : function(response) {
+									MqOnlyResultsWithoutDuplicates = [];
+									if (response['people_results'] == undefined) {
+										MqOnlyResultsWithoutDuplicates = [];
+									} else {
+									loc_result_object = response['people_results'];
+									var MQaemKey = [];
+									for(var i=0; i<refinedRadiusResult.length;i++){	
+										MQaemKey.push(refinedRadiusResult[i].advisor_profilePage);
+									}
+									
+									for(var i=0;i<loc_result_object.length;i++){
+										for(var j=0;j<MQaemKey.length;j++){
+											if(MQaemKey[j] != loc_result_object[i].advisor_profilePage){
+												flag="notPresent";
+											}else{
+												flag = "present";
+												break;
+											}
+										}
+										if(flag=="notPresent"){
+											loc_result_object[i].loc_result_type = 'AEM';
+											AEMOnlyResults.push(loc_result_object[i]);
+										}
+									}
+									for(var i=0; i<AEMOnlyResults.length;i++){	
+										MqAndAEMResults.push(AEMOnlyResults[i]);           
+									}										
+									}
+									MqAndAEMResults = MqAndAEMResults.filter(function(itm, i, MqAndAEMResults) {
+										return i == MqAndAEMResults.indexOf(itm);
+									});
+
+
+									filtered_profilePage = [];
+									var setCnt = 10;
+									var startSetCnt = 0;
+									
+									$("#noResultM").removeClass('show');
+									$("#noResultM").addClass('hide');
+									
+									if (MqAndAEMResults != undefined && MqAndAEMResults != '') {
+										if (MqAndAEMResults.length > 0) {
+												
+											$.each(MqAndAEMResults, function (index, value) {
+												if ($.inArray(value.advisor_profilePage, MqOnlyResultsWithoutDuplicatesTemp) == -1) {
+													MqOnlyResultsWithoutDuplicatesTemp.push(value.advisor_profilePage);
+													MqOnlyResultsWithoutDuplicates.push(value);
+												}
+											});
+											for (var i = 0; i < MqOnlyResultsWithoutDuplicates.length; i++) {
+												filtered_profilePage.push(MqOnlyResultsWithoutDuplicates[i].advisor_profilePage);
+											}
+											// TO SHOW LOCATION RADIUS FILTER BY DEFAULT
+											$(".filter_tog #locationRadiusM").show();
+											$(".search_detail_location_radius").show();
+											
+											filtered_profilePage = $.unique(filtered_profilePage);
+
+											// FOR displaying location radius result object
+											if (filtered_profilePage.length != 0) {
+											for (var i = 0; i < filtered_profilePage.length; i++) {
+												var filePath = filtered_profilePage[i] + ".min.html";
+												resultUpdate(filePath);
+											}
+
+											showSections();
+											counterLen = MqOnlyResultsWithoutDuplicates.length;
+											filterCity();
+											filterState();
+											filterSpeciality();
+											resultCounter(counterLen);
+											if (startLat != undefined && startLng != undefined) {
+												milesFinder();
+												$('.search_result_description .people_filter_container #searchResult .people-mq-result').html(sortLocationResultBasedOnMiles('.people-mq-result .search_result_description_details', 'miles'));
+												$('.search_result_description .people_filter_container #searchResult .people-aem-result').html(sortLocationResultBasedOnMiles('.people-aem-result .search_result_description_details', 'miles'));
+											} else{
+												$('.search_result_description .people_filter_container #searchResult .people-mq-result').html(sortPeopleResultBasedOnPeopleName('.people-mq-result .search_result_description_details', 'miles'));
+												$('.search_result_description .people_filter_container #searchResult .people-aem-result').html(sortPeopleResultBasedOnPeopleName('.people-aem-result .search_result_description_details', 'miles'));			
+											}
+											
+											showMoreOption();
+
+											} else {
+
+											// TO HIDE LOCATION RADIUS FILTER
+											// Request to enable it by default so
+											// that user can search for other radius
+											$(".filter_tog #locationRadiusM").show();
+											$(".search_detail_location_radius").show();
+											showSections();
+											counterLen = MqOnlyResultsWithoutDuplicates.length;
+											resultCounter(MqOnlyResultsWithoutDuplicates.length);
+											filterCity();
+											filterState();
+											filterSpeciality();
+											$('#searchResult .people-mq-result').html('');
+											$('#searchResult .people-aem-result').html('');
+											$("#noResultM").removeClass('show');
+											$("#noResultM").addClass('hide');
+											ctnCheck = fillAll();
+
+											if (ctnCheck != "") {
+												if (startLat != undefined && startLng != undefined) {
+													milesFinder();
+													$('.search_result_description .people_filter_container #searchResult .people-mq-result').html(sortLocationResultBasedOnMiles('.people-mq-result .search_result_description_details', 'miles'));
+													$('.search_result_description .people_filter_container #searchResult .people-aem-result').html(sortLocationResultBasedOnMiles('.people-aem-result .search_result_description_details', 'miles'));
+												}else{
+													$('.search_result_description .people_filter_container #searchResult .people-mq-result').html(sortPeopleResultBasedOnPeopleName('.people-mq-result .search_result_description_details', 'miles'));
+													$('.search_result_description .people_filter_container #searchResult .people-aem-result').html(sortPeopleResultBasedOnPeopleName('.people-aem-result .search_result_description_details', 'miles'));
+												}
+
+											}
+											showMoreOption();
+											//$("#LRDesktop option[value='10']").attr('selected', true);
+											//$("#uniform-LRDesktop span").text('10 Miles');
+											}
+
+										}
+									} else {
+										// WHEN RESULT IS ZERO
+										hideSections();
+										$("#noResultM").removeClass('hide');
+										$("#noResultM").addClass('show');
+										$('#searchResult .people-mq-result').html('');
+										$('#searchResult .people-aem-result').html('');
+										MqOnlyResultsWithoutDuplicates = [];
+										document.getElementById('resultCount').innerHTML = 0;
+									}
+
+								}
+							});
+							clickFlag = true;
+							$('#loadingMask').fadeOut(1000);
+						}
+					});
+					} else {
+						$("#noResultM").removeClass('hide');
+						$("#noResultM").addClass('show');
+						$('#loadingMask').fadeOut(1000);
+						$("#searchResult .people-aem-result").children().remove();
+						$("#searchResult .people-mq-result").children().remove();
+						$("#search_result_filters").children().remove();
+						hideSections();
+						clickFlag = true;
+						return false;
+					}
+				},
+				error : function(XMLHttpRequest, textStatus, errorThrown) {
+					//console.log("Error occured");
+					$('#loadingMask').fadeOut(100);
+				}
+			});
+					
+
+			}
+
+			searchTextBoxClickFlag = true;
+			setTimeout(function() {
+				passDesktopSearchValuesToAnalyticEngine("desktopView");
+			}, 1000);
+		}
+
+		// ORIGINAL SEARCH -
+		var clickFlag = true;
+		$(document).on('click', '#searchLink.suntrust-orange-button', function(e) {
+			if (clickFlag) {
+				clickFlag = false;
+				e.stopImmediatePropagation();
+				$("#LRDesktop option[value='10']").attr('selected', true);
+				$("#uniform-LRDesktop span").text('10 Miles');
+				getPeopleResults();
+				return false;
+			}
+		});
+		$(document).on('click', '.mobile_filter_submit_reset #mSubmit', function(e) {
+	
+			searchTextBoxClickFlag = false;
+			passDesktopSearchValuesToAnalyticEngine("mobileView");
+			/*for (i = 0; i < unique_profilePage.length; i++) {
+				filePath = unique_profilePage[i] + ".min.html";
+				resultUpdate(filePath);
+			}
+			resultCounter(unique_profilePage.length);*/
+			//getPeopleResults();
+			// To swipe off filter overlay
+			$('[data-suntrust-class="suntrust-menu-close"]').parents('.mobile_filter_search').animate({
+				left : "-320px"
+			});
+			e.stopImmediatePropagation();
+				
+		});
+
+		$(document).on('keypress', '#searchBox', function(event) {
+			if (event.keyCode === 13) {
+				$(this).blur();
+				event.preventDefault();
+				if (clickFlag) {
+					clickFlag = false;
+					if(window.innerWidth<768) {
+						$("#LRMobile option[value='10']").attr('selected', true);
+						$("#uniform-LRMobile span").text('10 Miles');
+						getPeopleResults();
+					} else {
+						$("#LRDesktop option[value='10']").attr('selected', true);
+						$("#uniform-LRDesktop span").text('10 Miles');
+						getPeopleResults();
+					}
+					return false;
+				}
+			}
+		});
+
+		function showMoreOption() {
+		$(".search_result_description .searchResultPeople").each(function() {
+            var size_li = $(this).find('div.search_result_description_details').length;
+            var x = 10;
+            $(this).find('div.search_result_description_details:lt(' + x + ')').show();
+            if (size_li <= x) {
+                $(this).parents('.search_result_description').find('.location_result_show_more_results').hide();
+            }else{
+                $(this).parents('.search_result_description').find('.location_result_show_more_results').show();
+            }
+            $("div.search_result_description_details:visible:last").css("border-bottom","0px");
+        });
+			
+		}
+
+		// Result updater
+		function resultUpdate(filePath) {
+		
+			
+			filtered_jsonObject = $.grep(MqAndAEMResults, function(v) {
+				return v.advisor_profilePage+".min.html" === filePath;
+			});
+			////console.log(filtered_jsonObject);
+			if(filtered_jsonObject !="" && filtered_jsonObject != undefined){
+				var $clonedResult = $("#hiddenTemplate").clone();
+
+				$clonedResult.find("#profilePage").attr("href",filtered_jsonObject[0].advisor_profilePage+'.html');
+				$clonedResult.find("#profileImage").attr("src",filtered_jsonObject[0].advisor_pictureFilePath);
+				var advDesignationSpl = '';
+				var advDesignationCodes = filtered_jsonObject[0].advisor_designationcodes;
+				if(advDesignationCodes != '' && advDesignationCodes != undefined && advDesignationCodes != null)
+					advDesignationSpl = ', '+advDesignationCodes;
+				$clonedResult.find("#advisorName").html(filtered_jsonObject[0].advisor_firstname+' '+filtered_jsonObject[0].advisor_lastname+advDesignationSpl+', '+filtered_jsonObject[0].advisor_title1);
+				$clonedResult.find("#advisorTitle").html(filtered_jsonObject[0].advisor_title2);
+
+				$clonedResult.find("#telNo").attr("href",'tel:'+filtered_jsonObject[0].advisor_phone).html(filtered_jsonObject[0].advisor_phone);
+				$clonedResult.find("#mailId").attr("href",'mailto:'+filtered_jsonObject[0].advisor_emailaddress).html(filtered_jsonObject[0].advisor_emailaddress);
+
+				$clonedResult.find("#contactFormId").attr("href",'/dotcom/external?clickedUrl=https://clientcareforms.suntrust.com/formssolution/form.aspx?appname=advisorfinder&formName=RWAdvisorContactUs&subject=Advisor%20Finder%20Lead%20-%20Action%20Required&sendTo='+filtered_jsonObject[0].advisor_emailaddress);
+
+				$.each(filtered_jsonObject[0].advisor_addressListArray.addressListArray, function(i, data){
+					var addresshtml='<div class="clearfix"><div class="location_show_hide_addr">';
+					addresshtml+='<p>'+data.adv_address+'</p>';
+					addresshtml+='<p><span class="adv-city">'+data.adv_city+'</span>, '+data.adv_state+'\n'+data.adv_zipcode+'</p>';
+					addresshtml+='<div class="addressDistance" latitude="'+data.adv_latitude+'" longitude="'+data.adv_longitude+'" />';
+					addresshtml+='</div>';
+					if (startLat != undefined && startLng != undefined) {
+						addresshtml+='<div class="loction_show_hide_direction clearfix"><div class="loction_show_hide_direction_icon"><img src="/content/dam/suntrust/us/en/elements/2017/graphic-elements/icon_location.png"></div><div class="loction_show_hide_direction_details"><p><a target="_blank" href="'+filtered_jsonObject[0].advisor_profilePage;
+						addresshtml+='.html?start='+userAddress+'&destination='+data.adv_address+', '+data.adv_city+', '+data.adv_state+', '+data.adv_zipcode+'">';
+						addresshtml+='Get Directions</a>';
+						addresshtml+='</p></div></div></div>';
+					
+					}
+					
+					$clonedResult.find("#locationResults").append(addresshtml);
+				});
+							
+				$clonedResult.removeAttr("id").addClass("search_result_description_details clearfix");
+				if(filtered_jsonObject[0].loc_result_type == "AEM")
+					$("#searchResult .people-aem-result").append($clonedResult);
+				else if(filtered_jsonObject[0].loc_result_type == "MQ")
+					$("#searchResult .people-mq-result").append($clonedResult);
+
+			}
+			locationShowHideCount();
+
+		}
+
+
+		// Clear all sections
+		function hideSections() {
+		$(".search_result_count").hide();
+		$(".search_result_details").hide();
+
+		}
+
+		// show all sections
+		function showSections() {
+		$(".search_result_details").show();
+		$(".search_result_count").show();
+		}
+
+		// result Counter
+		function resultCounter(counterLen) {
+		// searchResultCount = counterLen;
+		// alert(counterLen);
+		document.getElementById('resultCount').innerHTML = counterLen;
+
+		if (counterLen < limit) {
+			$(".location_result_show_more_results").hide();
+		} else {
+			$(".location_result_show_more_results").show();
+		}
+		}
+
+		function filterCity() {
+		var cityCount = 0;
+		document.getElementById("cityList").innerHTML = "";
+		document.getElementById("cityListM").innerHTML = "";
+		var cityListArray = [];
+		var cityRepCount = 0;
+
+		for (i = 0; i < MqOnlyResultsWithoutDuplicates.length; i++) {
+			var cityList = MqOnlyResultsWithoutDuplicates[i].advisor_city;
+			cityList = cityList.toUpperCase();
+
+			if (cityList.indexOf(",") >= 0) {
+			// if (cityList.includes(",")) {
+
+			cityList.split(",").forEach(function(item) {
+				cityListArray[cityRepCount] = item;
+				//console.log("city list at array item:" + item);
+				cityRepCount = cityRepCount + 1;
+			});
+			} else {
+			cityListArray[cityRepCount] = cityList;
+			//console.log("city list at array cityList:" + cityList);
+			}
+			//console.log("city list at array:" + cityListArray[cityRepCount]);
+			cityRepCount = cityRepCount + 1;
+
+		}
+
+		var uniqueCity = cityListArray.filter(function(itm, i, cityListArray) {
+			return i == cityListArray.indexOf(itm);
+		});
+
+		uniqueCity = uniqueCity.sort();
+
+		for (j = 0; j < uniqueCity.length; j++) {
+			var cityDivM = document.getElementById("cityListM").innerHTML += "<div class='sun-checkbox-input-field'><div class='sun-checkbox-input-container'><span class='sun-checked'><input type='checkbox' aria-label='" + uniqueCity[j] + "' value='" + uniqueCity[j] + "' data-search-filter='" + uniqueCity[j].toUpperCase() + "' checked/></span></div><label class='suntrust-checkbox-label' for='" + uniqueCity[j] + "'>" + uniqueCity[j].toUpperCase() + "</label></div>";
+			var cityDiv = document.getElementById("cityList").innerHTML += "<div class='sun-checkbox-input-field'><div class='sun-checkbox-input-container'><span class='sun-checked'><input type='checkbox' aria-label='" + uniqueCity[j] + "' value='" + uniqueCity[j] + "' data-search-filter='" + uniqueCity[j].toUpperCase() + "' checked/></span></div><label class='suntrust-checkbox-label' for='" + uniqueCity[j] + "'>" + uniqueCity[j].toUpperCase() + "</label></div>";
+			cityCount = cityCount + 1;
+		}
+		
+		document.getElementById("cityListCount").innerHTML = cityCount;
+		document.getElementById("cityListCountM").innerHTML = cityCount;
+		}
+
+		function filterState() {
+
+		var stateCount = 0;
+		document.getElementById("stateList").innerHTML = "";
+		document.getElementById("stateListM").innerHTML = "";
+		var stateListArray = [];
+		var stateRepCount = 0;
+
+		for (i = 0; i < MqOnlyResultsWithoutDuplicates.length; i++) {
+			var stateList = MqOnlyResultsWithoutDuplicates[i].advisor_state;
+			stateList = stateList.toUpperCase();
+
+			if (stateList.indexOf(",") >= 0) {
+			stateList.split(",").forEach(function(item) {
+				stateListArray[stateRepCount] = item;
+				//console.log("state list at array item:" + item);
+				stateRepCount = stateRepCount + 1;
+			});
+			} else {
+			stateListArray[stateRepCount] = stateList;
+			// //console.log("state list at array stateList:"+stateList);
+			}
+			
+			stateRepCount = stateRepCount + 1;
+
+		}
+
+		var uniqueState = stateListArray.filter(function(itm, i, stateListArray) {
+			return i == stateListArray.indexOf(itm);
+		});
+
+		uniqueState = uniqueState.sort();
+
+		for (j = 0; j < uniqueState.length; j++) {
+			var stateDiv = document.getElementById("stateList").innerHTML += "<div class='sun-checkbox-input-field'><div class='sun-checkbox-input-container'><span class='sun-checked'><input type='checkbox' aria-label='" + uniqueState[j] + "' value='" + uniqueState[j] + "' data-search-filter='" + uniqueState[j].toUpperCase() + "' checked/></span></div><label class='suntrust-checkbox-label' for='" + uniqueState[j] + "'>" + uniqueState[j].toUpperCase() + "</label></div>";
+			var stateDivM = document.getElementById("stateListM").innerHTML += "<div class='sun-checkbox-input-field'><div class='sun-checkbox-input-container'><span class='sun-checked'><input type='checkbox' aria-label='" + uniqueState[j] + "' value='" + uniqueState[j] + "' data-search-filter='" + uniqueState[j].toUpperCase() + "' checked/></span></div><label class='suntrust-checkbox-label' for='" + uniqueState[j] + "'>" + uniqueState[j].toUpperCase() + "</label></div>";
+			stateCount = stateCount + 1;
+		}
+
+		
+		document.getElementById("stateListCount").innerHTML = stateCount;
+		document.getElementById("stateListCountM").innerHTML = stateCount;
+
+		}
+
+		function filterSpeciality() {
+		
+		var uniqueSpecialites = [];
+		var specialtyCount = 0;
+		document.getElementById("advisorSpecialtyList").innerHTML = "";
+		document.getElementById("advisorSpecialtyListM").innerHTML = "";
+		var splListArray = [];
+		var splRepCount = 0;
+		var splList;
+
+		for (i = 0; i < MqOnlyResultsWithoutDuplicates.length; i++) {
+			splList = MqOnlyResultsWithoutDuplicates[i].advisor_specialty;
+			splList = splList.toUpperCase();
+
+			if (splList.indexOf(",") >= 0) {
+			splList.split(",").forEach(function(item) {
+				splListArray[splRepCount] = item;
+				splRepCount = splRepCount + 1;
+			});
+			} else {
+			splListArray[splRepCount] = splList;
+			}
+			splRepCount = splRepCount + 1;
+
+		}
+
+
+		var uniqueAdvSpecialty = splListArray.filter(function(itm, i, splListArray) {
+			return i == splListArray.indexOf(itm);
+		});
+
+
+
+		document.getElementById("advisorSpecialtyList").innerHTML = "";
+		var aboutMeVal = [];
+		var specialities = [];
+		for (i = 0; i < uniqueAdvSpecialty.length; i++) {
+			var uniqueAdvSpl=[];
+			var aboutmeCount = 0;
+			var advSplchk = uniqueAdvSpecialty[i];
+			//console.log("advSplchk:"+advSplchk);
+
+			switch (advSplchk) {
+				case 'MEDICAL':
+					$('.medical').each(function(){ uniqueAdvSpl.push($(this).attr('value'));});
+				break;
+				case 'MEDICAL & LEGAL':
+					$('.medical-and-legal').each(function(){ uniqueAdvSpl.push($(this).attr('value'));});
+				break;
+				case 'LEGAL':
+					$('.legal').each(function(){ uniqueAdvSpl.push($(this).attr('value'));});
+				break;
+				case 'SPORTS AND ENTERTAINMENT GROUP':
+					$('.sports-and-entertainment-group').each(function(){ uniqueAdvSpl.push($(this).attr('value'));});
+				break;
+				case 'BUSINESS WEALTH PARTNER':
+					$('.business-wealth-partner').each(function(){ uniqueAdvSpl.push($(this).attr('value'));});
+				break;
+				case 'RETIREMENT':
+						$('.retirement').each(function(){ uniqueAdvSpl.push($(this).attr('value'));});
+				break;
+				case 'INTERNATIONAL':
+					$('.international').each(function(){ uniqueAdvSpl.push($(this).attr('value'));});
+				break;
+				case 'WEALTH':
+					$('.wealth').each(function(){ uniqueAdvSpl.push($(this).attr('value'));});
+				break;
+				case 'MORTGAGE':
+					$('.mortgage').each(function(){ uniqueAdvSpl.push($(this).attr('value'));});
+				break;
+				case 'MORTGAGE1':
+					$('.mortgage1').each(function(){ uniqueAdvSpl.push($(this).attr('value'));});
+				break;
+			}
+			var uniqueAdvSpl = uniqueAdvSpl.filter(function(itm, i, uniqueAdvSpl) {
+				return i == uniqueAdvSpl.indexOf(itm);
+			});
+
+			
+			if(uniqueAdvSpl != undefined && uniqueAdvSpl != null && uniqueAdvSpl != '') {				
+				for(var specialityIndex = 0; specialityIndex < uniqueAdvSpl.length; specialityIndex++){
+					aboutMeVal.push({"name": uniqueAdvSpl[specialityIndex], "value": uniqueAdvSpecialty[i]});
+				}
+			}
+		}
+		
+		aboutMeVal.forEach(function(value) {
+		  var existing = specialities.filter(function(v, i) {
+			return v.name == value.name;
+		  });
+		  if (existing.length) {
+			var existingIndex = specialities.indexOf(existing[0]);
+			specialities[existingIndex].value = specialities[existingIndex].value.concat(value.value);
+		  } else {
+			if (typeof value.value == 'string')
+			  value.value = [value.value];
+			specialities.push(value);
+		  }
+		});
+		
+		specialities.forEach(function(v) {
+				document.getElementById("advisorSpecialtyList").innerHTML += "<div class='sun-checkbox-input-field'><div class='sun-checkbox-input-container'> <span class='sun-checked'> <input type='checkbox' aria-label='" + v.name + "' data-search-filter='" + v.value + "' value='" + v.name + "' checked/> </span></div><label class='suntrust-checkbox-label' for='" + v.name + "'>" + v.name + "</label> </div>";
+				document.getElementById("advisorSpecialtyListM").innerHTML += "<div class='sun-checkbox-input-field'><div class='sun-checkbox-input-container'><span class='sun-checked'><input type='checkbox' aria-label='" + v.name + "' data-search-filter='" + v.value + "' value='" + v.name + "' checked/> </span></div><label class='suntrust-checkbox-label' for='" + v.name + "'>" + v.name + "</label></div>";
+			
+		});
+		specialtyCount = specialities.length;
+
+		// //console.log("state count list:" + stateCount);
+		document.getElementById("specialtyListCount").innerHTML = specialtyCount;
+		document.getElementById("specialtyListCountM").innerHTML = specialtyCount;
+
+		}
+
+		// ON RADIUS FILTER CHANGE
+		$('#locationRadius select, #LRMobile').on("change", function(e) {
+			$("#searchResult .people-aem-result").children().remove();
+			$("#searchResult .people-mq-result").children().remove();
+			var selectedRadius = $(this).val();
+			var mapQuestResultKey = [];
+			var mapQuestResultCount;
+			var refinedRadiusResult = [];
+			filtered_profilePage = [];
+			MqAndAEMResults=[];
+			var mqPostalCodesArray=[];
+			var mqPostalCodesString="";
+			var postalCodeMatchingLatLng=[];
+			var MqOnlyResultsWithoutDuplicates=[];
+			var MqOnlyResultsWithoutDuplicatesTemp=[];
+			
+			$.ajax({
+				type : 'GET',
+				dataType : 'json',
+				crossDomain : true,
+				
+				url : 'https://www.mapquestapi.com/search/v2/radius?origin=' + mqSearchText + '&radius='+selectedRadius+'&maxMatches=500&ambiguities=ignore&hostedData=mqap.32547_SunTrust_Branch_Loc&outFormat=json&key=Gmjtd|lu6zn1ua2d,70=o5-l0850',
+
+				success : function(response) {
+					$("#noResultM").removeClass('show');
+					$("#noResultM").addClass('hide');
+					mqResultObject = response['resultsCount'];
+					mapQuestResultCount = parseInt(response['resultsCount']);
+
+					if (mapQuestResultCount != 0) {
+						for (var i = 0; i < response['searchResults'].length; i++) {
+							var latitude = response['searchResults'][i].fields.lat;
+							var longitude = response['searchResults'][i].fields.lng;
+							mapQuestResultKey[i] = latitude.toString() + longitude.toString();
+							mqPostalCodesArray[i]=response['searchResults'][i].fields.postal;
+						}
+						mapQuestResultKey = $.unique(mapQuestResultKey);
+						mqPostalCodesArray = $.unique(mqPostalCodesArray); 
+						for(var i=0;i<mqPostalCodesArray.length;i++){
+							if(mqPostalCodesString.length == 0)
+								mqPostalCodesString = mqPostalCodesArray[i];
+							else
+								mqPostalCodesString = mqPostalCodesString + "," +mqPostalCodesArray[i];
+						}
+					}
+					mqPostalCodesString = "mqPostalCodeData"+mqPostalCodesString;
+					$.ajax({
+						type : "GET",
+						url : '/dotcom/search',
+						async: false,
+						data : {"searchString": mqPostalCodesString, "currentDay":new Date().getDay(), "aboutMe":aboutMe, "searchingFor":"People"},
+						success : function(response, textStatus, jqXHR) {
+							people_result_object_full_response = response['people_results'];
+							
+							refinedRadiusResult = people_result_object_full_response;
+							for(var i=0;i<refinedRadiusResult.length;i++){
+								refinedRadiusResult[i].loc_result_type = 'MQ';
+								MqAndAEMResults.push(refinedRadiusResult[i]);
+							}
+							for(var i=0;i<loc_result_object.length;i++){
+								loc_result_object[i].loc_result_type = 'AEM';
+								MqAndAEMResults.push(loc_result_object[i]);
+							}
+							$.each(MqAndAEMResults, function (index, value) {
+								if ($.inArray(value.advisor_profilePage, MqOnlyResultsWithoutDuplicatesTemp) == -1) {
+									MqOnlyResultsWithoutDuplicatesTemp.push(value.advisor_profilePage);
+									MqOnlyResultsWithoutDuplicates.push(value);
+								}
+							});
+							for (var i = 0; i < MqOnlyResultsWithoutDuplicates.length; i++) {
+								filtered_profilePage.push(MqOnlyResultsWithoutDuplicates[i].advisor_profilePage);
+							}
+							
+							if (filtered_profilePage.length != 0) {
+							for (var i = 0; i < filtered_profilePage.length; i++) {
+							var filePath = filtered_profilePage[i] + ".min.html";
+							resultUpdate(filePath);
+							}
+
+							if (startLat != undefined && startLng != undefined) {
+								milesFinder();
+								$('.search_result_description .people_filter_container #searchResult .people-mq-result').html(sortLocationResultBasedOnMiles('.people-mq-result .search_result_description_details', 'miles'));
+								$('.search_result_description .people_filter_container #searchResult .people-aem-result').html(sortLocationResultBasedOnMiles('.people-aem-result .search_result_description_details', 'miles'));
+							}else{
+								$('.search_result_description .people_filter_container #searchResult .people-mq-result').html(sortPeopleResultBasedOnPeopleName('.people-mq-result .search_result_description_details', 'miles'));
+								$('.search_result_description .people_filter_container #searchResult .people-aem-result').html(sortPeopleResultBasedOnPeopleName('.people-aem-result .search_result_description_details', 'miles'));
+							}
+
+							showSections();
+							counterLen = MqOnlyResultsWithoutDuplicates.length;
+							filterCity();
+							filterState();
+							filterSpeciality();
+							resultCounter(counterLen);
+							showMoreOption();
+							$("#noResultM").removeClass('show');
+							$("#noResultM").addClass('hide');
+						} else {
+							// noResultM
+							$("#noResultM").removeClass('hide');
+							$("#noResultM").addClass('show');
+							$("#searchResult .people-aem-result").children().remove();
+							$("#searchResult .people-mq-result").children().remove();
+							$("#search_result_filters").children().remove();
+							hideSections();
+							
+						}
+							
+						},
+						error : function(XMLHttpRequest, textStatus, errorThrown) {
+							console.log("Error occured");
+							$('#loadingMask').fadeOut(100);
+						}
+					});
+				},
+				error : function(XMLHttpRequest, textStatus, errorThrown) {
+					console.log("Error occured");
+					$('#loadingMask').fadeOut(100);
+				}
+			});
+		});
+		
+		function getParameterByName(name, url) {
+	        if (!url) url = window.location.href;
+	        name = name.replace(/[\[\]]/g, "\\$&");
+	        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+	            results = regex.exec(url);
+	        if (!results) return null;
+	        if (!results[2]) return '';
+	        return decodeURIComponent(results[2].replace(/\+/g, " "));
+	    }
+
+		$(document).on("click", ".search_result_categories .visible-xs a", function() {
+		$(".mobile_filter_search").animate({
+			left : "0px"
+		});
+		});
+		$(document).on('click', '[data-suntrust-class="suntrust-menu-close"]', function() {
+		$(this).parents('.mobile_filter_search').animate({
+			left : "-320px"
+		});
+		});
+
+		$('.state_city_selectall').on('click', function() {
+		$(this).parent().parent().next().find('input[type="checkbox"]').attr('checked', true);
+		$(this).parent().parent().next().find('.sun-checkbox-input-container span').addClass('sun-checked');
+		});
+		$('.state_city_clearall').on('click', function() {
+		$(this).parent().parent().next().find('input[type="checkbox"]').attr('checked', false);
+		$(this).parent().parent().next().find('.sun-checkbox-input-container span').removeClass('sun-checked');
+		});
+
+		$(document).on('click', '.location_result_show_more_results', function(e) {
+			$("div.search_result_description_details:visible:last").css("border-bottom","1px solid #d5d5d5");
+			var x1 = 10;
+			var x = $(this).parent().find('.searchResultPeople div.search_result_description_details:visible').length;
+			var size_li = $(this).parent().find('.searchResultPeople div.search_result_description_details').length;
+			x = (x + x1 <= size_li) ? x + x1 : size_li;
+			$(this).parent().find('.searchResultPeople div.search_result_description_details:lt(' + x + ')').show();
+			if (x >= size_li) {
+				$(this).hide();
+			}
+			$(".searchResultPeople div.search_result_description_details:visible:last").css("border-bottom","0px");
+		});
+
+		/* Search By People Filter Search Search */
+		$(document).on('click', '.filter_title > a', function() {
+		$('.filter_title > a').find('span:first-child').text('+');
+		$('.filter_show_hide').hide();
+		$('.state_city_selectall_clear').hide();
+
+		$(this).parent().next().slideToggle();
+		if ($(this).find('span:first-child').text() == '-')
+			$(this).find('span:first-child').text('+');
+		else if ($(this).find('span:first-child').text() == '+')
+			$(this).find('span:first-child').text('-');
+		if ($(this).attr('area-filter'))
+			$(this).next().toggle();
+		});
+
+		/* Location hide show for more than 1 location in the list Start */
+		function locationShowHideCount() {
+		$('.search_result_description_details').each(function() {
+
+			var count = 0;
+			$(this).find('.peopleSearch_togSec .location_show_hide > .clearfix').each(function() {
+			count++;
+			});
+			if (count > 1) {
+			$(this).find('.peopleSearch_togSec > a').show();
+			} else if (count <= 1) {
+			$(this).find('.peopleSearch_togSec > a').hide();
+			$(this).find('.peopleSearch_togSec > .location_show_hide').show();
+			}
+		});
+		}
+		/* Location hide show for more than 1 location in the list End */
+
+		/* Hide Show location toggle Start */
+		/*
+		 * $(document).on("click", ".location_toggle", function() {
+		 * $(this).next().slideToggle(); if ($(this).find('strong').text() == " Show
+		 * Locations") { $(this).find('strong').text(' Hide Locations');
+		 * $(this).find('span').text('-'); } else if ($(this).find('strong').text() == "
+		 * Hide Locations") { $(this).find('strong').text(' Show Locations');
+		 * $(this).find('span').text('+'); } });
+		 */
+		/* Hide Show location toggle End */
+
+		/* Search Clear Button Enable Start */
+		searchTxt = $('.search_text_box_reset');
+		searchTxt.find('[data-sun-type="search-cancel-button"]').click(function(e)
+		{
+			var tmpClass = $(this);
+			e.preventDefault(),
+			tmpClass.removeClass("sun-active"),
+			tmpClass.prev("input").val("").focus(),
+			$(".suntrust-autocomplete").empty()
+		}),
+		searchTxt.find('[type="search"]').keyup(function() {
+			var txtKeyUp = $(this), txtLength = txtKeyUp.val().length;
+			txtLength > 0 ? $currentCancelButton.addClass("sun-active"): $currentCancelButton.removeClass("sun-active")
+		}),
+		searchTxt.find('[type="search"]').focus(function() 
+		{
+			var n = $(this);
+			$currentCancelButton = n.next('[data-sun-type="search-cancel-button"]');
+		});	
+		/*  Search Clear Button Enable End */
+			
+		$(document).on("click", ".sun-checkbox-input-container", function() {
+		$(this).find("span").toggleClass("sun-checked");
+		});
+
+		
+		// Analytics function start
+
+		function passDesktopSearchValuesToAnalyticEngine(view) {
+
+		searchResultCount = $("#resultCount").text();
+		var CityListArray = [];
+		var StateListArray = [];
+		var AdvisorSpecialtyListArray = [];
+
+		var commaSeperatedCityList = "";
+		var commaSeperatedStateList = "";
+		var commaSeperatedAdvisorSpecialtyList = "";
+		var text = ""
+
+		//console.log("view : " + view);
+		var n = view.localeCompare("mobileView");
+		//console.log("n : " + n);
+		if (n != 0) {
+			// City
+			$('#cityList .sun-checkbox-input-field .sun-checkbox-input-container .sun-checked').each(function() {
+			var cityName = $(this).find("input[type='checkbox']").attr("data-search-filter");
+			CityListArray.push(cityName);
+			// //console.log("cityName : " + cityName);
+			});
+
+			// State
+			$('#stateList .sun-checkbox-input-field .sun-checkbox-input-container .sun-checked').each(function() {
+			var StateName = $(this).find("input[type='checkbox']").attr("data-search-filter");
+			StateListArray.push(StateName);
+			// //console.log("StateName : " + StateName);
+			});
+
+			// About me
+			$('#advisorSpecialtyList .sun-checkbox-input-field .sun-checkbox-input-container .sun-checked').each(function() {
+			var advisorSpecialtyName = $(this).find("input[type='checkbox']").attr("data-search-filter");
+			AdvisorSpecialtyListArray.push(advisorSpecialtyName);
+			////console.log("advisorSpecialtyName : " + advisorSpecialtyName);
+			});
+		}
+
+		else {
+			// City
+			$('#cityListM .sun-checkbox-input-field .sun-checkbox-input-container .sun-checked').each(function() {
+			var cityName = $(this).find("input[type='checkbox']").attr("data-search-filter");
+			CityListArray.push(cityName);
+			// //console.log("cityName : " + cityName);
+			});
+
+			// State
+			$('#stateListM .sun-checkbox-input-field .sun-checkbox-input-container .sun-checked').each(function() {
+			var StateName = $(this).find("input[type='checkbox']").attr("data-search-filter");
+			StateListArray.push(StateName);
+			// //console.log("StateName : " + StateName);
+			});
+
+			// About me
+			$('#advisorSpecialtyListM .sun-checkbox-input-field .sun-checkbox-input-container .sun-checked').each(function() {
+			var advisorSpecialtyName = $(this).find("input[type='checkbox']").attr("data-search-filter");
+			AdvisorSpecialtyListArray.push(advisorSpecialtyName);
+			//console.log("advisorSpecialtyName : " + advisorSpecialtyName);
+			});
+
+		}
+
+		CityListArray = $.unique(CityListArray);
+		StateListArray = $.unique(StateListArray);
+		AdvisorSpecialtyListArray = $.unique(AdvisorSpecialtyListArray);
+
+		$.each(CityListArray, function(index, value) {
+			if (value != "") {
+			if (commaSeperatedCityList == "") {
+				commaSeperatedCityList = value;
+			} else {
+				commaSeperatedCityList = commaSeperatedCityList + "," + value;
+			}
+			}
+		});
+
+		text = commaSeperatedCityList;
+		$.each(StateListArray, function(index, value) {
+			if (value != "") {
+			if (commaSeperatedStateList == "") {
+				commaSeperatedStateList = value;
+			} else {
+				commaSeperatedStateList = commaSeperatedStateList + "," + value;
+			}
+			}
+		});
+
+		if (text != "") {
+			var commaSeperatedStateText = (commaSeperatedStateList != "") ? "," + commaSeperatedStateList : "";
+			text = text + commaSeperatedStateText;
+		} else {
+			text = commaSeperatedStateList;
+		}
+
+			$.each(AdvisorSpecialtyListArray, function(index, value) {
+				//console.log("value :::: " + value);
+				if (value != "") {
+					if (commaSeperatedAdvisorSpecialtyList == "") {
+						commaSeperatedAdvisorSpecialtyList = value;
+					} else {
+						commaSeperatedAdvisorSpecialtyList = commaSeperatedAdvisorSpecialtyList + "," + value;
+					}
+				}
+			});
+
+		if (text != "") {
+			var commaSeperatedAdvisorSpecialtyText = (commaSeperatedAdvisorSpecialtyList != "") ? "|" + commaSeperatedAdvisorSpecialtyList : "";
+			text = text + commaSeperatedAdvisorSpecialtyText;
+		} else {
+			text = commaSeperatedAdvisorSpecialtyList;
+		}
+
+		var searchTextKeyword = $("#searchBox").val();
+
+		//console.log("commaSeperatedCityList : " + commaSeperatedCityList);
+		//console.log("commaSeperatedStateList : " + commaSeperatedStateList);
+		//console.log("commaSeperatedAdvisorSpecialtyList : " + commaSeperatedAdvisorSpecialtyList);
+		//console.log("text : " + text);
+		//console.log("searchResultCount : " + searchResultCount);
+		//console.log("searchTextKeyword : " + searchTextKeyword);
+
+		var semiColonSeperatedAdvisorSpecialtyList = commaSeperatedAdvisorSpecialtyList.replace(/,/g, ";");
+		//console.log("semiColonSeperatedAdvisorSpecialtyList : " + semiColonSeperatedAdvisorSpecialtyList);
+
+		if (authorViewFlag) {
+			window.dataLayer.prop1 = searchTextKeyword;
+			window.dataLayer.pageName = "STcom|Search|PeopleResults";
+
+			window.dataLayer.prop2 = null;
+			window.dataLayer.prop4 = null;
+			window.dataLayer.eVar4 = null;
+			window.dataLayer.eVar15 = null;
+			window.dataLayer.eVar17 = null;
+			window.dataLayer.prop27 = null;
+
+			if (searchResultCount > 0) {
+			window.dataLayer.prop2 = searchResultCount;
+			window.dataLayer.prop4 = "PeopleFinder|PeopleFound";
+			window.dataLayer.eVar4 = "PeopleFinder|PeopleFound";
+			window.dataLayer.eVar15 = "peoplefinder|" + text;
+			window.dataLayer.prop27 = semiColonSeperatedAdvisorSpecialtyList;
+			} else {
+			window.dataLayer.prop2 = "Zero";
+			window.dataLayer.prop4 = "PeopleFinder|NoPeopleFound";
+			window.dataLayer.eVar4 = "PeopleFinder|NoPeopleFound";
+
+			if (searchTextBoxClickFlag) {
+				window.dataLayer.eVar17 = "peoplefinder|";
+			} else {
+				window.dataLayer.prop27 = semiColonSeperatedAdvisorSpecialtyList;
+				window.dataLayer.eVar17 = "peoplefinder|" + text;
+			}
+
+			}
+			Bootstrapper.ensEvent.trigger('STcom_AEM_PF_Search');
+		}
+
+		}
+
+	});
+
+	</script> 
+
+	<div data-sly-test="${(wcmmode.edit || wcmmode.design) && !properties.cta}">Configure People Search Component</div>
+	<div data-sly-test="${properties.cta}">
+	<!-- Begin of Hidden Div -->
+
+	<div id="hiddenTemplate" style="display:none;">
+	   <div id="profilePath" class="search_result_description_detail_img clearfix">
+		  <div>
+			 <a target="_self" id="profilePage"><img id="profileImage"></a> 
+		  </div>
+	   </div>
+	   <div class="search_result_details_individual_details">
+		  <div>
+			 <a id="profilePage" target="_self"><strong id="advisorName"></strong></a>
+			 <p id="advisorTitle"></p>
+		  </div>
+		  <div class="search_result_location_contact visible-xs">
+			 <div class="search_result_location_phone clearfix">
+				<div class="search_result_location_phone_icon">
+				   <img src="/content/dam/suntrust/us/en/elements/2017/graphic-elements/icon_phone.png">
+				</div>
+				<div class="search_result_location_phone_details">
+				   <h5>
+					  <strong>Phone</strong>
+				   </h5>
+				   <p id="advisorPhone">
+					  <a id="telNo"></a>
+				   </p>
+				</div>
+			 </div>
+			 <div class="search_result_location_phone clearfix">
+				<div class="search_result_location_phone_icon">
+				   <img src="/content/dam/suntrust/us/en/elements/2017/graphic-elements/icon_email.png">
+				</div>
+				<div class="search_result_location_phone_details">
+				   <h5>
+					  <strong>Email</strong>
+				   </h5>
+				   <p id="advisorEmail">
+					  <a id="mailId"></a>
+				   </p>
+				</div>
+			 </div>
+			 <div class="search_result_location_phone clearfix">
+				<div class="search_result_location_phone_icon">
+				   <img src="/content/dam/suntrust/us/en/elements/2017/graphic-elements/icon_contact.png">
+				</div>
+				<div class="search_result_location_phone_details">
+				   <h5>
+					  <strong>Contact</strong>
+				   </h5>
+				   <p id="advisorContact">
+					  <a target="_blank" id="contactFormId">Online Contact Form</a>
+				   </p>
+				</div>
+			 </div>
+		  </div>
+		  <div class="peopleSearch_togSec">
+			 <a href="javascript:void(0);" class="peopleSearch_tog"><span>+</span><strong>Show Locations</strong></a>
+			 <div id="locationResults" class="location_show_hide" style="display:none">
+			 </div>
+		  </div>
+	   </div>
+	   <div class="search_result_location_contact hidden-xs">
+		  <div class="search_result_location_phone clearfix">
+			 <div class="search_result_location_phone_icon">
+				<img src="/content/dam/suntrust/us/en/elements/2017/graphic-elements/icon_phone.png">
+			 </div>
+			 <div class="search_result_location_phone_details">
+				<h5>
+				   <strong>Phone</strong>
+				</h5>
+				<p>
+				   <a id="telNo"></a>
+				</p>
+			 </div>
+		  </div>
+		  <div class="search_result_location_phone clearfix">
+			 <div class="search_result_location_phone_icon">
+				<img src="/content/dam/suntrust/us/en/elements/2017/graphic-elements/icon_email.png">
+			 </div>
+			 <div class="search_result_location_phone_details">
+				<h5>
+				   <strong>Email</strong>
+				</h5>
+				<p>
+				   <a id="mailId"></a>
+				</p>
+			 </div>
+		  </div>
+		  <div class="search_result_location_phone clearfix">
+			 <div class="search_result_location_phone_icon">
+				<img src="/content/dam/suntrust/us/en/elements/2017/graphic-elements/icon_contact.png">
+			 </div>
+			 <div class="search_result_location_phone_details">
+				<h5>
+				   <strong>Contact</strong>
+				</h5>
+				<p>
+				   <a target="_blank" id="contactFormId">Online Contact Form</a>
+				</p>
+			 </div>
+		  </div>
+	   </div>
+	</div>
+
+	<!-- End of Hidden Div-->
+	<section class="jumbotron">
+	<div class="container-fluid">
+	<div class="row">
+	<div class="col-sm-12 col-md-12">
+	<div class="row search-bg-color">
+	<div class="search_result_heading">
+					<div class="search_text_box clearfix">
+						<div class="search_text_box_reset">
+						 <label for="searchBox" class="suntrust-accessible-text">Search</label>
+						<input type="search" value="" id="searchBox" class="suntrust_search" placeholder="${properties.placeholderText @context='html'}" />
+						
+						<button type="reset" class="search-cancel-button" data-sun-type="search-cancel-button" data-sun-class="search-cancel-button">
+							<span class="sun-button-text suntrust-accessible-text">Clear</span>
+						</button>
+						<button class="suntrust-input-location-button" type="button"></button> 
+						</div>
+						<a id="searchLink" class="suntrust-orange-button"  href="javascript:void(0);" target="_self">${properties.cta @context='html'}</a>
+					</div>
+					<div class="search_result_count text-center"><span id="resultCount"></span> ${properties.searchResultText @context='html'}</div>
+	</div>
+	</div>
+	</div>
+	</div>
+	</div>
+	</section>
+
+
+	<section>
+	<div class="container">
+	<div class="row">
+
+	<div class="search_result_categories">
+	<ul class="text-center hidden-xs">
+	<li><a href="#" title="search_result"></a></li>
+	<li><a href="#" title="search_result"></a></li>
+	<li><a href="#" title="search_result"></a></li>
+	<li><a href="#" title="search_result"></a></li>
+	<li><a href="javascript:void(0);" class="active" title="${properties.generalNavbarText}">${properties.generalNavbarText}</a></li>
+	<li><a href="#" title="search_result"></a></li>
+	</ul>
+	<div class="visible-xs">
+	<label for="locationMobileSelect" class="suntrust-accessible-text">Location Mobile Menu</label>
+	<select class="suntrust-select search_select" id="locationMobileSelect" name="">
+					<option value="All Results"> </option>
+					<option value="Locations"></option>
+					<option value="Products"></option>
+					<option value="Resources"></option>
+					<option value="People" selected="selected">${properties.generalNavbarText}</option>
+					<option value="FAQs"></option>
+	</select> <a href="javascript:void(0);" index="people_filter" class="" title="Filter People Results">Filter People Results</a>
+	<div class="mobile_filter_search">
+					<div class="mobile_filter_search_close clearfix">
+						<button class="filter_search_close" data-suntrust-class="suntrust-menu-close">
+							<span class="filter_search_close_text">Close Filter Search</span>
+						</button>
+					</div>
+		<div class="people_filter_mobile">
+			<div class="mobile-filter-title text-center">Filter People Results</div>
+
+			<div class="filter_tog mobile-services-tog">
+				<div class="filter_title clearfix">
+							<a href="javascript:void(0);" area-filter="state_city" class="pull-left" title="About Me"><span>+</span> About Me  (<span id="specialtyListCountM"></span>)
+							</a>
+				<div class="state_city_selectall_clear" style="display: none;">
+					<a href="javascript:void(0);" class="state_city_selectall" title="Select All">Select All</a> <span>|</span> 
+					<a href="javascript:void(0);" class="state_city_clearall" title="None">None</a>
+				</div>
+				</div>
+				<div class="filter_show_hide" style="display: none;">
+								<div id="advisorSpecialtyListM" class="search_detail_state_city_select"></div>
+				</div>
+			</div>
+
+			<div class="filter_tog">
+							<div class="filter_title" id="locationRadiusM">
+											<a href="javascript:void(0);" title="Location Radius"><span>+</span> Location Radius</a>
+							</div>
+							<div class="filter_show_hide" style="display: none;">
+								<div class="search_detail_radius_select">
+								<label for="LRMobile" class="suntrust-accessible-text">Location Radius</label>
+									<select class="suntrust-select" name="LRMobile" id="LRMobile">
+													<option value="5">5 Miles</option>
+													<option value="10" selected>10 Miles</option>
+													<option value="20">20 Miles</option>
+													<option value="50">50 Miles</option>
+									</select>
+								</div>
+							</div>
+			</div>
+	 
+			<div class="filter_tog ">
+			<div class="filter_title clearfix">
+						<a href="javascript:void(0);"  area-filter="state_city" class="pull-left" title="State">
+							<span>+</span> State (<span id="stateListCountM"></span>)
+						</a>
+						<div class="state_city_selectall_clear" style="display: none;">
+							<a href="javascript:void(0);" class="state_city_selectall" title="Select All">Select All</a> <span>|</span> <a href="javascript:void(0);"class="state_city_clearall" title="None">None</a>
+					</div>
+				</div>
+				<div class="filter_show_hide" style="display: none;">
+						<div id="stateListM" class="search_detail_state_city_select"></div>
+				 </div>
+			</div>
+	 
+			<div class="filter_tog">
+				<div class="filter_title clearfix">
+								<a href="javascript:void(0);" area-filter="state_city" title="City" class="pull-left"><span>+</span> City (<span id="cityListCountM"></span>)</a>
+								<div class="state_city_selectall_clear" style="display: none;">
+												<a href="javascript:void(0);" class="state_city_selectall" title="Select All">Select All</a> <span>|</span> <a href="javascript:void(0);" class="state_city_clearall" title="None">None</a>
+								</div>
+				</div>
+				<div class="filter_show_hide" style="display: none;">
+								<div id="cityListM" class="search_detail_state_city_select">
+								</div>
+				</div>
+			</div>
+
+
+			
+			<div class="mobile_filter_submit_reset">
+				<a class="suntrust-promo-cta-button" id="mSubmit" title="Done" href="javascript:void(0);">Done</a> <a class="suntrust-promo-cta-button" id="mReset" title="Reset" href="javascript:void(0);">Reset</a>
+			</div>
+		</div>
+	</div>
+	</div>
+	</div>
+	<div id="noResultM"
+	class="col-lg-12 col-md-12 col-sm-12 col-xs-12 zero_result_found hide">
+	<div class="zero_result_text"> ${properties.noResultText @context='html'}</div>
+	<div class="zero_result_help_center">
+	<a href="${properties.linkURL}.html" class="clearfix" title="zeroResult">
+					<div class="zero_result_help_center_img">
+								<img src="/content/dam/suntrust/us/en/elements/2017/graphic-elements/icon_contact.png" alt="Zero Result Help Center Image" />
+					</div> <span>${properties.helpCenterLabel @context='html'}</span>
+	</a>
+	</div>
+	</div>
+
+	<!-- desktop-->
+	<div class="search_result_details clearfix">
+	<div class="search_result_filters col-lg-4 col-md-4 col-sm-4 hidden-xs">
+	<h3>
+	<strong>Filter People Results</strong>
+	</h3>
+
+
+			<div class="search_by_filter search_detail_state_city">
+				<div class="clearfix">
+					<h4>
+						<strong>About Me</strong> (<span id="specialtyListCount"></span>)
+					</h4>
+				<div class="state_city_selectall_clear">
+					<a href="javascript:void(0);" class="state_city_selectall" title="Select All">Select All</a> <span>|</span> <a href="javascript:void(0);" class="state_city_clearall" title="None">None</a>
+				</div>
+				</div>
+			<div id="advisorSpecialtyList" class="search_detail_state_city_select"></div>
+			</div>
+
+			<div class="search_by_filter search_detail_location_radius" id="locationRadius">
+				<h4>
+								<strong>Location Radius</strong>
+				</h4>
+				<div class="search_detail_radius_select">
+								<span><select name="LRDesktop" id="LRDesktop">
+												<option value="5">5 Miles</option>
+												<option value="10" selected>10 Miles</option>
+												<option value="20">20 Miles</option>
+												<option value="50">50 Miles</option>
+								</select></span>
+				</div>
+			</div>
+
+
+
+			<div class="search_by_filter search_detail_state_city">
+				<div class="clearfix">
+								<h4>
+									<strong>State</strong>(<span id="stateListCount"></span>)
+								</h4>
+								<div class="state_city_selectall_clear">
+									<a href="javascript:void(0);" class="state_city_selectall" title="Select All">Select All</a> <span>|</span> <a href="javascript:void(0);" class="state_city_clearall" title="None">None</a>
+								</div>
+				</div>
+				<div id="stateList" class="search_detail_state_city_select">
+				</div>
+			</div>
+			
+			<div class="search_by_filter search_detail_state_city">
+				<div class="clearfix">
+								<h4>  
+									<strong>City</strong>(<span id="cityListCount"></span>)
+								</h4>
+								<div class="state_city_selectall_clear">
+									<a href="javascript:void(0);" class="state_city_selectall" title="Select All">Select All</a> <span>|</span> <a href="javascript:void(0);" class="state_city_clearall" title="None">None</a>
+								</div>
+				</div>
+
+				<div id="cityList" class="search_detail_state_city_select">
+				</div>
+			</div>
+
+
+	</div>
+
+	<!-- search result -->
+	<div class="search_result_description col-lg-8 col-md-8 col-sm-8 col-xs-12">
+	<div class="people_filter_container">
+					<div id="searchResult" class="searchResultPeople">
+						<div class="people-mq-result"></div>
+						<div class="people-aem-result"></div>
+					</div>
+					<div id="showMore" class="location_result_show_more_results text-center hidden-xs">
+									<a href="javascript:void(0);" title="searchResult">${properties.showMoreCta @context='html'}</a>
+					</div>
+	</div>
+	</div>
+	<!-- /.row --> 
+	</section>
+	</div> 
+
+	<script type="text/javascript">
+	var authorViewFlag = "${configServiceUseiamabusinessowner.propertyArray}";
+	</script>
+
+
+<div class="advisorConfigs">
+	<input type="hidden" value="I am a business owner" class="${configServiceUseiamabusinessowner.getPropertyArray}"/>
+	<input type="hidden" value="I am a corporate executive" class="${configServiceUseiamacorporateexecutive.getPropertyArray}"/>
+	<input type="hidden" value="I am a physician or I manage a practice" class="${configServiceUseiamaphysicianorimanageapractice.getPropertyArray}"/>
+	<input type="hidden" value="I am an attorney or I manage a firm" class="${configServiceUseiamanattorneyorimanageafirm.getPropertyArray}"/>
+	<input type="hidden" value="I am close to retirement or retired" class="${configServiceUseiamclosetoretirementorretired.getPropertyArray}"/>
+	<input type="hidden" value="I am in the sports or entertainment industry" class="${configServiceUseiaminthesportsorentertainmentindustry.getPropertyArray}"/>
+	<input type="hidden" value="I am just getting started on the road to retirement" class="${configServiceUseiamjustgettingstartedontheroadtoretirement.getPropertyArray}"/>
+	<input type="hidden" value="I am looking for guidance on my investments" class="${configServiceUseiamlookingforguidanceonmyinvestments.getPropertyArray}"/>
+	<input type="hidden" value="I am seeking home loan advice" class="${configServiceUseiamseekinghomeloanadvice.getPropertyArray}"/>
+	<input type="hidden" value="I have international wealth management needs" class="${configServiceUseihaveinternationalwealthmanagementneeds.getPropertyArray}"/>
+	<input type="hidden" value="I have made some progress on my retirement goals" class="${configServiceUseihavemadesomeprogressonmyretirementgoals.getPropertyArray}"/>
+	<input type="hidden" value="I'm looking for strategies to protect my wealth throughout retirement" class="${configServiceUseimlookingforstrategiestoprotectmywealththroughoutretirement.getPropertyArray}"/>
+</div>
+
+
+
+	<div id="loadingMask"></div>
+
+
+	<script type="text/javascript">
+	var authorViewFlag = "${configServiceUse.property @ context='scriptString'}";
+	if(authorViewFlag)
+	{
+		window.dataLayer.pageSet = "STcom_AEM_PF_Search";
+	}
+	</script>

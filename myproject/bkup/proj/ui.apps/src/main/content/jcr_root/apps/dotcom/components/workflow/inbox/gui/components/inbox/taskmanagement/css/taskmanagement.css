@@ -1,0 +1,9 @@
+.project-taskmanagement-addtaskwizard {
+    width: 32rem;
+    padding: 1.25rem calc(50% - 16rem) 0;
+    padding: 1.25rem -webkit-calc(50% - 16rem) 0;
+}
+
+.card-asset .image img {
+    width:100%;
+}

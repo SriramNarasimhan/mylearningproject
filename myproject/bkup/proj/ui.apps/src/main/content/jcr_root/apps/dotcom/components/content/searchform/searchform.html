@@ -1,0 +1,258 @@
+<sly data-sly-use.genericUtilAboutMe="${'com.suntrust.dotcom.utils.GenericUtil' @tagArr=properties.aboutme}" >
+<sly data-sly-use.genericUtilPeopleRadius="${'com.suntrust.dotcom.utils.GenericUtil' @tagArr=properties.peopleradius}" >
+<sly data-sly-use.genericUtilServices="${'com.suntrust.dotcom.utils.GenericUtil' @tagArr=properties.services}" >
+<sly data-sly-use.genericUtilLocRadius="${'com.suntrust.dotcom.utils.GenericUtil' @tagArr=properties.locationradius}" >
+<sly data-sly-use.genericUtilProducts="${'com.suntrust.dotcom.utils.GenericUtil' @tagArr=properties.products}" >
+
+<sly data-sly-test="${!properties.listFrom && (wcmmode.edit || wcmmode.design)}">Configure ${component.title} Component</sly>
+
+<sly data-sly-use.SearchFormBean="com.suntrust.dotcom.components.SearchFormComponent"/>
+
+<!--/*PEOPLE*/-->
+<sly data-sly-test="${properties.listFrom =='people'}">
+<div class="component-externalformdetail sun-component suntrust-searchForm">
+	<div class="sun-body-component component-bodytext rteelement">
+		${properties.formHeader @ context='html'}
+	</div>
+	<div class="sun-body-component">
+		<div class="suntrust-generic-form suntrust-generic-form-vertical">
+			<form target="_blank" action="${properties.searchpage}.html#${properties.listFrom}" class="form-wealth-advisor"  method="get">
+			<sly data-sly-test.specialtyHid="false" />
+            <sly data-sly-test="${SearchFormBean.mBean && properties.iItems}" >
+                <sly data-sly-list.items="${SearchFormBean.mBean}">
+                    <sly data-sly-list.itemsList="${items.items}">
+                        <input type="hidden" name="${itemsList.HiddenFieldName}" value="${itemsList.HiddenFieldValue}">
+                        <sly data-sly-test="${itemsList.HiddenFieldName == 'specialty'}" >
+                        	<sly data-sly-test.specialtyHid="${itemsList.HiddenFieldValue}" />
+                        </sly>
+                    </sly>
+                </sly>
+            </sly>
+				<div class="field">
+					<div class="zip-radius-search">
+						<label for="ZipCode" class="suntrust-accessible-text">${properties.searchBoxPlaceholderPeople}</label> 
+						<input data-cat="${properties.listFrom}" data-suggestcount="${properties.people_suggestioncount ? properties.people_suggestioncount : '5'}" data-searchpath="${properties.people_dictpath ? properties.people_dictpath : '/content/suntrust/dotcom/us/en'}" class="minThree typeahead" id="ZipCode" name="searchTerm" value="" placeholder="${properties.searchBoxPlaceholderPeople}" type="text">
+					</div>
+				</div>
+				<sly data-sly-test="${genericUtilAboutMe.getTagsList}">
+					<div class="field">
+						<div class="select-specialty">
+							<label for="CircumstanceId" class="suntrust-accessible-text">${properties.aboutmePlaceholder ? properties.aboutmePlaceholder : "- Select About Me -"}</label>
+	            			<select id="CircumstanceId" name="specialty">
+                        		<option value="${specialtyHid == 'false' ? 'all' : specialtyHid}" selected="selected">${properties.aboutmePlaceholder ? properties.aboutmePlaceholder : "- Select About Me -"}</option>
+	                            <sly data-sly-list.items="${genericUtilAboutMe.getTagsList}">
+	                                <sly data-sly-use.configServiceUseSpl="${'com.suntrust.dotcom.utils.ConfigServiceUse' @ property=items.getTagName}">
+	                                    <option value="${configServiceUseSpl.getPropertyArray}">${items.getTagTitle}</option>
+	                                </sly>
+	                            </sly>
+	            			</select>
+						</div>				
+					</div>
+				</sly>
+				<sly data-sly-test="${genericUtilPeopleRadius.getTagsList}">
+					<div class="field">	
+						<div class="select-radius">
+							<label for="peopleRadius" class="suntrust-accessible-text">${properties.radiusPlaceholderPeople ? properties.radiusPlaceholderPeople : "- Select Radius -"}</label>
+							<select id="peopleRadius" name="peopleRadius">
+	                        	<option value="10" selected="selected">${properties.radiusPlaceholderPeople ? properties.radiusPlaceholderPeople : "- Select Radius -"}</option>
+	            				<sly data-sly-list.items="${genericUtilPeopleRadius.getTagsList}">
+	            					<option value="${items.getTagName}">${items.getTagTitle}</option>
+	                            </sly>
+							</select>								
+						</div>
+					</div>
+				</sly>
+				<div class="field">
+					<div class="btn-search">
+						<label for="PeopleSearch" class="suntrust-accessible-text">${properties.searchButtonTextPeople}</label> 
+						<input id="PeopleSearch" value="${properties.searchButtonTextPeople ? properties.searchButtonTextPeople : 'Search'}" class="${properties.themePeopleButton}" type="submit">
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+</sly>
+
+<sly data-sly-test="${properties.listFrom =='locations'}">
+<!--/*LOCATION*/-->
+<div class="component-externalformdetail sun-component suntrust-searchForm">
+	<div class="sun-body-component component-bodytext rteelement">
+		${properties.formHeader @ context='html'}
+	</div>
+	<div class="sun-body-component">
+		<div class="suntrust-generic-form suntrust-generic-form-vertical">
+			<form target="_blank" action="${properties.searchpage}.html#${properties.listFrom}" class="form-wealth-advisor"  method="get">
+				<sly data-sly-test.locationServicesHid="false" />
+                <sly data-sly-test="${SearchFormBean.mBean && properties.iItems}" >
+                    <sly data-sly-list.items="${SearchFormBean.mBean}">
+                        <sly data-sly-list.itemsList="${items.items}">
+                            <input type="hidden" name="${itemsList.HiddenFieldName}" value="${itemsList.HiddenFieldValue}">
+                            <sly data-sly-test="${itemsList.HiddenFieldName == 'locationServices'}" >
+	                        	<sly data-sly-test.locationServicesHid="${itemsList.HiddenFieldValue}" />
+	                        </sly>
+                        </sly>
+                    </sly>
+                </sly>
+				<div class="field">
+					<div class="zip-radius-search">
+						<label for="LocationZipCode" class="suntrust-accessible-text">${properties.searchBoxPlaceholderLoc}</label> 
+						<input data-cat="${properties.listFrom}" data-suggestcount="${properties.loc_suggestioncount ? properties.loc_suggestioncount : '5'}" data-searchpath="${properties.loc_dictpath ? properties.loc_dictpath : '/content/suntrust/dotcom/us/en'}" class="minThree typeahead" id="LocationZipCode" name="searchTerm" value="" placeholder="${properties.searchBoxPlaceholderLoc}" type="text">
+					</div>
+				</div>
+				<sly data-sly-test="${genericUtilServices.getTagsList}">
+					<div class="field">
+						<div class="select-specialty">
+	            			<label for="LocCircumstanceId" class="suntrust-accessible-text">${properties.servicesPlaceholderLoc ? properties.servicesPlaceholderLoc : "- Select Service -"}</label>
+							<select id="LocCircumstanceId" name="locationServices">
+	                        	<option value="${locationServicesHid == 'false' ? 'all' : locationServicesHid}" selected="selected">${properties.servicesPlaceholderLoc ? properties.servicesPlaceholderLoc : "- Select Service -"}</option>
+	                            <sly data-sly-list.items="${genericUtilServices.getTagsList}">
+	                            	<option value="${items.getTagId}">${items.getTagTitle}</option>
+	                            </sly>
+	            			</select>
+						</div>				
+					</div>
+				</sly>
+				<sly data-sly-test="${genericUtilLocRadius.getTagsList}">
+					<div class="field">	
+						<div class="select-radius">
+							<label for="locationRadius" class="suntrust-accessible-text">${properties.radiusPlaceholderLoc ? properties.radiusPlaceholderLoc : "- Select Radius -"}</label>
+							<select id="locationRadius" name="locationRadius">
+	                        	<option value="10" selected="selected">${properties.radiusPlaceholderLoc ? properties.radiusPlaceholderLoc : "- Select Radius -"}</option>
+	            				<sly data-sly-list.items="${genericUtilLocRadius.getTagsList}">
+	            					<option value="${items.getTagName}">${items.getTagTitle}</option>
+	                            </sly>
+							</select>								
+						</div>
+					</div>
+				</sly>
+				<div class="field">
+					<div class="btn-search">
+						<label for="Search" class="suntrust-accessible-text">${properties.searchButtonTextLoc}</label> 
+						<input id="Search" value="${properties.searchButtonTextLoc ? properties.searchButtonTextLoc : 'Search'}" class="${properties.themeLocButton}" type="submit">
+					</div>
+				</div>		
+
+			</form>
+		</div>
+	</div>
+</div>
+</sly>
+
+<sly data-sly-test="${properties.listFrom =='products'}">
+<!--/*PRODUCTS*/-->
+<div class="component-externalformdetail sun-component suntrust-searchForm">
+	<div class="sun-body-component component-bodytext rteelement">
+		${properties.formHeader @ context='html'}
+	</div>
+	<div class="sun-body-component">
+		<div class="suntrust-generic-form suntrust-generic-form-vertical">
+			<form target="_blank" action="${properties.searchpage}.html#${properties.listFrom}" class="form-wealth-advisor"  method="get">
+			<sly data-sly-test.productTagHid="false" />
+            <sly data-sly-test="${SearchFormBean.mBean && properties.iItems}" >
+                <sly data-sly-list.items="${SearchFormBean.mBean}">
+                    <sly data-sly-list.itemsList="${items.items}">
+                        <input type="hidden" name="${itemsList.HiddenFieldName}" value="${itemsList.HiddenFieldValue}">
+                        <sly data-sly-test="${itemsList.HiddenFieldName == 'productTag'}" >
+                        	<sly data-sly-test.productTagHid="${itemsList.HiddenFieldValue}" />
+                        </sly>
+                    </sly>
+                </sly>
+            </sly>
+				<div class="field">
+					<div class="zip-radius-search">
+						<label for="ProductsZipCode" class="suntrust-accessible-text">${properties.searchBoxPlaceholderProd}</label> 
+						<input data-cat="${properties.listFrom}" data-suggestcount="${properties.prod_suggestioncount ? properties.prod_suggestioncount : '5'}" data-searchpath="${properties.prod_dictpath ? properties.prod_dictpath : '/content/suntrust/dotcom/us/en'}" class="typeahead" id="ProductsZipCode" name="searchTerm" value="" placeholder="${properties.searchBoxPlaceholderProd}" type="text">
+					</div>
+				</div>
+				<sly data-sly-test="${genericUtilProducts.getTagsList}">
+					<div class="field">
+						<div class="select-specialty">
+							<label for="ProCircumstanceId" class="suntrust-accessible-text">${properties.productsPlaceholder ? properties.productsPlaceholder : "- Select the Products -"}</label>
+	            			<select id="ProCircumstanceId" name="productTag">
+	                        	<option value="${productTagHid == 'false' ? 'all' : productTagHid}" selected="selected">${properties.productsPlaceholder ? properties.productsPlaceholder : "- Select the Products -"}</option>
+	                            <sly data-sly-list.items="${genericUtilProducts.getTagsList}">
+	                                 <option value="${items.getTagId}">${items.getTagTitle}</option>
+	                            </sly>
+	            			</select>
+						</div>				
+					</div>
+				</sly>
+				<div class="field">
+					<div class="btn-search">
+						<label for="ProdSearch" class="suntrust-accessible-text">${properties.searchButtonTextProd}</label> 
+						<input id="ProdSearch" value="${properties.searchButtonTextProd ? properties.searchButtonTextProd : 'Search'}" class="${properties.themeProdButton}" type="submit">
+					</div>
+				</div>								
+			</form>
+		</div>
+	</div>
+</div>
+</sly>
+
+<sly data-sly-test="${properties.listFrom =='faqs'}">
+<!--/*FAQs*/-->
+<div class="component-externalformdetail sun-component suntrust-searchForm">
+	<div class="sun-body-component component-bodytext rteelement">
+		${properties.formHeader @ context='html'}
+	</div>
+	<div class="sun-body-component">
+		<div class="suntrust-generic-form suntrust-generic-form-vertical">
+			<form target="_blank" action="${properties.searchpage}.html#${properties.listFrom}" class="form-wealth-advisor"  method="get">
+            <sly data-sly-test="${SearchFormBean.mBean && properties.iItems}" >
+                <sly data-sly-list.items="${SearchFormBean.mBean}">
+                    <sly data-sly-list.itemsList="${items.items}">
+                        <input type="hidden" name="${itemsList.HiddenFieldName}" value="${itemsList.HiddenFieldValue}">
+                    </sly>
+                </sly>
+            </sly>
+				<div class="field">
+					<div class="zip-radius-search">
+						<label for="faqZipCode" class="suntrust-accessible-text">${properties.searchBoxPlaceholderFaq}</label> 
+						<input data-cat="${properties.listFrom}" data-suggestcount="${properties.faq_suggestioncount ? properties.faq_suggestioncount : '5'}" data-searchpath="${properties.faq_dictpath ? properties.faq_dictpath : '/content/suntrust/dotcom/us/en'}" class="typeahead" id="faqZipCode" name="searchTerm" value="" placeholder="${properties.searchBoxPlaceholderFaq}" type="text">
+					</div>
+				</div>
+				<div class="field">
+					<div class="btn-search">
+						<label for="FaqSearch" class="suntrust-accessible-text">${properties.searchButtonTextFaq}</label> 
+						<input id="FaqSearch" value="${properties.searchButtonTextFaq ? properties.searchButtonTextFaq : 'Search'}" class="${properties.themeFaqButton}" type="submit">
+					</div>
+				</div>								
+			</form>
+		</div>
+	</div>
+</div>
+</sly>
+<sly data-sly-test="${properties.listFrom =='allresults'}">
+<!--/*All Results*/-->
+<div class="component-externalformdetail sun-component suntrust-searchForm">
+	<div class="sun-body-component component-bodytext rteelement">
+		${properties.formHeader @ context='html'}
+	</div>
+	<div class="sun-body-component">
+		<div class="suntrust-generic-form suntrust-generic-form-vertical">
+			<form target="_blank" action="${properties.searchpage}.html#${properties.listFrom}" class="form-wealth-advisor"  method="get">
+            <sly data-sly-test="${SearchFormBean.mBean && properties.iItems}" >
+                <sly data-sly-list.items="${SearchFormBean.mBean}">
+                    <sly data-sly-list.itemsList="${items.items}">
+                        <input type="hidden" name="${itemsList.HiddenFieldName}" value="${itemsList.HiddenFieldValue}">
+                    </sly>
+                </sly>
+            </sly>
+				<div class="field">
+					<div class="zip-radius-search">
+						<label for="allresultsZipCode" class="suntrust-accessible-text">${properties.searchBoxPlaceholderAllresults}</label> 
+						<input data-cat="${properties.listFrom}" data-suggestcount="${properties.all_suggestioncount ? properties.all_suggestioncount : '5'}" data-searchpath="${properties.all_dictpath ? properties.all_dictpath : '/content/suntrust/dotcom/us/en'}" class="typeahead" id="allresultsZipCode" name="searchTerm" value="" placeholder="${properties.searchBoxPlaceholderAllresults}" type="text">
+					</div>
+				</div>
+				<div class="field">
+					<div class="btn-search">
+						<label for="allresultsSearch" class="suntrust-accessible-text">${properties.searchButtonTextAllresults}</label> 
+						<input id="allresultsSearch" value="${properties.searchButtonTextAllresults ? properties.searchButtonTextAllresults : 'Search'}" class="${properties.themeAllresultsButton}" type="submit">
+					</div>
+				</div>								
+			</form>
+		</div>
+	</div>
+</div>
+</sly>

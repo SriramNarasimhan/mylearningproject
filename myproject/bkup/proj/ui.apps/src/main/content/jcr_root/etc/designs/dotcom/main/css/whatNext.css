@@ -1,0 +1,85 @@
+﻿.toAvoid{
+
+}
+/* Whar Next CSS Start */
+.suntrust-what-next-bg-blue{
+	background:#003b71;
+}
+.suntrust-what-next-bg-orange{
+	background:#c94c06;
+}
+.section-what-next {
+    display:inline-block;    
+    padding: 50px 0;
+	color:#ffffff;
+}
+.section-what-next h2 {
+    font-size:34px;
+    font-weight:200;
+	margin-top: 0;
+}
+.section-what-next p {
+    font-size:18px;
+}
+.section-what-next p.subtitle {
+    padding: 20px 0;
+}
+.section-what-next .sub_section{
+    text-align:center;
+    padding: 15px 65px;
+}
+.section-what-next .sub_section p {
+    padding:20px 0 0 0;
+	line-height:26px;
+}
+.section-what-next .sub_section a{
+    color:#ffffff;
+}
+.section-what-next .sub_section a:focus,.section-what-next .sub_section a:hover{
+	color: #ffffff;
+	text-decoration: underline;
+}
+.sub_section img {
+	width: 94px;
+	height: 94px;
+}
+@media only screen and (min-width : 768px) {
+    .grid-divider {
+        position: relative;
+        padding: 0;
+    }
+
+    .grid-divider > [class*='col-'] {
+        position: static;
+    }
+
+    .grid-divider > [class*='col-']:nth-child(n+2):before {
+        content: "";
+        border-left: 1px solid #fff;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin-left:-15px;
+    }
+}
+@media only screen and (max-width : 767px) {
+    .section-what-next h2 {
+        font-size:24px;
+    }
+    .section-what-next p {
+        font-size:15px;
+    }
+    .grid-divider > [class*='col-']:nth-last-child(n+2) .sub_section {
+        padding:25px 80px;
+        border-bottom:1px solid #fff;
+    }
+    .grid-divider > [class*='col-']:last-child .sub_section {
+        padding:25px 0 0 0;
+    }
+}
+@media only screen and (min-width : 768px) and (max-width : 1199px)  {
+    .section-what-next .sub_section {
+        padding: 15px 40px;
+    }
+}
+/* Whar Next CSS End */

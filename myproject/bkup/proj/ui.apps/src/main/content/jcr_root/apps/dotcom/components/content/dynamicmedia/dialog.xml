@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    deferredRender="false"
+    title="Dynamic Media"
+    xtype="dialog">
+    <listeners
+        jcr:primaryType="nt:unstructured"
+        beforesubmit="function(component) { CQ.s7dm.DMHelper.beforeSubmit(component);}"
+        show="function(dialog) {}"/>
+    <items jcr:primaryType="cq:WidgetCollection">
+        <tabpanel
+            jcr:primaryType="cq:Widget"
+            activeTab="{Long}0"
+            xtype="tabpanel">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <advanced
+                    jcr:primaryType="cq:Widget"
+                    title="Advanced"
+                    xtype="panel">
+                    <listeners
+                        jcr:primaryType="nt:unstructured"
+                        activate="function(panel) {CQ.s7dm.DMHelper.initAdvancePanel(panel);}"/>
+                    <items jcr:primaryType="cq:WidgetCollection">
+                        <title
+                            jcr:primaryType="cq:Widget"
+                            fieldLabel="Title"
+                            name="./jcr:title"
+                            xtype="textfield"/>
+                        <alt
+                            jcr:primaryType="cq:Widget"
+                            fieldDescription="(leave empty to use the above title)"
+                            fieldLabel="Alt Text"
+                            name="./alt"
+                            xtype="textfield"/>
+                        <linkUrl
+                            jcr:primaryType="cq:Widget"
+                            fieldDescription="Adds a link to the image, if set."
+                            fieldLabel="URL"
+                            name="./linkUrl"
+                            xtype="textfield"/>
+                        <linkTarget
+                            jcr:primaryType="cq:Widget"
+                            editable="true"
+                            fieldDescription="The link target to use."
+                            fieldLabel="Open in"
+                            name="./linkTarget"
+                            type="select"
+                            xtype="selection">
+                            <options jcr:primaryType="cq:WidgetCollection">
+                                <left
+                                    jcr:primaryType="nt:unstructured"
+                                    text="Same Window"
+                                    value="_self"/>
+                                <right
+                                    jcr:primaryType="nt:unstructured"
+                                    text="New Window"
+                                    value="_blank"/>
+                            </options>
+                        </linkTarget>
+                        <height
+                            jcr:primaryType="cq:Widget"
+                            allowDecimals="false"
+                            allowNegative="false"
+                            fieldLabel="Height"
+                            name="./height"
+                            xtype="numberfield"/>
+                        <imageHeight
+                            jcr:primaryType="cq:Widget"
+                            allowDecimals="false"
+                            allowNegative="false"
+                            fieldLabel="Height"
+                            hidden="true"
+                            name="./imageHeight"
+                            xtype="numberfield"/>
+                        <width
+                            jcr:primaryType="cq:Widget"
+                            allowDecimals="false"
+                            allowNegative="false"
+                            fieldLabel="Width"
+                            name="./width"
+                            xtype="numberfield"/>
+                        <imageWidth
+                            jcr:primaryType="cq:Widget"
+                            allowDecimals="false"
+                            allowNegative="false"
+                            fieldLabel="Width"
+                            hidden="true"
+                            name="./imageWidth"
+                            xtype="numberfield"/>
+                    </items>
+                </advanced>
+                <s7Image
+                    jcr:primaryType="cq:Widget"
+                    title="Dynamic Media Settings"
+                    xtype="panel">
+                    <listeners
+                        jcr:primaryType="nt:unstructured"
+                        activate="function(panel) {CQ.s7dm.DMHelper.init(panel);}"/>
+                    <items jcr:primaryType="cq:WidgetCollection">
+                        <presetType
+                            jcr:primaryType="cq:Widget"
+                            border="false"
+                            fieldLabel=""
+                            layout="form"
+                            name="presetType"
+                            xtype="panel"/>
+                        <selectedImagePreset
+                            jcr:primaryType="cq:Widget"
+                            fieldLabel="Image Preset"
+                            hidden="{Boolean}true"
+                            name="./s7ImagePreset"
+                            xtype="textfield"/>
+                        <selectedViewerPreset
+                            jcr:primaryType="cq:Widget"
+                            fieldLabel="Viewer Preset"
+                            hidden="{Boolean}true"
+                            name="./s7ViewerPreset"
+                            xtype="textfield"/>
+                        <assetType
+                            jcr:primaryType="cq:Widget"
+                            fieldLabel=""
+                            hidden="{Boolean}true"
+                            name="./assetType"
+                            xtype="textfield"/>
+                        <viewerPresetsHbox
+                            jcr:primaryType="cq:Widget"
+                            border="false"
+                            collapsed="false"
+                            layout="form"
+                            name="viewerPresetsHbox"
+                            xtype="panel"/>
+                        <imagePresetsVbox
+                            jcr:primaryType="cq:Widget"
+                            border="false"
+                            collapsed="false"
+                            layout="form"
+                            name="imagePresetsHbox"
+                            xtype="panel"/>
+                        <urlModifiers
+                            jcr:primaryType="cq:Widget"
+                            fieldDescription="Additional S7 image commands separated by '&amp;'.&lt;br>Field gives complete flexibility to change image effects."
+                            fieldLabel="Image Modifiers"
+                            name="./urlModifiers"
+                            xtype="textfield"/>
+                        <breakpoints
+                            jcr:primaryType="cq:Widget"
+                            fieldDescription="Responsive Image breakpoints separated by ','.&lt;br> (i.e. 100,320,480)."
+                            fieldLabel="Breakpoints"
+                            name="./breakpoints"
+                            xtype="textfield"/>
+                    </items>
+                </s7Image>
+            </items>
+        </tabpanel>
+    </items>
+</jcr:root>

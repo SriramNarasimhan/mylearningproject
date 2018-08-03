@@ -1,0 +1,57 @@
+<div data-sly-use.MubeanObj="com.suntrust.dotcom.components.MustacheComponent" data-sly-unwrap>
+	<div data-sly-test="${!MubeanObj.mBean && !properties.text && (wcmmode.edit || wcmmode.design)}">Configure Mustache Dialog</div>
+</div>
+<section class="suntrust-mustache-component">
+	<div class="suntrust-contact-callout">
+		<ul class="${MubeanObj.multifieldCounter==2 ? 'suntrust-contact-callout-container-two' : 'suntrust-contact-callout-container-one'}">
+			<sly data-sly-test="${MubeanObj.mBean && properties.iItems}">
+				<sly data-sly-list.items="${MubeanObj.mBean}">
+					<sly data-sly-list.itemsList="${items.items}">
+                        <li>
+							<span class="suntrust-contact-callout-text">${itemsList.callouttext @ context='html'}</span>
+							<a title="${itemsList.callouttext}" class="suntrust-contact-callout-link" href="${itemsList.linkURL}" target="${itemsList.target}">${itemsList.calloutlink @ context='html'}							
+							</a>
+						</li>
+					</sly>
+				</sly>
+			</sly>
+		</ul>
+	</div>
+</section>
+
+
+<!-- 
+
+THIS PIECE OF ANALYTICS CODE IS MOVED TO ENSIGTHEN.
+THIS SECTION OF CODE SHOULD NEVER BE DELETED AND SHOULD BE ALWAYS COMMENTED.
+THIS CODE IS FOR REFERENCE PURPOSE ONLY.
+
+<script>
+
+"use strict";
+//Mustache Call Us on click event
+$("li a.suntrust-contact-callout-link").on("click", function() {
+	if(window.location.href.indexOf("momentumonup") > -1) {
+		console.log('momentum CTA link clicked');
+		s.linkTrackVars='eVar45,events';
+		s.linkTrackEvents='event23';
+		s.eVar45='Microsites|IgniteLP|MomentumOnUp|CTA';
+		s.events='event23';
+		s.tl(this,'o','Microsites|IgniteLP|MomentumOnUp|CTA');
+	} else {
+		var $section = $(this).closest("section.suntrust-mustache-component");
+		if ($section.length) {	
+			console.log("Mustache component");	
+			var callUs = $(this).attr('href');	
+			if (callUs.indexOf("tel:") >= 0)
+			{
+				s.prop15 = window.dataLayer.pageName;
+				alert("s.prop15 : " + s.prop15);
+				
+				alert("window.dataLayer.pageName : " + window.dataLayer.pageName);
+			}
+		}
+	}
+});
+
+</script>-->

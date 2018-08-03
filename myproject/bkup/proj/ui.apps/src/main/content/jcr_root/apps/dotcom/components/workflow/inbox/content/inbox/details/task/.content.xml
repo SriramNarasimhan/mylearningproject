@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        jcr:primaryType="nt:unstructured"
+        jcr:title="Task"
+        sling:resourceType="granite/ui/components/shell/propertiespage"
+        backHref="/mnt/overlay/dotcom/components/workflow/inbox/content/inbox.html"
+        formId="updatetaskform">
+        <head jcr:primaryType="nt:unstructured">
+            <clientlibs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/foundation/includeclientlibs"
+                categories="[cq.inbox.itemdetails,cq.inbox.gui.validation,cq.inbox.tasks.completedialog.actions, cq.inbox.gui.validation]"/>
+        </head>
+        <actions jcr:primaryType="nt:unstructured">
+            <complete
+                granite:rel="completeDetailsTask"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/button"
+                disabled="true"
+                formId="updatetaskform"
+                icon="check"
+                text="Complete"
+                variant="actionBar"/>
+        </actions>
+        <content
+            granite:rel="taskDetailContent"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/foundation/container">
+            <items jcr:primaryType="nt:unstructured">
+                <prepareinfo
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="dotcom/components/workflow/inbox/gui/components/inbox/itemdetails/prepareItemInfo"/>
+                <content
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/container">
+                    <layout
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/layouts/tabs"
+                        type="nav"/>
+                    <items jcr:primaryType="nt:unstructured">
+                        <taskInfo
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Task"
+                            sling:resourceType="dotcom/components/workflow/inbox/gui/components/inbox/itemdetails/tabs/dataprovider/task">
+                            <items jcr:primaryType="nt:unstructured">
+                                <content
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="dotcom/components/workflow/inbox/gui/components/inbox/itemdetails"
+                                    foundation-form-output-replace=".foundation-content"
+                                    foundation-mode-group="cq-inbox-updatedetails"
+                                    id="updatetaskform"
+                                    model-form-ajax="{Boolean}true"
+                                    model-submit-function="updateDetails"
+                                    redirect="{Boolean}true"
+                                    redirect-url="/mnt/overlay/dotcom/components/workflow/inbox/content/inbox.html">
+                                    <layout
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <left
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/container">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <collectionholder
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/container"
+                                                    class="foundation-collection grid">
+                                                    <layout
+                                                        jcr:primaryType="nt:unstructured"
+                                                        name="foundation-layout-card"/>
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <thumbnail
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="dotcom/components/workflow/inbox/gui/components/inbox/itemdetails/tabs/viewpayloadimage"
+                                                            name="payloadImage"/>
+                                                    </items>
+                                                </collectionholder>
+                                                <taskdetails
+                                                    granite:rel="project-taskdetails"
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/container">
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <statusAsLabel
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="dotcom/components/workflow/inbox/gui/components/inbox/label"
+                                                            fieldLabel="Status"
+                                                            name="status"
+                                                            type="text"/>
+                                                        <createddate
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="dotcom/components/workflow/inbox/gui/components/inbox/label"
+                                                            displayedFormat="YYYY-MM-DD HH:mm"
+                                                            fieldLabel="Creation Date"
+                                                            name="startTime"
+                                                            type="datetime"/>
+                                                        <updateddate
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="dotcom/components/workflow/inbox/gui/components/inbox/label"
+                                                            displayedFormat="YYYY-MM-DD HH:mm"
+                                                            fieldLabel="Last Updated Date"
+                                                            name="lastModified"
+                                                            type="datetime"/>
+                                                        <createdby
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="dotcom/components/workflow/inbox/gui/components/inbox/label"
+                                                            fieldLabel="Created By"
+                                                            name="createdBy"
+                                                            type="text"/>
+                                                        <status
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/foundation/form/hidden"
+                                                            class="cq-inbox-info--read-only-status"
+                                                            fieldLabel="Status"
+                                                            name="status"/>
+                                                    </items>
+                                                </taskdetails>
+                                            </items>
+                                        </left>
+                                        <right
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/container">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <title
+                                                    granite:rel="cq-inbox--required-nospaces"
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldLabel="Title"
+                                                    name="name"
+                                                    required="{Boolean}true"/>
+                                                <assign
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="cq/gui/components/projects/admin/userpicker"
+                                                    fieldLabel="Assignee"
+                                                    impersonatesOnly="true"
+                                                    name="assignee"/>
+                                                <path
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                                    fieldLabel="Content Path"
+                                                    name="contentPath"
+                                                    rootPath="/content"/>
+                                                <description
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/textarea"
+                                                    fieldLabel="Description"
+                                                    name="description"
+                                                    rows="6"/>
+                                                <priority
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/select"
+                                                    fieldLabel="Task Priority"
+                                                    name="taskPriority">
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <high
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="High"
+                                                            value="200"/>
+                                                        <medium
+                                                            jcr:primaryType="nt:unstructured"
+                                                            selected="{Boolean}true"
+                                                            text="Medium"
+                                                            value="0"/>
+                                                        <low
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="Low"
+                                                            value="-200"/>
+                                                    </items>
+                                                </priority>
+                                                <startdate
+                                                    granite:rel="inbox-startdate"
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/datepicker"
+                                                    displayedFormat="YYYY-MM-DD HH:mm"
+                                                    fieldLabel="Start Date"
+                                                    name="taskStartDate"
+                                                    type="datetime"/>
+                                                <duedate
+                                                    granite:rel="inbox-duedate"
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/datepicker"
+                                                    displayedFormat="YYYY-MM-DD HH:mm"
+                                                    fieldLabel="Due Date"
+                                                    minDate="today"
+                                                    name="taskDueDate"
+                                                    type="datetime"/>
+                                                <taskActions
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="dotcom/components/workflow/inbox/gui/components/inbox/itemdetails/taskactions"
+                                                    rel="cq-projects-admin-task-actions"/>
+                                                <completeTask
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                    path="/mnt/overlay/dotcom/components/workflow/inbox/content/inbox/dialogs/taskcompletedialog"/>
+                                            </items>
+                                        </right>
+                                    </items>
+                                </content>
+                            </items>
+                            <rendercondition
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="dotcom/components/workflow/inbox/gui/components/inbox/itemdetails/tabs/rendercondition/istask"/>
+                        </taskInfo>
+                        <projectInfo
+                            granite:class="content-container taskdetails-tab task-tab"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Project Info"
+                            sling:resourceType="granite/ui/components/coral/foundation/include"
+                            path="/mnt/overlay/dotcom/components/workflow/inbox/content/inbox/details/infotab/projectinfo">
+                            <rendercondition
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="dotcom/components/workflow/inbox/gui/components/inbox/itemdetails/tabs/rendercondition/hasprojectinfo"/>
+                        </projectInfo>
+                        <workflowInfo
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Workflow Info"
+                            sling:resourceType="granite/ui/components/coral/foundation/include"
+                            class="content-container taskdetails-tab task-tab"
+                            path="/mnt/overlay/dotcom/components/workflow/inbox/content/inbox/details/infotab/workflowInfo">
+                            <rendercondition
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="dotcom/components/workflow/inbox/gui/components/inbox/itemdetails/tabs/rendercondition/hasworkflowinfo"/>
+                        </workflowInfo>
+                        <commentTab
+                            granite:class="content-container taskdetails-tab comment-tab"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Comments"
+                            sling:resourceType="granite/ui/components/coral/foundation/include"
+                            isCommentTab="{Boolean}true"
+                            path="/mnt/overlay/dotcom/components/workflow/inbox/content/inbox/details/infotab/comments"
+                            subFolderName="default">
+                            <rendercondition
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="dotcom/components/workflow/inbox/gui/components/inbox/itemdetails/tabs/rendercondition/hasprojectinfo"/>
+                        </commentTab>
+                    </items>
+                </content>
+            </items>
+        </content>
+    </jcr:content>
+</jcr:root>

@@ -1,0 +1,145 @@
+<div data-sly-use.mbeanObj="${'com.suntrust.dotcom.components.AudioPodcastComponent' @videoFileRefName=properties.fileReference, currentnode=currentNode}" data-sly-unwrap>
+	<div data-sly-test="${ (wcmmode.edit || wcmmode.design) && !properties.text}">Configure AudioPodcast Component</div>
+</div>
+
+<div class="suntrust-audio-player-container">	
+	<div data-sly-unwrap data-sly-test="${!properties.hidetitle}">
+		<h2 class="analytics-placeholder" style="display:block;">${properties.title @context='html'}</h2>
+	</div>
+	<div data-sly-unwrap data-sly-test="${properties.hidetitle}">
+		<h2 class="analytics-placeholder" style="display:none;">${properties.title @context='html'}</h2>
+	</div>
+	<div class="suntrust-audio-player-wrapper">
+		<div data-sly-unwrap data-sly-test="${properties.showimage=='true'}">
+			<div class="suntrust-audio-image" style="background-image:url(${mbeanObj.getThumbnailImage @context='uri'});"></div>
+		</div>
+		<sly data-sly-test="${properties.fileReference}">
+			<sly data-sly-test="${pageProperties.itempropenable == 'true'}">
+				<div class="suntrust-audio-player" itemprop="audio">
+					<div class="aem-audio-duration" style="display:none">${mbeanObj.getAudioDuration}</div>
+					<audio class="music" controls preload="metadata">
+						<source src="${properties.fileReference}">
+					</audio>
+				</div>
+			</sly>
+			<sly data-sly-test="${!pageProperties.itempropenable || pageProperties.itempropenable == 'false'}">
+				<div class="suntrust-audio-player">
+					<div class="aem-audio-duration" style="display:none">${mbeanObj.getAudioDuration}</div>
+					<audio class="music" controls preload="metadata">
+						<source src="${properties.fileReference}">
+					</audio>
+				</div>
+			</sly>
+		</sly>
+		<!-- audio transcript+Decsription Start-->
+		<div data-sly-test.transcriptLabelText="${properties.readTranscriptButtonLabel}" data-sly-unwrap>
+			<div class="suntrust-audio-transcript" id="showAudioTranscript">
+				<div class="suntrust-audio-transcript-accordion" data-suntrust-class="suntrust-audio-accordion" tabindex="0">${properties.readTranscriptButtonLabel @context='html'}</div>
+			</div>
+
+			<div class="suntrust-audio-transcript" id="hideAudioTranscript" style="display: none;">
+				<div class="suntrust-audio-transcript-accordion" data-suntrust-class="suntrust-audio-accordion" tabindex="0">${properties.hideTranscriptButtonLabel @context='html'}</div>
+				<div class="suntrust-audio-accordion-section">
+					<div class="suntrust-audio-transcript-start"></div>
+					<div class="rteSection">${properties.transcript @context='html'}</div>
+					<div class="suntrust-audio-transcript-End"></div>
+				</div>
+			</div>
+		</div>
+
+		<sly data-sly-test="${'false' == properties.descriptioncheckbox}">
+			<div class="suntrust-audio-detail-section">
+				<!-- <h2 class="Header">${properties.description @context='html'}</h2> -->
+				<div class="rteSection">${properties.description @context='html'}</div>
+			</div>
+		</sly>
+
+		<!-- audio Disclaimer Start-->
+		<sly data-sly-test="${'false' == properties.disclaimercheckbox}">
+			<div class="suntrust-audio-disclaimer-wrapper">
+				<h3 class="suntrust-accessible-text">Disclaimers</h3>
+				<div class="suntrust-audio-disclaimer-border">
+					<div class="rteSection">${properties.disclaimer @context='html'}</div>
+				</div>
+				<!-- audio Disclaimer End-->
+			</div>
+		</sly>
+	</div>
+</div>
+
+<!-- <script>
+	// alert("Dynamic Media");
+
+	function getDynamicMediaAudioTitle() {
+		var assetName = $("div.suntrust-audio-player-container h2.analytics-placeholder").text();
+		return assetName;
+	}
+
+	var myAudio;
+	myFunction();
+
+	function myFunction() {
+		setTimeout(function() {
+			myAudio = document.getElementsByTagName('audio')[0];
+			myAudio.addEventListener('play', myHandler, false);
+			myAudio.addEventListener('seeked', myHandler, false);
+			myAudio.addEventListener('seeking', myHandler, false);
+			myAudio.addEventListener('pause', myHandler, false);
+			myAudio.addEventListener('ended', myHandler, false);
+		}, 6000);
+	}
+
+
+	function myHandler(e) {
+		var audio = document.getElementsByTagName('audio')[0];
+		//var mediaName = "STcom|ResCntr|" + $("div.suntrust-video-player-container h2.analytics-placeholder").text();
+
+		var mediaName = "STcom|resourcecenter|video|" + getDynamicMediaAudioTitle();
+
+		s.prop34 = mediaName;
+		s.eVar41 = mediaName;
+		var mediaLength = audio.duration;
+		var mediaPlayerName = "HTML5";
+
+		/*Define audio offset*/
+		if (audio.currentTime > 0) {
+			mediaOffset = Math.floor(audio.currentTime);
+		} else {
+			mediaOffset = 0;
+		};
+
+		/*Call on audio start*/
+		if (e.type == "play") {
+			//alert("play");
+			if (mediaOffset == 0) {
+				// alert("mediaName : " + mediaName);
+				s.Media.open(mediaName, mediaLength, mediaPlayerName);
+				s.Media.play(mediaName, mediaOffset);
+			} else {
+				s.Media.play(mediaName, mediaOffset);
+			};
+		};
+
+		/*Call on scrub start*/
+		if (e.type == "seeking") {
+			s.Media.stop(mediaName, mediaOffset);
+		};
+
+		/*Call on scrub stop*/
+		if (e.type == "seeked") {
+			s.Media.play(mediaName, mediaOffset);
+		};
+
+		/*Call on pause*/
+		if (e.type == "pause") {
+			s.Media.stop(mediaName, mediaOffset);
+		};
+
+		/*Call on audio complete*/
+		if (e.type == "ended") {
+			s.Media.stop(mediaName, mediaOffset);
+			s.Media.close(mediaName);
+			mediaOffset = 0;
+		};
+	};
+</script> -->

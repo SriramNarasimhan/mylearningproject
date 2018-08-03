@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="AND/OR waive fees"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/foundation/container">
+        <layout
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/foundation/layouts/tabs"
+            type="nav"/>
+        <items jcr:primaryType="nt:unstructured">
+            <andorwaive
+                jcr:primaryType="nt:unstructured"
+                jcr:title="and/or waive fees"
+                sling:resourceType="granite/ui/components/foundation/section">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/container"
+                        class="waivefees_class">
+                        <items jcr:primaryType="nt:unstructured">
+                            <fieldset
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/fieldset">
+                                <layout
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <alignment
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/select"
+                                                class="cq-dialog-dropdown-showhide waivedropdown"
+                                                cq-dialog-dropdown-showhide-target=".list-option-listfrom-showhide-target"
+                                                defaultValue="horizontal"
+                                                fieldDescription="Sets the layout for the waive fees component."
+                                                fieldLabel="Alignment"
+                                                name="./alignment"
+                                                value="vertical">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <horizontal
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Horizontal"
+                                                        value="horizontal"/>
+                                                    <vertical
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Vertical"
+                                                        value="vertical"/>
+                                                </items>
+                                            </alignment>
+                                            <waivefees
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/multifield"
+                                                class="full-width"
+                                                fieldDescription="Click 'Add Field' to add a new fee structure"
+                                                fieldLabel="Waive Fees"
+                                                max="{Long}8">
+                                                <field
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/fieldset"
+                                                    acs-commons-nested="JSON_STORE"
+                                                    name="./iItems">
+                                                    <layout
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
+                                                        method="absolute"/>
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <column
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/foundation/container">
+                                                            <items jcr:primaryType="nt:unstructured">
+                                                                <heading
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/foundation/form/textarea"
+                                                                    fieldDescription="Enter waive fee heading"
+                                                                    fieldLabel="Heading"
+                                                                    name="./heading"/>
+                                                                <requirement
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                                    fieldDescription="The amount of fees req."
+                                                                    fieldLabel="Benefit or Requirement"
+                                                                    name="./requirement"/>
+                                                                <subheading
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/foundation/form/textarea"
+                                                                    class="andorwaive-subheading"
+                                                                    fieldDescription="Enter sub-heading"
+                                                                    fieldLabel="Sub-heading"
+                                                                    name="./subheading"
+                                                                    required="{Boolean}true"/>
+                                                                <andor
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/foundation/form/select"
+                                                                    class="cq-dialog-dropdown-showhide"
+                                                                    cq-dialog-dropdown-showhide-target=".list-option-listfrom-showhide-target"
+                                                                    defaultValue="OR"
+                                                                    fieldDescription="Sets the layout for the waive fees component."
+                                                                    fieldLabel="And/Or"
+                                                                    name="./choice"
+                                                                    value="and">
+                                                                    <items jcr:primaryType="nt:unstructured">
+                                                                        <or
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            text="OR"
+                                                                            value="OR"/>
+                                                                        <and
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            text="AND"
+                                                                            value="AND"/>
+                                                                        <none
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            text="NONE"
+                                                                            value="NONE"/>
+                                                                    </items>
+                                                                </andor>
+                                                            </items>
+                                                        </column>
+                                                    </items>
+                                                </field>
+                                            </waivefees>
+                                        </items>
+                                    </column>
+                                </items>
+                            </fieldset>
+                        </items>
+                    </column>
+                </items>
+            </andorwaive>
+        </items>
+    </content>
+</jcr:root>

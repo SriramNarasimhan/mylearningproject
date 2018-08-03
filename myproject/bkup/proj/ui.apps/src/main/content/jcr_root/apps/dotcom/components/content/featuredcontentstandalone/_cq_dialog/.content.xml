@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Featured Content Standalone"
+    sling:resourceType="cq/gui/components/authoring/dialog"
+    helpPath="https://www.adobe.com/go/aem6_2_docs_component_en#Text &amp; Image - Sightly">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/foundation/container">
+        <layout
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/foundation/layouts/tabs"
+            type="nav"/>
+        <items jcr:primaryType="nt:unstructured">
+            <content
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Content"
+                sling:resourceType="granite/ui/components/foundation/section">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
+                    margin="{Boolean}false"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <headline
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                fieldDescription="This is the title / headline displayed"
+                                fieldLabel="Headline"
+                                name="./headline"
+                                useFixedInlineToolbar="{Boolean}true">
+                                <rtePlugins
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceSuperType="/apps/dotcom/components/content/globalrte/cq:dialog/content/items/column/items/text/rtePlugins"/>
+                                <uiSettings
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceSuperType="/apps/dotcom/components/content/globalrte/cq:dialog/content/items/column/items/text/uiSettings"/>
+                                <htmlRules
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceSuperType="/apps/dotcom/components/content/globalrte/cq:dialog/content/items/column/items/text/htmlRules"/>
+                            </headline>
+                            <headlinealignment
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/select"
+                                class="cq-dialog-dropdown-showhide"
+                                cq-dialog-dropdown-showhide-target=".list-option-listfrom-showhide-target"
+                                fieldDescription="Sets the alignment of the headline"
+                                fieldLabel="Headline Alignment"
+                                name="./headlinealignment">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <left
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Left"
+                                        value="sun-text-align-left"/>
+                                    <center
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Center"
+                                        value="sun-text-align-center"/>
+                                </items>
+                            </headlinealignment>
+                            <url
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                allowBlank="{Boolean}false"
+                                fieldDescription="Sets the url target for the Headline and Photo"
+                                fieldLabel="URL"
+                                name="./linkURL"
+                                rootPath="/content"/>
+                            <titletag
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Title Tag for the link"
+                                fieldLabel="URL Title"
+                                maxlength="{Long}100"
+                                name="./titletag"
+                                validation="featured-content-link-title"/>
+                            <urlParams
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Sets the link parameters applied to the url. e.g. param1=value1&amp;param2=value2"
+                                fieldLabel="URL Params"
+                                name="./urlParams"/>
+                            <target
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/select"
+                                class="cq-dialog-dropdown-showhide"
+                                cq-dialog-dropdown-showhide-target=".list-option-listfrom-showhide-target"
+                                fieldDescription="Sets the window target for the link"
+                                fieldLabel="Target"
+                                name="./target">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <self
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Default"
+                                        value="_self"/>
+                                    <blank
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Blank"
+                                        value="_blank"/>
+                                    <smallmodal
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Small Modal"
+                                        value="_smallmodal"/>
+                                    <mediummodal
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Medium Modal"
+                                        value="_mediummodal"/>
+                                    <largemodal
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Large Modal"
+                                        value="_largemodal"/>
+                                </items>
+                            </target>
+                            <anchorTag
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Sets an anchor tag that’s applied to the link generated for the navigation item."
+                                fieldLabel="Anchor Tag"
+                                name="./anchorTag"/>
+                        </items>
+                    </column>
+                </items>
+            </content>
+            <description
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Description"
+                sling:resourceType="granite/ui/components/foundation/section">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
+                    margin="{Boolean}false"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <description
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                fieldDescription="This is a summary description of the featured content"
+                                fieldLabel="Description"
+                                name="./description"
+                                useFixedInlineToolbar="{Boolean}true">
+                                <rtePlugins
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceSuperType="/apps/dotcom/components/content/globalrte/cq:dialog/content/items/column/items/text/rtePlugins"/>
+                                <uiSettings
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceSuperType="/apps/dotcom/components/content/globalrte/cq:dialog/content/items/column/items/text/uiSettings"/>
+                                <htmlRules
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceSuperType="/apps/dotcom/components/content/globalrte/cq:dialog/content/items/column/items/text/htmlRules"/>
+                            </description>
+                        </items>
+                    </column>
+                </items>
+            </description>
+            <image
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Image"
+                sling:resourceType="granite/ui/components/foundation/section">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <file
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/fileupload"
+                                allowUpload="{Boolean}false"
+                                autoStart="{Boolean}false"
+                                class="cq-droptarget"
+                                fieldDescription="This is the highlight image displayed"
+                                fieldLabel="Image"
+                                fileNameParameter="./fileName"
+                                fileReferenceParameter="./image"
+                                id="file-upload-featured-contentst"
+                                mimeTypes="[image]"
+                                multiple="{Boolean}false"
+                                name="./file"
+                                title="Upload Image Asset"
+                                uploadUrl="${suffix.path}"
+                                useHTML5="{Boolean}true"/>
+                            <alttext
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Alt Text for Image"
+                                fieldLabel="Alt Text"
+                                maxlength="{Long}100"
+                                name="./imagealttext"
+                                validation="featured-content-image-alt"/>
+                            <title
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Title for Image"
+                                fieldLabel="Image Title"
+                                maxlength="{Long}125"
+                                name="./imagetitle"
+                                validation="featured-content-image-title"/>
+                        </items>
+                    </column>
+                </items>
+            </image>
+        </items>
+    </content>
+</jcr:root>

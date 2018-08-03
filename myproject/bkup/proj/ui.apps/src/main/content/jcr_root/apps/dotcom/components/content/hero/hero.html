@@ -1,0 +1,198 @@
+<div data-suntrust-class="suntrust-main" id="main-content">
+	<div data-sly-unwrap data-sly-test.onload="${!properties.fileReference && !properties.bgfileReference && (!properties.signon || properties.signon=='false') && (wcmmode.edit || wcmmode.design)}">Configure Hero Dialog</div>
+	<div data-sly-unwrap data-sly-use.fetch="${'com.suntrust.dotcom.utils.GenericUtil' @linkURL=properties.linkURL,urlParams=properties.urlParams,anchorTag=properties.anchorTag}"></div>
+    <sly data-sly-use.signon="${'com.suntrust.dotcom.utils.GenericUtil' @ signon=properties.signonpage}"></sly>
+	<input type="hidden" name="herohideintro" value="${properties.hideintro}"/>
+	<input type="hidden" name="signonpageconfig" id="signonpageconfig" value="${signon.heroSignOnPage}"/>
+	<input type="hidden" name="maintenancemode" id="maintenancemode" value="${request.requestParameterMap['maintenance-mode-override'][0].toString}"/>	
+	<div data-sly-unwrap data-sly-test="${!onload}">
+		<div data-sly-unwrap data-sly-test="${properties.signon=='true' && !properties.fileReference}">
+			<!-- Hero Component for Home Page Start here -->
+			<li class="sun-product-carousel-slide sun-hero-style-default sun-product-carousel-slide1 with-hero-image suntrust-heroMain"><img src="${properties.bgfileReference}" alt="${properties.bgimagealttext}" class="sun-product-carousel-slide-image" title="${properties.bgimagetitle}" />
+				<div role="img" aria-label="${properties.bgimagealttext}" class="sun-product-carousel-slide-with-signon sun-product-carousel col-sm-12 col-md-12 signon_enabled" style="background-image:url(${properties.bgfileReference @context='uri'});">
+					<div class="hero_wrapper">
+						<div class="call2act_signonSec">
+							<!-- Call To Action Section -->
+							<div class="sun-product-carousel-slide-wrapper col-sm-8 col-lg-8" style="padding-${properties.position @context='text'}:${properties.padding @ context='number'}px">
+								<div class="sun-product-carousel-products ${properties.theme} ${properties.heroposition}">
+									<div class="heroCarouselHead">
+										<div data-sly-unwrap data-sly-test="${properties.headlineHero}">
+											<h2 class="sun-product-carousel-heading">${properties.headlineHero @ context='html'}</h2>
+										</div>
+									</div>
+									<div class="heroCarouselIntro">
+										<div data-sly-unwrap data-sly-test="${properties.intro}">
+											<p class="${properties.hideintro=='true' ? 'sun-product-carousel-products-intro herohideintro' : 'sun-product-carousel-products-intro'}">${properties.intro @ context='html'}</p>
+										</div>
+									</div>
+									<div data-sly-test="${!properties.invocaFlagCheckbox}" data-sly-unwrap>
+										<div data-sly-unwrap data-sly-test="${fetch.modifyURL || fetch.modifyURL!='' || properties.ctatitle}">
+											<a title="${properties.titletag}" class="suntrust-secondary-button ${properties.ctatheme}" href="${fetch.modifyURL}" target="${properties.target}">${properties.ctatitle @ context='html'}</a>
+										</div>
+									</div>
+									<div data-sly-test="${properties.invocaFlagCheckbox}" data-sly-unwrap>
+										<div data-sly-unwrap data-sly-test="${fetch.modifyURL || fetch.modifyURL!='' || properties.ctatitle}">
+											<span class="suntrust-invoca-hide"><a title="${properties.titletag}" class="suntrust-secondary-button ${properties.ctatheme}" href="${fetch.modifyURL}" target="${properties.target}">${properties.ctatitle @ context='html'}</a></span>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- Sign on Section -->													
+							<div data-sly-unwrap data-sly-test="${signon.heroSignOnPage}">
+								<div class="suntrust-hero-signon-desktop-block"></div>
+							</div>
+							<div class="clearFix"></div>
+						</div>
+					</div>
+				</div>
+				<div data-sly-unwrap data-sly-test="${properties.heromobile=='true'}">
+					<div data-sly-unwrap data-sly-test="${signon.heroSignOnPage}">
+						<div class="suntrust-hero-signon-mobile-block"></div>
+					</div>
+				</div>
+			</li>
+			<!-- Hero Component for Home Page end here -->
+		</div>
+		<div data-sly-unwrap data-sly-test="${properties.signon=='false' && !properties.fileReference}">
+			<!-- Hero component for other pages starts here -->
+			<li class="sun-product-carousel-slide sun-hero-style-default sun-product-carousel-slide1 with-hero-image suntrust-heroText"><img src="${properties.bgfileReference}" alt="${properties.bgimagealttext}" class="sun-product-carousel-slide-image" title="${properties.bgimagetitle}" />
+				<div role="img" aria-label="${properties.bgimagealttext}" class="sun-product-carousel-slide-with-signon sun-product-carousel-others sun-product-others col-sm-12 col-md-12 col-xs-12 ${(!properties.headlineHero && !properties.intro && !properties.ctatitle)?'sun-hero-nocontent':''}" style="background-image:url(${properties.bgfileReference @context='uri'});">
+					<div class="hero_wrapper">
+						<div class="call2act_signonSec ${properties.alignment}">
+							<!-- Call To Action Section -->
+							<div class="sun-product-carousel-slide-wrapper-others suntrust-signon-width col-sm-8 col-lg-8" style="padding-${properties.position @context='text'}:${properties.padding @ context='number'}px">
+								<div class="sun-product-carousel-products ${properties.theme} ${properties.heroposition}">
+									<div data-sly-unwrap data-sly-test="${properties.headlineHero}">
+										<h2 class="sun-product-carousel-heading">${properties.headlineHero @ context='html'}</h2>
+									</div>
+									<div data-sly-unwrap data-sly-test="${properties.intro}">
+										<p class="${properties.hideintro=='true' ? 'sun-product-carousel-products-intro herohideintro' : 'sun-product-carousel-products-intro'}">${properties.intro @ context='html'}</p>
+									</div>
+									<div data-sly-unwrap data-sly-test="${fetch.modifyURL || fetch.modifyURL!='' || properties.ctatitle}">
+										<a title="${properties.titletag}" class="suntrust-secondary-button ${properties.ctatheme}" href="${fetch.modifyURL}" target="${properties.target}">${properties.ctatitle @context='html'}</a>
+									</div>
+								</div>
+							</div>
+							<div class="clearFix"></div>
+						</div>
+					</div>
+				</div>
+			</li>
+		</div>
+		<!-- Hero component for other pages ends here -->
+		<div data-sly-unwrap data-sly-test="${properties.signon=='false' && properties.fileReference}">
+			<!-- Hero component for other pages with feature image starts here -->
+			<li class="sun-product-carousel-slide sun-hero-style-default sun-product-carousel-slide1 with-hero-image suntrust-herotextFeature"><img src="${properties.bgfileReference}" alt="${properties.bgimagealttext}" class="sun-product-carousel-slide-image" title="${properties.bgimagetitle}" />
+				<div role="img" aria-label="${properties.bgimagealttext}" class="sun-product-carousel-slide-with-signon sun-product-carousel-others sun-product-feature col-sm-12 col-md-12 col-xs-12" style="background-image:url(${properties.bgfileReference @context='uri'});">
+					<div class="hero_wrapper">
+						<div class="call2act_signonSec ${properties.alignment}">
+							<!-- Call To Action Section -->
+							<div class="sun-product-carousel-slide-wrapper-others suntrust-signon-width col-sm-10 col-lg-8" style="padding-${properties.position @context='text'}:${properties.padding @ context='number'}px">
+								<div class="sun-product-carousel-products ${properties.theme} ${properties.heroposition}">
+									<div data-sly-unwrap data-sly-test="${properties.fileReference || properties.featureimagealttext}">
+										<img class="sun-product-carousel-image" src="${properties.fileReference}" alt="${properties.featureimagealttext}" title="${properties.featureimagetitle}"/>
+									</div>
+									<div data-sly-unwrap data-sly-test="${properties.headlineHero}">
+										<h2 class="sun-product-carousel-heading">${properties.headlineHero @ context='html'}</h2>
+									</div>
+									<div data-sly-unwrap data-sly-test="${properties.intro}">
+										<p class="${properties.hideintro=='true' ? 'sun-product-carousel-products-intro herohideintro' : 'sun-product-carousel-products-intro'}">${properties.intro @ context='html'}</p>
+									</div>
+									<div data-sly-unwrap data-sly-test="${fetch.modifyURL || fetch.modifyURL!='' || properties.ctatitle}">
+										<a title="${properties.titletag}" class="suntrust-secondary-button ${properties.ctatheme}" href="${fetch.modifyURL}" target="${properties.target}">${properties.ctatitle @context='html'}</a>
+									</div>
+								</div>
+								<div class="clearFix"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+		</div>
+
+		<div data-sly-unwrap data-sly-test="${properties.signon=='true' && properties.fileReference}">
+			<li class="sun-product-carousel-slide sun-hero-style-default sun-product-carousel-slide1 with-hero-image suntrust-herotextFeature"><img src="${properties.bgfileReference}" alt="${properties.bgimagealttext}" class="sun-product-carousel-slide-image" title="${properties.bgimagetitle}" />
+				<div role="img" aria-label="${properties.bgimagealttext}" class="sun-product-carousel-slide-with-signon sun-product-carousel sun-product-feature col-sm-12 col-md-12 signon_enabled" style="background-image:url(${properties.bgfileReference @context='uri'});">
+					<div class="hero_wrapper">
+						<div class="call2act_signonSec">
+							<!-- Call To Action Section -->
+							<div class="sun-product-carousel-slide-wrapper col-sm-8 col-lg-8" style="padding-${properties.position @context='text'}:${properties.padding @ context='number'}px">
+								<div class="sun-product-carousel-products ${properties.theme} ${properties.heroposition}">
+									<div data-sly-unwrap data-sly-test="${properties.fileReference || properties.featureimagealttext}">
+										<img class="sun-product-carousel-image" src="${properties.fileReference}" alt="${properties.featureimagealttext}" title="${properties.featureimagetitle}"/>
+									</div>
+									<div data-sly-unwrap data-sly-test="${properties.headlineHero}">
+										<h2 class="sun-product-carousel-heading">${properties.headlineHero @ context='html'}</h2>
+									</div>
+									<div data-sly-unwrap data-sly-test="${properties.intro}">
+										<p class="${properties.hideintro=='true' ? 'sun-product-carousel-products-intro herohideintro' : 'sun-product-carousel-products-intro'}">${properties.intro @ context='html'}</p>
+									</div>
+									<div data-sly-unwrap data-sly-test="${fetch.modifyURL || fetch.modifyURL!='' || properties.ctatitle}">
+										<a title="${properties.titletag}" class="suntrust-secondary-button ${properties.ctatheme}" href="${fetch.modifyURL}" target="${properties.target}">${properties.ctatitle @context='html'}</a>
+									</div>
+								</div>
+							</div>
+							<!-- Sign on Section -->							
+							
+							<div data-sly-unwrap data-sly-test="$signon.heroSignOnPage}">
+								<div class="suntrust-hero-signon-desktop-block"></div>
+							</div>
+							<div class="clearFix"></div>
+						</div>
+					</div>
+				</div>
+				<div data-sly-unwrap data-sly-test="${properties.heromobile=='true'}">	
+					<div data-sly-unwrap data-sly-test="${signon.heroSignOnPage}">
+						<div class="suntrust-hero-signon-mobile-block"></div>
+					</div>
+				</div>
+			</li>
+		</div>
+	</div>
+	<!-- Hero component for other pages with feature image ends here -->
+</div>
+<!--
+
+THIS PIECE OF ANALYTICS CODE IS MOVED TO ENSIGTHEN.
+THIS SECTION OF CODE SHOULD NOT BE DELETED AND SHOULD BE ALWAYS COMMENTED.
+THIS CODE IS FOR REFERENCE PURPOSE ONLY.-->
+
+<!-- script>
+"use strict";
+
+// Hero signon click
+/*$('#SignOn-herosignon-OLB .suntrust-login-button-herosignon').on('click', function() {
+	var currentPageName = getPageName(window.location.pathname);
+	var buttonName = "signon|"+currentPageName;
+	console.log('buttonName: '+buttonName);
+	signonButtonOnClick(buttonName);
+});*/
+
+var $ocmLoginButton = $('div.suntrust-login-onlinecashmanager-form').find('suntrust-login-button-herosignon');
+$('#SignOn-herosignon-OCM .suntrust-login-button-herosignon').on('click', function() {
+	var currentPageName = getPageName(window.location.pathname);
+	var buttonName = "signon|"+currentPageName;
+	console.log('buttonName: '+buttonName);
+	signonButtonOnClick(buttonName);
+});
+
+function signonButtonOnClick(buttonName){
+	s.linkTrackVars = 'eVar45,events';
+	s.linkTrackEvents = 'event23';
+	s.eVar45 = buttonName;
+	s.events = 'event23';
+    console.log('analytics triggered: '+buttonName);
+	s.tl(this, 'o', buttonName);
+}
+
+//Signon button click from hero sign on and right rail Start
+
+// Returns page name
+function getPageName(url) {
+    var index = url.lastIndexOf("/") + 1;
+    var filenameWithExtension = url.substr(index);
+    var filename = filenameWithExtension.split(".")[0];
+    return filename;
+}
+</script-->

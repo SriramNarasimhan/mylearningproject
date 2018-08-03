@@ -1,0 +1,472 @@
+.jumbotron {
+	margin-bottom: 0;
+}
+.equityrates, .cdrates{
+	padding-right:20px;
+}
+.cdrates_heading {
+    max-width: 1170px;
+    margin: 30px auto;
+}
+.cdrate_interest_img img,
+.cdrate_check_area_img img,
+.cdrate_icon img,
+.cdrate_savings_icon img,
+.cdrate_savings_img img {
+	width: 100%;
+	height: auto
+}
+.cdrate_interest_img > div {
+	padding: 0 15px;
+}
+.cdrate_interest_img h3 {
+	margin: 15px 0;
+	text-align: center;
+}
+.cdrate_interest_img a {
+	width: 100%;
+	text-align: center;
+}
+.cdrates_heading h2 {
+    color: #fff;
+}
+.cdrate_savings_promotional {
+	margin-top: 20px;
+}
+.cdrate_zip_border .cdrate_savings_promotional {
+    margin-top: 30px;
+}
+.cdrate_savings_promotional h2{
+	font-size: 28px;
+	font-weight: normal;
+	color: #333;
+}
+.cdrate_zipcode_search {
+	margin-top: 5px;
+}
+.cdrate_zipcode_search a {
+	margin-left: 5px;
+}
+.cdrate_zipcode_search input {
+	width: 100px;
+	height: 42px;
+	float: left;
+	line-height: 20px;
+	padding: 10px;
+	font-size: 18px;
+	color: #666666;
+}
+.cdrate_zipcode_search input.sun-error {
+	border: 1px solid #cc2900;
+}
+.cdrate_zip_border {
+	/*border-bottom: 1px solid #cfcfcf;
+	margin-bottom:20px;*/
+	padding-bottom: 30px;
+}
+.findrate-error-message-invalid, .findrate-error-message-unavail, .findrate-error-message-othUnavail {
+    color: #cc2900 !important;
+    margin: 10px 0;
+    display: none;
+}
+.cdrate_savings_icon,
+.cdrate_savings_img,
+.cdrate_savings_content {
+	float: left
+}
+.cdrate_savings_icon {
+	width: 22px;
+	margin-right: 10px;
+}
+.cdrate_savings_img {
+	width: 130px;
+	margin-right: 15px;
+}
+.cdrate_savings_content {
+	width: 75%;
+}
+.cdrate_savings_content a {
+	font-weight: 700;
+	padding-bottom: 5px;
+    display: block;
+}
+.cdrate_savings_resource > div {
+	margin: 15px 0;
+}
+.cdrate_savings_individual {
+	padding: 20px 0;
+}
+.cdrate_savings_individual:first-child {
+	padding-top: 0;
+}
+.cdrate_savings_individual:not(:last-child) {
+	border-bottom: 1px solid #e5e5e5;
+}
+.cdrate_disclaimers > h4 {
+	margin-bottom: 5px;
+}
+.cdrate_disclaimers > div {
+	border-bottom:1px solid #e5e5e5;
+	padding: 20px 0;
+}
+.cdrate_disclaimers > div:nth-child(2) {
+	padding-top: 0;
+}
+.cdrate_disclaimers > div:last-child {
+	border-bottom:0;
+	padding-bottom: 0;
+}
+.cdrate_zip_table {
+	padding-top: 20px;
+    font-size: 15px;
+	color: #333;
+}
+table.cdrate_zip_desktopTable,
+.cdrate_zip_mobileTable table {
+	width: 100%;
+}
+table.cdrate_zip_desktopTable th {
+	background-color: #efefef;
+	border-bottom:1px solid #d8d8d8;
+}
+table.cdrate_zip_desktopTable th,
+table.cdrate_zip_desktopTable td {
+	border-collapse: collapse;
+	padding: 10px 15px;
+}
+table.cdrate_zip_desktopTable td {
+	border-bottom:1px solid #efefef;
+}
+.cdrate_zip_mobileTable table,
+.cdrate_zip_desktopTable {
+	margin-bottom: 20px;
+}
+.cdrate_zip_mobileTable th {
+	background-color: #efefef;
+}
+.cdrate_zip_mobileTable th,
+.cdrate_zip_mobileTable td {
+	border-collapse: collapse;
+	padding: 10px 15px;
+	border:1px solid #d8d8d8;
+	width: 50%;
+}
+.cdrate_zipcode_search .suntrust-orange-button {
+	-webkit-transition: all .15s ease-in;
+    -moz-transition: all .15s ease-in;
+    -o-transition: all .15s ease-in;
+    -ms-transition: all .15s ease-in;
+    transition: all .15s ease-in;
+    -webkit-border-radius: 3px;
+    -webkit-background-clip: padding-box;
+    -moz-border-radius: 3px;
+    -moz-background-clip: padding;
+    border-radius: 3px;
+    background-clip: padding-box;
+    padding: 12px 30px !important;
+    font-size: 18px;
+    line-height: 18px;
+    cursor: pointer;
+    outline: none;
+    background-image: none;
+    display: inline-block;
+    background-color: #C94C06;
+    color: #fff;
+}
+.suntrust-orange-button:hover,
+.suntrust-orange-button:focus {
+	background-color: #963F04;
+    color: #fff;
+    outline: none;
+    text-decoration: none;
+}
+.cdrate_accounts {
+	margin: 30px 0;
+}
+.cdrate_accounts h4,
+.cdrate_accounts a {
+	color: #003B71;
+}
+.cdrate_accounts a {
+	display: block;
+	padding: 5px 10px;
+    margin-bottom: 1px;
+	font-weight: 700;
+}
+.cdrate_accounts a:hover, .cdrate_accounts a.active {
+	background-color: #C94C06;
+	color: #fff;
+}
+.cdrate_check_area {
+	background-color: #fff;
+	border-top: 10px solid #ffa400;
+	padding: 10px;
+}
+.cdrate_check_area h3 {
+	margin-top: 12px;
+}
+.cdrate_check_area_img {
+	width: 100%;
+}
+.cdrate_check_link {
+	position: relative;
+	text-align: center;
+	padding: 15px 0;
+}
+.cdrate_check_link:before {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #e5e5e5;
+    content: '';
+    z-index: 0;
+}
+.cdrate_check_link a {
+    -webkit-transition: all .15s ease-in;
+    -moz-transition: all .15s ease-in;
+    -o-transition: all .15s ease-in;
+    -ms-transition: all .15s ease-in;
+    transition: all .15s ease-in;
+    -webkit-border-radius: 3px;
+    -webkit-background-clip: padding-box;
+    -moz-border-radius: 3px;
+    -moz-background-clip: padding;
+    border-radius: 3px;
+    background-clip: padding-box;
+    padding: 10px 30px;
+    font-size: 18px;
+    line-height: 18px;
+    cursor: pointer;
+    outline: none;
+    background-image: none;
+    display: inline-block;
+    background-color: #003B71;
+    color: #fff;
+	position: relative;
+}
+.cdrate_individual_section {
+	margin-top: 60px;
+}
+.cdrate_individual_section a {
+	display: block;
+	padding: 3px 10px;
+}
+.cdrate_individual_img:not(:last-child) {
+	margin-bottom: 10px;
+}
+.cdrate_icon {
+	float: left;
+    width: 35px;
+    height: 35px;
+}
+.cdrate_icon img {
+	background-color: #fff;
+}
+.cdrate_icon img[src=""] {
+	background-color: #000;
+	height: 100%;
+}
+.cdrate_individual_img h3 {
+	float: left;
+	margin-top: 2px;
+}
+.cdrate_individual_title h4 {
+	float: left;
+	margin-left: 5px;
+}
+.cdrate_individual_content {
+	margin: 15px 0;
+}
+.cdrate_individual_content > div {
+	padding: 3px 10px;
+}
+.bg_white {
+	background-color: #fff;
+}
+
+@media (max-width: 1024px) {
+	.cdrate_savings_content {
+		width: 70%;
+	}
+}
+@media (max-width: 773px) {
+	.cdrate_savings_content {
+		width: 60%;
+	}
+}
+
+/*Equity line of rate*/
+.equity_rate_intrest {
+	margin-top: 20px;
+}
+.equity_rate_intrest h2, .rateDetailsTable h2{
+	font-size: 	28px;
+	font-weight: normal;
+	color: #333;
+}
+.rate_zipcode_search {
+	margin-top: 25px;
+}
+.rate_zipcode_search a {
+	margin-left: 5px;
+}
+.rate_zipcode_search input {
+	width: 100px;
+	height: 42px;
+	float: left;
+	line-height: 20px;
+	padding: 10px;
+	font-size: 18px;
+	color: #666666;
+}
+.rate_zipcode_search input.sun-error {
+	border: 1px solid #cc2900;
+}
+.rateDetailsContainer {
+    border-bottom: 1px solid #cfcfcf;
+    padding-bottom: 30px;
+}
+
+.table.equity-line-rate-table>tbody>tr>td, .table.equity-line-rate-table>tbody>tr>th, .table.equity-line-rate-table>tfoot>tr>td, .table.equity-line-rate-table>tfoot>tr>th, .table.equity-line-rate-table>thead>tr>td, .table.equity-line-rate-table>thead>tr>th {
+    border: 1px solid #eee;
+    padding: 20px 15px;
+}
+.equity-line-rate-table td:nth-child(1){
+	background-color:#efefef;
+	min-width:200px;
+}
+.equity-line-rate-table.mobile{
+		display:none;
+		padding: 20px 0;
+	}
+.equity-line-rate-table{
+	display:block;
+	padding: 20px 0;
+	margin: 0 auto;
+}
+.equity-line-rate-table.mobile  tr:nth-child(2) td{
+    background-color: #fff;
+}
+.equity-line-rate-title {
+    font-weight: bold;
+    padding-bottom: 8px;
+}
+.redirection {
+	margin: 0 auto;
+	text-align:center;
+	padding: 20px 0;
+	overflow: hidden;
+}
+.rateDetailsTable {
+	display : none;
+	margin-top: 30px;
+}
+.cdrates-backlink {
+    font-size: 15px;
+    font-weight: normal;
+    display: block;
+    margin-top: 20px;
+}
+.equity_rate_disclaimers{
+	border-top:1px solid #cfcfcf;
+	padding-top: 20px;
+}
+.equity_rate_disclaimers > div {
+	/*border-bottom:1px solid #cfcfcf;*/
+	padding: 20px 0;
+}
+.equity_rate_disclaimers > div:nth-child(2) {
+	padding-top: 0;
+}
+.equity_rate_disclaimers > div:last-child {
+	border-bottom:0;
+	padding-bottom: 0;
+}
+.equityrates p, .cdrates p{
+    font-size: 15px;
+	color: #333;
+	/*margin-bottom:10px;*/
+	clear: both;
+}
+
+@media(max-width:600px){
+	.cdrates-table-desktop {
+		display:none;
+	}
+	.cdrates-table-mobile {
+		display:block;
+	}
+	.equity-line-rate-table.mobile{
+		display:block;
+	}
+	.equity-line-rate-table{
+		display:none;
+	}
+	.rate_zipcode_search input{	
+		width: 100%;
+	}
+	.rate_zipcode_search a {
+		margin: 15px 0 0;
+		width: 100%;
+		text-align: center;
+	}
+	.redirection a {
+		width:100%;
+		text-align: center;
+	}
+}
+@media all and (device-width: 768px) and (device-height: 1024px) and (orientation:portrait) {
+	.equityrates, .cdrates{
+		padding-left:15px;
+	}
+}
+@media (max-width: 767px) {
+	.cdrates_heading {
+		padding-left: 15px;
+	}
+	.cdrate_zipcode_search input,
+	.cdrate_savings_content	{
+		width: 100%;
+	}
+	.cdrate_zipcode_search a {
+		margin: 15px 0 0;
+		width: 100%;
+		text-align: center;
+	}
+	.cdrate_interest_img {
+		margin: 0 -15px;
+	}
+	.cdrate_zip_table > a {
+		width: 100%;
+		text-align: center;
+	}
+	.cdrate_savings_promotional,.equity_rate_intrest {
+		padding: 0 15px;
+	}
+	.cdrate_zip_border .cdrate_savings_promotional {
+		padding: 0;
+	}
+	.cdrate_zip_border,.rateDetailsContainer {
+		margin: 0 15px;
+	}
+}
+.cdrate_savings_promotional, .cdrate_disclaimers, .rateDetailsTable, .equity_rate_intrest, .rateDetailsContainerm, .equity_rate_disclaimers {
+	padding: 20px 15px 0 15px;
+	}
+.cdrate_zipcode_search input:focus::-moz-placeholder,.rate_zipcode_search input:focus::-moz-placeholder {
+	color:transparent!important
+}
+.cdrate_disclaimers {
+	padding-left: 0 !important;
+	padding-top: 0 !important;
+	font-size: 15px;
+	color: #333;
+}
+.equity_rate_disclaimers{
+padding-left: 0 !important;
+}
+p.disclaimer-border{
+padding-bottom:10px;
+}

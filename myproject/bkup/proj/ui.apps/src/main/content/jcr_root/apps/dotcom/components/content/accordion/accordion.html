@@ -1,0 +1,96 @@
+<div data-sly-use.AccobeanObj="com.suntrust.dotcom.components.AccordionComponent" data-sly-unwrap>
+	<div class="suntrust-footer-site-links-list-item" data-sly-test="${!AccobeanObj.mBean && !properties.text && (wcmmode.edit || wcmmode.design)}">Configure Accordion Dialog</div>
+</div>
+<div data-sly-use.utilObj="com.suntrust.dotcom.utils.GenericUtil" data-sly-unwrap></div>
+<!--<div data-sly-test.uniqueID="${utilObj.UniqueId}" data-sly-unwrap></div>-->
+<div data-sly-test="${properties.style=='Default'}" data-sly-unwrap>
+<div class="">   	
+	<ul class="faq" data-collapse="${properties.collapseacc}">
+		<div data-sly-test="${AccobeanObj.mBean && properties.iItems}" data-sly-unwrap>
+			<div data-sly-list.items="${AccobeanObj.mBean}">
+				<div data-sly-list.itemsList="${items.items}">
+                       <li data-anchor="${itemsList.accosecanchor}" class="clearfix">
+						<div data-sly-test.uniqueID="${utilObj.UniqueId}" data-sly-unwrap></div>
+                           <div tabindex="0" name="${itemsList.accosecanchor}" class="suntrust-faq-title suntrust-accordion-trigger suntrust-accordion-trigger-desktop analytics-placeholder" data-expand="${itemsList.accosecexpand}"><h2 class="${properties.titlewidth}">${itemsList.accosecheading @context='html'}</h2></div>
+						<ul class="suntrust-faqs-list">
+							<li class="suntrust-faqs-list-item" data-fieldcount="${AccobeanObj.multifieldCounter}">
+						<sly data-sly-resource="${itemsList.accosecid @ resourceType='wcm/foundation/components/parsys'}"></sly>
+							</li>
+						</ul>
+					</li>
+				</div>
+			</div>
+		</div>
+	</ul>
+</div>
+</div>
+<div class="${properties.accordionborder=='true' ? 'accordian-border' : ''}">
+<div data-sly-test="${properties.style=='Right Rail'}" data-sly-unwrap>
+<div class="contactUs_accordion">
+	<ul class="faq suntrust-accordion-container" data-collapse="${properties.collapseacc}">
+		<div data-sly-test="${AccobeanObj.mBean && properties.iItems}" data-sly-unwrap>
+			<div data-sly-list.items="${AccobeanObj.mBean}">
+				<div data-sly-list.itemsList="${items.items}">
+                       <li data-anchor="${itemsList.accosecanchor}" class="clearfix">
+						<div data-sly-test.uniqueID="${utilObj.UniqueId}" data-sly-unwrap></div>
+							<div tabindex="0" name="${itemsList.accosecanchor}" class="suntrust-faq-title suntrust-accordion-trigger suntrust-accordion-trigger-desktop analytics-placeholder" data-expand="${itemsList.accosecexpand}"><h2 class="${properties.titlewidth}">${itemsList.accosecheading @context='html'}</h2></div>
+						<ul class="suntrust-faqs-list suntrust-accordion-section" tabindex="-1">
+							<div class="contactUs_content_data" data-fieldcount="${AccobeanObj.multifieldCounter}">
+						<sly data-sly-resource="${itemsList.accosecid @ resourceType='wcm/foundation/components/parsys'}"></sly>
+							</div>
+						</ul>
+					</li>
+				</div>
+			</div>
+		</div>
+	</ul>
+</div>
+</div>
+</div>
+<div class="clearfix"></div>	
+
+<!-- 
+
+THIS PIECE OF ANALYTICS CODE IS MOVED TO ENSIGTHEN. Ensighen custom Tag name is STcom_AEM_Accordian.
+THIS SECTION OF CODE SHOULD NOT BE DELETED AND SHOULD BE ALWAYS COMMENTED.
+THIS CODE IS FOR REFERENCE PURPOSE ONLY.
+
+<script>
+				
+"use strict";
+				
+//Check DFS Analytics Tracking
+
+	//click event	
+	$(".suntrust-accordion-trigger.suntrust-accordion-trigger-desktop.analytics-placeholder").on("click", function() {
+		try
+		{
+			var h2ElemText = $(this).find("h2").text(); 		 
+			h2ElemText = h2ElemText.replace(/[^A-Z0-9]+/ig, "");
+			var eVar45Text = 'STcom|NewAccountStart|' + h2ElemText;
+			passAccordianValuesToAnalyticEngine(eVar45Text);
+			
+		}	
+		catch(err)
+		{
+			console.log("Exception caught in custom analytics tag accordian while capturing clicked event: " + err.message);
+		}
+	});	
+	
+	function passAccordianValuesToAnalyticEngine(eVar45Text) 
+	{
+		try
+		{
+			 console.log("eVar45Text : " + eVar45Text);
+			 s.linkTrackVars='eVar45,events'; 
+			 s.linkTrackEvents='event23'; 
+			 s.eVar45=eVar45Text; 
+			 s.events='event23'; 
+			 s.tl(this,'o',eVar45Text);
+		}
+		catch(err)
+		{
+			console.log("Exception caught in custom analytics tag accordian while passing catured values to analytics engine: " + err.message);
+		}
+	}
+</script>-->

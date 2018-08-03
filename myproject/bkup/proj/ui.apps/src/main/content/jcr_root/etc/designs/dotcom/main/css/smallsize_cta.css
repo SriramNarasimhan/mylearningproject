@@ -1,0 +1,95 @@
+.small-calltoaction {
+	width: 245px;
+	height: 175px;
+    font-family: "suntrustregular", "Trebuchet MS", sans-serif;    
+    border-right: 1px solid #d3d3d3;
+    border-left: 1px solid #d3d3d3;
+    border-bottom: 1px solid #d3d3d3;
+	-ms-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+	box-shadow: 0 0 7px 0 #d3d3d3;
+    overflow: hidden;
+	background: #fff;
+	margin: 30px 0 30px 10px; 
+}
+.small-calltoaction-wrapper{	
+	padding: 0 20px 20px 20px;
+    height: 175px;
+}
+.small-calltoaction-heading {
+    font-size: 24px;
+    color: #0d365a;
+    font-weight: 200;    
+    padding: 15px 0;
+	height: 51px;
+	overflow: hidden;
+	line-height: 32px;
+}
+.small-calltoaction-content {
+    padding: 15px 0 0 0;
+	border-top: 1px solid #0d365a;
+    /*display: table;
+    width: 100%;*/
+}
+.small-calltoaction-content-text {
+    font-size: 16px;
+    color: #0d365a;
+    font-weight: 700;
+    display: inline-block;
+    overflow: hidden;
+    height: 60px;
+    width: 55%;
+}
+.small-calltoaction-content-text a{
+	text-decoration: underline;
+}
+.small-calltoaction-content-text a:focus, .small-calltoaction-content-text a:hover{
+	color: #c94c06;
+}
+.small-calltoaction-content-img {
+    padding-right: 10px;
+    float: left;
+    width: 40%;
+}
+.small-calltoaction-content-img img {
+    width: 55px;
+    height: 65px;
+}
+
+
+.small-calltoaction-border-orange{
+	border-top: 10px solid #c94c06;
+}
+.small-calltoaction-border-green{
+	border-top: 10px solid #00b6ae;
+}
+.small-calltoaction-border-yellow{
+	border-top: 10px solid #ffa400;
+}
+.small-calltoaction-border-blue{
+	border-top: 10px solid #003873;
+}
+.small-calltoaction-border-skyblue{
+	border-top: 10px solid #00a2e3;
+}
+.small-calltoaction-border-pink{
+	border-top: 10px solid #ff008e;
+}
+
+@media only screen and (max-width: 767px) {
+	.small-calltoaction {
+		margin: 30px 0 30px 15px !important;
+	}
+}
+
+@media only screen and (max-width: 1300px) {
+	.small-calltoaction {
+		width: 225px;
+		margin: 30px 0 30px 0px;
+	}
+	.small-calltoaction-heading {
+		font-size: 22px;
+	}
+}

@@ -1,0 +1,294 @@
+/*Audio*/
+audio.music{
+	display:none;
+}
+/*Audio*/
+
+.suntrust-audio-image{
+	background-image: url("/content/dam/suntrust/us/en/shared/2017/videos/st_alternative_investments_final.mp3/jcr:content/renditions/cq5dam.thumbnail.319.319.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    width: 100%;
+    min-height: 400px;
+}
+
+.suntrust-audio-container {
+    margin: 0 auto 10px auto;
+    padding: 0 15px;
+}
+.suntrust-audio-header {
+    margin: 30px 0;
+}
+.suntrust-audio-wrapper {
+    display: block;
+    clear: both;
+    position: relative;
+}
+.suntrust-audio-itemdiv {
+    width: 85%;
+    position: relative;
+    overflow: hidden;
+    min-height: 70px;
+    left: 35px;
+    display: inline-block;
+}
+.suntrut-audio-ul {
+    list-style-type: none;
+    padding: 0;
+	margin:0 auto;
+	position:absolute;
+	width:100%;
+}
+.suntrut-audio-ul  li {
+	display:none;
+}
+.suntrut-audio-heading {
+	padding: 15px;
+	display: inline-block;
+    position: relative;
+	width:100%;
+}
+.audio-active {
+	background-color:#000;
+	color:#fff;
+}
+.audio-name {
+	font-weight: bold;
+    font-size: 22px;
+    padding-bottom: 10px;
+}	
+.audio-title {
+    font-size: 18px;
+}
+.suntrust-audio-loader {
+	background-image: url(../img/loader.gif);
+    background-repeat: no-repeat;
+	width:200px;
+	height:200px;
+    position: absolute;
+    top: 27%;    
+    left: 35%;
+	display: none;
+}
+.suntrust-audio-transcript {
+    border: 1px solid #d8d8d8;
+    padding: 15px;
+	margin-bottom:20px;
+	position: relative;
+	margin-top:�15px;
+}
+.suntrust-audio-detail-section {
+    margin-top: 7px;
+}
+.suntrust-audio-transcript-accordion {
+    color: #0d365a;
+    font-size: 18px;
+    padding-left: 25px;
+    cursor: pointer;
+}
+.suntrust-audio-transcript-accordion:before {
+    width: 14px;
+    height: 2px;
+    margin-top: 8px;
+    left: 15px;
+}
+.suntrust-audio-transcript-accordion:after {
+    width: 2px;
+    height: 14px;
+    margin-top: 2px;
+    left: 21px;
+}
+.suntrust-audio-transcript-accordion:before, .suntrust-audio-transcript-accordion:after {
+    content: "";
+    background-color: #ee6e15;
+    position: absolute;
+}
+.suntrust-audio-transcript-accordion.active:after {
+	display:none;
+}
+.suntrust-audio-transcript-accordion:hover,.suntrust-audio-transcript-accordion:focus {
+	color:#ee6e15;
+}
+.suntrust-audio-transcript-accordion.active{
+	padding-bottom:15px;
+}
+.suntrust-audio-accordion-section {
+    display: none;
+}
+.suntrust-audio-download-section {
+    color: #0d365a;
+    font-size: 18px;
+    padding-left: 25px;
+    cursor: pointer;
+    padding-bottom: 30px;
+	background-image: url(../img/download.png);
+    background-repeat: no-repeat;
+}
+.suntrust-audio-download-section:hover {
+	background-image: url(../img/download_hover.png);
+	color:#ee6e15;
+}
+.suntrust-audio-transcript-start {
+    font-weight: bold;
+    padding-bottom: 20px;
+}
+.suntrust-audio-transcript-End {
+    font-weight: bold;
+    padding-bottom: 30px;
+}
+.suntrust-audio-transcript-div {
+    padding-bottom: 30px;
+}
+.suntrust-audio-transcript-title {
+    padding-bottom: 20px;
+    font-weight: bold;
+    margin: 0 auto;
+}
+.suntrust-audio-transcript-description {
+    margin: 0 auto;
+	padding-left:15px;
+}
+.suntrust-audio-detail-section h2 {
+	font-size: 20px;
+    line-height: 24px;
+    margin-bottom: 20px;
+}
+.suntrust-audio-disclaimer-wrapper {
+    margin-top: 20px;
+	margin-bottom:30px;
+    position: relative;
+}
+.suntrust-audio-disclaimer-border {
+    padding: 20px 0;
+    border-top: solid #ddd 1px;
+}
+.articlecontainer .suntrust-audio-player-container {
+   padding-left: 0px;
+   padding-right: 0px;
+}
+.suntrust-audio-player-container {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+@media(max-width:768px){
+	.suntrust-audio-loader {
+		left:18%;
+		top:15%;
+	}
+	.suntrust-audio-itemdiv {
+		min-height:80px;
+	}
+}
+@media(max-width:600px){
+	.suntrust-audio-loader {
+		left:18%;
+		top:15%;
+	}
+	.suntrust-audio-itemdiv {
+		min-height:80px;
+		width:70%;
+	}
+	.audio-name {
+		font-size: 18px;
+	}
+	.audio-title {
+		font-size: 14px;
+	}
+}
+@media(max-width:320px){
+	.suntrust-audio-itemdiv {
+		min-height:100px;
+		width:70%;
+	}
+}
+
+/*Container for audio player*/
+#audioplayer{
+	width: 100%;
+	height: 60px;
+	margin: auto;
+	margin-top: 30px;
+	border: none;
+}
+/* Play/Pause Button */
+.playbutton{
+    height: 40px;
+    width: 40px; 
+	background-repeat: no-repeat !important;
+    background-position: center !important;
+    float: left;
+    outline: none;    
+	margin-right: 10px;
+	margin-top: 5px;
+}
+/*Classes for play/pause button background*/
+.play{background: url('/content/dam/suntrust/us/en/elements/2017/graphic-elements/play.png') ;}
+.pause{
+	background: url('/content/dam/suntrust/us/en/elements/2017/graphic-elements/pause.png');
+}
+
+.timeline{
+	width: 80%;
+	height: 10px;
+	margin-top: 20px;
+	float: left;
+	border: 1px solid #b6c4d1;
+	cursor: pointer;
+}
+/*Grabable Playhead*/
+.playhead{
+	cursor: pointer;
+    width: 15px;
+    height: 25px;
+    margin-top: -18px;
+    /*background: #00294d;*/
+	background: url('/content/dam/suntrust/us/en/elements/2017/graphic-elements/play_head.png');
+	background-repeat: no-repeat;
+}
+.time-wrapper {
+    width: 90px;
+    display: inline-block;
+    margin: 15px auto;
+	font-size: 13px;
+	color: #333;
+}
+.current-time {
+    display: inline-block;
+    padding-left: 10px;
+	width:40px;
+}
+.total-time{
+    display: inline-block;
+}
+.audio-progress{
+	background:#b6c4d1;
+	width:0;
+	height:9px;
+}
+.suntrust-section3B  .timeline {
+    width: 170px;
+}
+.suntrust-section3B .time-wrapper {
+    width: 90px;
+}
+
+.suntrust-audio-player-container h2 {
+    font-size: 20px;
+    color: #333;
+}
+@media(max-width:1110px){
+	.timeline,.suntrust-section3B .timeline  {
+		width: 70%;
+	}
+	.time-wrapper,.suntrust-section3B .time-wrapper{
+		width: 90px;
+	}
+}
+@media(max-width:600px){
+	.timeline {
+		width: 51%;
+	}
+    .suntrust-section3B .timeline {
+		width: 45%;
+	}
+}

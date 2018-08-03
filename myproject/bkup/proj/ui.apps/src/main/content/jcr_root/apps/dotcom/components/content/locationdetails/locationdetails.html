@@ -1,0 +1,247 @@
+<script type="text/javascript">
+    $(document).ready(function(){
+        var daysArray = new Array('.Sunday','.Monday','.Tuesday','.Wednesday','.Thursday','.Friday','.Sunday');
+        var todayDateStr = new Date();
+        var todayStr=daysArray[todayDateStr.getDay()];
+        $(todayStr).addClass("active");
+    });
+</script>
+<sly data-sly-use.mbeanObj="${'com.suntrust.dotcom.components.LocationComponent' @tagName='loc_services'}"/> 
+<sly data-sly-use.stateBeanObj="${'com.suntrust.dotcom.components.LocationComponent' @tagName='loc_state'}"/> 
+
+<div itemscope itemtype="http://schema.org/BankOrCreditUnion">
+	<sly data-sly-test="${pageProperties.loc_locationname}">
+	<div class="location_addr">
+		<div data-sly-test="${pageProperties.loc_locationname}" data-sly-unwrap>
+			<meta itemprop="name" content="${pageProperties.loc_locationname}" />
+			<h4>
+				<strong>${pageProperties.loc_locationname}</strong>
+			</h4>
+		</div>
+		<div data-sly-test="${pageProperties.loc_address}" data-sly-unwrap>
+			<p itemprop="address" itemscope itemtype="http://schema.org/PostalAddress"><span itemprop="streetAddress">${pageProperties.loc_address}</span></p>
+		</div>
+		<p itemprop="address" itemscope itemtype="http://schema.org/PostalAddress"><span itemprop="addressLocality">${pageProperties.loc_city}</span>, <span itemprop="addressRegion">${stateBeanObj.getTagIdToUpperCase}</span> <span itemprop="postalCode">${pageProperties.loc_zipcode}</span></p>
+		<div itemprop="geo" itemscope itemtype="http://schema.org/GeoCoordinates">
+	        <meta itemprop="latitude" content="${pageProperties.loc_latitude}" />
+	        <meta itemprop="longitude" content="${pageProperties.loc_longitude}" />
+	    </div>
+	</div>
+	</sly>
+	<sly data-sly-test="${pageProperties.loc_phone}">
+	<div class="location_phone clearfix">
+		<div class="location_phone_icon">
+			<img src="${'phone_icon' @ i18n}" alt="Phone Number"/>
+		</div>
+		<div class="location_phone_details">
+			<h5>
+				<strong>${'phone-label' @ i18n}</strong>
+			</h5>
+			<p itemprop="telephone">
+				<a href="tel:${pageProperties.loc_phone}">${pageProperties.loc_phone}</a>
+			</p>
+		</div>
+	</div>
+	</sly>
+	<sly data-sly-test="${pageProperties.loc_fax}">
+	<div class="location_fax clearfix">
+		<div class="location_phone_icon">
+			<img src="${'fax_icon' @ i18n}" alt="Fax Number"/>
+		</div>
+		<div class="location_fax_details">
+			<h5>
+				<strong>${'fax-label' @ i18n}</strong>
+			</h5>
+			<p itemprop="faxNumber">
+				${pageProperties.loc_fax}
+			</p>
+		</div>
+	</div>
+	</sly>
+</div>
+
+<div class="location_services">
+	<h4>
+		<strong>${'services-label' @ i18n}</strong>
+	</h4>
+	<div class="clearfix">
+		<div data-sly-test="${mbeanObj.getTagsLength != 0}" data-sly-unwrap>
+			<ul>
+				<div data-sly-list.listObj="${mbeanObj.getTagsTitle}"
+					data-sly-unwrap>
+					<li data-sly-test="${listObjList.index <= 3}">${listObj}</li>
+				</div>
+			</ul>
+		</div>
+		<div data-sly-test="${mbeanObj.getTagsLength >= 4}" data-sly-unwrap>
+			<ul>
+				<div data-sly-list.listObj="${mbeanObj.getTagsTitle}"
+					data-sly-unwrap>
+					<li data-sly-test="${listObjList.index >= 4}">${listObj}</li>
+				</div>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<sly
+	data-sly-test="${pageProperties.loc_sunbranchhours!='Closed' || pageProperties.loc_monbranchhours!='Closed' || pageProperties.loc_tuebranchhours!='Closed' || pageProperties.loc_wedbranchhours!='Closed' || pageProperties.loc_thubranchhours!='Closed' || pageProperties.loc_fribranchhours!='Closed' || pageProperties.loc_satbranchhours!='Closed'}">
+<div class="location_branch_hours">
+	<h4>
+		<strong>${'branch-hours-label' @ i18n}</strong>
+	</h4>
+	<div>
+		<table>
+			<thead aria-hidden="true" class="table_header_ADA suntrust-accessible-text">
+				<tr>
+					<th scope="col">Days</th>
+					<th scope="col">Timings</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="${'day2' @ i18n}">
+					<td>${'day2' @ i18n}</td>
+					<td itemprop="openingHours">${pageProperties.loc_monbranchhours}</td>
+				</tr>
+				<tr class="${'day3' @ i18n}">
+					<td>${'day3' @ i18n}</td>
+					<td itemprop="openingHours">${pageProperties.loc_tuebranchhours}</td>
+				</tr>
+				<tr class="${'day4' @ i18n}">
+					<td>${'day4' @ i18n}</td>
+					<td itemprop="openingHours">${pageProperties.loc_wedbranchhours}</td>
+				</tr>
+				<tr class="${'day5' @ i18n}">
+					<td>${'day5' @ i18n}</td>
+					<td itemprop="openingHours">${pageProperties.loc_thubranchhours}</td>
+				</tr>
+				<tr class="${'day6' @ i18n}">
+					<td>${'day6' @ i18n}</td>
+					<td itemprop="openingHours">${pageProperties.loc_fribranchhours}</td>
+				</tr>
+				<tr class="${'day7' @ i18n}">
+					<td>${'day7' @ i18n}</td>
+					<td itemprop="openingHours">${pageProperties.loc_satbranchhours}</td>
+				</tr>
+				<tr class="${'day1' @ i18n}">
+					<td>${'day1' @ i18n}</td>
+					<td itemprop="openingHours">${pageProperties.loc_sunbranchhours}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+</sly>
+<sly
+	data-sly-test="${pageProperties.loc_sundriveinhours !='Closed' || pageProperties.loc_mondriveinhours!='Closed' || pageProperties.loc_tuedriveinhours!='Closed' || pageProperties.loc_weddriveinhours!='Closed' || pageProperties.loc_thudriveinhours!='Closed' || pageProperties.loc_fridriveinhours!='Closed' || pageProperties.loc_satdriveinhours!='Closed'}">
+<div class="location_drive_thru_hours">
+	<h4>
+		<strong>${'drive-thru-hours' @ i18n}</strong>
+	</h4>
+	<div>
+		<table>
+			<thead aria-hidden="true" class="table_header_ADA suntrust-accessible-text">
+				<tr>
+					<th scope="col">Days</th>
+					<th scope="col">Timings</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="${'day2' @ i18n}">
+					<td>${'day2' @ i18n}</td>
+					<td itemprop="openingHours">${pageProperties.loc_mondriveinhours}</td>
+				</tr>
+				<tr class="${'day3' @ i18n}">
+					<td>${'day3' @ i18n}</td>
+					<td itemprop="openingHours">${pageProperties.loc_tuedriveinhours}</td>
+				</tr>
+				<tr class="${'day4' @ i18n}">
+					<td>${'day4' @ i18n}</td>
+					<td itemprop="openingHours">${pageProperties.loc_weddriveinhours}</td>
+				</tr>
+				<tr class="${'day5' @ i18n}">
+					<td>${'day5' @ i18n}</td>
+					<td itemprop="openingHours">${pageProperties.loc_thudriveinhours}</td>
+				</tr>
+				<tr class="${'day6' @ i18n}">
+					<td>${'day6' @ i18n}</td>
+					<td itemprop="openingHours">${pageProperties.loc_fridriveinhours}</td>
+				</tr>
+				<tr class="${'day7' @ i18n}">
+					<td>${'day7' @ i18n}</td>
+					<td itemprop="openingHours">${pageProperties.loc_satdriveinhours}</td>
+				</tr>
+				<tr class="${'day1' @ i18n}">
+					<td>${'day1' @ i18n}</td>
+					<td itemprop="openingHours">${pageProperties.loc_sundriveinhours}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+</sly>
+<sly
+	data-sly-test="${pageProperties.loc_suntellerhours!='Closed' || pageProperties.loc_montellerhours!='Closed' || pageProperties.loc_tuetellerhours!='Closed' || pageProperties.loc_wedtellerhours!='Closed' || pageProperties.loc_thutellerhours!='Closed' || pageProperties.loc_fritellerhours!='Closed' || pageProperties.loc_sattellerhours!='Closed'}">
+<div class="location_teller_connect_hours">
+	<h4>
+		<strong>${'teller-connect-hours-label' @ i18n}</strong>
+	</h4>
+	<div>
+		<table>
+			<thead aria-hidden="true" class="table_header_ADA suntrust-accessible-text">
+				<tr>
+					<th scope="col">Days</th>
+					<th scope="col">Timings</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="${'day2' @ i18n}">
+					<td>${'day2' @ i18n}</td>
+					<td itemprop="openingHours">${pageProperties.loc_montellerhours}</td>
+				</tr>
+				<tr class="${'day3' @ i18n}">
+					<td>${'day3' @ i18n}</td>
+					<td itemprop="openingHours">${pageProperties.loc_tuetellerhours}</td>
+				</tr>
+				<tr class="${'day4' @ i18n}">
+					<td>${'day4' @ i18n}</td>
+					<td itemprop="openingHours">${pageProperties.loc_wedtellerhours}</td>
+				</tr>
+				<tr class="${'day5' @ i18n}">
+					<td>${'day5' @ i18n}</td>
+					<td itemprop="openingHours">${pageProperties.loc_thutellerhours}</td>
+				</tr>
+				<tr class="${'day6' @ i18n}">
+					<td>${'day6' @ i18n}</td>
+					<td itemprop="openingHours">${pageProperties.loc_fritellerhours}</td>
+				</tr>
+				<tr class="${'day7' @ i18n}">
+					<td>${'day7' @ i18n}</td>
+					<td itemprop="openingHours">${pageProperties.loc_sattellerhours}</td>
+				</tr>
+				<tr class="${'day1' @ i18n}">
+					<td>${'day1' @ i18n}</td>
+					<td itemprop="openingHours">${pageProperties.loc_suntellerhours}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+</sly>
+<sly data-sly-test="${pageProperties.loc_messagedescription}">
+<div class="location_special_hours hidden-xs">
+	<h4>
+		<strong>${'special-hours-label' @ i18n}</strong>
+	</h4>
+	<p>${pageProperties.loc_messagedescription}</p>
+</div>
+</sly>
+<sly
+	data-sly-test="${pageProperties.loc_state || pageProperties.loc_city}">
+<div class="location_additional_atm_branch">
+	<h4>
+		<strong>${'additional-atm-branch-label' @ i18n}</strong>
+	</h4>
+	<a href="${mbeanObj.getStateUrl}.html" class="location_details">${stateBeanObj.getTagTitle}</a><span class="location_seperator"> . </span><a href="${mbeanObj.getCityUrl}.html" class="location_details">${pageProperties.loc_city}</a>
+</div>
+</sly>

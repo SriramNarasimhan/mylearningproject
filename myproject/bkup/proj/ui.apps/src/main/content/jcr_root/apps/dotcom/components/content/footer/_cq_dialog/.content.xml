@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/foundation/container">
+        <layout
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/foundation/layouts/tabs"
+            type="nav"/>
+        <items jcr:primaryType="nt:unstructured">
+            <footerNavLink
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Footer Navigation Links"
+                sling:resourceType="granite/ui/components/foundation/section">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <fieldset
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/fieldset">
+                                <layout
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <pages
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/multifield"
+                                                class="full-width"
+                                                fieldDescription="Click 'Add Field' to add a new footer navigation link"
+                                                fieldLabel="Navigation Links">
+                                                <field
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/fieldset"
+                                                    acs-commons-nested="JSON_STORE"
+                                                    name="./iItems">
+                                                    <layout
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
+                                                        method="absolute"/>
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <column
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/foundation/container">
+                                                            <items jcr:primaryType="nt:unstructured">
+                                                                <title
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                                    fieldDescription="Set the navigation title"
+                                                                    fieldLabel="Title"
+                                                                    name="./jcr:title"/>
+                                                                <url
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                                                    allowBlank="{Boolean}false"
+                                                                    fieldDescription="Set the navigation url"
+                                                                    fieldLabel="Url"
+                                                                    name="./linkURL"
+                                                                    rootPath="/content"/>
+                                                                <urlParams
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                                    fieldDescription="Url Params provided should be concatenated onto the url e.g. /path/to/url?param1=value1&amp;param2=value2"
+                                                                    fieldLabel="Url Params"
+                                                                    name="./urlParams"/>
+                                                                <target
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/foundation/form/select"
+                                                                    class="cq-dialog-dropdown-showhide"
+                                                                    cq-dialog-dropdown-showhide-target=".list-option-listfrom-showhide-target"
+                                                                    fieldDescription="Sets the window target for the navigation"
+                                                                    fieldLabel="Target"
+                                                                    name="./target">
+                                                                    <items jcr:primaryType="nt:unstructured">
+                                                                        <self
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            text="Default"
+                                                                            value="_self"/>
+                                                                        <blank
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            text="Blank"
+                                                                            value="_blank"/>
+                                                                    </items>
+                                                                </target>
+                                                                <anchorTag
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                                    fieldDescription="Sets an anchor tag that’s applied to the url e.g. /path/to/url#tag"
+                                                                    fieldLabel="Anchor Tag"
+                                                                    name="./anchorTag"/>
+                                                            </items>
+                                                        </column>
+                                                    </items>
+                                                </field>
+                                            </pages>
+                                        </items>
+                                    </column>
+                                </items>
+                            </fieldset>
+                        </items>
+                    </column>
+                </items>
+            </footerNavLink>
+            <socialMediaLinks
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Social Media Links"
+                sling:resourceType="granite/ui/components/foundation/section">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <fieldset
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/fieldset">
+                                <layout
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <pages
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/multifield"
+                                                class="full-width"
+                                                fieldDescription="Click 'Add Field' to add a new social media link"
+                                                fieldLabel="Social Media Links">
+                                                <field
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/fieldset"
+                                                    acs-commons-nested="JSON_STORE"
+                                                    name="./uItems">
+                                                    <layout
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
+                                                        method="absolute"/>
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <column
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/foundation/container">
+                                                            <items jcr:primaryType="nt:unstructured">
+                                                                <title
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                                    fieldDescription="Sets the social media icon title."
+                                                                    fieldLabel="Title"
+                                                                    name="./jcr:title"/>
+                                                                <url
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                                                    allowBlank="{Boolean}false"
+                                                                    fieldDescription="Sets the url target for the social media link"
+                                                                    fieldLabel="Url"
+                                                                    name="./linkURL"
+                                                                    rootPath="/content"/>
+                                                                <urlParams
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                                    fieldDescription="Url Params provided should be concatenated onto the url e.g. /path/to/url?param1=value1&amp;param2=value2"
+                                                                    fieldLabel="Url Params"
+                                                                    name="./urlParams"/>
+                                                                <target
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/foundation/form/select"
+                                                                    class="cq-dialog-dropdown-showhide"
+                                                                    cq-dialog-dropdown-showhide-target=".list-option-listfrom-showhide-target"
+                                                                    fieldDescription="Sets the window target for the link."
+                                                                    fieldLabel="Target"
+                                                                    name="./target">
+                                                                    <items jcr:primaryType="nt:unstructured">
+                                                                        <self
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            text="Default"
+                                                                            value="_self"/>
+                                                                        <blank
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            text="Blank"
+                                                                            value="_blank"/>
+                                                                    </items>
+                                                                </target>
+                                                                <anchorTag
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                                    fieldDescription="Sets an anchor tag that’s applied to the url e.g. /path/to/url#tag"
+                                                                    fieldLabel="Anchor Tag"
+                                                                    name="./anchorTag"/>
+                                                                <icon
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                                                    allowBlank="{Boolean}true"
+                                                                    fieldDescription="Sets an icon for the navigation item."
+                                                                    fieldLabel="Icon"
+                                                                    name="./icon"
+                                                                    rootPath="/content/dam"/>
+                                                            </items>
+                                                        </column>
+                                                    </items>
+                                                </field>
+                                            </pages>
+                                        </items>
+                                    </column>
+                                </items>
+                            </fieldset>
+                        </items>
+                    </column>
+                </items>
+            </socialMediaLinks>
+        </items>
+    </content>
+</jcr:root>

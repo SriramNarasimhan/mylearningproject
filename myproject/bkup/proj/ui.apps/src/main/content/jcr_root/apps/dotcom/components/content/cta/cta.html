@@ -1,0 +1,249 @@
+<div data-sly-use.mbeanObj="com.suntrust.dotcom.components.CtaComponent" data-sly-unwrap>
+	<div data-sly-test="${wcmmode.edit || wcmmode.design}">Configure CTA Dialog</div>
+</div>
+
+<!-- Check Button UI condition -->
+
+<sly data-sly-test.buttonUICheck="${properties.styleFrom == 'button'}" />
+<sly data-sly-test.buttonInvocaFlagCheck="${properties.invocaFlagCheckbox}" />
+<sly data-sly-test.loDataPersistEnabledCssClass="${properties.loDataPersistCheckbox ? 'lo-data-persist-enabled' : ''}" />
+<sly data-sly-test.applyPad="${properties.applypadding == 'true'}" />
+
+
+<div data-sly-test="${buttonUICheck}" data-sly-unwrap>
+	<sly data-sly-test="${applyPad}">
+		<sly data-sly-test="${properties.allignment == 'cta_alignLeft'}">
+			<div class="CTAs_SecMargin cta_standalone_paddingLeftOnly">
+				<div data-sly-use.genericUtil="${'com.suntrust.dotcom.utils.GenericUtil'  @linkURL=properties.linkURL,urlParams=properties.urlParams,anchorTag=properties.anchorTag}" data-sly-unwrap>
+				</div>
+				<sly data-sly-test="${buttonInvocaFlagCheck}">
+					<div data-sly-test="${properties.target == '_smallmodal' || properties.target == '_mediummodal' || properties.target == '_largemodal'}">
+						<span class="suntrust-invoca-hide"><a title="${properties.anchortitle}" tabindex="0" class="${properties.theme} ${properties.size} ${properties.allignment} ${loDataPersistEnabledCssClass} analytics-placeholder" data-anchor="${genericUtil.modifyURL}" data-modal="${properties.target}" data-suntrust-class="suntrust-content-modalWindow" >${properties.jcr:title @ context='html'}</a></span>
+					</div>
+					<div data-sly-test="${properties.target == '_self' || properties.target == '_blank'}">
+						<span class="suntrust-invoca-hide"><a title="${properties.anchortitle}" class="${properties.theme} ${properties.size} ${properties.allignment} ${loDataPersistEnabledCssClass} analytics-placeholder" href="${genericUtil.modifyURL}" target="${properties.target}">${properties.jcr:title @ context='html'}</a></span>
+					</div>
+				</sly>
+				<sly data-sly-test="${!buttonInvocaFlagCheck}">
+					<div data-sly-test="${properties.target == '_smallmodal' || properties.target == '_mediummodal' || properties.target == '_largemodal'}">
+						<a title="${properties.anchortitle}" tabindex="0" class="${properties.theme} ${properties.size} ${properties.allignment} ${loDataPersistEnabledCssClass} analytics-placeholder" data-anchor="${genericUtil.modifyURL}" data-modal="${properties.target}" data-suntrust-class="suntrust-content-modalWindow">${properties.jcr:title @ context='html'}</a>
+					</div>
+					<div data-sly-test="${properties.target == '_self' || properties.target == '_blank'}">
+						<a title="${properties.anchortitle}" class="${properties.theme} ${properties.size} ${properties.allignment} ${loDataPersistEnabledCssClass} analytics-placeholder" href="${genericUtil.modifyURL}" target="${properties.target}">${properties.jcr:title @ context='html'}</a>
+					</div>
+				</sly>
+			</div>
+		</sly>
+		
+		<sly data-sly-test="${properties.allignment == 'cta_alignRight'}">
+			<div class="CTAs_SecMargin cta_standalone_paddingRightOnly">
+				<div data-sly-use.genericUtil="${'com.suntrust.dotcom.utils.GenericUtil'  @linkURL=properties.linkURL,urlParams=properties.urlParams,anchorTag=properties.anchorTag}" data-sly-unwrap>
+				</div>
+				<sly data-sly-test="${buttonInvocaFlagCheck}">
+					<div data-sly-test="${properties.target == '_smallmodal' || properties.target == '_mediummodal' || properties.target == '_largemodal'}">
+						<span class="suntrust-invoca-hide"><a title="${properties.anchortitle}" tabindex="0" class="${properties.theme} ${properties.size} ${properties.allignment} ${loDataPersistEnabledCssClass} analytics-placeholder" data-anchor="${genericUtil.modifyURL}" data-modal="${properties.target}" data-suntrust-class="suntrust-content-modalWindow" >${properties.jcr:title @ context='html'}</a></span>
+					</div>
+					<div data-sly-test="${properties.target == '_self' || properties.target == '_blank'}">
+						<span class="suntrust-invoca-hide"><a title="${properties.anchortitle}" class="${properties.theme} ${properties.size} ${properties.allignment} ${loDataPersistEnabledCssClass} analytics-placeholder" href="${genericUtil.modifyURL}" target="${properties.target}">${properties.jcr:title @ context='html'}</a></span>
+					</div>
+				</sly>
+				<sly data-sly-test="${!buttonInvocaFlagCheck}">
+					<div data-sly-test="${properties.target == '_smallmodal' || properties.target == '_mediummodal' || properties.target == '_largemodal'}">
+						<a title="${properties.anchortitle}" tabindex="0" class="${properties.theme} ${properties.size} ${properties.allignment} ${loDataPersistEnabledCssClass} analytics-placeholder" data-anchor="${genericUtil.modifyURL}" data-modal="${properties.target}" data-suntrust-class="suntrust-content-modalWindow">${properties.jcr:title @ context='html'}</a>
+					</div>
+					<div data-sly-test="${properties.target == '_self' || properties.target == '_blank'}">
+						<a title="${properties.anchortitle}" class="${properties.theme} ${properties.size} ${properties.allignment} ${loDataPersistEnabledCssClass} analytics-placeholder" href="${genericUtil.modifyURL}" target="${properties.target}">${properties.jcr:title @ context='html'}</a>
+					</div>
+				</sly>
+			</div>
+		</sly>
+		
+		<sly data-sly-test="${properties.allignment == 'cta_alignCenter'}">
+			<div class="CTAs_SecMargin">
+				<div data-sly-use.genericUtil="${'com.suntrust.dotcom.utils.GenericUtil'  @linkURL=properties.linkURL,urlParams=properties.urlParams,anchorTag=properties.anchorTag}" data-sly-unwrap>
+				</div>
+				<sly data-sly-test="${buttonInvocaFlagCheck}">
+					<div data-sly-test="${properties.target == '_smallmodal' || properties.target == '_mediummodal' || properties.target == '_largemodal'}">
+						<span class="suntrust-invoca-hide"><a title="${properties.anchortitle}" tabindex="0" class="${properties.theme} ${properties.size} ${properties.allignment} ${loDataPersistEnabledCssClass} analytics-placeholder" data-anchor="${genericUtil.modifyURL}" data-modal="${properties.target}" data-suntrust-class="suntrust-content-modalWindow" >${properties.jcr:title @ context='html'}</a></span>
+					</div>
+					<div data-sly-test="${properties.target == '_self' || properties.target == '_blank'}">
+						<span class="suntrust-invoca-hide"><a title="${properties.anchortitle}" class="${properties.theme} ${properties.size} ${properties.allignment} ${loDataPersistEnabledCssClass} analytics-placeholder" href="${genericUtil.modifyURL}" target="${properties.target}">${properties.jcr:title @ context='html'}</a></span>
+					</div>
+				</sly>
+				<sly data-sly-test="${!buttonInvocaFlagCheck}">
+					<div data-sly-test="${properties.target == '_smallmodal' || properties.target == '_mediummodal' || properties.target == '_largemodal'}">
+						<a title="${properties.anchortitle}" tabindex="0" class="${properties.theme} ${properties.size} ${properties.allignment} ${loDataPersistEnabledCssClass} analytics-placeholder" data-anchor="${genericUtil.modifyURL}" data-modal="${properties.target}" data-suntrust-class="suntrust-content-modalWindow">${properties.jcr:title @ context='html'}</a>
+					</div>
+					<div data-sly-test="${properties.target == '_self' || properties.target == '_blank'}">
+						<a title="${properties.anchortitle}" class="${properties.theme} ${properties.size} ${properties.allignment} ${loDataPersistEnabledCssClass} analytics-placeholder" href="${genericUtil.modifyURL}" target="${properties.target}">${properties.jcr:title @ context='html'}</a>
+					</div>
+				</sly>
+			</div>
+		</sly>
+	</sly>
+	
+	<sly data-sly-test="${!applyPad}">
+		<div class="CTAs_SecMargin">
+			<div data-sly-use.genericUtil="${'com.suntrust.dotcom.utils.GenericUtil'  @linkURL=properties.linkURL,urlParams=properties.urlParams,anchorTag=properties.anchorTag}" data-sly-unwrap>
+			</div>
+			<sly data-sly-test="${buttonInvocaFlagCheck}">
+				<div data-sly-test="${properties.target == '_smallmodal' || properties.target == '_mediummodal' || properties.target == '_largemodal'}">
+					<span class="suntrust-invoca-hide"><a title="${properties.anchortitle}" tabindex="0" class="${properties.theme} ${properties.size} ${properties.allignment} ${loDataPersistEnabledCssClass} analytics-placeholder" data-anchor="${genericUtil.modifyURL}" data-modal="${properties.target}" data-suntrust-class="suntrust-content-modalWindow" >${properties.jcr:title @ context='html'}</a></span>
+				</div>
+				<div data-sly-test="${properties.target == '_self' || properties.target == '_blank'}">
+					<span class="suntrust-invoca-hide"><a title="${properties.anchortitle}" class="${properties.theme} ${properties.size} ${properties.allignment} ${loDataPersistEnabledCssClass} analytics-placeholder" href="${genericUtil.modifyURL}" target="${properties.target}">${properties.jcr:title @ context='html'}</a></span>
+				</div>
+			</sly>
+			<sly data-sly-test="${!buttonInvocaFlagCheck}">
+				<div data-sly-test="${properties.target == '_smallmodal' || properties.target == '_mediummodal' || properties.target == '_largemodal'}">
+					<a title="${properties.anchortitle}" tabindex="0" class="${properties.theme} ${properties.size} ${properties.allignment} ${loDataPersistEnabledCssClass} analytics-placeholder" data-anchor="${genericUtil.modifyURL}" data-modal="${properties.target}" data-suntrust-class="suntrust-content-modalWindow">${properties.jcr:title @ context='html'}</a>
+				</div>
+				<div data-sly-test="${properties.target == '_self' || properties.target == '_blank'}">
+					<a title="${properties.anchortitle}" class="${properties.theme} ${properties.size} ${properties.allignment} ${loDataPersistEnabledCssClass} analytics-placeholder" href="${genericUtil.modifyURL}" target="${properties.target}">${properties.jcr:title @ context='html'}</a>
+				</div>
+			</sly>
+		</div>
+	</sly>
+</div>
+
+
+<!-- Check Text UI condition -->
+
+<sly data-sly-test.textUICheck="${mbeanObj.mBean && properties.styleFrom == 'text'}"></sly>
+<div data-sly-list.items="${mbeanObj.mBean}" data-sly-test="${textUICheck}" data-sly-unwrap>
+	<div data-sly-test="${itemsList.index == 0}" data-sly-list.itemsList="${items.items}">
+
+		<sly data-sly-test.loDataPersistEnabledCssClass="${itemsList.loDataPersistCheckbox ? 'lo-data-persist-enabled' : ''}" />
+
+		<p class="${itemsList.allignment}">
+			<sly data-sly-test="${applyPad}">
+				<sly data-sly-test="${itemsList.allignment == 'CTAs_anchorTxt_alignLeft'}">
+					<sly data-sly-test="${buttonInvocaFlagCheck}">
+						<sly data-sly-test="${properties.target == '_smallmodal' || properties.target == '_mediummodal' || properties.target == '_largemodal'}">
+							<span class="suntrust-invoca-hide"><a title="${itemsList.anchorTitle}" tabindex="0" class="CTAs_anchorTxt ${loDataPersistEnabledCssClass} cta_standalone_paddingLeftOnly analytics-placeholder" data-anchor="${itemsList.linkURL}" data-modal="${itemsList.target}" data-suntrust-class="suntrust-content-modalWindow">${itemsList.title @ context='html'}</a></span>
+						</sly>
+						<sly data-sly-test="${properties.target == '_self' || properties.target == '_blank'}">
+							<span class="suntrust-invoca-hide"><a title="${itemsList.anchorTitle}" class="CTAs_anchorTxt ${loDataPersistEnabledCssClass} cta_standalone_paddingLeftOnly analytics-placeholder" href="${itemsList.linkURL}" target="${itemsList.target}">${itemsList.title @ context='html'}</a></span>
+						</sly>
+					</sly>
+					
+					<sly data-sly-test="${!buttonInvocaFlagCheck}">
+						<sly data-sly-test="${properties.target == '_smallmodal' || properties.target == '_mediummodal' || properties.target == '_largemodal'}">
+							<a title="${itemsList.anchorTitle}" tabindex="0" class="CTAs_anchorTxt ${loDataPersistEnabledCssClass} cta_standalone_paddingLeftOnly analytics-placeholder" data-anchor="${itemsList.linkURL}" data-modal="${itemsList.target}" data-suntrust-class="suntrust-content-modalWindow">${itemsList.title @ context='html'}</a>
+						</sly>
+						<sly data-sly-test="${properties.target == '_self' || properties.target == '_blank'}">
+							<a title="${itemsList.anchorTitle}" class="CTAs_anchorTxt ${loDataPersistEnabledCssClass} cta_standalone_paddingLeftOnly analytics-placeholder" href="${itemsList.linkURL}" target="${itemsList.target}">${itemsList.title @ context='html'}</a>
+						</sly>
+					</sly>
+				</sly>
+				
+				<sly data-sly-test="${itemsList.allignment == 'CTAs_anchorTxt_alignCenter'}">
+					<sly data-sly-test="${buttonInvocaFlagCheck}">
+						<sly data-sly-test="${properties.target == '_smallmodal' || properties.target == '_mediummodal' || properties.target == '_largemodal'}">
+							<span class="suntrust-invoca-hide"><a title="${itemsList.anchorTitle}" tabindex="0" class="CTAs_anchorTxt ${loDataPersistEnabledCssClass} analytics-placeholder" data-anchor="${itemsList.linkURL}" data-modal="${itemsList.target}" data-suntrust-class="suntrust-content-modalWindow" >${itemsList.title @ context='html'}</a></span>
+						</sly>
+						<sly data-sly-test="${properties.target == '_self' || properties.target == '_blank'}">
+							<span class="suntrust-invoca-hide"><a title="${itemsList.anchorTitle}" class="CTAs_anchorTxt ${loDataPersistEnabledCssClass} analytics-placeholder" href="${itemsList.linkURL}" target="${itemsList.target}">${itemsList.title @ context='html'}</a></span>
+						</sly>
+					</sly>
+					
+					<sly data-sly-test="${!buttonInvocaFlagCheck}">
+						<sly data-sly-test="${properties.target == '_smallmodal' || properties.target == '_mediummodal' || properties.target == '_largemodal'}">
+							<a title="${itemsList.anchorTitle}" tabindex="0" class="CTAs_anchorTxt ${loDataPersistEnabledCssClass} analytics-placeholder" data-anchor="${itemsList.linkURL}" data-modal="${itemsList.target}" data-suntrust-class="suntrust-content-modalWindow" >${itemsList.title @ context='html'}</a>
+						</sly>
+						<sly data-sly-test="${properties.target == '_self' || properties.target == '_blank'}">
+							<a title="${itemsList.anchorTitle}" class="CTAs_anchorTxt ${loDataPersistEnabledCssClass} analytics-placeholder" href="${itemsList.linkURL}" target="${itemsList.target}">${itemsList.title @ context='html'}</a>
+						</sly>
+					</sly>
+				</sly>
+				
+				<sly data-sly-test="${itemsList.allignment == 'CTAs_anchorTxt_alignRight'}">
+					<sly data-sly-test="${buttonInvocaFlagCheck}">
+						<sly data-sly-test="${properties.target == '_smallmodal' || properties.target == '_mediummodal' || properties.target == '_largemodal'}">
+							<span class="suntrust-invoca-hide"><a title="${itemsList.anchorTitle}" tabindex="0" class="CTAs_anchorTxt ${loDataPersistEnabledCssClass} cta_standalone_paddingRightOnly analytics-placeholder" data-anchor="${itemsList.linkURL}" data-modal="${itemsList.target}" data-suntrust-class="suntrust-content-modalWindow" >${itemsList.title @ context='html'}</a></span>
+						</sly>
+						<sly data-sly-test="${properties.target == '_self' || properties.target == '_blank'}">
+							<span class="suntrust-invoca-hide"><a title="${itemsList.anchorTitle}" class="CTAs_anchorTxt ${loDataPersistEnabledCssClass} cta_standalone_paddingRightOnly analytics-placeholder" href="${itemsList.linkURL}" target="${itemsList.target}">${itemsList.title @ context='html'}</a></span>
+						</sly>
+					</sly>
+					
+					<sly data-sly-test="${!buttonInvocaFlagCheck}">
+						<sly data-sly-test="${properties.target == '_smallmodal' || properties.target == '_mediummodal' || properties.target == '_largemodal'}">
+							<a title="${itemsList.anchorTitle}" tabindex="0" class="CTAs_anchorTxt ${loDataPersistEnabledCssClass} cta_standalone_paddingRightOnly analytics-placeholder" data-anchor="${itemsList.linkURL}" data-modal="${itemsList.target}" data-suntrust-class="suntrust-content-modalWindow" >${itemsList.title @ context='html'}</a>
+						</sly>
+						<sly data-sly-test="${properties.target == '_self' || properties.target == '_blank'}">
+							<a title="${itemsList.anchorTitle}" class="CTAs_anchorTxt ${loDataPersistEnabledCssClass} cta_standalone_paddingRightOnly analytics-placeholder" href="${itemsList.linkURL}" target="${itemsList.target}">${itemsList.title @ context='html'}</a>
+						</sly>
+					</sly>
+				</sly>
+			</sly>
+			
+			<sly data-sly-test="${!applyPad}">
+				<sly data-sly-test="${buttonInvocaFlagCheck}">
+					<sly data-sly-test="${properties.target == '_smallmodal' || properties.target == '_mediummodal' || properties.target == '_largemodal'}">
+						<span class="suntrust-invoca-hide"><a title="${itemsList.anchorTitle}" tabindex="0" class="CTAs_anchorTxt ${loDataPersistEnabledCssClass} analytics-placeholder" data-anchor="${itemsList.linkURL}" data-modal="${itemsList.target}" data-suntrust-class="suntrust-content-modalWindow" >${itemsList.title @ context='html'}</a></span>
+					</sly>
+					<sly data-sly-test="${properties.target == '_self' || properties.target == '_blank'}">
+						<span class="suntrust-invoca-hide"><a title="${itemsList.anchorTitle}" class="CTAs_anchorTxt ${loDataPersistEnabledCssClass} analytics-placeholder" href="${itemsList.linkURL}" target="${itemsList.target}">${itemsList.title @ context='html'}</a></span>
+					</sly>
+				</sly>
+				
+				<sly data-sly-test="${!buttonInvocaFlagCheck}">
+					<sly data-sly-test="${properties.target == '_smallmodal' || properties.target == '_mediummodal' || properties.target == '_largemodal'}">
+						<a title="${itemsList.anchorTitle}" tabindex="0" class="CTAs_anchorTxt ${loDataPersistEnabledCssClass} analytics-placeholder" data-anchor="${itemsList.linkURL}" data-modal="${itemsList.target}" data-suntrust-class="suntrust-content-modalWindow" >${itemsList.title @ context='html'}</a>
+					</sly>
+					<sly data-sly-test="${properties.target == '_self' || properties.target == '_blank'}">
+						<a title="${itemsList.anchorTitle}" class="CTAs_anchorTxt ${loDataPersistEnabledCssClass} analytics-placeholder" href="${itemsList.linkURL}" target="${itemsList.target}">${itemsList.title @ context='html'}</a>
+					</sly>
+				</sly>
+			</sly>
+		</p>
+	</div>
+</div>
+
+<!-- 
+
+THIS PIECE OF ANALYTICS CODE IS MOVED TO ENSIGTHEN. Ensighen custom Tag name is STcom_AEM_CTA.
+THIS SECTION OF CODE SHOULD NOT BE DELETED AND SHOULD BE ALWAYS COMMENTED.
+THIS CODE IS FOR REFERENCE PURPOSE ONLY.
+
+<script>
+				
+"use strict";
+				
+//Check DFS Analytics Tracking
+	//click event	
+	$(".CTAs_SecMargin .analytics-placeholder,.CTAs_anchorTxt.analytics-placeholder").on("click", function() {
+		try
+		{
+			var anchorElemText = $(this).text(); 		 
+			anchorElemText = anchorElemText.replace(/[^A-Z0-9]+/ig, "");
+			var eVar45Text = 'STcom|NewAccountStart|' + anchorElemText;
+			passCTAValuesToAnalyticEngine(eVar45Text);
+			
+		}	
+		catch(err)
+		{
+			console.log("Exception caught in custom analytics tag cta while capturing clicked event: " + err.message);
+		}
+	});
+	
+
+function passCTAValuesToAnalyticEngine(eVar45Text) 
+{
+	try
+	{
+		 //console.log("eVar45Text : " + eVar45Text);
+		 s.linkTrackVars='eVar45,events'; 
+		 s.linkTrackEvents='event23'; 
+		 s.eVar45=eVar45Text; 
+		 s.events='event23'; 
+		 s.tl(this,'o',eVar45Text);
+	}
+	catch(err)
+	{
+		console.log("Exception caught in custom analytics tag cta while passing catured values to analytics engine: " + err.message);
+	}
+}									                
+
+</script>-->

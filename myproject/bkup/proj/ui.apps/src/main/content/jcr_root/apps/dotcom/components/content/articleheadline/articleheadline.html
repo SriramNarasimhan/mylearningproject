@@ -1,0 +1,41 @@
+<sly data-sly-use.contentTypeObj="${'com.suntrust.dotcom.components.LocationComponent' @tagName='contenttype'}" />
+<sly  data-sly-test="${wcmmode.edit || wcmmode.design}"> 
+Configure article headline component
+</sly>
+<sly data-sly-test="${contentTypeObj.getRootTagId == 'article'}">
+	<sly data-sly-test.contenttype="http://schema.org/Article"/>
+</sly>
+<sly data-sly-test="${contentTypeObj.getRootTagId == 'video'}">
+	<sly data-sly-test.contenttype="http://schema.org/VideoObject"/>
+</sly>
+<sly data-sly-test="${contentTypeObj.getRootTagId == 'calculator'}">
+	<sly data-sly-test.contenttype="http://schema.org/Calculator"/>
+</sly>
+<sly data-sly-test="${contentTypeObj.getRootTagId == 'audio'}">
+	<sly data-sly-test.contenttype="http://schema.org/OnDemandEvent"/>
+</sly>
+<sly data-sly-test="${contentTypeObj.getRootTagId == 'image'}">
+	<sly data-sly-test.contenttype="http://schema.org/ImageObject"/>
+</sly>
+<div class="articleHeaderSection" itemscope="" itemtype="${contenttype}">
+	<sly data-sly-test="${properties.title}">
+		<h2 class="articleHeadTxt" itemprop="headline">${properties.title @ context='html'}</h2>
+	</sly>						
+	<sly data-sly-test="${properties.subtitle}">
+		<h3 class="articleSubHeadTxt" itemprop="alternativeHeadline">${properties.subtitle @ context='html'}</h3>
+	</sly>
+	<sly data-sly-test="${properties.image || properties.sourcetext}">
+		<div class="articleHeadLogoSec">
+			<sly data-sly-test="${properties.sourcetext}">
+				<sly data-sly-test="${properties.sourcetext}">
+					<p class="articleSponcerTxt">${properties.sourcetext @ context='html'}</p>
+				</sly>	
+			</sly>	
+			<sly data-sly-test="${properties.image}">
+				<sly data-sly-test="${properties.image}">
+					<img src="${properties.image}" alt="${properties.iconalttext}" itemprop="thumbnailUrl"/>
+				</sly>					
+			</sly>
+		</div>
+	</sly>
+</div>

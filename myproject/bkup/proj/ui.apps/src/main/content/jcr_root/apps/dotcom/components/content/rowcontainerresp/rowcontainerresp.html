@@ -1,0 +1,934 @@
+<!-- /* Row Container */ -->
+<div  data-sly-use.mbeanObj="${'com.suntrust.dotcom.utils.RowContainerColumnControlHelper'}" data-sly-unwrap>
+<div  data-sly-test="${(wcmmode.edit || wcmmode.design)}" data-sly-unwrap>
+	<p>${mbeanObj.moveNodes}</p>	
+</div>
+<div class="suntrust-rowContainer">
+	<div data-sly-test="${!properties.wrappermode && !properties.layout && !properties.theme}" data-sly-unwrap>
+		<div class="suntrust-wrapperContainer container">
+			<!-- /*SECTION 1 starts*/ -->
+			<section class="rowContainer SingleColumn">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<sly data-sly-resource="${@path='col1', resourceType='wcm/foundation/components/responsivegrid'}" />
+					</div>
+				</div>
+			</section>
+			<!-- /*SECTION 1 ends*/ -->
+		</div>		
+	</div>
+	
+    <sly data-sly-test.color="${properties.theme=='grey' ? 'rowContBgGrey' : '' }" />
+    <sly data-sly-test.color="${properties.theme=='blue' ? 'rowContBgBlue' : color }" />
+    <sly data-sly-test.color="${properties.theme=='whitegrey' ? 'column-gray-background' : color }" />
+
+    
+	<!-- Full mode section-->
+	<div data-sly-test="${properties.wrappermode=='false'}" data-sly-unwrap>	
+	<div class="suntrust-wrapperContainer container-fluid ${color} adjContainerPad container-fullWidthMode">	
+		<div data-sly-test="${properties.theme=='white'}" data-sly-unwrap>			
+			<div data-sly-test="${properties.layout=='singlecolumn'}" data-sly-unwrap>
+				<!-- /*SECTION 1 starts*/ -->
+				<section class="rowContainer SingleColumn">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<sly data-sly-resource="${@path='col1', resourceType='wcm/foundation/components/responsivegrid'}" />
+						</div>
+					</div>
+				</section>
+				<!-- /*SECTION 1 ends*/ -->
+			</div>			
+			<div data-sly-test="${properties.layout=='rightrail'}" data-sly-unwrap>
+				<!-- /*SECTION 2 starts*/ -->				
+				<section class="${properties.toprightrailborder=='true' ? 'rowContainer RightRail rowContainer-TopRightRailBorder':'rowContainer RightRail'}">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="col-lg-8 suntrust-section3A col-md-8 col-sm-8 col-xs-12">
+								<sly data-sly-resource="${@path='col1', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+							<div class="col-lg-4 suntrust-section3B col-md-4 col-sm-4 col-xs-12">
+								<sly data-sly-resource="${@path='col2', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- /*SECTION 2 ends*/ -->
+			</div>			
+			<div data-sly-test="${properties.layout=='leftrail'}" data-sly-unwrap>
+				<!-- /*SECTION 3 starts*/ -->
+				<section class="${properties.topleftrailborder=='true' ? 'rowContainer LeftRail rowContainer-TopLeftRailBorder':'rowContainer LeftRail'}">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="col-lg-4 suntrust-section4A col-md-4 col-sm-4 col-xs-12">
+								<sly data-sly-resource="${@path='col1', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+							<div class="col-lg-8 suntrust-section4B col-md-8 col-sm-8 col-xs-12">
+								<sly data-sly-resource="${@path='col2', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- /*SECTION 3 ends*/ -->
+			</div>			
+			<div data-sly-test="${properties.layout=='pair'}" data-sly-unwrap>
+				<!-- /*SECTION 4 starts*/ -->
+				<section class="rowContainer PairCol">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="col-lg-6 suntrust-section5A col-md-6 col-sm-6 col-xs-12">
+								<sly data-sly-resource="${@path='col1', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+							<div class="col-lg-6 suntrust-section5B col-md-6 col-sm-6 col-xs-12">
+								<sly data-sly-resource="${@path='col2', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- /*SECTION 4 ends*/ -->
+			</div>			
+			<div data-sly-test="${properties.layout=='triple'}" data-sly-unwrap>
+				<!-- /*SECTION 5 starts*/ -->
+				<section class="rowContainer TripleCol">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="col-lg-4 suntrust-section6A col-md-4 col-sm-4 col-xs-12">
+								<sly data-sly-resource="${@path='col1', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+							<div class="col-lg-4 suntrust-section6B col-md-4 col-sm-4 col-xs-12">
+								<sly data-sly-resource="${@path='col3', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+							<div class="col-lg-4 suntrust-section6C col-md-4 col-sm-4 col-xs-12">
+								<sly data-sly-resource="${@path='col2', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- /*SECTION 5 ends*/ -->
+			</div>	
+			<div data-sly-test="${properties.layout=='fullwidthrightrail'}" data-sly-unwrap>
+				<!-- /*SECTION 6 starts*/ -->				
+				<section class="${properties.fullwidthtoprightrailborder=='true' ? 'rowContainer MaxWidthRightRail rowContainer-MaxWidthRightRailBorder':'rowContainer MaxWidthRightRail'}">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="col-lg-8 suntrust-section3A col-md-8 col-sm-8 col-xs-12">
+								<sly data-sly-resource="${@path='col1', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+							<div class="col-lg-4 suntrust-section3B col-md-4 col-sm-4 col-xs-12">
+								<sly data-sly-resource="${@path='col2', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- /*SECTION 6 ends*/ -->
+			</div>			
+			<div data-sly-test="${properties.layout=='fullwidthleftrail'}" data-sly-unwrap>
+				<!-- /*SECTION 7 starts*/ -->
+				<section class="${properties.fullwidthtopleftrailborder=='true' ? 'rowContainer MaxWidthLeftRail rowContainer-MaxWidthLeftRailBorder':'rowContainer MaxWidthLeftRail'}">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="col-lg-4 suntrust-section4A col-md-4 col-sm-4 col-xs-12">
+								<sly data-sly-resource="${@path='col1', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+							<div class="col-lg-8 suntrust-section4B col-md-8 col-sm-8 col-xs-12">
+								<sly data-sly-resource="${@path='col2', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- /*SECTION 7 ends*/ -->
+			</div>
+		</div>
+		<div data-sly-test="${properties.theme=='grey'}" data-sly-unwrap>
+			<div data-sly-test="${properties.layout=='singlecolumn'}" data-sly-unwrap>
+				<!-- /*SECTION 1 starts*/ -->
+				<section class="rowContainer SingleColumn rowContBgGrey">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<sly data-sly-resource="${@path='col1', resourceType='wcm/foundation/components/responsivegrid'}" />
+						</div>
+					</div>
+				</section>
+				<!-- /*SECTION 1 ends*/ -->
+			</div>			
+			<div data-sly-test="${properties.layout=='rightrail'}" data-sly-unwrap>
+				<!-- /*SECTION 2 starts*/ -->
+				<section class="${properties.removetoprightrailborder=='true' ? 'rowContainer RightRail rowContBgGrey rowContFullWidthBGborderTop rowContainer-RemoveTop-Border':'rowContainer RightRail rowContBgGrey rowContFullWidthBGborderTop'}">				
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="col-lg-8 suntrust-section3A col-md-8 col-sm-8 col-xs-12">
+								<sly data-sly-resource="${@path='col1', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+							<div class="col-lg-4 suntrust-section3B col-md-4 col-sm-4 col-xs-12">
+								<sly data-sly-resource="${@path='col2', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- /*SECTION 2 ends*/ -->
+			</div>			
+			<div data-sly-test="${properties.layout=='leftrail'}" data-sly-unwrap>
+				<!-- /*SECTION 3 starts*/ -->
+				<section class="${properties.removetopleftrailborder=='true' ? 'rowContainer LeftRail rowContBgGrey rowContFullWidthBGborderTop rowContainer-RemoveTop-Border':'rowContainer LeftRail rowContBgGrey rowContFullWidthBGborderTop'}">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="col-lg-4 suntrust-section4A col-md-4 col-sm-4 col-xs-12">
+								<sly data-sly-resource="${@path='col1', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+							<div class="col-lg-8 suntrust-section4B col-md-8 col-sm-8 col-xs-12">
+								<sly data-sly-resource="${@path='col2', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- /*SECTION 3 ends*/ -->
+			</div>			
+			<div data-sly-test="${properties.layout=='pair'}" data-sly-unwrap>
+				<!-- /*SECTION 4 starts*/ -->
+				<section class="rowContainer PairCol rowContBgGrey">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="col-lg-6 suntrust-section5A col-md-6 col-sm-6 col-xs-12">
+								<sly data-sly-resource="${@path='col1', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+							<div class="col-lg-6 suntrust-section5B col-md-6 col-sm-6 col-xs-12">
+								<sly data-sly-resource="${@path='col2', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- /*SECTION 4 ends*/ -->
+			</div>			
+			<div data-sly-test="${properties.layout=='triple'}" data-sly-unwrap>
+				<!-- /*SECTION 5 starts*/ -->
+				<section class="rowContainer TripleCol rowContBgGrey">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="col-lg-4 suntrust-section6A col-md-4 col-sm-4 col-xs-12">
+								<sly data-sly-resource="${@path='col1', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+							<div class="col-lg-4 suntrust-section6B col-md-4 col-sm-4 col-xs-12">
+								<sly data-sly-resource="${@path='col3', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+							<div class="col-lg-4 suntrust-section6C col-md-4 col-sm-4 col-xs-12">
+								<sly data-sly-resource="${@path='col2', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- /*SECTION 5 ends*/ -->
+			</div>
+			<div data-sly-test="${properties.layout=='fullwidthrightrail'}" data-sly-unwrap>
+				<!-- /*SECTION 6 starts*/ -->
+				<section class="${properties.fullwidthtoprightrailborder=='true' ? 'rowContainer MaxWidthRightRail rowContBgGrey rowContMaxWidthBGborder rowContFullWidthBGborderTop rowContainer-MaxWidthRightRailBorder':'rowContainer MaxWidthRightRail rowContBgGrey rowContMaxWidthBGborder rowContFullWidthBGborderTop'} ${properties.removetoprightrailborder=='true' ? 'rowContainer-RemoveTop-Border':''}">				
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="col-lg-8 suntrust-section3A col-md-8 col-sm-8 col-xs-12">
+								<sly data-sly-resource="${@path='col1', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+							<div class="col-lg-4 suntrust-section3B col-md-4 col-sm-4 col-xs-12">
+								<sly data-sly-resource="${@path='col2', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- /*SECTION 6 ends*/ -->
+			</div>			
+			<div data-sly-test="${properties.layout=='fullwidthleftrail'}" data-sly-unwrap>
+				<!-- /*SECTION 7 starts*/ -->
+				<section class="${properties.fullwidthtopleftrailborder=='true' ? 'rowContainer MaxWidthLeftRail rowContBgGrey rowContMaxWidthBGborder rowContFullWidthBGborderTop rowContainer-MaxWidthLeftRailBorder':'rowContainer MaxWidthLeftRail rowContBgGrey rowContMaxWidthBGborder rowContFullWidthBGborderTop'} ${properties.removetoprightrailborder=='true' ? 'rowContainer-RemoveTop-Border':''}">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="col-lg-4 suntrust-section4A col-md-4 col-sm-4 col-xs-12">
+								<sly data-sly-resource="${@path='col1', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+							<div class="col-lg-8 suntrust-section4B col-md-8 col-sm-8 col-xs-12">
+								<sly data-sly-resource="${@path='col2', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- /*SECTION 7 ends*/ -->
+			</div>	
+		</div>
+		<div data-sly-test="${properties.theme=='blue'}" data-sly-unwrap>
+			<div data-sly-test="${properties.layout=='singlecolumn'}" data-sly-unwrap>
+				<!-- /*SECTION 1 starts*/ -->
+				<section class="rowContainer SingleColumn rowContBgBlue">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<sly data-sly-resource="${@path='col1', resourceType='wcm/foundation/components/responsivegrid'}" />
+						</div>
+					</div>
+				</section>
+				<!-- /*SECTION 1 ends*/ -->
+			</div>			
+			<div data-sly-test="${properties.layout=='rightrail'}" data-sly-unwrap>
+				<!-- /*SECTION 2 starts*/ -->
+				<section class="${properties.removetoprightrailborder=='true' ? 'rowContainer RightRail rowContBgBlue rowContFullWidthBGborderTop rowContainer-RemoveTop-Border':'rowContainer RightRail rowContBgBlue rowContFullWidthBGborderTop'}">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="col-lg-8 suntrust-section3A col-md-8 col-sm-8 col-xs-12">
+								<sly data-sly-resource="${@path='col1', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+							<div class="col-lg-4 suntrust-section3B col-md-4 col-sm-4 col-xs-12">
+								<sly data-sly-resource="${@path='col2', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- /*SECTION 2 ends*/ -->
+			</div>			
+			<div data-sly-test="${properties.layout=='leftrail'}" data-sly-unwrap>
+				<!-- /*SECTION 3 starts*/ -->
+				<section class="${properties.removetopleftrailborder=='true' ? 'rowContainer LeftRail rowContBgBlue rowContFullWidthBGborderTop rowContainer-RemoveTop-Border':'rowContainer LeftRail rowContBgBlue rowContFullWidthBGborderTop'}">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="col-lg-4 suntrust-section4A col-md-4 col-sm-4 col-xs-12">
+								<sly data-sly-resource="${@path='col1', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+							<div class="col-lg-8 suntrust-section4B col-md-8 col-sm-8 col-xs-12">
+								<sly data-sly-resource="${@path='col2', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- /*SECTION 3 ends*/ -->
+			</div>			
+			<div data-sly-test="${properties.layout=='pair'}" data-sly-unwrap>
+				<!-- /*SECTION 4 starts*/ -->
+				<section class="rowContainer PairCol rowContBgBlue">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="col-lg-6 suntrust-section5A col-md-6 col-sm-6 col-xs-12">
+								<sly data-sly-resource="${@path='col1', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+							<div class="col-lg-6 suntrust-section5B col-md-6 col-sm-6 col-xs-12">
+								<sly data-sly-resource="${@path='col2', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- /*SECTION 4 ends*/ -->
+			</div>			
+			<div data-sly-test="${properties.layout=='triple'}" data-sly-unwrap>
+				<!-- /*SECTION 5 starts*/ -->
+				<section class="rowContainer TripleCol rowContBgBlue">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="col-lg-4 suntrust-section6A col-md-4 col-sm-4 col-xs-12">
+								<sly data-sly-resource="${@path='col1', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+							<div class="col-lg-4 suntrust-section6B col-md-4 col-sm-4 col-xs-12">
+								<sly data-sly-resource="${@path='col3', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+							<div class="col-lg-4 suntrust-section6C col-md-4 col-sm-4 col-xs-12">
+								<sly data-sly-resource="${@path='col2', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- /*SECTION 5 ends*/ -->
+			</div>
+			<div data-sly-test="${properties.layout=='fullwidthrightrail'}" data-sly-unwrap>
+				<!-- /*SECTION 6 starts*/ -->
+				<section class="${properties.fullwidthtoprightrailborder=='true' ? 'rowContainer MaxWidthRightRail rowContBgBlue rowContMaxWidthBGborder rowContainer-MaxWidthRightRailBorderWt':'rowContainer MaxWidthRightRail rowContBgBlue rowContMaxWidthBGborder'}">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="col-lg-8 suntrust-section3A col-md-8 col-sm-8 col-xs-12">
+								<sly data-sly-resource="${@path='col1', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+							<div class="col-lg-4 suntrust-section3B col-md-4 col-sm-4 col-xs-12">
+								<sly data-sly-resource="${@path='col2', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- /*SECTION 6 ends*/ -->
+			</div>			
+			<div data-sly-test="${properties.layout=='fullwidthleftrail'}" data-sly-unwrap>
+				<!-- /*SECTION 7 starts*/ -->
+				<section class="${properties.fullwidthtopleftrailborder=='true' ? 'rowContainer MaxWidthLeftRail rowContBgBlue rowContMaxWidthBGborder rowContainer-MaxWidthLeftRailBorderWt':'rowContainer MaxWidthLeftRail rowContBgBlue rowContMaxWidthBGborder'}">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="col-lg-4 suntrust-section4A col-md-4 col-sm-4 col-xs-12">
+								<sly data-sly-resource="${@path='col1', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+							<div class="col-lg-8 suntrust-section4B col-md-8 col-sm-8 col-xs-12">
+								<sly data-sly-resource="${@path='col2', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- /*SECTION 7 ends*/ -->
+			</div>	
+		</div>
+		<div data-sly-test="${properties.theme=='whitegrey'}" data-sly-unwrap>
+			<div data-sly-test="${properties.layout=='singlecolumn'}" data-sly-unwrap>
+				<!-- /*SECTION 1 starts*/ -->
+				<section class="rowContainer SingleColumn">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<sly data-sly-resource="${@path='col1', resourceType='wcm/foundation/components/responsivegrid'}" />
+						</div>
+					</div>
+				</section>
+				<!-- /*SECTION 1 ends*/ -->
+			</div>			
+			<div data-sly-test="${properties.layout=='rightrail'}" data-sly-unwrap>
+				<!-- /*SECTION 2 starts*/ -->
+				<section class="rowContainer RightRail">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="col-lg-8 suntrust-section3A col-md-8 col-sm-8 col-xs-12">
+								<sly data-sly-resource="${@path='col1', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+							<div class="col-lg-4 suntrust-section3B col-md-4 col-sm-4 col-xs-12 rowContBgGrey rowContRtRailBGborderLt">
+								<sly data-sly-resource="${@path='col2', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- /*SECTION 2 ends*/ -->
+			</div>			
+			<div data-sly-test="${properties.layout=='leftrail'}" data-sly-unwrap>
+				<!-- /*SECTION 3 starts*/ -->
+				<section class="rowContainer LeftRail">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="col-lg-4 suntrust-section4A col-md-4 col-sm-4 col-xs-12">
+								<sly data-sly-resource="${@path='col1', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+							<div class="col-lg-8 suntrust-section4B col-md-8 col-sm-8 col-xs-12 rowContBgGrey">
+								<sly data-sly-resource="${@path='col2', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- /*SECTION 3 ends*/ -->
+			</div>			
+			<div data-sly-test="${properties.layout=='pair'}" data-sly-unwrap>
+				<!-- /*SECTION 4 starts*/ -->
+				<section class="rowContainer PairCol">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="col-lg-6 suntrust-section5A col-md-6 col-sm-6 col-xs-12">
+								<sly data-sly-resource="${@path='col1', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+							<div class="col-lg-6 suntrust-section5B col-md-6 col-sm-6 col-xs-12 rowContBgGrey">
+								<sly data-sly-resource="${@path='col2', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- /*SECTION 4 ends*/ -->
+			</div>			
+			<div data-sly-test="${properties.layout=='triple'}" data-sly-unwrap>
+				<!-- /*SECTION 5 starts*/ -->
+				<section class="rowContainer TripleCol">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="col-lg-4 suntrust-section6A col-md-4 col-sm-4 col-xs-12">
+								<sly data-sly-resource="${@path='col1', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+							<div class="col-lg-4 suntrust-section6B col-md-4 col-sm-4 col-xs-12">
+								<sly data-sly-resource="${@path='col3', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+							<div class="col-lg-4 suntrust-section6C col-md-4 col-sm-4 col-xs-12 rowContBgGrey">
+								<sly data-sly-resource="${@path='col2', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- /*SECTION 5 ends*/ -->
+			</div>
+			<div data-sly-test="${properties.layout=='fullwidthrightrail'}" data-sly-unwrap>
+				<!-- /*SECTION 6 starts*/ -->
+				<section class="${properties.fullwidthtoprightrailborder=='true' ? 'rowContainer MaxWidthRightRail rowContainer-MaxWidthRightRailBorder':'rowContainer MaxWidthRightRail'}">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="col-lg-8 suntrust-section3A col-md-8 col-sm-8 col-xs-12">
+								<sly data-sly-resource="${@path='col1', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+							<div class="col-lg-4 suntrust-section3B col-md-4 col-sm-4 col-xs-12 rowContBgGrey">
+								<sly data-sly-resource="${@path='col2', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- /*SECTION 6 ends*/ -->
+			</div>			
+			<div data-sly-test="${properties.layout=='fullwidthleftrail'}" data-sly-unwrap>
+				<!-- /*SECTION 7 starts*/ -->
+				<section class="${properties.fullwidthtopleftrailborder=='true' ? 'rowContainer MaxWidthLeftRail rowContainer-MaxWidthLeftRailBorder':'rowContainer MaxWidthLeftRail'}">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="col-lg-4 suntrust-section4A col-md-4 col-sm-4 col-xs-12">
+								<sly data-sly-resource="${@path='col1', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+							<div class="col-lg-8 suntrust-section4B col-md-8 col-sm-8 col-xs-12 rowContBgGrey">
+								<sly data-sly-resource="${@path='col2', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- /*SECTION 7 ends*/ -->
+			</div>	
+		</div>	
+	</div>
+	</div>
+	<!-- Wrappermode section-->
+	<div data-sly-test="${properties.wrappermode=='true'}" data-sly-unwrap>	
+	<!--div class="suntrust-wrapperContainer container-fluid adjContainerPad"-->	
+	<div class="${mbeanObj.getWrapperModeValue}">
+		<div data-sly-test="${properties.theme=='white'}" data-sly-unwrap>			
+			<div data-sly-test="${properties.layout=='singlecolumn'}" data-sly-unwrap>
+				<!-- /*SECTION 1 starts*/ -->
+				<section class="rowContainer SingleColumn container-wrappedMode">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<sly data-sly-resource="${@path='col1', resourceType='wcm/foundation/components/responsivegrid'}" />
+						</div>
+					</div>
+				</section>
+				<!-- /*SECTION 1 ends*/ -->
+			</div>			
+			<div data-sly-test="${properties.layout=='rightrail'}" data-sly-unwrap>
+				<!-- /*SECTION 2 starts*/ -->
+				<section class="${properties.toprightrailborder=='true' ? 'rowContainer RightRail container-wrappedMode rowContainer-TopRightRailBorder':'rowContainer RightRail container-wrappedMode'}">				
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="col-lg-8 suntrust-section3A col-md-8 col-sm-8 col-xs-12">
+								<sly data-sly-resource="${@path='col1', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+							<div class="col-lg-4 suntrust-section3B col-md-4 col-sm-4 col-xs-12">
+								<sly data-sly-resource="${@path='col2', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- /*SECTION 2 ends*/ -->
+			</div>			
+			<div data-sly-test="${properties.layout=='leftrail'}" data-sly-unwrap>
+				<!-- /*SECTION 3 starts*/ -->
+				<section class="${properties.topleftrailborder=='true' ? 'rowContainer LeftRail container-wrappedMode rowContainer-TopLeftRailBorder':'rowContainer LeftRail container-wrappedMode'}">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="col-lg-4 suntrust-section4A col-md-4 col-sm-4 col-xs-12">
+								<sly data-sly-resource="${@path='col1', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+							<div class="col-lg-8 suntrust-section4B col-md-8 col-sm-8 col-xs-12">
+								<sly data-sly-resource="${@path='col2', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- /*SECTION 3 ends*/ -->
+			</div>			
+			<div data-sly-test="${properties.layout=='pair'}" data-sly-unwrap>
+				<!-- /*SECTION 4 starts*/ -->
+				<section class="rowContainer PairCol container-wrappedMode">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="col-lg-6 suntrust-section5A col-md-6 col-sm-6 col-xs-12">
+								<sly data-sly-resource="${@path='col1', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+							<div class="col-lg-6 suntrust-section5B col-md-6 col-sm-6 col-xs-12">
+								<sly data-sly-resource="${@path='col2', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- /*SECTION 4 ends*/ -->
+			</div>			
+			<div data-sly-test="${properties.layout=='triple'}" data-sly-unwrap>
+				<!-- /*SECTION 5 starts*/ -->
+				<section class="rowContainer TripleCol container-wrappedMode">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="col-lg-4 suntrust-section6A col-md-4 col-sm-4 col-xs-12">
+								<sly data-sly-resource="${@path='col1', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+							<div class="col-lg-4 suntrust-section6B col-md-4 col-sm-4 col-xs-12">
+								<sly data-sly-resource="${@path='col3', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+							<div class="col-lg-4 suntrust-section6C col-md-4 col-sm-4 col-xs-12">
+								<sly data-sly-resource="${@path='col2', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- /*SECTION 5 ends*/ -->
+			</div>	
+			<div data-sly-test="${properties.layout=='fullwidthrightrail'}" data-sly-unwrap>
+				<!-- /*SECTION 6 starts*/ -->				
+				<section class="${properties.fullwidthtoprightrailborder=='true' ? 'rowContainer MaxWidthRightRail rowContainer-MaxWidthRightRailBorder container-wrappedMode-MaxWidth':'rowContainer MaxWidthRightRail container-wrappedMode-MaxWidth'}">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="col-lg-8 suntrust-section3A col-md-8 col-sm-8 col-xs-12">
+								<sly data-sly-resource="${@path='col1', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+							<div class="col-lg-4 suntrust-section3B col-md-4 col-sm-4 col-xs-12">
+								<sly data-sly-resource="${@path='col2', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- /*SECTION 6 ends*/ -->
+			</div>			
+			<div data-sly-test="${properties.layout=='fullwidthleftrail'}" data-sly-unwrap>
+				<!-- /*SECTION 7 starts*/ -->
+				<section class="${properties.fullwidthtopleftrailborder=='true' ? 'rowContainer MaxWidthLeftRail rowContainer-MaxWidthLeftRailBorder container-wrappedMode-MaxWidth':'rowContainer MaxWidthLeftRail container-wrappedMode-MaxWidth'}">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="col-lg-4 suntrust-section4A col-md-4 col-sm-4 col-xs-12">
+								<sly data-sly-resource="${@path='col1', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+							<div class="col-lg-8 suntrust-section4B col-md-8 col-sm-8 col-xs-12">
+								<sly data-sly-resource="${@path='col2', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- /*SECTION 7 ends*/ -->
+			</div>			
+		</div>
+		<div data-sly-test="${properties.theme=='grey'}" data-sly-unwrap>
+			<div data-sly-test="${properties.layout=='singlecolumn'}" data-sly-unwrap>
+				<!-- /*SECTION 1 starts*/ -->
+				<section class="rowContainer SingleColumn rowContBgGrey container-wrappedMode">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<sly data-sly-resource="${@path='col1', resourceType='wcm/foundation/components/responsivegrid'}" />
+						</div>
+					</div>
+				</section>
+				<!-- /*SECTION 1 ends*/ -->
+			</div>			
+			<div data-sly-test="${properties.layout=='rightrail'}" data-sly-unwrap>
+				<!-- /*SECTION 2 starts*/ -->
+				<section class="${properties.removetoprightrailborder=='true' ? 'rowContainer RightRail rowContBgGrey container-wrappedMode rowContainer-RemoveTop-Border': 'rowContainer RightRail rowContBgGrey container-wrappedMode'}">			
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="col-lg-8 suntrust-section3A col-md-8 col-sm-8 col-xs-12">
+								<sly data-sly-resource="${@path='col1', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+							<div class="col-lg-4 suntrust-section3B col-md-4 col-sm-4 col-xs-12">
+								<sly data-sly-resource="${@path='col2', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- /*SECTION 2 ends*/ -->
+			</div>			
+			<div data-sly-test="${properties.layout=='leftrail'}" data-sly-unwrap>
+				<!-- /*SECTION 3 starts*/ -->
+				<section class="${properties.removetopleftrailborder=='true' ? 'rowContainer LeftRail rowContBgGrey container-wrappedMode rowContainer-RemoveTop-Border': 'rowContainer LeftRail rowContBgGrey container-wrappedMode'}">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="col-lg-4 suntrust-section4A col-md-4 col-sm-4 col-xs-12">
+								<sly data-sly-resource="${@path='col1', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+							<div class="col-lg-8 suntrust-section4B col-md-8 col-sm-8 col-xs-12">
+								<sly data-sly-resource="${@path='col2', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- /*SECTION 3 ends*/ -->
+			</div>			
+			<div data-sly-test="${properties.layout=='pair'}" data-sly-unwrap>
+				<!-- /*SECTION 4 starts*/ -->
+				<section class="rowContainer PairCol rowContBgGrey container-wrappedMode">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="col-lg-6 suntrust-section5A col-md-6 col-sm-6 col-xs-12">
+								<sly data-sly-resource="${@path='col1', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+							<div class="col-lg-6 suntrust-section5B col-md-6 col-sm-6 col-xs-12">
+								<sly data-sly-resource="${@path='col2', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- /*SECTION 4 ends*/ -->
+			</div>			
+			<div data-sly-test="${properties.layout=='triple'}" data-sly-unwrap>
+				<!-- /*SECTION 5 starts*/ -->
+				<section class="rowContainer TripleCol rowContBgGrey container-wrappedMode">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="col-lg-4 suntrust-section6A col-md-4 col-sm-4 col-xs-12">
+								<sly data-sly-resource="${@path='col1', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+							<div class="col-lg-4 suntrust-section6B col-md-4 col-sm-4 col-xs-12">
+								<sly data-sly-resource="${@path='col3', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+							<div class="col-lg-4 suntrust-section6C col-md-4 col-sm-4 col-xs-12">
+								<sly data-sly-resource="${@path='col2', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- /*SECTION 5 ends*/ -->
+			</div>
+			<div data-sly-test="${properties.layout=='fullwidthrightrail'}" data-sly-unwrap>
+				<!-- /*SECTION 6 starts*/ -->
+				<section class="${properties.fullwidthtoprightrailborder=='true' ? 'rowContainer MaxWidthRightRail rowContBgGrey rowContMaxWidthBGborder rowContFullWidthBGborderTop rowContainer-MaxWidthRightRailBorder container-wrappedMode-MaxWidth':'rowContainer MaxWidthRightRail rowContBgGrey rowContMaxWidthBGborder rowContFullWidthBGborderTop container-wrappedMode-MaxWidth'} ${properties.removetoprightrailborder=='true' ? 'rowContainer-RemoveTop-Border':''}">				
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="col-lg-8 suntrust-section3A col-md-8 col-sm-8 col-xs-12">
+								<sly data-sly-resource="${@path='col1', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+							<div class="col-lg-4 suntrust-section3B col-md-4 col-sm-4 col-xs-12">
+								<sly data-sly-resource="${@path='col2', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- /*SECTION 6 ends*/ -->
+			</div>			
+			<div data-sly-test="${properties.layout=='fullwidthleftrail'}" data-sly-unwrap>
+				<!-- /*SECTION 7 starts*/ -->
+				<section class="${properties.fullwidthtopleftrailborder=='true' ? 'rowContainer MaxWidthLeftRail rowContBgGrey rowContMaxWidthBGborder rowContFullWidthBGborderTop rowContainer-MaxWidthLeftRailBorder':'rowContainer MaxWidthLeftRail rowContBgGrey rowContMaxWidthBGborder rowContFullWidthBGborderTop'} ${properties.removetoprightrailborder=='true' ? 'rowContainer-RemoveTop-Border':''}">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="col-lg-4 suntrust-section4A col-md-4 col-sm-4 col-xs-12">
+								<sly data-sly-resource="${@path='col1', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+							<div class="col-lg-8 suntrust-section4B col-md-8 col-sm-8 col-xs-12">
+								<sly data-sly-resource="${@path='col2', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- /*SECTION 7 ends*/ -->
+			</div>
+		</div>
+		<div data-sly-test="${properties.theme=='blue'}" data-sly-unwrap>
+			<div data-sly-test="${properties.layout=='singlecolumn'}" data-sly-unwrap>
+				<!-- /*SECTION 1 starts*/ -->
+				<section class="rowContainer SingleColumn rowContBgBlue container-wrappedMode">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<sly data-sly-resource="${@path='col1', resourceType='wcm/foundation/components/responsivegrid'}" />
+						</div>
+					</div>
+				</section>
+				<!-- /*SECTION 1 ends*/ -->
+			</div>			
+			<div data-sly-test="${properties.layout=='rightrail'}" data-sly-unwrap>
+				<!-- /*SECTION 2 starts*/ -->
+				<section class="${properties.removetoprightrailborder=='true' ? 'rowContainer RightRail rowContBgBlue container-wrappedMode rowContainer-RemoveTop-Border': 'rowContainer RightRail rowContBgBlue container-wrappedMode'}">			
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="col-lg-8 suntrust-section3A col-md-8 col-sm-8 col-xs-12">
+								<sly data-sly-resource="${@path='col1', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+							<div class="col-lg-4 suntrust-section3B col-md-4 col-sm-4 col-xs-12">
+								<sly data-sly-resource="${@path='col2', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- /*SECTION 2 ends*/ -->
+			</div>			
+			<div data-sly-test="${properties.layout=='leftrail'}" data-sly-unwrap>
+				<!-- /*SECTION 3 starts*/ -->
+				<section class="${properties.removetopleftrailborder=='true' ? 'rowContainer LeftRail rowContBgBlue container-wrappedMode rowContainer-RemoveTop-Border': 'rowContainer LeftRail rowContBgBlue container-wrappedMode'}">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="col-lg-4 suntrust-section4A col-md-4 col-sm-4 col-xs-12">
+								<sly data-sly-resource="${@path='col1', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+							<div class="col-lg-8 suntrust-section4B col-md-8 col-sm-8 col-xs-12">
+								<sly data-sly-resource="${@path='col2', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- /*SECTION 3 ends*/ -->
+			</div>			
+			<div data-sly-test="${properties.layout=='pair'}" data-sly-unwrap>
+				<!-- /*SECTION 4 starts*/ -->
+				<section class="rowContainer PairCol rowContBgBlue container-wrappedMode">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="col-lg-6 suntrust-section5A col-md-6 col-sm-6 col-xs-12">
+								<sly data-sly-resource="${@path='col1', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+							<div class="col-lg-6 suntrust-section5B col-md-6 col-sm-6 col-xs-12">
+								<sly data-sly-resource="${@path='col2', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- /*SECTION 4 ends*/ -->
+			</div>			
+			<div data-sly-test="${properties.layout=='triple'}" data-sly-unwrap>
+				<!-- /*SECTION 5 starts*/ -->
+				<section class="rowContainer TripleCol rowContBgBlue container-wrappedMode">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="col-lg-4 suntrust-section6A col-md-4 col-sm-4 col-xs-12">
+								<sly data-sly-resource="${@path='col1', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+							<div class="col-lg-4 suntrust-section6B col-md-4 col-sm-4 col-xs-12">
+								<sly data-sly-resource="${@path='col3', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+							<div class="col-lg-4 suntrust-section6C col-md-4 col-sm-4 col-xs-12">
+								<sly data-sly-resource="${@path='col2', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- /*SECTION 5 ends*/ -->
+			</div>
+			<div data-sly-test="${properties.layout=='fullwidthrightrail'}" data-sly-unwrap>
+				<!-- /*SECTION 6 starts*/ -->
+				<section class="${properties.fullwidthtoprightrailborder=='true' ? 'rowContainer MaxWidthRightRail rowContBgBlue rowContMaxWidthBGborder rowContainer-MaxWidthRightRailBorderWt container-wrappedMode-MaxWidth':'rowContainer MaxWidthRightRail rowContBgBlue rowContMaxWidthBGborder container-wrappedMode-MaxWidth'}">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="col-lg-8 suntrust-section3A col-md-8 col-sm-8 col-xs-12">
+								<sly data-sly-resource="${@path='col1', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+							<div class="col-lg-4 suntrust-section3B col-md-4 col-sm-4 col-xs-12">
+								<sly data-sly-resource="${@path='col2', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- /*SECTION 6 ends*/ -->
+			</div>			
+			<div data-sly-test="${properties.layout=='fullwidthleftrail'}" data-sly-unwrap>
+				<!-- /*SECTION 7 starts*/ -->
+				<section class="${properties.fullwidthtopleftrailborder=='true' ? 'rowContainer MaxWidthLeftRail rowContBgBlue rowContMaxWidthBGborder rowContainer-MaxWidthLeftRailBorderWt container-wrappedMode-MaxWidth':'rowContainer MaxWidthLeftRail rowContBgBlue rowContMaxWidthBGborder container-wrappedMode-MaxWidth'}">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="col-lg-4 suntrust-section4A col-md-4 col-sm-4 col-xs-12">
+								<sly data-sly-resource="${@path='col1', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+							<div class="col-lg-8 suntrust-section4B col-md-8 col-sm-8 col-xs-12">
+								<sly data-sly-resource="${@path='col2', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- /*SECTION 7 ends*/ -->
+			</div>
+		</div>
+		<div data-sly-test="${properties.theme=='whitegrey'}" data-sly-unwrap>
+			<div data-sly-test="${properties.layout=='singlecolumn'}" data-sly-unwrap>
+				<!-- /*SECTION 1 starts*/ -->
+				<section class="rowContainer SingleColumn container-wrappedMode">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<sly data-sly-resource="${@path='col1', resourceType='wcm/foundation/components/responsivegrid'}" />
+						</div>
+					</div>
+				</section>
+				<!-- /*SECTION 1 ends*/ -->
+			</div>			
+			<div data-sly-test="${properties.layout=='rightrail'}" data-sly-unwrap>
+				<!-- /*SECTION 2 starts*/ -->
+				<section class="rowContainer RightRail container-wrappedMode">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="col-lg-8 suntrust-section3A col-md-8 col-sm-8 col-xs-12">
+								<sly data-sly-resource="${@path='col1', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+							<div class="col-lg-4 suntrust-section3B col-md-4 col-sm-4 col-xs-12 rowContBgGrey rowContRtRailBGborderLt">
+								<sly data-sly-resource="${@path='col2', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- /*SECTION 2 ends*/ -->
+			</div>			
+			<div data-sly-test="${properties.layout=='leftrail'}" data-sly-unwrap>
+				<!-- /*SECTION 3 starts*/ -->
+				<section class="rowContainer LeftRail container-wrappedMode">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="col-lg-4 suntrust-section4A col-md-4 col-sm-4 col-xs-12">
+								<sly data-sly-resource="${@path='col1', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+							<div class="col-lg-8 suntrust-section4B col-md-8 col-sm-8 col-xs-12 rowContBgGrey">
+								<sly data-sly-resource="${@path='col2', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- /*SECTION 3 ends*/ -->
+			</div>			
+			<div data-sly-test="${properties.layout=='pair'}" data-sly-unwrap>
+				<!-- /*SECTION 4 starts*/ -->
+				<section class="rowContainer PairCol container-wrappedMode">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="col-lg-6 suntrust-section5A col-md-6 col-sm-6 col-xs-12">
+								<sly data-sly-resource="${@path='col1', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+							<div class="col-lg-6 suntrust-section5B col-md-6 col-sm-6 col-xs-12 rowContBgGrey">
+								<sly data-sly-resource="${@path='col2', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- /*SECTION 4 ends*/ -->
+			</div>			
+			<div data-sly-test="${properties.layout=='triple'}" data-sly-unwrap>
+				<!-- /*SECTION 5 starts*/ -->
+				<section class="rowContainer TripleCol container-wrappedMode">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="col-lg-4 suntrust-section6A col-md-4 col-sm-4 col-xs-12">
+								<sly data-sly-resource="${@path='col1', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+							<div class="col-lg-4 suntrust-section6B col-md-4 col-sm-4 col-xs-12">
+								<sly data-sly-resource="${@path='col3', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+							<div class="col-lg-4 suntrust-section6C col-md-4 col-sm-4 col-xs-12 rowContBgGrey">
+								<sly data-sly-resource="${@path='col2', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- /*SECTION 5 ends*/ -->
+			</div>
+			<div data-sly-test="${properties.layout=='fullwidthrightrail'}" data-sly-unwrap>
+				<!-- /*SECTION 6 starts*/ -->
+				<section class="${properties.fullwidthtoprightrailborder=='true' ? 'rowContainer MaxWidthRightRail rowContainer-MaxWidthRightRailBorder':'rowContainer MaxWidthRightRail'}">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="col-lg-8 suntrust-section3A col-md-8 col-sm-8 col-xs-12">
+								<sly data-sly-resource="${@path='col1', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+							<div class="col-lg-4 suntrust-section3B col-md-4 col-sm-4 col-xs-12 rowContBgGrey">
+								<sly data-sly-resource="${@path='col2', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- /*SECTION 6 ends*/ -->
+			</div>			
+			<div data-sly-test="${properties.layout=='fullwidthleftrail'}" data-sly-unwrap>
+				<!-- /*SECTION 7 starts*/ -->
+				<section class="${properties.fullwidthtopleftrailborder=='true' ? 'rowContainer MaxWidthLeftRail rowContainer-MaxWidthLeftRailBorder':'rowContainer MaxWidthLeftRail'}">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="col-lg-4 suntrust-section4A col-md-4 col-sm-4 col-xs-12">
+								<sly data-sly-resource="${@path='col1', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+							<div class="col-lg-8 suntrust-section4B col-md-8 col-sm-8 col-xs-12 rowContBgGrey">
+								<sly data-sly-resource="${@path='col2', resourceType='wcm/foundation/components/responsivegrid'}" />
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- /*SECTION 7 ends*/ -->
+			</div>
+		</div>	
+	</div>
+	</div>	
+</div>
+</div>

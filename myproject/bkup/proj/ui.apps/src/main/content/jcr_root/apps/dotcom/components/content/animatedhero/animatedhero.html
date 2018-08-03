@@ -1,0 +1,778 @@
+<!--/* Adds animated hero component */-->
+<div data-sly-test="${wcmmode.edit || wcmmode.design}" >Configure Animated Hero Component</div>
+<div data-sly-use.mbeanObj="${'com.suntrust.dotcom.components.AnimatedHeroComponent'}" data-sly-unwrap></div>
+<div data-sly-test="${properties.ctalinkurl1}" data-sly-unwrap>
+	<div data-sly-unwrap data-sly-use.fetch1="${'com.suntrust.dotcom.utils.GenericUtil' @linkURL=properties.ctalinkurl1,urlParams=properties.ctaurlParams1,anchorTag=properties.ctaanchorTag1}"></div>
+</div>
+<div data-sly-test="${properties.ctalinkurl2}" data-sly-unwrap>
+	<div data-sly-unwrap data-sly-use.fetch2="${'com.suntrust.dotcom.utils.GenericUtil' @linkURL=properties.ctalinkurl2,urlParams=properties.ctaurlParams2,anchorTag=properties.ctaanchorTag2}"></div>
+</div>
+<div data-sly-test="${properties.ctalinkurl3}" data-sly-unwrap>
+	<div data-sly-unwrap data-sly-use.fetch3="${'com.suntrust.dotcom.utils.GenericUtil' @linkURL=properties.ctalinkurl3,urlParams=properties.ctaurlParams3,anchorTag=properties.ctaanchorTag3}"></div>
+</div>
+<div data-sly-test="${properties.ctalinkurl4}" data-sly-unwrap>
+	<div data-sly-unwrap data-sly-use.fetch4="${'com.suntrust.dotcom.utils.GenericUtil' @linkURL=properties.ctalinkurl4,urlParams=properties.ctaurlParams4,anchorTag=properties.ctaanchorTag4}"></div>
+</div>
+<div data-sly-test="${properties.ctalinkurl5}" data-sly-unwrap>
+	<div data-sly-unwrap data-sly-use.fetch5="${'com.suntrust.dotcom.utils.GenericUtil' @linkURL=properties.ctalinkurl5,urlParams=properties.ctaurlParams5,anchorTag=properties.ctaanchorTag5}"></div>
+</div>
+<div data-sly-test="${properties.ctalinkurl6}" data-sly-unwrap>
+	<div data-sly-unwrap data-sly-use.fetch6="${'com.suntrust.dotcom.utils.GenericUtil' @linkURL=properties.ctalinkurl6,urlParams=properties.ctaurlParams6,anchorTag=properties.ctaanchorTag6}"></div>
+</div>
+<div data-sly-test="${properties.ctalinkurl7}" data-sly-unwrap>
+	<div data-sly-unwrap data-sly-use.fetch7="${'com.suntrust.dotcom.utils.GenericUtil' @linkURL=properties.ctalinkurl7,urlParams=properties.ctaurlParams7,anchorTag=properties.ctaanchorTag7}"></div>
+</div>
+<div data-sly-test="${properties.ctalinkurl8}" data-sly-unwrap>
+	<div data-sly-unwrap data-sly-use.fetch8="${'com.suntrust.dotcom.utils.GenericUtil' @linkURL=properties.ctalinkurl8,urlParams=properties.ctaurlParams8,anchorTag=properties.ctaanchorTag8}"></div>
+</div>
+<div data-sly-test="${properties.assetsfolder}" data-sly-unwrap></div>
+
+<link href="/etc/designs/dotcom/dependencies/css/bootstrap/animation-styles.min.css" rel="stylesheet" type="text/css" />
+<script src="/etc/designs/dotcom/main/js/animatedhero.js" type="text/javascript"></script>
+
+<section role="main"> 
+	<div class="sun-page-row row-container with-1-columns row-none-background row-full-width row-border-bottom-none"> 
+		<div class="clearfix"> 
+			<div class="suntrust-grid-column suntrust-grid-column-1 last-component-infographiccarousel suntrust-grid-12"> 
+				<section role="main" class="clearfix">					
+					<div class="component-infographiccarousel sun-component">		
+						<div class="sun-product-carousel ">
+						
+							<ul class="InfoGraphicbxslider sun-product-carousel-slide-list InfoGraphicDesktopView" data-lapse="0" data-speed="1000"> 
+								<li class="sun-product-carousel-slide sun-hero-style-default sun-product-carousel-slide1 with-hero-image">									
+									<input type="hidden" id="SlideIndex0" value="${properties.desktopslidename1}" />									
+									<img src="${properties.assetsfolder}/fab-hero-infographic-slide-1-3200x900.png" alt="Welcome" class="sun-product-carousel-slide-image"/> 
+									<div class="sun-product-carousel-slide-content"> 									
+										<div class="sun-product-carousel-slide-wrapper clearfix"> 
+											<div class="sun-product-carousel-products sun-product-carousel-infographic-CTA" > 
+												<div class="sun-product-carousel-infographic-CTA-img" style="background-image:url('${properties.fileReference1 @ context='uri'}')"> 
+													<div class="sun-product-carousel-infographic-CTA-textwrapper sun-product-carousel-infographic-CTA-text0"> 
+														<a class="sun-product-carousel-infographic-CTA-text " href="${fetch1.modifyURL}" alt="${properties.ctaimagealttext1}" target="${properties.ctatarget1}" >${properties.ctatitle1 @ context='html'}			
+															<span class="suntrust-accessible-text">&nbsp;Link opens a self window</span> 
+														</a> 
+													</div> 
+												</div> 
+											</div> 										
+										</div> 									
+									</div> 
+								</li> 
+								<li class="sun-product-carousel-slide sun-hero-style-default sun-product-carousel-slide2 with-hero-image">								
+									<input type="hidden" id="SlideIndex1" value="${properties.desktopslidename2}" /> 									
+									<img src="${properties.assetsfolder}/fab-hero-infographic-slide-2-3200x900.png" alt="Getting Started" class="sun-product-carousel-slide-image"/> 
+									<div class="sun-product-carousel-slide-content"> 									
+										<div class="sun-product-carousel-slide-wrapper clearfix"> 
+											<div class="sun-product-carousel-products sun-product-carousel-infographic-CTA" > 
+												<div class="sun-product-carousel-infographic-CTA-img" style="background-image:url('${properties.fileReference2 @ context='uri'}')"> 
+													<div class="sun-product-carousel-infographic-CTA-textwrapper sun-product-carousel-infographic-CTA-text1"> 
+														<a class="sun-product-carousel-infographic-CTA-text " href="${fetch2.modifyURL}" alt="${properties.ctaimagealttext2}" target="${properties.ctatarget}" >${properties.ctatitle2 @ context='html'}										
+															<span class="suntrust-accessible-text">&nbsp;Link opens a self window</span> 
+														</a> 
+													</div> 
+												</div> 
+											</div>									
+										</div>									
+									</div> 
+								</li> 
+								<li class="sun-product-carousel-slide sun-hero-style-default sun-product-carousel-slide3 with-hero-image">									
+									<input type="hidden" id="SlideIndex2" value="${properties.desktopslidename3}" /> 									
+									<img src="${properties.assetsfolder}/fab-hero-infographic-slide-3-3200x900.png" alt="Banking Basics" class="sun-product-carousel-slide-image"/> 
+									<div class="sun-product-carousel-slide-content"> 									
+										<div class="sun-product-carousel-slide-wrapper clearfix"> 
+											<div class="sun-product-carousel-products sun-product-carousel-infographic-CTA" > 
+												<div class="sun-product-carousel-infographic-CTA-img" style="background-image:url('${properties.fileReference3 @ context='uri'}')"> 
+													<div class="sun-product-carousel-infographic-CTA-textwrapper sun-product-carousel-infographic-CTA-text2"> 
+														<a class="sun-product-carousel-infographic-CTA-text " href="${fetch3.modifyURL}" alt="${properties.ctaimagealttext3}" target="${properties.ctatarget3}" >${properties.ctatitle3 @ context='html'}										
+															<span class="suntrust-accessible-text">&nbsp;Link opens a self window</span> 
+														</a> 
+													</div> 
+												</div> 
+											</div> 									
+										</div> 									
+									</div> 
+								</li> 
+								<li class="sun-product-carousel-slide sun-hero-style-default sun-product-carousel-slide4 with-hero-image"> 								
+									<input type="hidden" id="SlideIndex3" value="${properties.desktopslidename4}" /> 									
+									<img src="${properties.assetsfolder}/fab-hero-infographic-slide-4-3200x900.png" alt="Making Transactions" class="sun-product-carousel-slide-image"/> 
+									<div class="sun-product-carousel-slide-content"> 									
+										<div class="sun-product-carousel-slide-wrapper clearfix"> 
+											<div class="sun-product-carousel-products sun-product-carousel-infographic-CTA" > 
+												<div class="sun-product-carousel-infographic-CTA-img" style="background-image:url('${properties.fileReference4 @ context='uri'}')"> 
+													<div class="sun-product-carousel-infographic-CTA-textwrapper sun-product-carousel-infographic-CTA-text3"> 
+														<a class="sun-product-carousel-infographic-CTA-text " href="${fetch4.modifyURL}" alt="${properties.ctaimagealttext4}" target="${properties.ctatarget4}" >${properties.ctatitle4 @ context='html'}										
+															<span class="suntrust-accessible-text">&nbsp;Link opens a self window</span> 
+														</a> 
+													</div> 
+												</div> 
+											</div> 							
+										
+										</div> 
+									
+									</div> 
+								</li> 
+								<li class="sun-product-carousel-slide sun-hero-style-default sun-product-carousel-slide5 with-hero-image">									
+									<input type="hidden" id="SlideIndex4" value="${properties.desktopslidename5}" /> 									
+									<img src="${properties.assetsfolder}/fab-hero-infographic-slide-5-3200x900.png" alt="Tracking Balances" class="sun-product-carousel-slide-image"/> 
+									<div class="sun-product-carousel-slide-content"> 									
+										<div class="sun-product-carousel-slide-wrapper clearfix"> 
+											<div class="sun-product-carousel-products sun-product-carousel-infographic-CTA" > 
+												<div class="sun-product-carousel-infographic-CTA-img" style="background-image:url('${properties.fileReference5 @ context='uri'}')"> 
+													<div class="sun-product-carousel-infographic-CTA-textwrapper sun-product-carousel-infographic-CTA-text4"> 
+														<a class="sun-product-carousel-infographic-CTA-text " href="${fetch5.modifyURL}" alt="${properties.ctaimagealttext5}" target="${properties.ctatarget5}" >${properties.ctatitle5 @ context='html'}										
+															<span class="suntrust-accessible-text">&nbsp;Link opens a self window</span> 
+														</a> 
+													</div> 
+												</div> 
+											</div> 									
+										</div> 									
+									</div> 
+								</li> 
+								<li class="sun-product-carousel-slide sun-hero-style-default sun-product-carousel-slide6 with-hero-image">								
+									<input type="hidden" id="SlideIndex5" value="${properties.desktopslidename6}" /> 									
+									<img src="${properties.assetsfolder}/fab-hero-infographic-slide-6-3200x900.png" alt="Understanding Fees" class="sun-product-carousel-slide-image"/> 
+									<div class="sun-product-carousel-slide-content">									
+										<div class="sun-product-carousel-slide-wrapper clearfix"> 
+											<div class="sun-product-carousel-products sun-product-carousel-infographic-CTA" > 
+												<div class="sun-product-carousel-infographic-CTA-img" style="background-image:url('${properties.fileReference6 @ context='uri'}')"> 
+													<div class="sun-product-carousel-infographic-CTA-textwrapper sun-product-carousel-infographic-CTA-text5"> 
+														<a class="sun-product-carousel-infographic-CTA-text " href="${fetch6.modifyURL}" alt="${properties.ctaimagealttext6}" target="${properties.ctatarget6}" >${properties.ctatitle6 @ context='html'}										
+															<span class="suntrust-accessible-text">&nbsp;Link opens a self window</span> 
+														</a> 
+													</div> 
+												</div> 
+											</div>								
+										</div> 									
+									</div> 
+								</li> 
+								<li class="sun-product-carousel-slide sun-hero-style-default sun-product-carousel-slide7 with-hero-image"> 						
+									<input type="hidden" id="SlideIndex6" value="${properties.desktopslidename7}" /> 									
+									<img src="${properties.assetsfolder}/fab-hero-infographic-slide-7-3200x900.png" alt="Glossary" class="sun-product-carousel-slide-image"/> 
+									<div class="sun-product-carousel-slide-content"> 									
+										<div class="sun-product-carousel-slide-wrapper clearfix"> 
+											<div class="sun-product-carousel-products sun-product-carousel-infographic-CTA" > 
+												<div class="sun-product-carousel-infographic-CTA-img" style="background-image:url('${properties.fileReference7 @ context='uri'}')"> 
+													<div class="sun-product-carousel-infographic-CTA-textwrapper sun-product-carousel-infographic-CTA-text6"> 
+														<a class="sun-product-carousel-infographic-CTA-text " href="${fetch7.modifyURL}" alt="${properties.ctaimagealttext7}" target="${properties.ctatarget7}" >${properties.ctatitle7 @ context='html'}										
+															<span class="suntrust-accessible-text">&nbsp;Link opens a self window</span> 
+														</a> 
+													</div> 
+												</div> 
+											</div>									
+										</div>									
+									</div> 
+								</li> 
+								<li class="sun-product-carousel-slide sun-hero-style-default sun-product-carousel-slide8 with-hero-image"> 							
+									<input type="hidden" id="SlideIndex7" value="${properties.desktopslidename8}" /> 									
+									<img src="${properties.assetsfolder}/fab-hero-infographic-slide-8-3200x900.png" alt="FAQs" class="sun-product-carousel-slide-image"/> 
+									<div class="sun-product-carousel-slide-content"> 									
+										<div class="sun-product-carousel-slide-wrapper clearfix"> 
+											<div class="sun-product-carousel-products sun-product-carousel-infographic-CTA" > 
+												<div class="sun-product-carousel-infographic-CTA-img" style="background-image:url('${properties.fileReference8 @ context='uri'}')"> 
+													<div class="sun-product-carousel-infographic-CTA-textwrapper sun-product-carousel-infographic-CTA-text7"> 
+														<a class="sun-product-carousel-infographic-CTA-text " href="${fetch8.modifyURL}" alt="${properties.ctaimagealttext8}" target="${properties.ctatarget8}" >${properties.ctatitle8 @ context='html'}										 
+															<span class="suntrust-accessible-text">&nbsp;Link opens a self window</span> 
+														</a> 
+													</div> 
+												</div> 
+											</div> 										
+										</div> 									
+									</div> 
+								</li> 
+							</ul> 	
+							<input type="hidden" id="AnimationSlideIndex0" value="${properties.desktopslidename1}" /> 
+							<input type="hidden" id="AnimationSlideIndex1" value="${properties.desktopslidename2}" /> 
+							<input type="hidden" id="AnimationSlideIndex2" value="${properties.desktopslidename3}" /> 
+							<input type="hidden" id="AnimationSlideIndex3" value="${properties.desktopslidename4}" /> 
+							<input type="hidden" id="AnimationSlideIndex4" value="${properties.desktopslidename5}" /> 
+							<input type="hidden" id="AnimationSlideIndex5" value="${properties.desktopslidename6}" /> 
+							<input type="hidden" id="AnimationSlideIndex6" value="${properties.desktopslidename7}" /> 
+							<input type="hidden" id="AnimationSlideIndex7" value="${properties.desktopslidename8}" />
+								
+							<ul class="InfoGraphicbxsliderAnimation InfoGraphicDesktopView sun-product-carousel-slide-list sun-product-carousel" data-lapse="0" data-speed="1000"> 
+								<li id="s1"> 
+									<img src="${properties.assetsfolder}/1.png" alt="" aria-hidden="true"/>
+								</li> 
+								<li id="s2" style="background-image:url('${properties.assetsfolder @ context='uri'}/2-blank-1.gif');"> 
+									<img src="${properties.assetsfolder}/2.png" alt="" aria-hidden="true"/>
+									<div class="cta" id="stFabWEcta"> 
+										<a id="" href="${fetch1.modifyURL}" target="${properties.ctatarget1}"  class="cta-text we-text">${properties.ctatitle1 @ context='html'}</a> 
+										<div data-sly-test="${properties.fileReference1}" data-sly-unwrap>
+											<img src="${properties.fileReference1}" alt="${properties.ctaimagealttext1}"/>
+										</div> 
+									</div> 
+								</li> 
+								<li id="s3" style="background-image:url('${properties.assetsfolder @ context='uri'}/2-blank.gif');"> 
+									
+									<div class="st-fab-animation-container" id="st-fab-gs-pig1"> 
+										<div id="st-fab-gs-pig1-content"></div> 
+										<img src="${properties.assetsfolder}/text-pig1.png" id="pig1Text" class="gs-component pig-text" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig1-mask.png" id="pig1Mask" class="gs-component pig-mask" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig1-coin.png" id="pig1Coin01" class="gs-component pig1-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig1-coin.png" id="pig1Coin02" class="gs-component pig1-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig1-coin.png" id="pig1Coin03" class="gs-component pig1-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig1-coin.png" id="pig1Coin04" class="gs-component pig1-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig1-coin.png" id="pig1Coin05" class="gs-component pig1-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig1-coin.png" id="pig1Coin06" class="gs-component pig1-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig1-coin.png" id="pig1Coin07" class="gs-component pig1-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig1-coin.png" id="pig1Coin08" class="gs-component pig1-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig1-coin.png" id="pig1Coin09" class="gs-component pig1-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig1-coin.png" id="pig1Coin10" class="gs-component pig1-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig1-coin.png" id="pig1Coin11" class="gs-component pig1-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig1-coin.png" id="pig1Coin12" class="gs-component pig1-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig1-coin.png" id="pig1Coin13" class="gs-component pig1-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig1-coin.png" id="pig1Coin14" class="gs-component pig1-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig1-coin.png" id="pig1Coin15" class="gs-component pig1-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig1-empty.png" id="pig1" alt="Getting Started" class="gs-component pig"/> 
+									</div> 
+									
+									<div class="st-fab-animation-container" id="st-fab-gs-pig2"> 
+										<img src="${properties.assetsfolder}/text-pig2.png" id="pig2Text" class="gs-component pig-text" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig2-mask.png" id="pig2Mask" class="gs-component pig-mask" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig2-coin.png" id="pig2Coin01" class="gs-component pig2-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig2-coin.png" id="pig2Coin02" class="gs-component pig2-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig2-coin.png" id="pig2Coin03" class="gs-component pig2-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig2-coin.png" id="pig2Coin04" class="gs-component pig2-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig2-coin.png" id="pig2Coin05" class="gs-component pig2-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig2-coin.png" id="pig2Coin06" class="gs-component pig2-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig2-coin.png" id="pig2Coin07" class="gs-component pig2-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig2-coin.png" id="pig2Coin08" class="gs-component pig2-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig2-coin.png" id="pig2Coin09" class="gs-component pig2-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig2-coin.png" id="pig2Coin10" class="gs-component pig2-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig2-coin.png" id="pig2Coin11" class="gs-component pig2-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig2-coin.png" id="pig2Coin12" class="gs-component pig2-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig2-coin.png" id="pig2Coin13" class="gs-component pig2-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig2-coin.png" id="pig2Coin14" class="gs-component pig2-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig2-coin.png" id="pig2Coin15" class="gs-component pig2-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig2-coin.png" id="pig2Coin16" class="gs-component pig2-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig2-coin.png" id="pig2Coin17" class="gs-component pig2-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig2-coin.png" id="pig2Coin18" class="gs-component pig2-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig2-coin.png" id="pig2Coin19" class="gs-component pig2-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig2-coin.png" id="pig2Coin20" class="gs-component pig2-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig2-coin.png" id="pig2Coin21" class="gs-component pig2-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig2-coin.png" id="pig2Coin22" class="gs-component pig2-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig2-coin.png" id="pig2Coin23" class="gs-component pig2-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig2-coin.png" id="pig2Coin24" class="gs-component pig2-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig2-coin.png" id="pig2Coin25" class="gs-component pig2-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig2-empty.png" id="pig2" alt="Getting Started" class="gs-component pig"> 
+									</div> 
+								</li> 
+								
+								<li id="s4" style="background-image:url('${properties.assetsfolder @ context='uri'}/3-blank.gif');"> 
+									
+									<div class="st-fab-animation-container" id="st-fab-gs-pig3"> 
+										<img src="${properties.assetsfolder}/text-pig3.png" id="pig3Text" class="gs-component pig-text" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig3-mask.png" id="pig3Mask" class="gs-component pig-mask" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig3-coin.png" id="pig3Coin01" class="gs-component pig3-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig3-coin.png" id="pig3Coin02" class="gs-component pig3-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig3-coin.png" id="pig3Coin03" class="gs-component pig3-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig3-coin.png" id="pig3Coin04" class="gs-component pig3-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig3-coin.png" id="pig3Coin05" class="gs-component pig3-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig3-coin.png" id="pig3Coin06" class="gs-component pig3-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig3-coin.png" id="pig3Coin07" class="gs-component pig3-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig3-coin.png" id="pig3Coin08" class="gs-component pig3-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig3-coin.png" id="pig3Coin09" class="gs-component pig3-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig3-coin.png" id="pig3Coin10" class="gs-component pig3-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig3-coin.png" id="pig3Coin11" class="gs-component pig3-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig3-coin.png" id="pig3Coin12" class="gs-component pig3-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig3-coin.png" id="pig3Coin13" class="gs-component pig3-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig3-coin.png" id="pig3Coin14" class="gs-component pig3-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig3-coin.png" id="pig3Coin15" class="gs-component pig3-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig3-coin.png" id="pig3Coin16" class="gs-component pig3-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig3-coin.png" id="pig3Coin17" class="gs-component pig3-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig3-coin.png" id="pig3Coin18" class="gs-component pig3-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig3-coin.png" id="pig3Coin19" class="gs-component pig3-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig3-coin.png" id="pig3Coin20" class="gs-component pig3-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig3-coin.png" id="pig3Coin21" class="gs-component pig3-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig3-coin.png" id="pig3Coin22" class="gs-component pig3-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig3-coin.png" id="pig3Coin23" class="gs-component pig3-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig3-coin.png" id="pig3Coin24" class="gs-component pig3-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig3-coin.png" id="pig3Coin25" class="gs-component pig3-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig3-coin.png" id="pig3Coin26" class="gs-component pig3-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig3-coin.png" id="pig3Coin27" class="gs-component pig3-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig3-coin.png" id="pig3Coin28" class="gs-component pig3-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig3-coin.png" id="pig3Coin29" class="gs-component pig3-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig3-coin.png" id="pig3Coin30" class="gs-component pig3-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig3-coin.png" id="pig3Coin31" class="gs-component pig3-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig3-coin.png" id="pig3Coin32" class="gs-component pig3-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig3-coin.png" id="pig3Coin33" class="gs-component pig3-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig3-coin.png" id="pig3Coin34" class="gs-component pig3-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig3-coin.png" id="pig3Coin35" class="gs-component pig3-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/pig3-empty.png" id="pig3" alt="Getting Started" class="gs-component pig" /> 
+									</div> 
+									<img src="${properties.assetsfolder}/text-main.png" id="pigBodyCopy" class="gs-component" alt="And then decide how you want them to work for you."/> 
+									<div class="cta" id="stFabGScta"> 
+										<a id="" href="${fetch2.modifyURL}" target="${properties.ctatarget2}"  class="cta-text gs-text">${properties.ctatitle2 @ context='html'}</a> 
+										<div data-sly-test="${properties.fileReference2}" data-sly-unwrap>
+											<img src="${properties.fileReference2}" alt="${properties.ctaimagealttext2}"/>
+										</div> 
+									</div> 
+								</li> 		
+								<li id="s5" style="background-image:url('${properties.assetsfolder @ context='uri'}/4-blank.gif');"> 
+									<div class="st-fab-animation-container" id="st-fab-bb-frame1"> 
+										<img src="${properties.assetsfolder}/text-body.png" alt="Banking Basics" id="f3blockBody" class="bb-component f3blockBody"/> 
+										<img src="${properties.assetsfolder}/text-title (2).png" id="f3blockTitle" alt="Account management is a foundational part of banking." class="bb-component f3blockTitle"/> 
+										<div id="f3linesContainer1"> 
+											<img src="${properties.assetsfolder}/lines1.png" id="f3lines1" class="bb-component f3lines1" alt="" aria-hidden="true"/> 
+										</div> 
+									</div>
+								</li>
+								<li id="s6" style="background-image:url('${properties.assetsfolder @ context='uri'}/5-blank.gif');"> 						
+									<div class="cta" id="stFabBBcta" > 
+										<a href="${fetch3.modifyURL}" target="${properties.ctatarget3}" class="cta-text bb-text">${properties.ctatitle3 @ context='html'}</a> 
+										<div data-sly-test="${properties.fileReference3}" data-sly-unwrap>
+											<img src="${properties.fileReference3}" alt="${properties.ctaimagealttext3}"/>
+										</div>
+									</div> 									
+									<div class="st-fab-animation-container" id="st-fab-bb-frame2"> 
+										<div id="f3linesContainer2"> 
+											<img src="${properties.assetsfolder}/lines2.png" alt="Banking Basics" id="f3lines2" class="bb-component f3lines2"/> 
+										</div> 
+										<img src="${properties.assetsfolder}/atm.png" id="f3atm" class="bb-component f3atm" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/computer.png" id="f3computer" class="bb-component f3computer" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/smartphone.png" id="f3smartphone" class="gs-component f3smartphone" alt="" aria-hidden="true"/> 
+									</div> 							
+								</li> 	
+								<li id="s7" style="background-image:url('${properties.assetsfolder @ context='uri'}/7-blank.gif');"> 
+									<div class="st-fab-animation-container" id="st-fab-mt-frame1"> 
+										<img src="${properties.assetsfolder}/text-title.png" alt="Making Transactions" id="f4title" class="gs-component f4title"/> 
+										<img src="${properties.assetsfolder}/text-subtitle.png" id="f4subtitle" class="gs-component f4subtitle" alt="" aria-hidden="true"/> 
+										<div id="f4maincont"> 
+											<img src="${properties.assetsfolder}/text-main.png" id="f4main" class="gs-component f4main" alt="" aria-hidden="true"/> 
+										</div> 
+										<div id="f4line1cont"> 
+											<img src="${properties.assetsfolder}/line1.png" id="f4line1" class="gs-component f4line1" alt="" aria-hidden="true"/> 
+										</div> 
+										<div id="f4line4cont"> 
+											<img src="${properties.assetsfolder}/line4.png" id="f4line4" class="gs-component f4line4" alt="" aria-hidden="true"/> 
+										</div> 
+										<div id="f4walletcont"> 
+											<img src="${properties.assetsfolder}/wallet.png" id="f4wallet" class="gs-component f4wallet" alt="" aria-hidden="true"/> 
+											<img src="${properties.assetsfolder}/dollar.png" id="f4dollar1" class="gs-component f4dollar1" alt="" aria-hidden="true"/> 
+											<img src="${properties.assetsfolder}/dollar.png" id="f4dollar2" class="gs-component f4dollar2" alt="" aria-hidden="true"/> 
+										</div> 
+										<div id="f4line5cont"> 
+											<img src="${properties.assetsfolder}/line5.png" id="f4line5" class="gs-component f4line5" alt="" aria-hidden="true"/> 
+										</div> 
+										<div id="f4line8cont"> 
+											<img src="${properties.assetsfolder}/line8.png" id="f4line8" class="gs-component f4line8" alt="" aria-hidden="true"/> 
+										</div> 
+										<div id="f4line9cont"> 
+											<img src="${properties.assetsfolder}/line9.png" id="f4line9" class="gs-component f4line9" alt="" aria-hidden="true"/> 
+										</div> 
+									</div> 
+								</li> 
+								<li id="s8" style="background-image:url('${properties.assetsfolder @ context='uri'}/8-blank.gif');"> 
+									<div class="st-fab-animation-container" id="st-fab-mt-frame2"> 
+										<div id="f4line2cont"> 
+											<img src="${properties.assetsfolder}/line2.png" id="f4line2" class="gs-component f4line2" alt="Making Transactions"/> 
+										</div> 
+										<div id="f4line3cont"> 
+											<img src="${properties.assetsfolder}/line3.png" id="f4line3" class="gs-component f4line3" alt="" aria-hidden="true"/> 
+										</div> 
+										<img src="${properties.assetsfolder}/credit-card.png" id="f4creditcard" class="gs-component f4creditcard" alt="" aria-hidden="true"/> 
+										<div id="f4line6cont"> 
+											<img src="${properties.assetsfolder}/line6.png" id="f4line6" class="gs-component f4line6" alt="" aria-hidden="true"/> 
+										</div> 
+										<img src="${properties.assetsfolder}/safe.png" id="f4safe" class="gs-component f4safe" alt="" aria-hidden="true"/> 
+										<div id="f4line7cont"> 
+											<img src="${properties.assetsfolder}/line7.png" id="f4line7" class="gs-component f4line7" alt="" aria-hidden="true"/> 
+										</div> 
+										<div id="f4line10cont"> 
+											<img src="${properties.assetsfolder}/line10.png" id="f4line10" class="gs-component f4line10" alt="" aria-hidden="true"/> 
+										</div> 
+									</div> 
+									<div class="cta" id="stFabMTcta"> 
+										<a href="${fetch4.modifyURL}" target="${properties.ctatarget4}" class="cta-text mt-text" >${properties.ctatitle4 @ context='html'}</a> 
+										<div data-sly-test="${properties.fileReference4}" data-sly-unwrap>
+											<img src="${properties.fileReference4}" alt="${properties.ctaimagealttext4}"/>
+										</div>
+									</div> 
+								</li>		
+								<li id="s9" style="background-image:url('${properties.assetsfolder @ context='uri'}/9-blank.gif');"> 
+									<div class="st-fab-animation-container" id="st-fab-tb-frame1"> 
+										<img src="${properties.assetsfolder}/header (2).png" alt="Tracking Balances" id="stFabTBheader"/> 
+										<img src="${properties.assetsfolder}/clockhand.png" id="clockhand" class="tb-component clockhand" alt="" aria-hidden="true"/> 
+										<div id="linebaseCont"> 
+											<img src="${properties.assetsfolder}/linebase.png" id="linebase" class="tb-component linebase" alt="" aria-hidden="true"/> 
+										</div> 
+										<div id="coinline1cont"> 
+											<img src="${properties.assetsfolder}/coinline1.png" id="coinline1" class="tb-component coinline1" alt="" aria-hidden="true"/> 
+										</div> 
+										<div id="coinline2cont"> 
+											<img src="${properties.assetsfolder}/coinline2.png" id="coinline2" class="tb-component coinline2" alt="" aria-hidden="true"/> 
+										</div> 
+										<div id="coinline3cont"> 
+											<img src="${properties.assetsfolder}/coinline3.png" id="coinline3" class="tb-component coinline3" alt="" aria-hidden="true"/> 
+										</div> 
+										<div id="coinline4cont"> 
+											<img src="${properties.assetsfolder}/coinline4.png" id="coinline4" class="tb-component coinline4" alt="" aria-hidden="true"/> 
+										</div> 
+										<img src="${properties.assetsfolder}/tb-coin.png" id="coinstack1coin2" class="tb-component tb-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/tb-coin.png" id="coinstack1coin1" class="tb-component tb-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/coinstack1.png" id="coinstack1" class="tb-component coinstack1" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/tb-coin.png" id="coinstack2coin2" class="tb-component tb-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/tb-coin.png" id="coinstack2coin1" class="tb-component tb-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/coinstack2.png" id="coinstack2" class="tb-component coinstack2" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/tb-coin.png" id="coinstack3coin2" class="tb-component tb-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/tb-coin.png" id="coinstack3coin1" class="tb-component tb-coin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/coinstack3.png" id="coinstack3" class="tb-component coinstack3" alt="" aria-hidden="true"/> 
+									</div> 
+								</li>	
+								<li id="s10" style="background-image:url('${properties.assetsfolder @ context='uri'}/10-blank.gif');"> 
+									<div class="st-fab-animation-container" id="st-fab-tb-frame2"> 
+										<img src="${properties.assetsfolder}/body.png" alt="Tracking Balances" id="stFabTBbody"/> 
+										<img src="${properties.assetsfolder}/tb-coin.png" class="tb-component" id="coinpileCoin" alt="" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/coin-pile.png" class="tb-component" id="coinpile" alt="" aria-hidden="true"/>
+									</div> 
+									<div class="cta" id="stFabTBcta"> 
+										<a href="${fetch5.modifyURL}" target="${properties.ctatarget5}" class="cta-text tb-text">${properties.ctatitle5 @ context='html'}</a> 
+										<div data-sly-test="${properties.fileReference5}" data-sly-unwrap>
+											<img src="${properties.fileReference5}" alt="${properties.ctaimagealttext5}"/>
+										</div>
+									</div> 
+								</li> 							
+								<li id="s11" style="background-image:url('${properties.assetsfolder @ context='uri'}/11-blank.gif');"> 
+									<div class="st-fab-animation-container" id="st-fab-uf-frame1"> 
+										<img src="${properties.assetsfolder}/header.png" alt="Understanding Fees" class="uf-component" id="ufHeader" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/circle.png" alt="" class="uf-component" id="ufCircle" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/lineMask.png" alt="" class="uf-component" id="ufLineMask" aria-hidden="true"/> 
+										<div id="ufLine1cont"> 
+											<img src="${properties.assetsfolder}/line1 (1).png" alt="" class="uf-component" id="ufLine1" aria-hidden="true"/>
+										</div> 
+										<div id="ufLine2cont"> 
+											<img src="${properties.assetsfolder}/line2 (2).png" alt="" class="uf-component" id="ufLine2" aria-hidden="true"/> 
+										</div> 
+										<div id="ufLine4cont"> 
+											<img src="${properties.assetsfolder}/line4 (2).png" alt="" class="uf-component" id="ufLine4" aria-hidden="true"/> 
+										</div> 
+									</div> 
+								</li> 
+								<li id="s12" style="background-image:url('${properties.assetsfolder @ context='uri'}/12-blank.gif');"> 
+									<div class="st-fab-animation-container" id="st-fab-uf-frame2"> 
+										<div id="ufLine3cont"> 
+											<img src="${properties.assetsfolder}/line3 (2).png" alt="Understanding Fees" class="uf-component" id="ufLine3" aria-hidden="true"> 
+										</div> 
+										<img src="${properties.assetsfolder}/wallet-front.png" alt="" class="uf-component" id="walletFront" aria-hidden="true"> 
+										<img src="${properties.assetsfolder}/wallet-back.png" alt="" class="uf-component" id="walletBack" aria-hidden="true"> 
+										<img src="${properties.assetsfolder}/dollar (2).png" alt="" class="uf-component" id="ufBill1" aria-hidden="true"> 
+										<img src="${properties.assetsfolder}/dollar (2).png" alt="" class="uf-component" id="ufBill2" aria-hidden="true"> 
+										<img src="${properties.assetsfolder}/dollar (2).png" alt="" class="uf-component" id="ufBill3" aria-hidden="true"> 
+										<img src="${properties.assetsfolder}/dollar (2).png" alt="" class="uf-component" id="ufBill4" aria-hidden="true"> 
+										<img src="${properties.assetsfolder}/body (2).png" alt="And how to avoid paying fees." class="uf-component" id="ufBody" aria-hidden="true"> 
+										<div id="ufCircle2TopCont"> 
+											<img src="${properties.assetsfolder}/circle-top.png" alt="" class="uf-component" id="ufCircle2Top" aria-hidden="true"> 
+										</div> 
+										<div id="ufCircle2BottomCont"> 
+											<img src="${properties.assetsfolder}/circle-bottom.png" alt="" class="uf-component" id="ufCircle2Bottom" aria-hidden="true"> 
+										</div>
+									</div> 								
+									<div class="cta" id="stFabUFcta"> 
+										<a href="${fetch6.modifyURL}" target="${properties.ctatarget6}" class="cta-text uf-text">${properties.ctatitle6 @ context='html'}</a> 
+										<div data-sly-test="${properties.fileReference6}" data-sly-unwrap>
+											<img src="${properties.fileReference6}" alt="${properties.ctaimagealttext6}"/>
+										</div>
+									</div> 
+								</li> 						
+								<li id="s13" style="background-image:url('${properties.assetsfolder @ context='uri'}/13-blank.gif');"> 
+									<div class="st-fab-animation-container" id="st-fab-g-frame1"> 
+										<img src="${properties.assetsfolder}/body1.png" alt="Glossary" class="g-component" id="gBody1" aria-hidden="true"> 
+										<div id="gLeftLine1cont" class="g-left-line-cont"> 
+											<img src="${properties.assetsfolder}/line-left-1.png" alt="" class="g-component g-left-line" id="gLine1" aria-hidden="true"> 
+										</div> 
+										<div id="gLeftLine2cont" class="g-left-line-cont"> 
+											<img src="${properties.assetsfolder}/line-left-2.png" alt="" class="g-component g-left-line" id="gLine2" aria-hidden="true"> 
+										</div> 
+										<div id="gLeftLine3cont" class="g-left-line-cont"> 
+											<img src="${properties.assetsfolder}/line-left-3.png" alt="" class="g-component g-left-line" id="gLine3" aria-hidden="true"> 
+										</div> 
+										<div id="gLeftLine4cont" class="g-left-line-cont"> 
+											<img src="${properties.assetsfolder}/line-left-4.png" alt="" class="g-component g-left-line" id="gLine4" aria-hidden="true"> 
+										</div> 
+										<div id="gLeftLine5cont" class="g-left-line-cont"> 
+											<img src="${properties.assetsfolder}/line-left-5.png" alt="" class="g-component g-left-line" id="gLine5" aria-hidden="true"> 
+										</div> 
+										<div id="gLeftLine6cont" class="g-left-line-cont"> 
+											<img src="${properties.assetsfolder}/line-left-6.png" alt="" class="g-component g-left-line" id="gLine6" aria-hidden="true"> 
+										</div> 
+										<div id="gRightLine1cont" class="g-right-line-cont"> 
+											<img src="${properties.assetsfolder}/line-right-1.png" alt="" class="g-component g-right-line" id="gLine6" aria-hidden="true"> 
+										</div> 
+										<div id="gRightLine2cont" class="g-right-line-cont"> 
+											<img src="${properties.assetsfolder}/line-right-2.png" alt="" class="g-component g-right-line" id="gLine7" aria-hidden="true"> 
+										</div> 
+										<img src="${properties.assetsfolder}/counter-top.png" alt="" class="g-component" id="gCounter1" aria-hidden="true"> 
+										<img src="${properties.assetsfolder}/counter-bottom.png" alt="" class="g-component" id="gCounter2" aria-hidden="true"> 
+									</div> 
+								</li> 
+								<li id="s14" style="background-image:url('${properties.assetsfolder @ context='uri'}/14-blank.gif');"> 
+									<div class="st-fab-animation-container" id="st-fab-g-frame2"> 
+										<img src="${properties.assetsfolder}/body2.png" alt="Glossary" class="g-component" id="gBody2" aria-hidden="true"> 
+									</div>									
+									<div class="cta" id="stFabGcta"> 
+										<a href="${fetch7.modifyURL}" target="${properties.ctatarget7}" class="cta-text g-text">${properties.ctatitle7 @ context='html'}</a> 
+										<div data-sly-test="${properties.fileReference7}" data-sly-unwrap>
+											<img src="${properties.fileReference7}" alt="${properties.ctaimagealttext7}"/>
+										</div> 
+									</div> 
+								</li> 								
+								<li id="s15" style="background-image:url('${properties.assetsfolder @ context='uri'}/15-blank.gif');"> 
+									<div class="st-fab-animation-container" id="st-fab-faq-frame1"> 
+										<div id="faqLineCont" class="faq-line-cont"> 
+										<img src="${properties.assetsfolder}/line.gif" alt="" id="faqLine" aria-hidden="true"> 
+
+										</div> 
+										<img src="${properties.assetsfolder}/circle.png" alt="" id="faqCircle" aria-hidden="true"> 
+
+										<div id="faqCurlCont" class="faq-curl-cont"> 
+										<img src="${properties.assetsfolder}/curl.png" alt="" id="faqCurl" aria-hidden="true"> 
+
+										</div> 
+										<img src="${properties.assetsfolder}/text-body1.png" alt="" id="faqBody1" aria-hidden="true"> 
+
+										<div id="leftQContainer" class="faq-q-container"> 
+										<img src="${properties.assetsfolder}/lq1.png" alt="" id="lq1" class="faq-component faq-question-left" aria-hidden="true"> 
+										<img src="${properties.assetsfolder}/lq2.png" alt="" id="lq2" class="faq-component faq-question-left" aria-hidden="true"> 
+										<img src="${properties.assetsfolder}/lq3.png" alt="" id="lq3" class="faq-component faq-question-left" aria-hidden="true"> 
+										<img src="${properties.assetsfolder}/lq4.png" alt="" id="lq4" class="faq-component faq-question-left" aria-hidden="true"> 
+										<img src="${properties.assetsfolder}/lq5.png" alt="" id="lq5" class="faq-component faq-question-left" aria-hidden="true"> 
+										<img src="${properties.assetsfolder}/lq6.png" alt="" id="lq6" class="faq-component faq-question-left" aria-hidden="true"> 
+										<img src="${properties.assetsfolder}/lq7.png" alt="" id="lq7" class="faq-component faq-question-left" aria-hidden="true"> 
+										<img src="${properties.assetsfolder}/lq8.png" alt="" id="lq8" class="faq-component faq-question-left" aria-hidden="true"> 
+										<img src="${properties.assetsfolder}/lq9.png" alt="" id="lq9" class="faq-component faq-question-left" aria-hidden="true"> 
+										</div> 
+									</div> 
+								</li> 
+								<li id="s16" style="background-image:url('${properties.assetsfolder @ context='uri'}/16-blank.gif');"> 
+									<div class="st-fab-animation-container" id="st-fab-faq-frame2"> 
+										<img src="${properties.assetsfolder}/text-body2.png" alt="" id="faqBody2" aria-hidden="true"/> 
+										<div id="rightQContainer" class="faq-q-container"> 
+										<img src="${properties.assetsfolder}/rq1.png" alt="" id="rq1" class="faq-component faq-question-right" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/rq2.png" alt="" id="rq2" class="faq-component faq-question-right" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/rq3.png" alt="" id="rq3" class="faq-component faq-question-right" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/rq4.png" alt="" id="rq4" class="faq-component faq-question-right" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/rq5.png" alt="" id="rq5" class="faq-component faq-question-right" aria-hidden="true"/> 
+										<img src="${properties.assetsfolder}/rq6.png" alt="" id="rq6" class="faq-component faq-question-right" aria-hidden="true"/> 
+										</div> 
+									</div> 									
+									<div class="cta" id="stFabFAQcta"> 
+										<a href="${fetch8.modifyURL}" target="${properties.ctatarget8}" class="cta-text faq-text">${properties.ctatitle8 @ context='html'}</a> 
+										<div data-sly-test="${properties.fileReference8}" data-sly-unwrap>
+											<img src="${properties.fileReference8}" alt="${properties.ctaimagealttext8}"/>
+										</div>
+									</div> 								
+								</li> 
+							
+							</ul> 
+							
+							<input type="hidden" id="SlideClicked" /> 	
+							<ul class="InfoGraphicbxsliderMobile sun-product-carousel-slide-list sun-product-carousel InfoGraphicMobileView" data-lapse="0" data-speed="1000">
+								<div data-sly-test="${mbeanObj.mBean && properties.slide1}" data-sly-unwrap>
+									<div data-sly-list.slides="${mbeanObj.mBean}"data-sly-unwrap>
+										<div data-sly-test="${slidesList.index == 0}" data-sly-list.itemsList="${slides.items}" data-sly-unwrap>										
+											<li class="sun-product-carousel-slide sun-hero-style-default sun-product-carousel-slide${itemsList.imageCount} with-hero-image"> 
+												<input type="hidden" id="MobileSlideIndex${itemsList.imageIndex}" value="${itemsList.mobileslidename}-${itemsListList.count}" /> 
+												<img src="${itemsList.mobilecarouselimage}" alt="${itemsList.mobileimagealttext}" class="sun-product-carousel-slide-image"/> 
+												<div class="sun-product-carousel-slide-content"> 											
+													<div class="sun-product-carousel-slide-wrapper clearfix"> 
+														<div data-sly-test="${itemsList.displaycta=='true'}" data-sly-unwrap>
+															<div class="sun-product-carousel-products sun-product-carousel-infographic-CTA" > 
+																<div class="sun-product-carousel-infographic-CTA-img" aria-label="${properties.ctaimagealttext1}" style="background-image:url('${properties.fileReference1 @ context='uri'}')"> 
+																	<div class="sun-product-carousel-infographic-CTA-textwrapper sun-product-carousel-infographic-CTA-text${itemsList.imageCount}"> 
+																		<a class="sun-product-carousel-infographic-CTA-text " href="${fetch1.modifyURL}"  target="${properties.ctatarget1}" >${properties.ctatitle1 @ context='html'}
+																			<span class="suntrust-accessible-text">&nbsp;Link opens a self window</span> 
+																		</a> 
+																	</div> 
+																</div> 
+															</div> 
+														</div>
+													</div> 											
+												</div> 
+											</li>
+										</div>
+									</div>
+								</div>							
+								<div data-sly-test="${mbeanObj.mBean && properties.slide2}" data-sly-unwrap>
+									<div data-sly-list.slides="${mbeanObj.mBean}"data-sly-unwrap>
+										<div data-sly-test="${slidesList.index == 1}" data-sly-list.itemsList="${slides.items}" data-sly-unwrap>						
+											<li class="sun-product-carousel-slide sun-hero-style-default sun-product-carousel-slide${itemsList.imageCount} with-hero-image"> 
+												<input type="hidden" id="MobileSlideIndex${itemsList.imageIndex}" value="${itemsList.mobileslidename}-${itemsListList.count}" />  	
+												<img src="${itemsList.mobilecarouselimage}" alt="${itemsList.mobileimagealttext}" class="sun-product-carousel-slide-image"/> 
+												<div class="sun-product-carousel-slide-content">				
+													<div class="sun-product-carousel-slide-wrapper clearfix"> 
+														<div data-sly-test="${itemsList.displaycta=='true'}" data-sly-unwrap>
+															<div class="sun-product-carousel-products sun-product-carousel-infographic-CTA" > 
+																<div class="sun-product-carousel-infographic-CTA-img" aria-label="${properties.ctaimagealttext2}" style="background-image:url('${properties.fileReference2 @ context='uri'}')"> 
+																	<div class="sun-product-carousel-infographic-CTA-textwrapper sun-product-carousel-infographic-CTA-text${itemsList.imageCount}"> 
+																		<a class="sun-product-carousel-infographic-CTA-text " href="${fetch2.modifyURL}"  target="${properties.ctatarget2}" >${properties.ctatitle2 @ context='html'}										
+																			<span class="suntrust-accessible-text">&nbsp;Link opens a self window</span> 
+																		</a> 
+																	</div> 
+																</div> 
+															</div> 
+														</div>
+													</div>				
+												</div> 
+											</li>
+										</div>
+									</div>
+								</div>
+								<div data-sly-test="${mbeanObj.mBean && properties.slide3}" data-sly-unwrap>
+									<div data-sly-list.slides="${mbeanObj.mBean}"data-sly-unwrap>
+										<div data-sly-test="${slidesList.index == 2}" data-sly-list.itemsList="${slides.items}" data-sly-unwrap>						
+											<li class="sun-product-carousel-slide sun-hero-style-default sun-product-carousel-slide${itemsList.imageCount} with-hero-image"> 
+												<input type="hidden" id="MobileSlideIndex${itemsList.imageIndex}" value="${itemsList.mobileslidename}-${itemsListList.count}" /> 
+												<img src="${itemsList.mobilecarouselimage}" alt="${itemsList.mobileimagealttext}" class="sun-product-carousel-slide-image"/> 
+												<div class="sun-product-carousel-slide-content">				
+													<div class="sun-product-carousel-slide-wrapper clearfix"> 
+														<div data-sly-test="${itemsList.displaycta=='true'}" data-sly-unwrap>
+															<div class="sun-product-carousel-products sun-product-carousel-infographic-CTA" > 
+																<div class="sun-product-carousel-infographic-CTA-img" aria-label="${properties.ctaimagealttext3}" style="background-image:url('${properties.fileReference3 @ context='uri'}')"> 
+																	<div class="sun-product-carousel-infographic-CTA-textwrapper sun-product-carousel-infographic-CTA-text${itemsList.imageCount}"> 
+																		<a class="sun-product-carousel-infographic-CTA-text " href="${fetch3.modifyURL}"  target="${properties.ctatarget3}" >${properties.ctatitle3 @ context='html'}										
+																			<span class="suntrust-accessible-text">&nbsp;Link opens a self window</span> 
+																		</a> 
+																	</div> 
+																</div> 
+															</div> 
+														</div>
+													</div>				
+												</div> 
+											</li>
+										</div>
+									</div>
+								</div>	
+								<div data-sly-test="${mbeanObj.mBean && properties.slide4}" data-sly-unwrap>
+									<div data-sly-list.slides="${mbeanObj.mBean}"data-sly-unwrap>
+										<div data-sly-test="${slidesList.index == 3}" data-sly-list.itemsList="${slides.items}" data-sly-unwrap>						
+											<li class="sun-product-carousel-slide sun-hero-style-default sun-product-carousel-slide${itemsList.imageCount} with-hero-image"> 
+												<input type="hidden" id="MobileSlideIndex${itemsList.imageIndex}" value="${itemsList.mobileslidename}-${itemsListList.count}" /> 
+												<img src="${itemsList.mobilecarouselimage}" alt="${itemsList.mobileimagealttext}" class="sun-product-carousel-slide-image"/> 
+												<div class="sun-product-carousel-slide-content">				
+													<div class="sun-product-carousel-slide-wrapper clearfix"> 
+														<div data-sly-test="${itemsList.displaycta=='true'}" data-sly-unwrap>
+															<div class="sun-product-carousel-products sun-product-carousel-infographic-CTA" > 
+																<div class="sun-product-carousel-infographic-CTA-img" aria-label="${properties.ctaimagealttext4}" style="background-image:url('${properties.fileReference4 @ context='uri'}')"> 
+																	<div class="sun-product-carousel-infographic-CTA-textwrapper sun-product-carousel-infographic-CTA-text${itemsList.imageCount}"> 
+																		<a class="sun-product-carousel-infographic-CTA-text " href="${fetch4.modifyURL}"  target="${properties.ctatarget4}" >${properties.ctatitle4 @ context='html'}										
+																			<span class="suntrust-accessible-text">&nbsp;Link opens a self window</span> 
+																		</a> 
+																	</div> 
+																</div> 
+															</div> 
+														</div>
+													</div>				
+												</div> 
+											</li>
+										</div>
+									</div>
+								</div>
+								<div data-sly-test="${mbeanObj.mBean && properties.slide5}" data-sly-unwrap>
+									<div data-sly-list.slides="${mbeanObj.mBean}"data-sly-unwrap>
+										<div data-sly-test="${slidesList.index == 4}" data-sly-list.itemsList="${slides.items}" data-sly-unwrap>						
+											<li class="sun-product-carousel-slide sun-hero-style-default sun-product-carousel-slide${itemsList.imageCount} with-hero-image"> 
+												<input type="hidden" id="MobileSlideIndex${itemsList.imageIndex}" value="${itemsList.mobileslidename}-${itemsListList.count}" /> 
+												<img src="${itemsList.mobilecarouselimage}" alt="${itemsList.mobileimagealttext}" class="sun-product-carousel-slide-image"/> 
+												<div class="sun-product-carousel-slide-content">				
+													<div class="sun-product-carousel-slide-wrapper clearfix"> 
+														<div data-sly-test="${itemsList.displaycta=='true'}" data-sly-unwrap>
+															<div class="sun-product-carousel-products sun-product-carousel-infographic-CTA" > 
+																<div class="sun-product-carousel-infographic-CTA-img" aria-label="${properties.ctaimagealttext5}" style="background-image:url('${properties.fileReference5 @ context='uri'}')"> 
+																	<div class="sun-product-carousel-infographic-CTA-textwrapper sun-product-carousel-infographic-CTA-text${itemsList.imageCount}"> 
+																		<a class="sun-product-carousel-infographic-CTA-text " href="${fetch5.modifyURL}" target="${properties.ctatarget5}" >${properties.ctatitle5 @ context='html'}										
+																			<span class="suntrust-accessible-text">&nbsp;Link opens a self window</span> 
+																		</a> 
+																	</div> 
+																</div> 
+															</div> 
+														</div>
+													</div>				
+												</div> 
+											</li>
+										</div>
+									</div>
+								</div>
+								<div data-sly-test="${mbeanObj.mBean && properties.slide6}" data-sly-unwrap>
+									<div data-sly-list.slides="${mbeanObj.mBean}"data-sly-unwrap>
+										<div data-sly-test="${slidesList.index == 5}" data-sly-list.itemsList="${slides.items}" data-sly-unwrap>						
+											<li class="sun-product-carousel-slide sun-hero-style-default sun-product-carousel-slide${itemsList.imageCount} with-hero-image"> 
+												<input type="hidden" id="MobileSlideIndex${itemsList.imageIndex}" value="${itemsList.mobileslidename}-${itemsListList.count}" /> 
+												<img src="${itemsList.mobilecarouselimage}" alt="${itemsList.mobileimagealttext}" class="sun-product-carousel-slide-image"/> 
+												<div class="sun-product-carousel-slide-content">				
+													<div class="sun-product-carousel-slide-wrapper clearfix"> 
+														<div data-sly-test="${itemsList.displaycta=='true'}" data-sly-unwrap>
+															<div class="sun-product-carousel-products sun-product-carousel-infographic-CTA" > 
+																<div class="sun-product-carousel-infographic-CTA-img" aria-label="${properties.ctaimagealttext6}" style="background-image:url('${properties.fileReference6 @ context='uri'}')"> 
+																	<div class="sun-product-carousel-infographic-CTA-textwrapper sun-product-carousel-infographic-CTA-text${itemsList.imageCount}"> 
+																		<a class="sun-product-carousel-infographic-CTA-text " href="${fetch6.modifyURL}" target="${properties.ctatarget6}" >${properties.ctatitle6 @ context='html'}										
+																			<span class="suntrust-accessible-text">&nbsp;Link opens a self window</span> 
+																		</a> 
+																	</div> 
+																</div> 
+															</div> 
+														</div>
+													</div>				
+												</div> 
+											</li>
+										</div>
+									</div>
+								</div>
+								<div data-sly-test="${mbeanObj.mBean && properties.slide7}" data-sly-unwrap>
+									<div data-sly-list.slides="${mbeanObj.mBean}"data-sly-unwrap>
+										<div data-sly-test="${slidesList.index == 6}" data-sly-list.itemsList="${slides.items}" data-sly-unwrap>						
+											<li class="sun-product-carousel-slide sun-hero-style-default sun-product-carousel-slide${itemsList.imageCount} with-hero-image"> 
+												<input type="hidden" id="MobileSlideIndex${itemsList.imageIndex}" value="${itemsList.mobileslidename}-${itemsListList.count}" /> 
+												<img src="${itemsList.mobilecarouselimage}" alt="${itemsList.mobileimagealttext}" class="sun-product-carousel-slide-image"/> 
+												<div class="sun-product-carousel-slide-content">				
+													<div class="sun-product-carousel-slide-wrapper clearfix"> 
+														<div data-sly-test="${itemsList.displaycta=='true'}" data-sly-unwrap>
+															<div class="sun-product-carousel-products sun-product-carousel-infographic-CTA" > 
+																<div class="sun-product-carousel-infographic-CTA-img" aria-label="${properties.ctaimagealttext7}" style="background-image:url('${properties.fileReference7 @ context='uri'}')"> 
+																	<div class="sun-product-carousel-infographic-CTA-textwrapper sun-product-carousel-infographic-CTA-text${itemsList.imageCount}"> 
+																		<a class="sun-product-carousel-infographic-CTA-text " href="${fetch7.modifyURL}" target="${properties.ctatarget7}" >${properties.ctatitle7 @ context='html'}										
+																			<span class="suntrust-accessible-text">&nbsp;Link opens a self window</span> 
+																		</a> 
+																	</div> 
+																</div> 
+															</div> 
+														</div>
+													</div>				
+												</div> 
+											</li>
+										</div>
+									</div>
+								</div>
+								<div data-sly-test="${mbeanObj.mBean && properties.slide8}" data-sly-unwrap>
+									<div data-sly-list.slides="${mbeanObj.mBean}"data-sly-unwrap>
+										<div data-sly-test="${slidesList.index == 7}" data-sly-list.itemsList="${slides.items}" data-sly-unwrap>						
+											<li class="sun-product-carousel-slide sun-hero-style-default sun-product-carousel-slide${itemsList.imageCount} with-hero-image"> 
+												<input type="hidden" id="MobileSlideIndex${itemsList.imageIndex}" value="${itemsList.mobileslidename}-${itemsListList.count}" /> 
+												<img src="${itemsList.mobilecarouselimage}" alt="${itemsList.mobileimagealttext}" class="sun-product-carousel-slide-image"/> 
+												<div class="sun-product-carousel-slide-content">				
+													<div class="sun-product-carousel-slide-wrapper clearfix"> 
+														<div data-sly-test="${itemsList.displaycta=='true'}" data-sly-unwrap>
+															<div class="sun-product-carousel-products sun-product-carousel-infographic-CTA" > 
+																<div class="sun-product-carousel-infographic-CTA-img" aria-label="${properties.ctaimagealttext8}" style="background-image:url('${properties.fileReference8 @ context='uri'}')"> 
+																	<div class="sun-product-carousel-infographic-CTA-textwrapper sun-product-carousel-infographic-CTA-text${itemsList.imageCount}"> 
+																		<a class="sun-product-carousel-infographic-CTA-text " href="${fetch8.modifyURL}" target="${properties.ctatarget8}" >${properties.ctatitle8 @ context='html'}										
+																			<span class="suntrust-accessible-text">&nbsp;Link opens a self window</span> 
+																		</a> 
+																	</div> 
+																</div> 
+															</div> 
+														</div>
+													</div>				
+												</div> 
+											</li>
+										</div>
+									</div>
+								</div>	
+							</ul>
+
+						</div>
+					</div>
+					
+				</section>
+			</div>
+		</div>
+	</div>
+</section> 	
+

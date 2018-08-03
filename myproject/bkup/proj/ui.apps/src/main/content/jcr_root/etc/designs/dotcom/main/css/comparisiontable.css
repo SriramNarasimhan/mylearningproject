@@ -1,0 +1,629 @@
+.suntrust_student_checking {
+	background-color: #f8a131;
+	padding-bottom: 20px;
+}
+.suntrust_student_checking h3 {
+	color:#fff;
+	margin-top:10px;
+}
+.suntrust_student_checking p {
+	color: #fff;
+	margin-bottom: 20px;
+}
+.suntrust_account_find {
+	margin-bottom: 40px;
+	position: relative;
+}
+.suntrust_account_find > h2 {
+	padding:30px 15px;
+    margin: 0;
+}
+.table_scroller > .fixed-column {
+    position: absolute;
+    display: inline-block;
+    width: 250px;
+}
+a.suntrust-blue-button,
+a.suntrust-orange-button {
+	-webkit-transition: all .15s ease-in;
+    -moz-transition: all .15s ease-in;
+    -o-transition: all .15s ease-in;
+    -ms-transition: all .15s ease-in;
+    transition: all .15s ease-in;
+    -webkit-border-radius: 3px;
+    -webkit-background-clip: padding-box;
+    -moz-border-radius: 3px;
+    -moz-background-clip: padding;
+    border-radius: 3px;
+    background-clip: padding-box;
+    padding: 15px 30px;
+    font-size: 18px;
+    line-height: 18px;
+    cursor: pointer;
+    outline: none;
+    background-image: none;    
+	display:inline-block;
+}
+a.suntrust-blue-button:hover,
+a.suntrust-blue-button:focus,
+a.suntrust-orange-button:hover,
+a.suntrust-orange-button:focus {
+	outline: none;
+	text-decoration: none;
+}
+a.suntrust-blue-button {
+	background-color: #003B71;
+	color: #fff;
+}
+a.suntrust-blue-button:hover,
+a.suntrust-blue-button:focus {
+	background-color: #021E30;
+	color: #fff;
+}
+a.suntrust-orange-button {
+	background-color: #C94C06;
+	color: #fff;
+}
+a.suntrust-orange-button:hover,
+a.suntrust-orange-button:focus {
+	background-color: #963F04;
+	color: #fff;
+}
+.suntrust-right-account {
+	margin: 20px 0;
+}
+.suntrust-right-account a.suntrust-orange-button {
+	width: 100%;
+	text-align: center;
+}
+.guidance_advice {
+
+}
+.guidance_advice span {
+	display: block;
+	padding: 15px 30px;
+	line-height: 18px;
+	border: 1px solid #eee;
+    background-color: #fff;
+	text-align: center;
+	width: 215px;
+    border-radius: 3px;
+	margin:0 auto;
+}
+.guidance_advice span a {
+	font-size: 18px;
+	margin-top: 5px;
+    display: inline-block;
+}
+.guidance_advice_thumbnail .sun-promo-text .sun-promo-title {
+    font-size: 20px;
+    line-height: 24px;
+    margin-bottom: 10px;
+    display: block;
+}
+.personal_check {
+	max-width: 1170px;
+    margin: 0 auto;
+}
+.personal_check h1 {
+	font-size: 35px;
+	padding: 15px 10px;
+}
+.table_scroller {
+	overflow: hidden;	
+}
+.table_scroller table {
+	width: 100%;
+	table-layout: fixed;
+}
+.table_scroller table tr th,
+.table_scroller table tr td {
+	border-collapse: collapse;	
+	width: auto;
+	padding: 15px;
+	display: table-cell;
+	vertical-align: top;
+	font-size: 14px;
+	color: #333;
+    font-weight: normal;
+}
+.table_scroller table tr td {
+	border-right: 1px solid #d8d8d8;
+	font-weight: normal;
+}
+table.table_compare_mobile {
+	width: 100%;
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+    margin-top: 15px;
+}
+table.table_compare_mobile tr th,
+table.table_compare_mobile tr td {
+	border: 1px solid #d8d8d8;
+    border-bottom: 0;
+    border-top: 0;
+    padding: 15px;
+	vertical-align: text-top;
+}
+.table_scroller table tr th {	
+    border-right: 1px solid #d8d8d8;
+	width: 186.5px;
+}
+.table_scroller table tr:not(:first-child) th,
+.table_scroller table tr:not(:nth-child(2)) th{	
+    border-left: 1px solid #d8d8d8;
+}
+.table_scroller table.noViewMore tr th {
+	width: 200px;
+}
+.table_scroller td a+a {
+	margin-left: 15px;
+    vertical-align: middle;
+}
+tr.account_odd_row,
+tr.account_odd_row th{
+	background-color: #f5f5f5;
+}
+tr.account_even_row,
+tr.account_even_row th{
+	background-color: #fff;
+}
+th.account_bg_grey,
+td.account_bg_grey {
+	background-color: #d4e2ef;
+}
+td.account_bg_white {
+	background-color: #fff;
+	border-top: 1px solid #d8d8d8;
+}
+.table_scroller tr:last-child th,
+.table_scroller tr:last-child td {
+	border-bottom: 1px solid #d8d8d8;
+}
+.table_compare_more > div {
+	padding: 15px;
+	float: right;
+	background-color: #003b71;
+}
+.table_compare_more > div a {
+	font-size: 16px;
+	color:#fff;
+    position: relative;
+    border-bottom: 1px solid #003b71;
+}
+.table_compare_more > div a span {
+	display: inline-block;
+}
+.table_compare_more > div a+a {
+	float: right;
+}
+.table_compare_more>div a.table_compare_left span:first-child {
+    position: absolute;
+    left: -1px;
+    top: -2px;
+}
+.table_compare_more > div a.table_compare_left span:last-child {
+	margin-left: 15px;
+}
+.table_compare_more > div a.table_compare_right span:first-child {
+	margin-right: 15px;
+}
+.table_compare_more>div a.table_compare_right span:last-child {
+    position: absolute;
+    right: -2px;
+    top: -1px;
+}
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+ .table_compare_more > div a.table_compare_left span:first-child { 
+    top: -3px;
+  }
+}
+.table_compare_more > div > a:first-child span:first-child,
+.table_compare_more > div > a+a span:last-child {
+	color: #fff;
+	font-size: 25px;
+	vertical-align: middle;
+}
+.table_compare_more > div a.table_compare_left.disabled span,
+.table_compare_more > div a.table_compare_right.disabled span {
+	color:#a3abb5;
+	cursor:default;
+}
+ul.suntrust-checking-accounts-feature {
+    list-style: outside none none;
+    margin: 0px 0px 30px 0;
+    padding: 0px;
+}
+.suntrust-six-col-info>li {
+    -ms-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 0px;
+	margin: 15px 0;
+}
+ul.suntrust-checking-accounts-feature .sun-checking-accounts-links-text {
+	display: block;
+    color: #003b71;
+    margin-top: 7px;
+    font-size: 15px;
+    padding: 0 30px;
+}
+ul.suntrust-checking-accounts-feature a.sun-checking-accounts-links:hover .sun-checking-accounts-links-text {
+	color: #f58025;
+}
+.product_selection_info {
+	background-color: #d4e1ef;
+	padding: 15px;
+}
+.product_selection_details {
+	background-color: #003b71;
+}
+.product_selection_details {
+	color: #fff;
+}
+.product_selection_individual {
+	padding: 15px;
+	border-bottom: 1px solid #22445d;
+}
+.product_selection_checkbox {
+	float: left;
+	width: 15%;
+}
+.product_selection_checkbox input {
+	width: 90%;
+    height: 30px;
+    color: #fff;
+	-webkit-appearance: checkbox;
+}
+.product_selection_checkbox_details {
+	float: left;
+	width: 85%;
+}
+.product_selection_checkbox_details > div+div a {
+	font-size: 18px;
+	color: #fff;
+}
+.product_selection_checkbox_details > div:not(:last-child) {
+	margin-bottom: 15px;
+}
+.product_selection_checkbox_details a:hover, 
+.product_selection_checkbox_details a:focus {
+	color: #fff;
+	text-decoration: underline;
+}
+.compare_accounts .product_selection_details:last-child {
+	border-bottom: 0;
+}
+.table_scroller table a.suntrust-orange-button {
+	padding: 12px 15px;
+}
+.table_scroller.table_row_height {
+	margin-left: 186.5px;
+	border-right: 1px solid #d8d8d8;
+}
+.table_scroller.table_row_height tr.account_odd_row th,
+.table_scroller.table_row_height tr.account_even_row th {
+	height: 100%;
+}
+.table_scroller.table_row_height table tr th {
+	position: absolute;
+    left: 0;
+}
+.table_scroller h2,
+.table_scroller h2:hover,
+.table_scroller h2:focus{
+    color: #003b71;
+    font-size: 20px;
+	padding-bottom: 5px;
+}
+.table_compare_mobile h2,
+.table_compare_mobile h2:hover,
+.table_compare_mobile h2:focus{
+    color: #003b71;
+}
+.table_compare_mobile h2 {
+	font-size: 20px;
+	margin-top: 0;
+	margin-bottom: 10px;
+}
+.product_selection_details h3,
+.product_selection_details a, 
+.table_scroller h2,
+.table_scroller a{
+	margin: 0;
+}
+.product_selection_details h3 a {
+	color: #fff;
+}
+.table_scroller .table_comp_link a{
+    width: auto;
+    min-width: 129px;
+    font-size: 16px;
+    font-family: "Trebuchet MS";
+}
+.table_scroller h2 a{
+    font-family: "suntrustregular","Trebuchet MS",sans-serif;
+}
+
+.product_selection_details p,
+.table_scroller p{
+	margin-bottom: 10px;
+}
+tr.table_comp_link td.account_bg_white {
+	border-top: 0;
+	padding-top: 10px;
+}
+tr.table_comp_link td.account_bg_white .text-center:not(:last-child) {
+	margin-bottom: 10px;
+}
+.table_scroller table.table_compare tr:first-child th,
+.table_scroller table.table_compare tr:nth-child(2) th,
+.table_scroller table.table_compare tr td:nth-child(2) {
+	border-left: 0;
+}
+.table_compare_mobile tr.table_comp_link a {
+	margin: 0;
+}
+.table_scroller table.table_compare.tableComparison_Static tr:first-child th,
+.table_scroller table.table_compare.tableComparison_Static tr:nth-child(2) th
+ {
+	border-left: 1px solid #d8d8d8;
+}
+.table_scroller.table_row_height table tr td:last-child {
+	border-right: 0 !important;
+}
+@-moz-document url-prefix() { 
+  .table_scroller table tr td:last-child {
+     border-right-width: 2px;
+  }
+}
+.product_selection_checkbox_details {
+	margin-left: 30px;
+}
+
+/* Checkbox css start */
+.sun-checkbox-input-field {
+	position: relative;
+}
+.sun-checkbox-input-container {
+	display: inline-block;
+    border: 1px solid #cfcfcf;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+	background-color: #fff;
+	border-radius: 2px;
+    background-clip: padding-box;
+}
+.sun-checkbox-input-container span {
+	position: absolute;
+    left: -1px;
+    top: -1px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+}
+.sun-checkbox-input-container span.sun-checked:after {
+	font-family: "sun-icons-UXd1Fq6";
+    display: inline-block;
+    font-weight: normal;
+    font-style: normal;
+    text-decoration: inherit;    
+    content: "î€?";
+    color: #0d365a;
+    font-size: 14px;
+    line-height: 25px;
+}
+
+.sun-checkbox-input-field .suntrust-checkbox-label {
+	margin-left: 30px;
+	font-weight: 400;
+}
+.sun-checkbox-input-container input[type="checkbox"] {
+	opacity: 0;
+    filter: alpha(opacity=0);
+    -moz-opacity: 0;
+    border: none;
+    background: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 15px;
+    color: #333;
+    margin: 0;
+}
+.sun-checkbox-input-container span {
+	margin-left: 0 !important;
+}
+.sun-checkbox-input-container.sun-checkbox-disabled {
+    background-color: #cfcfcf;
+}
+
+.table_compare_left:hover,
+.table_compare_right:hover {
+	border-bottom: 1px solid #fff;
+}
+.table_compare_left.disabled:hover,
+.table_compare_left.disabled:focus,
+.table_compare_right.disabled:hover,
+.table_compare_right.disabled:focus {
+	border-bottom: 0;
+} 
+.table_scroller a:hover,
+.table_scroller a:focus {
+    color: #C14B06 !important;
+}
+.table_scroller .suntrust-promo-cta-button-blue:hover, .table_scroller .suntrust-promo-cta-button-blue:focus,
+.table_scroller .suntrust-promo-cta-button:hover, .table_scroller .suntrust-promo-cta-button:focus {
+     color: #fff !important;
+}
+
+/* Checkbox css end */
+
+@media (max-width: 320px)
+{
+	.personal_check h1 {
+		padding: 8px 10px !important;
+	}
+	.suntrust-six-col-info>li {
+		width: auto;
+		text-align: left;
+		position: relative;
+		height: 64px;
+		padding-left: 65px;
+		float: none;
+	}
+	.suntrust-six-col-info>li .sun-checking-accounts-links-glyph {
+		position: absolute;
+		left: 0;
+		top: 0;
+		height: 64px;
+		width: 64px;
+	}
+	ul.suntrust-checking-accounts-feature .sun-checking-accounts-links-text {
+		display: inline-block;
+		vertical-align: top;
+		margin-top: 12px;
+		padding: 0;
+	}
+}
+@media (max-width: 600px) and (min-width: 321px)
+{
+	.suntrust-six-col-info>li {
+		width: auto;
+		text-align: left;
+		position: relative;
+		height: 64px;
+		padding-left: 65px;
+		float: none;
+	}
+	.suntrust-six-col-info>li .sun-checking-accounts-links-glyph {
+		position: absolute;
+		left: 0;
+		top: 0;
+		height: 64px;
+		width: 64px;
+	}
+	ul.suntrust-checking-accounts-feature .sun-checking-accounts-links-text {
+		display: inline-block;
+		vertical-align: top;
+		margin-top: 12px;
+		padding: 0;
+	}
+	.personal_check h1 {
+		padding: 18px 10px;
+	}
+	
+	table.table_compare_mobile tr th,
+	table.table_compare_mobile tr td {
+    	padding: 15px 10px;
+	}
+}
+@media (max-width: 768px)
+{
+	.personal_check {
+		height: auto;
+	}
+	.suntrust_student_checking {
+		display: none;
+	}
+	a.suntrust-orange-button {
+		background-color: #C94C06;
+	}
+	.table_compare_mobile th.account_bg_grey,
+	.table_compare_mobile td.account_bg_grey {
+		background-color: #b8b8b8;
+	}
+	.table_compare_mobile th.account_bg_grey {
+		border-right-color: #b8b8b8;
+	}
+	.table_compare_mobile tr.account_odd_row {
+		background-color: #d8d8d8;
+	}
+	.table_scroller .table_comp_link a {
+		min-width: auto;
+    }
+}
+
+@media (max-width: 767px)
+{
+    .table_scroller.table_row_height {
+         padding: 0 15px;
+    }
+    .table_scroller.table_row_height table tr th {
+        position: relative;
+    }
+	.table_scroller h2,
+	.table_compare_mobile h2{
+		color: #003b71;
+	}
+	.suntrust-section3A .comparisontable {
+		margin: 0;
+		padding: 0px 15px 0px 15px;
+	}
+	.compare_accounts a {
+        color: #fff;
+    }
+	.compare_accounts a.suntrust-promo-cta-button:hover,
+	.compare_accounts a.suntrust-promo-cta-button:focus{
+		text-decoration:none;
+	}
+	.compare_accounts a.suntrust-promo-cta-button-blue:hover,
+	.compare_accounts a.suntrust-promo-cta-button-blue:focus{
+		text-decoration:none;
+	}
+	.compare_accounts a.suntrust-promo-cta-button-white{
+		color:#000;
+	}
+	.compare_accounts a.suntrust-promo-cta-button-white:hover,
+	.compare_accounts a.suntrust-promo-cta-button-white:focus{
+		text-decoration:none;
+	}
+}
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none)
+{
+    .table_scroller table tr th,
+    .table_scroller table tr td {
+           padding: 15px 15px 13px 15px;
+    }
+}
+
+@media screen and (-ms-high-contrast:active),
+  (-ms-high-contrast:none) {
+
+    /*.table_scroller table.table_compare tr td:nth-child(2) {
+       border-left: 2px solid #d8d8d8\9;
+    }*/	
+	.staticTable .table_scroller table.table_compare tr td:nth-child(2) {
+       border-left: 1px solid #d8d8d8\9;
+	}
+}
+@media (max-width: 1024px) {
+	.table_scroller .table_comp_link a {
+		height: auto;
+    }
+} 
+@media (max-width: 1300px) and (min-width: 768px) {
+	.suntrust-section3A .comparisontable {
+		margin-left: 15px;
+		margin-right: 15px;
+	}
+}
+@media (min-width: 1301px) {
+	.suntrust-section3A .comparisontable {
+		margin-left: 0;
+		margin-right: 30px;
+	}
+	.suntrust_account_find > h2 {
+		padding:30px 0;
+		margin: 0;
+	}
+}

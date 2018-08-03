@@ -1,0 +1,44 @@
+<!--/* Adds a featured content standalone component */-->
+<div data-sly-test="${wcmmode.edit || wcmmode.design}" >Configure Featured Content Standalone Component</div>
+
+<div data-sly-unwrap data-sly-use.fetch="${'com.suntrust.dotcom.utils.GenericUtil' @linkURL=properties.linkURL,urlParams=properties.urlParams,anchorTag=properties.anchorTag}"></div>
+
+<div class="suntrust-titleImageHeading">
+	<div data-sly-unwrap data-sly-test="${properties.image || properties.imagealttext}">
+		<div data-sly-test="${properties.image && properties.target == '_smallmodal' || properties.target == '_mediummodal' || properties.target == '_largemodal'}">
+			<a data-anchor="${fetch.modifyURL}"  data-modal="${properties.target}"  data-suntrust-class="suntrust-content-modalWindow" title="${properties.titletag}" class="clearfix block">
+				<img class="sun-right-rail-promo-image" src="${properties.image}" alt="${properties.imagealttext}" title="${properties.imagetitle}">
+			</a>	
+		</div>
+		<div data-sly-test="${properties.image && properties.target == '_self' || properties.target == '_blank'}">	
+			<a href="${fetch.modifyURL}"  target="${properties.target}" title="${properties.titletag}" class="clearfix block">
+				<img class="sun-right-rail-promo-image" src="${properties.image}" alt="${properties.imagealttext}" title="${properties.imagetitle}">
+			</a>
+		</div>
+	</div>
+	<div data-sly-unwrap data-sly-test="${properties.headline}">
+		<div data-sly-test="${properties.target == '_smallmodal' || properties.target == '_mediummodal' || properties.target == '_largemodal'}">
+			<div class="sun-right-rail-promo-title ${properties.headlinealignment}">
+				<div data-sly-unwrap data-sly-test.urlChecker="${properties.linkURL}">
+					<a title="${properties.titletag}" tabindex="0" data-anchor="${fetch.modifyURL}" data-modal="${properties.target}" data-suntrust-class="suntrust-content-modalWindow" >${properties.headline @context='html'}</a>
+				</div>
+				<div data-sly-unwrap data-sly-test="${!urlChecker}">
+					${properties.headline @context='html'}
+				</div>
+			</div>
+		</div>
+		<div data-sly-test="${properties.target == '_self' || properties.target == '_blank'}">
+			<div class="sun-right-rail-promo-title ${properties.headlinealignment}">
+				<div data-sly-unwrap data-sly-test.urlChecker="${properties.linkURL}">
+					<a title="${properties.titletag}" href="${fetch.modifyURL}" target="${properties.target}">${properties.headline @context='html'}</a>
+				</div>
+				<div data-sly-unwrap data-sly-test="${!urlChecker}">
+					${properties.headline @context='html'}
+				</div>
+			</div>
+		</div>				
+	</div>
+	<div data-sly-unwrap data-sly-test="${properties.description}">
+		<div class="sun-right-rail-promo-description rteelement">${properties.description @context='html'}</div>
+	</div>
+</div>

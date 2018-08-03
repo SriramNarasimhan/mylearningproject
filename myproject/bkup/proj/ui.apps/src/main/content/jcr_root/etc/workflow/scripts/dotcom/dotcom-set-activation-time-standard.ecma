@@ -1,0 +1,104 @@
+var workflowData = workItem.getWorkflowData();
+var path = workflowData.getPayload().toString();
+var jcrsession = workflowSession.getSession();
+var node = jcrsession.getNode(path).getNode("jcr:content");
+var publishDateAndTime=java.util.Calendar.getInstance().getTimeInMillis().toString();
+var isCurrentDateAndTime = true;
+if(null != node && node.hasProperty("publishDateAndTime")){	
+	publishDateAndTime=node.getProperty("publishDateAndTime").getLong();
+	isCurrentDateAndTime = false;
+    node.getProperty("publishDateAndTime").remove();
+	jcrsession.save();
+}
+workflowData.getMetaDataMap().put("absoluteTime",publishDateAndTime);
+workflowData.getMetaDataMap().put("PublishDateAndTime",publishDateAndTime);
+workflowData.getMetaDataMap().put("isCurrentDateAndTime",isCurrentDateAndTime);
+
+if(node != null){
+	if(node.hasProperty("skipqareview")){
+		node.getProperty("skipqareview").remove();
+		jcrsession.save();
+	}
+	if(node.hasProperty("skipuiuxreview")){
+		node.getProperty("skipuiuxreview").remove();
+		jcrsession.save();
+	}
+	if(node.hasProperty("skiplegalreview")){
+		node.getProperty("skiplegalreview").remove();
+		jcrsession.save();
+	}
+	if(node.hasProperty("qareviewer")){
+		node.getProperty("qareviewer").remove();
+		jcrsession.save();
+	}
+	if(node.hasProperty("uxanduireviewer")){
+		node.getProperty("uxanduireviewer").remove();
+		jcrsession.save();
+	}
+	if(node.hasProperty("requesterreviewer")){
+		workflowData.getMetaDataMap().put("requesterreviewer",node.getProperty("requesterreviewer").toString());
+		node.getProperty("requesterreviewer").remove();
+		jcrsession.save();
+	}
+	if(node.hasProperty("compliancereviewer")){
+		node.getProperty("compliancereviewer").remove();
+		jcrsession.save();
+	}
+	if(node.hasProperty("compliancereviewer1")){
+		node.getProperty("compliancereviewer1").remove();
+		jcrsession.save();
+	}
+	if(node.hasProperty("compliancereviewer2")){
+		node.getProperty("compliancereviewer2").remove();
+		jcrsession.save();
+	}
+	if(node.hasProperty("11compliancereviewer")){
+		node.getProperty("11compliancereviewer").remove();
+		jcrsession.save();
+	}
+	if(node.hasProperty("12compliancereviewer")){
+		node.getProperty("12compliancereviewer").remove();
+		jcrsession.save();
+	}
+	if(node.hasProperty("13compliancereviewer")){
+		node.getProperty("13compliancereviewer").remove();
+		jcrsession.save();
+	}
+	if(node.hasProperty("14compliancereviewer")){
+		node.getProperty("14compliancereviewer").remove();
+		jcrsession.save();
+	}
+	if(node.hasProperty("15compliancereviewer")){
+		node.getProperty("15compliancereviewer").remove();
+		jcrsession.save();
+	}
+	if(node.hasProperty("21compliancereviewer")){
+		node.getProperty("21compliancereviewer").remove();
+		jcrsession.save();
+	}
+	if(node.hasProperty("22compliancereviewer")){
+		node.getProperty("22compliancereviewer").remove();
+		jcrsession.save();
+	}
+	if(node.hasProperty("23compliancereviewer")){
+		node.getProperty("23compliancereviewer").remove();
+		jcrsession.save();
+	}
+	if(node.hasProperty("24compliancereviewer")){
+		node.getProperty("24compliancereviewer").remove();
+		jcrsession.save();
+	}
+	if(node.hasProperty("25compliancereviewer")){
+		node.getProperty("25compliancereviewer").remove();
+		jcrsession.save();
+	}
+	if(node.hasProperty("legalreviewer")){
+		node.getProperty("legalreviewer").remove();
+		jcrsession.save();
+	}
+	if(node.hasProperty("contentdevelopmentfinalreviewer")){
+		node.getProperty("contentdevelopmentfinalreviewer").remove();
+		jcrsession.save();
+	}
+}
+

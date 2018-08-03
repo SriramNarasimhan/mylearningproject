@@ -1,0 +1,6 @@
+#base=js
+
+vanityurl-validator.js
+different-values-validation.js
+minitemscheck.js
+maxitemscheck.js

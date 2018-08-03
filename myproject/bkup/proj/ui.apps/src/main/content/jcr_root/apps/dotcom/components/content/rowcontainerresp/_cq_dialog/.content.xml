@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Row Container - Responsive"
+    sling:resourceType="cq/gui/components/authoring/dialog"
+    helpPath="https://www.adobe.com/go/aem6_2_docs_component_en#Text &amp; Image - Sightly">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/foundation/container">
+        <layout
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/foundation/layouts/tabs"
+            type="nav"/>
+        <items jcr:primaryType="nt:unstructured">
+            <content
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Content"
+                sling:resourceType="granite/ui/components/foundation/section">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
+                    margin="{Boolean}false"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <layout
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/select"
+                                class="cq-dialog-dropdown-showhide"
+                                cq-dialog-dropdown-showhide-target=".list-option-listfrom-showhide-target"
+                                defaultValue="singlecolumn"
+                                fieldDescription="Sets the layout for the row container."
+                                fieldLabel="Layout"
+                                id="RowContainerLayout"
+                                name="./layout"
+                                value="singlecolumn">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <singlecolumn
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Single Column"
+                                        value="singlecolumn"/>
+                                    <rightrail
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Right Rail"
+                                        value="rightrail"/>
+                                    <leftrail
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Left Rail"
+                                        value="leftrail"/>
+                                    <pair
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Pair"
+                                        value="pair"/>
+                                    <triple
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Triple"
+                                        value="triple"/>
+                                    <fullwidthrightrail
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Max Width Right Rail"
+                                        value="fullwidthrightrail"/>
+                                    <fullwidthleftrail
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Max Width Left Rail"
+                                        value="fullwidthleftrail"/>
+                                </items>
+                            </layout>
+                            <theme
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/select"
+                                class="cq-dialog-dropdown-showhide"
+                                cq-dialog-dropdown-showhide-target=".list-option-listfrom-showhide-target"
+                                fieldDescription="Sets a background color and border styles."
+                                fieldLabel="Theme"
+                                id="RowContainerTheme"
+                                name="./theme">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <white
+                                        jcr:primaryType="nt:unstructured"
+                                        text="White"
+                                        value="white"/>
+                                    <grey
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Grey"
+                                        value="grey"/>
+                                    <whitegrey
+                                        jcr:primaryType="nt:unstructured"
+                                        text="White / Grey"
+                                        value="whitegrey"/>
+                                    <blue
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Blue"
+                                        value="blue"/>
+                                </items>
+                            </theme>
+                            <wrappermode
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                                defaultChecked="{Boolean}true"
+                                fieldDescription="Specifies whether the container is wrapped by padding or full-width."
+                                fieldLabel="Apply Container Padding Left &amp; Right"
+                                id="WrapperMode"
+                                name="./wrappermode"
+                                text="Apply Container Padding Left &amp; Right"
+                                uncheckedValue="false"
+                                value="true"/>
+                            <topleftrailborder
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                                defaultChecked="{Boolean}false"
+                                fieldDescription="Sets whether to show left rail border and top left rail border for the row container"
+                                fieldLabel="Apply left rail border and top left rail border"
+                                id="TopLeftRailBorder"
+                                name="./topleftrailborder"
+                                text="Apply left rail border and top left rail border?"
+                                uncheckedValue="false"
+                                value="true"/>
+                            <removetopleftrailborder
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                                defaultChecked="{Boolean}false"
+                                fieldDescription="Sets whether to show remove top left rail border for the row container"
+                                fieldLabel="Remove top left rail border"
+                                id="RemoveTopLeftRailBorder"
+                                name="./removetopleftrailborder"
+                                text="Remove top left rail border?"
+                                uncheckedValue="false"
+                                value="true"/>
+                            <toprightrailborder
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                                defaultChecked="{Boolean}false"
+                                fieldDescription="Sets whether to show right rail border and top right rail border for the row container"
+                                fieldLabel="Apply right rail border and top right rail border"
+                                id="TopRightRailBorder"
+                                name="./toprightrailborder"
+                                text="Apply right rail border and top right rail border?"
+                                uncheckedValue="false"
+                                value="true"/>
+                            <removetoprightrailborder
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                                defaultChecked="{Boolean}false"
+                                fieldDescription="Sets whether to show remove top right rail border for the row container"
+                                fieldLabel="Remove top right rail border"
+                                id="RemoveTopRightRailBorder"
+                                name="./removetoprightrailborder"
+                                text="Remove top right rail border?"
+                                uncheckedValue="false"
+                                value="true"/>
+                            <fullwidthtoprightrailborder
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                                defaultChecked="{Boolean}false"
+                                fieldDescription="Sets whether to show right rail border for the max width row container"
+                                fieldLabel="Apply max width right rail border"
+                                id="FullWidthTopRightRailBorder"
+                                name="./fullwidthtoprightrailborder"
+                                text="Apply section separator?"
+                                uncheckedValue="false"
+                                value="true"/>
+                            <fullwidthtopleftrailborder
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                                defaultChecked="{Boolean}false"
+                                fieldDescription="Sets whether to show left rail border for the max width row container"
+                                fieldLabel="Apply max width left rail border"
+                                id="FullWidthTopLeftRailBorder"
+                                name="./fullwidthtopleftrailborder"
+                                text="Apply section separator?"
+                                uncheckedValue="false"
+                                value="true"/>
+                        </items>
+                    </column>
+                </items>
+            </content>
+        </items>
+    </content>
+</jcr:root>

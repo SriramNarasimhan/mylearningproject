@@ -1,0 +1,94 @@
+body {
+}
+/* This new component's parent class name is : .sectionFeature-DFS  */
+
+.sectionFeature-DFS{
+	padding-top:35px;
+}
+ul.suntrust-faqs-list .sectionFeature-DFS{
+	margin-top:-20px;
+}
+.sectionFeature-DFS .suntrust-feature-image{
+	width: 115px;
+    height: 115px;
+}
+.sectionFeature-DFS ul.suntrust-feature-list-details{
+	padding: 10px 0 0 0;
+}
+.sectionFeature-DFS ul.suntrust-feature-list-details li{
+	padding-bottom: 35px;
+	border-bottom:1px solid #797979;
+}
+.sectionFeature-DFS .suntrust-sectionfeature-image-container{
+	max-width:115px;
+}
+.sectionFeature-DFS .suntrust-sectionfeature-info{
+	width:85%;
+	margin-left:30px !important;
+}
+.sectionFeature-DFS h3.suntrust-feature-name{
+	font-size:24px;
+	line-height:normal;
+	color:#333333;
+	font-weight:700;
+}
+.sectionFeature-DFS .suntrust-sectionfeature-info p{
+	font-size:18px;
+	color:#333333;
+	font-weight:normal;
+	line-height:normal;
+}
+.sectionFeature-DFS .suntrust-feature-list-with-link li, .sectionFeature-DFS .suntrust-feature-list-with-button li{
+	margin-bottom:35px;
+}
+.sectionFeature-DFS .suntrust-sectionfeature-image-container{
+	height:115px;
+	width:115px !important;
+}
+.contactUs_accordion .sectionFeature-DFS ul.suntrust-feature-list-details li{
+	list-style-type: none !important;
+	border-bottom:1px solid #797979 !important;
+}
+.sectionFeature-DFS ul.suntrust-feature-list-details li.last{
+	border-bottom:none !important;
+	margin-bottom: 0px;
+}
+
+@media (max-width : 767px) {
+	.sectionFeature-DFS h3.suntrust-feature-name{
+		font-size:18px;
+	}
+	.sectionFeature-DFS .suntrust-sectionfeature-info p{
+		font-size:15px;
+	}
+	.sectionFeature-DFS .suntrust-sectionfeature-info{
+		width:100% !important;
+		margin-left:0 !important;
+	}
+	.accordion .sectionFeature-DFS{
+		padding:0;
+	}
+	ul.suntrust-faqs-list .sectionFeature-DFS .suntrust-feature-list-details{
+		padding: 20px 0 0 0;
+	}
+	.sectionFeature-DFS ul.suntrust-feature-list-details li{
+		padding-bottom: 20px;
+		margin-bottom: 20px;
+	}
+	.accordion .sectionFeature-DFS ul.suntrust-feature-list-details li.last{
+		padding-bottom: 20px;
+	}
+	ul.suntrust-faqs-list .sectionFeature-DFS ul.suntrust-feature-list-details li.last{
+		padding-bottom: 0px;
+	}
+}
+@media (min-width : 768px) and (max-width : 991px){
+	.sectionFeature-DFS .suntrust-sectionfeature-info{
+		width:76%;
+	}
+}
+@media (min-width : 992px){
+	.sectionFeature-DFS .suntrust-sectionfeature-info{
+		width:80%;
+	}
+}

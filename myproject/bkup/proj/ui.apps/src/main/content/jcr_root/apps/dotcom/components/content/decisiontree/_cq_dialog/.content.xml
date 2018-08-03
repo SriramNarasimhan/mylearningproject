@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Decision Tree"
+    sling:resourceType="cq/gui/components/authoring/dialog"
+    helpPath="https://www.adobe.com/go/aem6_2_docs_component_en#Text &amp; Image - Sightly">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/foundation/container">
+        <layout
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/foundation/layouts/tabs"
+            type="nav"/>
+        <items jcr:primaryType="nt:unstructured">
+            <maintab
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Common Details"
+                sling:resourceType="granite/ui/components/foundation/section">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <normalimage
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                allowBlank="{Boolean}false"
+                                fieldDescription="Sets the url target for normal background image"
+                                fieldLabel="Normal BG Image"
+                                name="./normalbgimg"
+                                rootPath="/content"/>
+                            <retinaimage
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                allowBlank="{Boolean}false"
+                                fieldDescription="Sets the url target for retina background image"
+                                fieldLabel="Retina BG Image"
+                                name="./retinabgimg"
+                                rootPath="/content"/>
+                            <mobileimage
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                allowBlank="{Boolean}false"
+                                fieldDescription="Sets the url target for mobile adaptive image"
+                                fieldLabel="Mobile Image"
+                                name="./mobileimg"
+                                rootPath="/content"/>
+                            <stepcolor
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/select"
+                                class="cq-dialog-dropdown-showhide"
+                                cq-dialog-dropdown-showhide-target=".list-option-listfrom-showhide-target"
+                                fieldDescription="Select mobile step bar color"
+                                fieldLabel="Select mobile step bar color"
+                                name="./stepColor">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <orange
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Orange"
+                                        value="suntrust-dfs-orange-step-item"/>
+                                    <blue
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Blue"
+                                        value="suntrust-dfs-blue-step-item"/>
+                                </items>
+                            </stepcolor>
+                            <shownav
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                                defaultChecked="{Boolean}false"
+                                fieldDescription="Checking this box shows Next/Prev Navigation Button"
+                                fieldLabel="Show Next/Prev Navigation Button?"
+                                name="./showNextPrevNav"
+                                text="Show Nex/Prev Nav"
+                                uncheckedValue="false"
+                                value="true"/>
+                            <ispagecarousel
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                                defaultChecked="{Boolean}false"
+                                fieldDescription="Checking this box will enable page Carousel"
+                                fieldLabel="Show Page Carousel?"
+                                name="./showPageCarousel"
+                                text="Show Page Carousel?"
+                                uncheckedValue="false"
+                                value="true"/>
+                            <hidestepsdesktop
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                                defaultChecked="{Boolean}false"
+                                fieldDescription="Check this box to hide steps in desktop view"
+                                fieldLabel="Hide Steps in Desktop View"
+                                name="./hidestepsindesktop"
+                                text="Hide Steps in Desktop View"
+                                uncheckedValue="false"
+                                value="true"/>
+                            <hidestepsmobile
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                                defaultChecked="{Boolean}false"
+                                fieldDescription="Check this box to hide steps in mobile view"
+                                fieldLabel="Hide Steps in Mobile View"
+                                name="./hidestepsinmobile"
+                                text="Hide Steps in MobileView"
+                                uncheckedValue="false"
+                                value="true"/>
+                        </items>
+                    </column>
+                </items>
+            </maintab>
+            <stepstab
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Steps"
+                sling:resourceType="granite/ui/components/foundation/section">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
+                    margin="{Boolean}false"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <fieldset
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/fieldset">
+                                <layout
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <steps
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/multifield"
+                                                fieldLabel="Steps">
+                                                <field
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/fieldset"
+                                                    acs-commons-nested="JSON_STORE"
+                                                    name="./stepItems">
+                                                    <layout
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
+                                                        method="absolute"/>
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <column
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/foundation/container">
+                                                            <items jcr:primaryType="nt:unstructured">
+                                                                <steptitle
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                                    emptyText="Enter the step title here"
+                                                                    fieldDescription="Enter the Step Title here."
+                                                                    fieldLabel="Step Title"
+                                                                    name="./steptitle"/>
+                                                                <slides
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/foundation/form/multifield"
+                                                                    fieldDescription="Click 'Add field' to add a new slide"
+                                                                    fieldLabel="Slides">
+                                                                    <field
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        sling:resourceType="granite/ui/components/foundation/form/fieldset"
+                                                                        acs-commons-nested="JSON_STORE"
+                                                                        name="./slideItems">
+                                                                        <layout
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
+                                                                            method="absolute"/>
+                                                                        <items jcr:primaryType="nt:unstructured">
+                                                                            <column
+                                                                                jcr:primaryType="nt:unstructured"
+                                                                                sling:resourceType="granite/ui/components/foundation/container">
+                                                                                <items jcr:primaryType="nt:unstructured">
+                                                                                    <slidepath
+                                                                                        jcr:primaryType="nt:unstructured"
+                                                                                        sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                                                                        allowBlank="{Boolean}false"
+                                                                                        fieldDescription="Browse and enter the Slide path here."
+                                                                                        fieldLabel="Slide Path"
+                                                                                        name="./slidepath"
+                                                                                        rootPath="/content"/>
+                                                                                </items>
+                                                                            </column>
+                                                                        </items>
+                                                                    </field>
+                                                                </slides>
+                                                            </items>
+                                                        </column>
+                                                    </items>
+                                                </field>
+                                            </steps>
+                                        </items>
+                                    </column>
+                                </items>
+                            </fieldset>
+                        </items>
+                    </column>
+                </items>
+            </stepstab>
+        </items>
+    </content>
+</jcr:root>

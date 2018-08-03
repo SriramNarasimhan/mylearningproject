@@ -1,0 +1,29 @@
+<div data-sly-use.signOnMobile="${'com.suntrust.dotcom.components.SignOnComponent'}" data-sly-unwrap></div>
+<div id="mobileherosignon">
+					<div class="col-xs-12 visible-xs adjContainerPad">
+						<div class="suntrust-hero-mobile-signon">
+							<div class="suntrust-mobile-hero-sign-on-title">${properties.headlineMobile @ context='html'}</div>
+								<div data-sly-test="${signOnMobile.mBean && properties.signonheroItems}" data-sly-unwrap>								
+									<div data-sly-list.items="${signOnMobile.mBean}"data-sly-unwrap>								
+										<div data-sly-test="${itemsList.index == 8}" data-sly-list.itemsList="${items.items}" data-sly-unwrap>					
+											<div class="suntrust-bank-segment-mobile-signon">
+											<a href="${itemsList.linkURL}" target="${itemsList.target}">
+												<div class="suntrust-mobile-hero-signon-container">											
+													<div class="suntrust-mobile-hero-signon-image">
+														<img src="${itemsList.glyphIcon}" alt="${itemsList.altText}"/>
+													</div>
+													<span class="suntrust-mobile-hero-sign-on-link">													
+														${itemsList.linkText}
+													</span>
+												</div>
+												<span class="suntrust-accessible-text">Link opens in New window.</span>
+											</a>
+
+												<span class="suntrust-mobile-hero-signon-swoop white-arc-mobile-hero-signon" aria-hidden="true"> </span>
+											</div>
+										</div>
+									</div>
+								</div>							
+						</div>
+					</div>
+</div>								

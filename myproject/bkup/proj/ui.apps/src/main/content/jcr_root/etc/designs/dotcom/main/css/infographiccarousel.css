@@ -1,0 +1,500 @@
+﻿body{
+
+}
+.suntrust-carousel ul[data-mode = 'horizontal'] .bxslider,
+.suntrust-carousel ul[data-mode = 'vertical'] .bxslider{
+    transform: scale(0);
+}
+.suntrust-carousel .suntrust-carouselcomponent{
+	visibility: hidden;
+}
+.InfoGraphicbxsliderAnimation {
+    transform: scale(0);
+}
+
+ul.InfoGraphicDesktopView, .InfoGraphicbxsliderAnimation {
+    perspective: none;
+   display: none;
+}
+.component-infographiccarousel .bx-wrapper .bx-viewport {
+	left: 0px;
+}                                                    
+
+.sun-product-carousel-infographic-CTA-img {
+    background-repeat:no-repeat;
+    background-size:contain;
+    width: 140px;
+    height: 140px;
+}
+.sun-product-carousel-infographic-CTA-textwrapper {
+    position:absolute;
+    top: 30%;
+    text-align: center;
+}
+.sun-product-carousel-infographic-CTA-text {
+    text-align: center;
+    text-decoration: underline;
+    width: 72%;
+    display: inline-block;
+    margin: 0 auto;
+}
+a.sun-product-carousel-infographic-CTA-text:hover,
+a.sun-product-carousel-infographic-CTA-text:focus {
+    font-weight: bold;
+    outline:none;
+}
+.component-infographiccarousel .sun-product-carousel .bx-next:before, .component-infographiccarousel .sun-product-carousel .bx-prev:before,
+.component-infographiccarousel .sun-product-carousel .bx-next:after, .component-infographiccarousel .sun-product-carousel .bx-prev:after {
+    color:#c94c06;
+}
+.component-infographiccarousel .sun-product-carousel .bx-wrapper .bx-controls-direction a.bx-prev:hover,
+.component-infographiccarousel .sun-product-carousel .bx-wrapper .bx-controls-direction a.bx-prev:focus,
+.component-infographiccarousel .sun-product-carousel .bx-wrapper .bx-controls-direction a.bx-next:hover,
+.component-infographiccarousel .sun-product-carousel .bx-wrapper .bx-controls-direction a.bx-next:focus {
+    background-color:#000000;
+    opacity: 0.7;
+}
+.component-infographiccarousel .sun-product-carousel .bx-next:before, 
+.component-infographiccarousel .sun-product-carousel .bx-prev:before {  
+   opacity: 1; 
+}
+.bx-viewport ul.InfoGraphicbxsliderMobile li,
+.bx-viewport ul.InfoGraphicbxslider li,
+.bx-viewport ul.InfoGraphicbxsliderAnimation li{
+    min-height: 1px; min-width: 1px; 
+}
+.bx-wrapper .InfoGraphicbxsliderAnimation li img{
+    max-width: 100%;
+    display: block;
+}
+	
+	a.gs-text { 
+	top: 29%; 
+	left: 8%; 
+	} 
+	#stFabGScta > a:focus{ 
+	outline:0; 
+	text-decoration:underline; 
+	} 
+	
+	
+	a.bb-text { 
+	top: 29%; 
+	left: 10%; 
+	} 
+	#stFabBBcta > a:focus{ 
+	outline:0; 
+	text-decoration:underline; 
+	} 
+	
+	
+	a.mt-text { 
+	top: 22%; 
+	left: 14%; 
+	} 
+	#stFabMTcta > a:focus{ 
+	outline:0; 
+	text-decoration:underline; 
+	} 
+	
+	a.tb-text { 
+	top: 22%; 
+	left: 13%; 
+	} 
+	#stFabTBcta > a:focus{ 
+	outline:0; 
+	text-decoration:underline; 
+	} 
+	
+	a.uf-text { 
+	top: 24%; 
+	left: 10%; 
+	} 
+	#stFabUFcta > a:focus{ 
+	outline:0; 
+	text-decoration:underline; 
+	} 
+	
+	a.g-text { 
+	top: 23%; 
+	left: 11% 
+	} 
+	#stFabGcta > a:focus{ 
+	outline:0; 
+	text-decoration:underline; 
+	} 
+	
+	a.faq-text { 
+	top: 20.5%; 
+	left: 22.5%; 
+	} 
+	#stFabFAQcta > a:focus{ 
+	outline:0; 
+	text-decoration:underline; 
+	} 
+	.component-infographiccarousel .sun-product-carousel {
+	background-image: none;
+	height: auto;
+	}
+	.component-infographiccarousel .sun-product-carousel .bx-next:before, .component-infographiccarousel .sun-product-carousel .bx-prev:before {
+    opacity: 1;
+}
+.component-infographiccarousel .sun-product-carousel .bx-next:before, .component-infographiccarousel .sun-product-carousel .bx-prev:before, .component-infographiccarousel .sun-product-carousel .bx-next:after, .component-infographiccarousel .sun-product-carousel .bx-prev:after {
+    color: #c94c06;
+}
+.component-infographiccarousel .sun-product-carousel .bx-next:before, .component-infographiccarousel .sun-product-carousel .bx-prev:before {
+    font-size: 27px;
+    line-height: 62px;
+}
+.component-infographiccarousel .sun-product-carousel .bx-wrapper .bx-controls-direction a.bx-prev{
+	text-indent: 3px;
+	z-index: 999;
+}
+.component-infographiccarousel .sun-product-carousel .bx-wrapper .bx-loading {
+	z-index: 1000;
+}
+.component-infographiccarousel .sun-product-carousel .bx-next::before {
+    font-family: sun-icons-UXd1Fq6;
+    display: inline-block;
+    font-weight: normal;
+    font-style: normal;
+    content: "";
+    text-decoration: inherit;
+}
+.component-infographiccarousel .sun-product-carousel .bx-next:before {
+	font-family: "sun-icons-UXd1Fq6";
+	content: "";
+	display: inline-block;
+	font-weight: normal;
+	font-style: normal;
+	text-decoration: inherit;	
+}
+.component-infographiccarousel .sun-product-carousel .bx-prev:before {
+	font-family: "sun-icons-UXd1Fq6";
+	content: "";
+	display: inline-block;
+	font-weight: normal;
+	font-style: normal;
+	text-decoration: inherit;	
+}
+.component-infographiccarousel .sun-product-carousel .bx-wrapper .bx-controls-direction a.bx-next {
+    left: auto;
+    right: 0;
+    -webkit-border-radius: 3px 0 0 3px;
+    -webkit-background-clip: padding-box;
+    -moz-border-radius: 3px 0 0 3px;
+    -moz-background-clip: padding;
+    border-radius: 3px 0 0 3px;
+    background-clip: padding-box;
+    text-indent: 3px;
+	z-index: 999;
+}
+.component-infographiccarousel .sun-product-carousel .bx-wrapper .bx-controls-direction a {
+    background: none;
+    -webkit-touch-callout: none;
+    -khtml-user-select: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-border-radius: 0 3px 3px 0;
+    -webkit-background-clip: padding-box;
+    -moz-border-radius: 0 3px 3px 0;
+    -moz-background-clip: padding;
+    border-radius: 0 3px 3px 0;
+    background-clip: padding-box;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -30px;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    overflow: hidden;
+    text-indent: -1px;
+}
+.bx-wrapper .InfoGraphicbxsliderAnimation li img {
+    max-width: 100%;
+    display: block;
+}
+.component-infographiccarousel .sun-product-carousel-slide-image {
+    width: 100%;
+    display: block;
+}
+.component-infographiccarousel .sun-product-carousel .bx-wrapper .bx-controls-direction a span {
+    position: absolute;
+    left: -9999px;
+}
+.component-infographiccarousel .sun-product-carousel-slide-content, .component-infographiccarousel .sun-product-carousel-slide-content a {
+    color: #fff;
+}
+.component-infographiccarousel .sun-product-carousel-infographic-CTA-text {
+    text-align: center;
+    text-decoration: underline;
+    width: 72%;
+    display: inline-block;
+    margin: 0 auto;
+}
+.component-infographiccarousel .sun-product-carousel-slide-wrapper {
+    max-width: 800px;
+    padding: 0 70px;
+    margin: 0 auto;
+}
+@media screen and (max-width: 450px){
+	.component-infographiccarousel .sun-product-carousel .bx-wrapper .bx-controls-direction a {
+		width: 25px;
+	}
+	.component-infographiccarousel .sun-product-carousel-infographic-CTA-text br{
+		content: ' ';
+	}
+	.component-infographiccarousel .sun-product-carousel-infographic-CTA-text br:after{
+		content: ' ';
+	}
+}
+@media screen and (max-width: 767px){
+	.component-infographiccarousel .sun-product-carousel .bx-wrapper .bx-controls-direction a {
+		margin-top: 0;
+		width: 35px;
+	}
+	.component-infographiccarousel .sun-product-carousel-infographic-CTA-text br{
+		content: ' ';
+	}
+	.component-infographiccarousel .sun-product-carousel-infographic-CTA-text br:after{
+		content: ' ';
+	}
+}
+
+@media screen and (max-width: 600px){
+.component-infographiccarousel .sun-product-carousel .bx-wrapper .bx-controls-direction a {
+    width: 30px;
+    height: 30px;
+    margin-top: -15px;
+}
+}
+@media only screen and (max-width: 740px){
+.component-infographiccarousel .sun-product-carousel-slide-wrapper {
+    height: 300px;
+}
+.component-infographiccarousel .sun-product-carousel .bx-wrapper .bx-controls-direction a.bx-next{
+	text-indent: 7px;
+}
+.component-infographiccarousel .sun-product-carousel .bx-wrapper .bx-controls-direction a.bx-prev {
+    text-indent: 5px;
+}
+}
+@media screen and (max-width: 600px){
+.sun-product-carousel-slide.with-hero-image {
+    height: auto;
+}
+}
+@media only screen and (min-width: 741px){
+.component-infographiccarousel .sun-product-carousel-slide.with-hero-image .sun-product-carousel-slide-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+}
+}
+@media screen and (max-width: 450px){
+.component-infographiccarousel .sun-product-carousel-infographic-CTA-text {
+    font-size: 13px;
+    line-height: 18px;
+}
+}
+@media screen and (max-width: 767px){
+.component-infographiccarousel .sun-product-carousel-infographic-CTA-text {
+    font-size: 16px;
+    line-height: 23px;
+}
+}
+@media screen and (max-width: 450px){
+.component-infographiccarousel .sun-product-carousel .bx-wrapper .bx-controls-direction a {
+    width: 25px;
+}
+}
+@media screen and (max-width: 767px){
+.component-infographiccarousel .sun-product-carousel .bx-wrapper .bx-controls-direction a {
+    margin-top: 0;
+    width: 35px;
+}
+}
+@media screen and (max-width: 600px){
+.component-infographiccarousel .sun-product-carousel .bx-next:before, .component-infographiccarousel .sun-product-carousel .bx-prev:before {
+    font-size: 13px;
+    line-height: 31px;
+}
+}
+@media (min-width: 768px) {
+    ul.InfoGraphicMobileView {
+        display:none;
+        
+    }
+	/*Start-US: 11234*/
+    ul.InfoGraphicDesktopView {  
+        display:block;
+    }    
+   /*End-US: 11234*/
+    .sun-product-carousel-infographic-CTA-text {
+         font-size: 14px;
+         line-height: 17px;
+     }
+    .sun-product-carousel-infographic-CTA {
+          position: relative;
+          float: right;
+          right: 0;
+          left: 0;
+          margin: 10px 3.5% 0 0;
+     }
+    .component-infographiccarousel .sun-product-carousel-slide-wrapper {
+        padding: 0;
+        max-width: 100%;
+		width: 100%;
+     }
+     .component-infographiccarousel .sun-product-carousel-products.pos-left {
+            float: right;
+     }
+     .sun-product-carousel-infographic-CTA-img {
+          width: 117px;
+          height: 117px;
+     }
+    .component-infographiccarousel .sun-product-carousel-products {
+        margin-top: 10px;
+    }
+    .component-infographiccarousel .sun-product-carousel .bx-wrapper .bx-controls-direction a {
+       width: 30px;
+       height: 58px;
+     }
+     .sun-product-carousel-infographic-CTA-textwrapper {
+        position: relative;
+        top: 20%;
+     }
+}
+
+@media (min-width: 900px) {
+    .sun-product-carousel-infographic-CTA-img {
+        width: 140px;
+        height: 140px;
+    }
+
+    .sun-product-carousel-infographic-CTA-text {
+         line-height: 22px;
+         font-size: 16px;
+     }
+}
+@media (min-width: 1025px) {
+    .sun-product-carousel-infographic-CTA {
+          margin: 10px 1% 0 0;
+     }
+    .sun-product-carousel-infographic-CTA-img {
+          width: 180px;
+          height: 180px;      
+     }
+     .sun-product-carousel-infographic-CTA-textwrapper {
+           position:absolute;
+           top: 25%;
+           text-align: center;
+      }
+     .sun-product-carousel-infographic-CTA-text {
+         width: 72%;
+         line-height: 27px;
+         font-size: 18px;
+     }
+     .component-infographiccarousel .sun-product-carousel-slide-wrapper {
+        max-width: 100%;
+        padding: 0 20px 0 0;
+     }
+     .component-infographiccarousel .sun-product-carousel .bx-wrapper .bx-pager {
+       display: block;
+     }
+}
+
+
+/*End us:11098*/
+
+/*Start:US12222*/
+@media screen and (max-width: 767px) {              
+    ul.InfoGraphicMobileView {
+        display:block;
+    }
+    /*US: 11234*/    
+    ul.InfoGraphicDesktopView {  
+        display:none;
+    }    
+    /*US: 11234*/
+   .component-infographiccarousel .sun-product-carousel-products {
+       margin-top: 15px;
+    }
+   .component-infographiccarousel .sun-product-carousel .bx-wrapper .bx-controls-direction a {
+       margin-top: 0px;
+       width: 35px;
+    }
+   .component-infographiccarousel .sun-product-carousel-slide.with-hero-image .sun-product-carousel-slide-content {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+   }
+    .component-infographiccarousel .sun-product-carousel-infographic-CTA {
+       position: relative;
+       float: right;
+       right: 0;
+       left: 0;
+    }
+    .component-infographiccarousel .sun-product-carousel-infographic-CTA-img {
+        width: 140px;
+        height: 140px;
+    }
+
+    .component-infographiccarousel .sun-product-carousel-infographic-CTA-text {
+        font-size: 16px;
+        line-height: 23px;
+    }
+    .component-infographiccarousel .sun-product-carousel-slide-wrapper {
+        padding: 0 30px 0 70px !important;
+     }
+
+    .component-infographiccarousel .sun-product-carousel {
+        height: auto;
+    }
+
+    .component-infographiccarousel .sun-product-carousel-infographic-CTA-textwrapper {
+          position: relative;
+          top: 20%;
+     }
+
+}
+
+@media screen and (max-width: 450px) {
+
+    .component-infographiccarousel .sun-product-carousel-infographic-CTA-text {
+        font-size: 13px;
+        line-height: 18px;
+    }
+    .component-infographiccarousel .sun-product-carousel-infographic-CTA-img {
+        width: 108px;
+        height: 108px;
+    }
+   .component-infographiccarousel .sun-product-carousel-products {
+     margin-top: 5px;
+   }
+
+   .component-infographiccarousel .sun-product-carousel-infographic-CTA {
+    left: 5%;
+    }
+
+    .component-infographiccarousel .sun-product-carousel .bx-wrapper .bx-controls-direction a {
+      width: 25px;
+    }
+}
+@media screen and (max-width: 800px) {
+
+    .component-infographiccarousel .sun-product-carousel-infographic-CTA-text br{
+		content: ' ';
+	}
+	.component-infographiccarousel .sun-product-carousel-infographic-CTA-text br:after{
+		content: ' ';
+	}
+}

@@ -1,0 +1,114 @@
+body.promopage-template {
+    padding-top: 0px;
+    margin: 0px;
+}
+.suntrust-local-nav.suntrust-local-nav-blue {
+    background-color: #003b71;
+    height: 60px;
+    background-image: none;
+}
+.suntrust-local-nav.suntrust-local-nav-blue {
+    background-color: #05345a;
+    background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgeG1sbnM9Imh0d�IxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjZ3JhZC11Y2dnLWdlbmVyYXRlZCkiIC8+PC9zdmc+);
+    background-image: -moz-linear-gradient(-90deg,#00467f,#05345a);
+    background-image: -webkit-linear-gradient(-90deg,#00467f,#05345a);
+    background-image: -o-linear-gradient(-90deg,#00467f,#05345a);
+    background-image: linear-gradient(180deg,#00467f,#05345a);
+}
+.suntrust-local-nav .suntrust-local-nav-inner.title-only {
+    display: none;
+}
+.row-border-bottom-gray {
+    border-bottom: 1px solid #e5e5e5;
+}
+.logo-container-left {
+	float: left;
+    width: 250px;
+    height: auto;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+.logo-container-right {
+    float: right;
+    padding: 25px 10px;
+}
+img#monup-logo {
+    width: 250px;
+    height: auto;
+}
+#company-logo {
+    max-width: 300px;
+    max-height: 100px;
+}
+.suntrust-momentum-heading-alt {
+    font-size: 40px!important;
+    line-height: 46px!important;
+    border: none;
+    margin-bottom: 0px!important;
+}
+.suntrust-momentum-body-heading {
+    font-size: 20px!important;
+    line-height: 24px!important;
+    margin-bottom: 20px!important;
+}
+.momentum-right-rail-content h3 {
+    font-size: 20px;
+    border: none;
+    line-height: 24px;
+    padding-bottom: 0px;
+    font-weight: bold;
+	margin-bottom: 20px;
+    margin-top:0px;
+}
+.momentum-right-rail-content  {
+	font-size:16px
+}
+.momentum-right-rail-content p {
+	margin-bottom: 20px;
+}
+.momentum-right-rail-content li {
+    margin-bottom: 10px;
+}
+.promo-section {
+    border: 1px #e5e5e5 solid;
+    margin: 20px auto;
+    padding: 15px 20px;
+    text-align: center;
+    color: #003b71;
+    width: 220px;
+}
+.promopage-template .suntrust-img-text-container .disclaimer-border p {
+    padding: 0;
+    border-top: none;
+    margin: 0 auto;
+}
+.promopage-template .suntrust-img-text-container p:nth-child(1){
+    margin-bottom:20px;
+}
+/* .promopage-template .imagetext {
+    padding: 0;
+    margin:0 0 20px;        
+}*/
+.promopage-template .suntrust-img-text-container .suntrust-image-container {
+    width:170px;
+    float:right;  
+    margin: 0 auto;
+}
+.promopage-template .analytics-placeholder{
+    display:none;
+}
+/*.promopage-template .suntrust-disclaimer-border{
+	border:none;
+}*/
+/*DEV2 */
+.promopage-template .suntrust-text-container{
+    width:100%;
+    margin:0px;
+}
+.promopage-template .suntrust-img-text-container .sun-body-component{
+    margin-bottom:10px;
+}
+.promopage-template .imagetext {
+    padding: 0;
+    margin:0;
+}

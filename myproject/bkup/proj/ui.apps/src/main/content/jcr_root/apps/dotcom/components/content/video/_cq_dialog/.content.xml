@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Video Component dialog"
+    sling:resourceType="cq/gui/components/authoring/dialog"
+    helpPath="https://www.adobe.com/go/aem6_2_docs_component_en#Text &amp; Image - Sightly">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/foundation/container">
+        <layout
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/foundation/layouts/tabs"
+            type="nav"/>
+        <items jcr:primaryType="nt:unstructured">
+            <configs
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Transcript Content Details"
+                sling:resourceType="granite/ui/components/foundation/section">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <readTranscriptButtonLabel
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Set Label for Read Transcription Button Here"
+                                fieldLabel="ShowTranscript - ButtonLabel"
+                                name="./readTranscriptButtonLabel"/>
+                            <hideTranscriptButtonLabel
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Set Label for Hide Transcription Button Here"
+                                fieldLabel="HideTranscript - ButtonLabel"
+                                name="./hideTranscriptButtonLabel"/>
+                            <hidetitle
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                                defaultChecked="{Boolean}true"
+                                fieldDescription="Checking the box will hide the title."
+                                fieldLabel="Hide Title?"
+                                name="./hidetitle"
+                                text="Hide Title?"
+                                uncheckedValue="false"
+                                value="true"/>
+                            <hidedesc
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                                defaultChecked="{Boolean}true"
+                                fieldDescription="Checking the box will hide the description."
+                                fieldLabel="Hide Description?"
+                                name="./descriptioncheckbox"
+                                text="Hide Description?"
+                                uncheckedValue="false"
+                                value="true"/>
+                            <hidedisc
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                                defaultChecked="{Boolean}true"
+                                fieldDescription="Checking the box will hide the disclaimer."
+                                fieldLabel="Hide Disclaimer?"
+                                name="./disclaimercheckbox"
+                                text="Hide Disclaimer?"
+                                uncheckedValue="false"
+                                value="true"/>
+                        </items>
+                    </column>
+                </items>
+            </configs>
+        </items>
+    </content>
+</jcr:root>

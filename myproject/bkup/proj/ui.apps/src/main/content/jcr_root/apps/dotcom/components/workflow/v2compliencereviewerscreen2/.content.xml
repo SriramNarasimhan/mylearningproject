@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:description="V2 Compliance Reviewer Selection"
+    jcr:primaryType="cq:Component"
+    jcr:title="V2 Compliance Reviewer Selection"
+    componentGroup=".hidden"
+    touchUiDialogPath="/apps/dotcom/components/workflow/v2compliencereviewerscreen2/cq:dialog"/>

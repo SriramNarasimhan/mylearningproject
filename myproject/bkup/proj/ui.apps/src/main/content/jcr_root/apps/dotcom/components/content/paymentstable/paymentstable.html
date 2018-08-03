@@ -1,0 +1,91 @@
+<!--/* Adds a Payments component */-->
+<div data-sly-test="${wcmmode.edit || wcmmode.design}" >Configure Payments Table Component</div>
+<sly data-sly-use.servletpath="${'com.suntrust.dotcom.utils.STELConfigServiceUse' @ property='rpx.paymentstable.servlet.config.path'}"/>
+<input type="hidden" name="paymentstableservlet" value="${servletpath.getProperty}"/>
+<input type="hidden" name="productType" value="${properties.producttype}"/>
+<input type="hidden" name="column2heading" value="${properties.column2heading}"/>
+<input type="hidden" name="column3heading" value="${properties.column3heading}"/>
+<input type="hidden" name="row1label" value="${properties.row1label}"/>
+<input type="hidden" name="row2label" value="${properties.row2label}"/>
+<input type="hidden" name="row3label" value="${properties.row3label}"/>
+<input type="hidden" name="row4label" value="${properties.row4label}"/>
+<input type="hidden" name="row5label" value="${properties.row5label}"/>
+<input type="hidden" name="row6label" value="${properties.row6label}"/>
+<input type="hidden" name="row7label" value="${properties.row7label}"/>
+<input type="hidden" name="row8label" value="${properties.row8label}"/>
+<sly data-sly-use.genericUtil="${'com.suntrust.dotcom.utils.GenericUtil' @ pagePath=servletpath.getProperty, urlParam=request.requestParameterMap['archived-json-name'][0].toString}" data-sly-test="${genericUtil.getResolvedPageUrl}">
+	<input type="hidden" name="rpxjsonpath" value="${genericUtil.getResolvedPageUrl}"/>	
+</sly>
+
+<div class="component-externalformdetail sun-component suntrust-searchForm suntrust-repaymentOption">
+	<div class="sun-body-component component-bodytext suntrust-textrepayment">
+		${properties.tabledescription @ context='html'}
+	</div>
+	
+	<div class="sun-body-component">
+		<div class="suntrust-repaymentOption-main">
+			<form target="blank" action="" class="suntrust-repaymentOption-form" id="repaymentOptionForm" method="get">
+				
+				<div class="field">
+					<div class="select-rateType">
+						<label for="rateType" class="repaymentOptionLabel">${properties.ratetype @ context='html'}</label>
+						<select id="rateType" name="rateType">
+							<option value="LIBORM25">Variable</option>
+							<option value="FIXED">Fixed</option>
+						</select>
+					</div>				
+				</div>				
+				<div class="field">	
+					<div class="select-term">
+						<label for="term" class="repaymentOptionLabel">${properties.term @ context='html'}</label>								
+						<select id="term" name="term">
+							<option value="84">7 years (84 months)</option>
+							<option value="120">10 years (120 months)</option>
+							<sly data-sly-test="${properties.producttype != 'STGBL1'}">
+								<option value="180">15 years (180 months)</option>
+							</sly>
+						</select>								
+					</div>
+				</div>				
+				<div class="field">	
+					<div class="select-repaymentOption">
+						<label for="repaymentOption" class="repaymentOptionLabel">${properties.repaymentoption @ context='html'}</label>								
+						<select id="repaymentOption" name="repaymentOption">
+							<option value="IM">Immediate Repayment</option>
+							<option value="IO">Interest Only</option>
+							<option value="PI">Partial Interest</option>
+							<option value="DF">In-School Deferment</option>
+						</select>								
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="repaymentOption-table-desktop hidden-xs">
+        <div class="noResultsFound hide"><p>No data found</p></div>
+		<table class="table repaymentOption-table" id="rptable">
+			<thead aria-hidden="true" class="table_header_ADA suntrust-accessible-text">
+				<tr>
+					<th scope="col">Payment Table Description</th>
+					<th scope="col">Lowest Rate</th>
+					<th scope="col">Highest Rate</th>
+				</tr>
+			</thead>
+			<tbody></tbody>
+		</table>
+	</div>
+	<div class="visible-xs repayment-mobiletable">
+        <div class="noResultsFound hide"><p>No data found</p></div>
+	<table id="rpTableMobile">
+		<thead aria-hidden="true" class="table_header_ADA suntrust-accessible-text">
+			<tr>
+				<th scope="col">Payment Table Description</th>
+			</tr>
+		</thead>
+		<tbody></tbody>
+	</table>
+	</div>
+	<div class="suntrust-repayment-disclaimer">
+		${properties.disclaimer @ context='html'}
+	</div>
+</div>

@@ -1,0 +1,133 @@
+<!--/* Adds a Product Section component */-->
+<div data-sly-test="${wcmmode.edit || wcmmode.design}" >Configure Product Section Component</div>
+<div data-sly-use.mbeanObj="${'com.suntrust.dotcom.components.OpenAnAccountComponent'}" data-sly-unwrap></div>
+<sly data-sly-test.buttonInvocaFlagCheck="${properties.invocaFlagCheckbox}" />
+
+
+<sly data-sly-use.configServiceUse="${'com.suntrust.dotcom.utils.ConfigServiceUse' @ property='open.account.template.path'}"/>
+<sly data-sly-test.openAccountTemplateFlag="${pageProperties['cq:template'] == configServiceUse.property}"/>
+
+<sly data-sly-test.openAccountTemplateData="${openAccountTemplateFlag ? 'true' : 'false'}" />
+
+<div class = "analytics-placeholder">
+<div data-sly-test="${properties.heading}" data-sly-unwrap>
+	<div class="suntrust-compare-section-heading"><h2><strong>${properties.heading @ context='html'}</strong></h2></div>
+</div>
+<ul class="suntrust-accounts-comparison-list clearfix" data-suntrust-class="compare-account-list">
+	<div data-sly-test="${mbeanObj.mBean && properties.productitems}" data-sly-unwrap>
+		<div data-sly-list.products="${mbeanObj.mBean}" data-sly-unwrap>
+			<div data-sly-test="${productsList.index == 0}" data-sly-list.itemsList="${products.items}" data-sly-unwrap>
+				<li class="${itemsList.bodercolor=='blue' ? 'suntrust-accounts-comparison-list-item highlighted' : 'suntrust-accounts-comparison-list-item'}">
+					<div class="suntrust-accounts-comparison-list-item-wrapper">
+						<div data-sly-test="${itemsList.splcallout !=''}" data-sly-unwrap>
+							<div class="suntrust-compare-tag-with-check">
+								<span class="suntrust-compare-header-product-set suntrust-product-set--orange">${itemsList.splcallout @ context='html'} 
+								<span class="suntrust-accessible-text">${itemsList.splcallout @ context='html'}</span></span>
+							</div>
+						</div>
+						<div data-sly-test="${itemsList.productlinktext !=''}" data-sly-unwrap>
+							<div class="suntrust-compare-header">
+							<div class="analytics-placeholder" style="display: none">${itemsList.productlinktext @ context='html'}</div>
+								
+								<label for="">
+									<div data-sly-test="${itemsList.producturl !=''}" data-sly-unwrap>
+										<sly data-sly-test="${buttonInvocaFlagCheck}">
+											<span class="suntrust-invoca-hide">
+												<a title="${itemsList.producttitletag}" href="${itemsList.productfullurl}" target="${itemsList.producttarget}" class="suntrust-compare-header-title ">${itemsList.productlinktext @ context='html'}
+												</a>
+											</span>
+										</sly>
+										<sly data-sly-test="${!buttonInvocaFlagCheck}">											
+											<a title="${itemsList.producttitletag}" href="${itemsList.productfullurl}" target="${itemsList.producttarget}" class="suntrust-compare-header-title ">${itemsList.productlinktext @ context='html'}
+											</a>											
+										</sly>
+									</div>
+									<div data-sly-test="${itemsList.producturl ==''}" data-sly-unwrap>
+										<p class="suntrust-compare-header-title ">${itemsList.productlinktext @ context='html'}</p>
+									</div>
+									<span></span>
+								</label>
+							</div>
+						</div>
+						<div class="suntrust-account-desc">
+							<div>
+								${itemsList.productdescription @ context='html'}
+								<div data-sly-test="${itemsList.additionalproductlinktext !=''}" data-sly-unwrap>
+									<span>
+										<div data-sly-test="${itemsList.producturl !=''}" data-sly-unwrap>
+											<sly data-sly-test="${buttonInvocaFlagCheck}">
+												<span class="suntrust-invoca-hide">
+													<a title="${itemsList.producttitletag}" href="${itemsList.productfullurl}" target="${itemsList.producttarget}">
+														<strong>${itemsList.additionalproductlinktext @ context='html'}</strong>
+													</a>
+												</span>
+											</sly>
+											<sly data-sly-test="${!buttonInvocaFlagCheck}">												
+												<a title="${itemsList.producttitletag}" href="${itemsList.productfullurl}" target="${itemsList.producttarget}">
+													<strong>${itemsList.additionalproductlinktext @ context='html'}</strong>
+												</a>												
+											</sly>
+										</div>
+										<div data-sly-test="${itemsList.producturl ==''}" data-sly-unwrap>
+											<p><strong>${itemsList.additionalproductlinktext @ context='html'}</strong></p>
+										</div>
+									</span>
+								</div>
+							</div>
+						</div>
+						<div data-sly-test="${itemsList.ctatext !=''}" data-sly-unwrap>
+							<div class="suntrust-compare-item-button-container text-center">
+								<sly data-sly-test="${buttonInvocaFlagCheck}">
+									<span class="suntrust-invoca-hide">
+										<a class="${itemsList.ctatheme}" title="${itemsList.ctatitletag}" target="${itemsList.ctatarget}" data-open-account-template-flag = "${openAccountTemplateData}" href="${itemsList.ctalinkurl=='' ? '' : itemsList.ctalinkfullurl}">
+											<span class="suntrust-accessible-text">${itemsList.ctatext @ context='html'}</span>${itemsList.ctatext @ context='html'}											
+										</a>
+									</span>
+								</sly>
+								<sly data-sly-test="${!buttonInvocaFlagCheck}">									
+									<a class="${itemsList.ctatheme}" title="${itemsList.ctatitletag}" target="${itemsList.ctatarget}" data-open-account-template-flag = "${openAccountTemplateData}" href="${itemsList.ctalinkurl=='' ? '' : itemsList.ctalinkfullurl}">
+										<span class="suntrust-accessible-text">${itemsList.ctatext @ context='html'}</span>${itemsList.ctatext @ context='html'}										
+									</a>									
+								</sly>
+							</div>
+						</div>
+					</div>
+				</li>								
+			</div>
+		</div>
+	</div>						
+</ul>
+</div>		
+
+<!-- 
+THIS PIECE OF ANALYTICS CODE IS MOVED TO ENSIGTHEN.
+THIS SECTION OF CODE SHOULD NEVER BE DELETED AND SHOULD BE ALWAYS COMMENTED.
+THIS CODE IS FOR REFERENCE PURPOSE ONLY.
+
+<script>
+
+$(document).ready(function(){
+	
+$("a").on("click", function() {
+	
+		var openAccTemplateCheck = $(this).data('open-account-template-flag');		
+		if(openAccTemplateCheck)
+		{
+     console.log("Open an Account component - Analytics Tracking");	
+			var heading = $(this).closest(".analytics-placeholder").find(".suntrust-compare-section-heading").text();	
+			
+			heading = (heading != null) ? heading.replace(/ /g,'') : '';
+			
+			var title = $(this).closest("li").find("div.suntrust-compare-header .analytics-placeholder").text();
+			
+			title = (title != null) ? title.replace(/ /g,'') : '';
+			
+			var linkName = 'openacc' + '_' + heading + '_' + title;			
+				
+			s.tl(this, 'o', linkName);
+		}
+	
+	});
+	
+});
+</script> -->

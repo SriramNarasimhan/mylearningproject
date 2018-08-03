@@ -1,0 +1,70 @@
+<!--/*
+    Copyright 2016 Adobe Systems Incorporated
+  
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+  
+        http://www.apache.org/licenses/LICENSE-2.0
+  
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+*/-->
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <sly data-sly-include="head.html"/>
+		<sly data-sly-use.scriptPath="${'com.suntrust.dotcom.utils.ConfigServiceUse' @ property='easylink.script.path'}" />
+		<sly data-sly-test="${scriptPath.property}">
+			<script type="text/javascript" src="${scriptPath.property}"></script>
+		</sly>
+		<!--– mp_snippet_begins -->
+		<script>
+		MP.UrlLang='mp_js_current_lang';
+		MP.SrcUrl=decodeURIComponent('mp_js_orgin_url');
+		MP.oSite=decodeURIComponent('mp_js_origin_baseUrl');
+		MP.tSite=decodeURIComponent('mp_js_translated_baseUrl');
+		MP.init();
+		var mp_langLink = function() {
+		    var langlinks = document.querySelectorAll('.langLink');
+		    for (var i = 0; i < langlinks.length; i++) {
+		        langlinks.item(i).onclick = function() {
+		            MP.init();
+		            var lang = this.getAttribute('data-lang');
+		            var url = this.getAttribute('data-href');
+		            var tSite = MP.tSite.replace(/(https?:\/\/|\/?$)/g,'');
+		            url = url.replace(/(https?:\/\/|\/?$)/g,'');
+		            MP.switchLanguage(tSite.search(url)!=-1?MP.oSite:url, lang, true);
+		            return false;
+		        }
+		    }
+		};
+		if(window.addEventListener){
+			window.addEventListener('load',mp_langLink,false);
+		}else if(window.attachEvent){
+			window.attachEvent('onload',mp_langLink);
+		}
+		</script>
+		<!--– mp_snippet_ends -->
+    </head>
+    <body>
+    	<sly data-sly-include="analytics.html"/>
+    	<sly data-sly-use.newWindow="${'com.suntrust.dotcom.utils.ConfigServiceUse' @ property='openNewWindowAlert'}"/>
+        <input type="hidden" class="newWindowAlertSwitch" value="${newWindow.property}"/> 
+        <sly data-sly-use.genericUtil="${'com.suntrust.dotcom.utils.GenericUtil' @ pagePath='/content/suntrust/dotcom/us/configuration/rpx/_jcr_content.json', urlParam=request.requestParameterMap['archived-json-name'][0].toString}" data-sly-test="${genericUtil.getResolvedPageUrl}">
+			<input type="hidden" class="rpx-canonical-url" name="rpx-canonical-url" value="${genericUtil.getResolvedPageUrl}">	
+		</sly>
+		<a href="/suntrustbanks" rel="no-follow" style="display:none" aria-hidden="true">suntrustbanks</a>
+       <div class="sun-page" data-suntrust-class="suntrust-page" id="suntrust-page">
+        <sly data-sly-include="body.html"/>
+        <!-- Modal popup div start-->
+        <sly data-sly-use.clientlibMainjs="/libs/granite/sightly/templates/clientlib.html" />
+		<sly data-sly-call="${clientlibMainjs.js @ categories='dotcom.main'}" />
+       </div>
+		<sly data-sly-include="/apps/dotcom/components/page/page/modal.html"/>
+		<sly data-sly-include="/apps/dotcom/components/page/page/alert.html"/>		
+    </body>
+</html>

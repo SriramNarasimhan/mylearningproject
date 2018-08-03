@@ -1,0 +1,634 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Search Results"
+    sling:resourceType="cq/gui/components/authoring/dialog"
+    extraClientlibs="[suntrust.mobile.external.link]"
+    mode="edit"
+    helpPath="https://www.adobe.com/go/aem_cmp_list_v1">
+    <content
+        granite:class="core-wcm-list-v1"
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <general
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="General"
+                        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <column
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <show-more-cta
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                        fieldDescription="Sets the CTA label for &quot;Show More Results&quot; CTA."
+                                        fieldLabel="Show More CTA*"
+                                        name="./showMoreCta"
+                                        required="{Boolean}true"/>
+                                    <page-size
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="/libs/granite/ui/components/foundation/form/numberfield"
+                                        fieldDescription="Set the default page size for the results"
+                                        fieldLabel="Page Size*"
+                                        min="{Long}0"
+                                        name="./pagesize"
+                                        required="{Boolean}true"/>
+                                    <select-all-text
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                        fieldDescription="Sets the select all link label which is used to select all filter options"
+                                        fieldLabel="Select All Text*"
+                                        name="./selectAllText"
+                                        required="{Boolean}true"/>
+                                    <select-none-text
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                        fieldDescription="Sets the select none link label which is used to de-select all filter options"
+                                        fieldLabel="Select None Text*"
+                                        name="./selectNoneText"
+                                        required="{Boolean}true"/>
+                                </items>
+                            </column>
+                        </items>
+                    </general>
+                    <all-results
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="All Results"
+                        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <column
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <search-navbar-title
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                        fieldDescription="Sets the Navbar label which is used to navigate between the search results"
+                                        fieldLabel="Navbar Text*"
+                                        name="./allResultsNavbarText"
+                                        required="{Boolean}true"/>
+                                    <number-of-promo-components
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="/libs/granite/ui/components/foundation/form/numberfield"
+                                        fieldDescription="Sets the number of promo components allowed in parsys."
+                                        fieldLabel="Allowed Promo Components*"
+                                        min="{Long}0"
+                                        name="./numberOfPromoComponentsInAllResults"
+                                        required="{Boolean}true"/>
+                                    <no-result
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/form/textarea"
+                                        fieldDescription="Set the descriptive text during no match scenario"
+                                        fieldLabel="No Result Text During Search*"
+                                        name="./allResultsNoResultText"
+                                        required="{Boolean}true"/>
+                                    <help-center-label
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                        fieldDescription="Sets the help center link during no result scenario"
+                                        fieldLabel="Help Center Label*"
+                                        name="./allResultsHelpCenterLabel"
+                                        required="{Boolean}true"/>
+                                    <help-center-url
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                        allowBlank="{Boolean}false"
+                                        fieldDescription="Sets the help center link during no result scenario"
+                                        fieldLabel="Help Center URL*"
+                                        name="./allResultsLinkURL"
+                                        required="{Boolean}true"
+                                        rootPath="/content"/>
+                                </items>
+                            </column>
+                        </items>
+                    </all-results>
+                    <location
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Location"
+                        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <column
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <search-navbar-title
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                        fieldDescription="Sets the Navbar label which is used to navigate between the search results"
+                                        fieldLabel="Navbar Text*"
+                                        name="./locationNavbarText"
+                                        required="{Boolean}true"/>
+                                    <filter-categories-main-label
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                        fieldDescription="Sets the label for &quot;Search Location Results&quot; text."
+                                        fieldLabel="Left Rail Headline text*"
+                                        name="./locationLeftRailText"
+                                        required="{Boolean}true"/>
+                                    <no-result
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/form/textarea"
+                                        fieldDescription="Set the descriptive text during no match scenario"
+                                        fieldLabel="No Result Text During Search*"
+                                        name="./locationNoResultText"
+                                        required="{Boolean}true"/>
+                                    <no-result-during-filter
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/form/textarea"
+                                        fieldDescription="Set the descriptive text during no match scenario while doing filtering"
+                                        fieldLabel="No Result Text During Filter*"
+                                        name="./locationNoResultTextForFilter"
+                                        required="{Boolean}true"/>
+                                    <help-center-label
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                        fieldDescription="Sets the help center link during no result scenario"
+                                        fieldLabel="Help Center Label*"
+                                        name="./locationHelpCenterLabel"
+                                        required="{Boolean}true"/>
+                                    <help-center-url
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                        allowBlank="{Boolean}false"
+                                        fieldDescription="Sets the help center link during no result scenario"
+                                        fieldLabel="Help Center URL*"
+                                        name="./locationLinkURL"
+                                        required="{Boolean}true"
+                                        rootPath="/content"/>
+                                </items>
+                            </column>
+                        </items>
+                    </location>
+                    <people
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="People"
+                        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <column
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <search-navbar-title
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                        fieldDescription="Sets the Navbar label which is used to navigate between the search results"
+                                        fieldLabel="Navbar Text*"
+                                        name="./peopleNavbarText"
+                                        required="{Boolean}true"/>
+                                    <filter-categories-main-label
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                        fieldDescription="Sets the label for &quot;Search People Results&quot; text."
+                                        fieldLabel="Left Rail Headline text*"
+                                        name="./peopleLeftRailText"
+                                        required="{Boolean}true"/>
+                                    <no-result
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/form/textarea"
+                                        fieldDescription="Set the descriptive text during no match scenario"
+                                        fieldLabel="No Result Text During Search*"
+                                        name="./peopleNoResultText"
+                                        required="{Boolean}true"/>
+                                    <no-result-during-filter
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/form/textarea"
+                                        fieldDescription="Set the descriptive text during no match scenario while doing filtering"
+                                        fieldLabel="No Result Text During Filter*"
+                                        name="./peopleNoResultTextForFilter"
+                                        required="{Boolean}true"/>
+                                    <help-center-label
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                        fieldDescription="Sets the help center link during no result scenario"
+                                        fieldLabel="Help Center Label*"
+                                        name="./peopleHelpCenterLabel"
+                                        required="{Boolean}true"/>
+                                    <help-center-url
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                        allowBlank="{Boolean}false"
+                                        fieldDescription="Sets the help center link during no result scenario"
+                                        fieldLabel="Help Center URL*"
+                                        name="./peopleLinkURL"
+                                        required="{Boolean}true"
+                                        rootPath="/content"/>
+                                    <customIcon
+										jcr:primaryType="nt:unstructured"
+										sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+										allowBlank="{Boolean}true"
+										fieldDescription="Sets an icon for Custom Message"
+										fieldLabel="Custom Message Icon"
+										name="./icon"
+										rootPath="/content/dam"/>
+                                    <customMessage
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                        fieldDescription="Enter Custom Message"
+                                        fieldLabel="Custom Message"
+                                        name="./customMessage"
+                                        useFixedInlineToolbar="{Boolean}true">
+                                        <htmlRules jcr:primaryType="nt:unstructured">
+                                            <serializer jcr:primaryType="nt:unstructured">
+                                                <config
+                                                    jcr:primaryType="nt:unstructured"
+                                                    idAttribMode="keep"/>
+                                            </serializer>
+                                            <docType jcr:primaryType="nt:unstructured">
+                                                <typeConfig
+                                                    jcr:primaryType="nt:unstructured"
+                                                    useSemanticMarkup="{Boolean}true"/>
+                                            </docType>
+                                        </htmlRules>
+                                        <uiSettings jcr:primaryType="nt:unstructured">
+                                            <cui jcr:primaryType="nt:unstructured">
+                                                <inline
+                                                    jcr:primaryType="nt:unstructured"
+                                                    toolbar="[format#bold,format#italic,format#underline,subsuperscript#subscript,subsuperscript#superscript,-,links#modifylink,links#unlink,links#anchor,tracklinks#modifylinktracking,-,justify#justifyleft,justify#justifycenter,justify#justifyright,-,image#imageProps,-,lists#unordered,lists#ordered,lists#outdent,lists#indent,-,misctools#sourceedit,misctools#specialchars,-,findreplace#find,findreplace#replace,-,edit#cut,edit#copy,edit#paste-default,edit#paste-plaintext,edit#paste-wordhtml,-,spellcheck#checktext,-,#paraformat,-,#styles,-,table#table,table#removetable,table#insertrow,table#removerow,table#insertcolumn,table#removecolumn,table#splitcell,table#selectrow,table#selectcolumns,-]">
+                                                    <popovers jcr:primaryType="nt:unstructured">
+                                                        <justify
+                                                            jcr:primaryType="nt:unstructured"
+                                                            items="[justify#justifyleft,justify#justifycenter,justify#justifyright]"
+                                                            ref="justify"/>
+                                                        <lists
+                                                            jcr:primaryType="nt:unstructured"
+                                                            items="[lists#unordered,lists#ordered,lists#outdent,lists#indent]"
+                                                            ref="lists"/>
+                                                        <paraformat
+                                                            jcr:primaryType="nt:unstructured"
+                                                            items="paraformat:getFormats:paraformat-pulldown"
+                                                            ref="paraformat"/>
+                                                        <styles
+                                                            jcr:primaryType="nt:unstructured"
+                                                            items="styles:getStyles:styles-pulldown"
+                                                            ref="styles"/>
+                                                    </popovers>
+                                                </inline>
+                                                <dialogFullScreen
+                                                    jcr:primaryType="nt:unstructured"
+                                                    toolbar="[format#bold,format#italic,format#underline,subsuperscript#subscript,subsuperscript#superscript,-,links#modifylink,links#unlink,links#anchor,tracklinks#modifylinktracking,-,justify#justifyleft,justify#justifycenter,justify#justifyright,-,image#imageProps,-,lists#unordered,lists#ordered,lists#outdent,lists#indent,-,misctools#sourceedit,misctools#specialchars,-,findreplace#find,findreplace#replace,-,edit#cut,edit#copy,edit#paste-default,edit#paste-plaintext,edit#paste-wordhtml,-,spellcheck#checktext,-,#paraformat,-,#styles,-,table#table,table#removetable,table#insertrow,table#removerow,table#insertcolumn,table#removecolumn,table#splitcell,table#selectrow,table#selectcolumns,-]">
+                                                    <popovers jcr:primaryType="nt:unstructured">
+                                                        <justify
+                                                            jcr:primaryType="nt:unstructured"
+                                                            items="[justify#justifyleft,justify#justifycenter,justify#justifyright]"
+                                                            ref="justify"/>
+                                                        <lists
+                                                            jcr:primaryType="nt:unstructured"
+                                                            items="[lists#unordered,lists#ordered,lists#outdent,lists#indent]"
+                                                            ref="lists"/>
+                                                        <paraformat
+                                                            jcr:primaryType="nt:unstructured"
+                                                            items="paraformat:getFormats:paraformat-pulldown"
+                                                            ref="paraformat"/>
+                                                        <styles
+                                                            jcr:primaryType="nt:unstructured"
+                                                            items="styles:getStyles:styles-pulldown"
+                                                            ref="styles"/>
+                                                    </popovers>
+                                                </dialogFullScreen>
+                                            </cui>
+                                        </uiSettings>
+                                        <rtePlugins jcr:primaryType="nt:unstructured">
+                                            <format
+                                                jcr:primaryType="nt:unstructured"
+                                                features="*"/>
+                                            <justify
+                                                jcr:primaryType="nt:unstructured"
+                                                features="*"/>
+                                            <lists
+                                                jcr:primaryType="nt:unstructured"
+                                                features="*"/>
+                                            <paraformat
+                                                jcr:primaryType="nt:unstructured"
+                                                features="*">
+                                                <formats jcr:primaryType="cq:WidgetCollection">
+                                                    <paragraph
+                                                        jcr:primaryType="nt:unstructured"
+                                                        description="Paragraph"
+                                                        tag="p"/>
+                                                    <h1
+                                                        jcr:primaryType="nt:unstructured"
+                                                        description="Heading 1"
+                                                        tag="h1"/>
+                                                    <h2
+                                                        jcr:primaryType="nt:unstructured"
+                                                        description="Heading 2"
+                                                        tag="h2"/>
+                                                    <h3
+                                                        jcr:primaryType="nt:unstructured"
+                                                        description="Heading 3"
+                                                        tag="h3"/>
+                                                    <h4
+                                                        jcr:primaryType="nt:unstructured"
+                                                        description="Heading 4"
+                                                        tag="h4"/>
+                                                    <h5
+                                                        jcr:primaryType="nt:unstructured"
+                                                        description="Heading 5"
+                                                        tag="h5"/>
+                                                    <h6
+                                                        jcr:primaryType="nt:unstructured"
+                                                        description="Heading 6"
+                                                        tag="h6"/>
+                                                </formats>
+                                            </paraformat>
+                                            <links
+                                                jcr:primaryType="nt:unstructured"
+                                                features="*"/>
+                                            <misctools
+                                                jcr:primaryType="nt:unstructured"
+                                                features="*">
+                                                <specialCharsConfig jcr:primaryType="nt:unstructured">
+                                                    <chars jcr:primaryType="nt:unstructured">
+                                                        <ampersand
+                                                            jcr:primaryType="nt:unstructured"
+                                                            entity="&amp;#38;"/>
+                                                        <endash
+                                                            jcr:primaryType="nt:unstructured"
+                                                            entity="&amp;#150;"/>
+                                                        <emdash
+                                                            jcr:primaryType="nt:unstructured"
+                                                            entity="&amp;#151;"/>
+                                                        <copyright
+                                                            jcr:primaryType="nt:unstructured"
+                                                            entity="&amp;#169;"/>
+                                                        <registeredtrademark
+                                                            jcr:primaryType="nt:unstructured"
+                                                            entity="&amp;#174;"/>
+                                                        <servicemark
+                                                            jcr:primaryType="nt:unstructured"
+                                                            entity="&amp;#8480;"/>
+                                                        <trademark
+                                                            jcr:primaryType="nt:unstructured"
+                                                            entity="&amp;#8482;"/>
+                                                        <centsign
+                                                            jcr:primaryType="nt:unstructured"
+                                                            entity="&amp;#162;"/>
+                                                        <pound
+                                                            jcr:primaryType="nt:unstructured"
+                                                            entity="&amp;#163;"/>
+                                                        <currencysign
+                                                            jcr:primaryType="nt:unstructured"
+                                                            entity="&amp;#164;"/>
+                                                        <yensign
+                                                            jcr:primaryType="nt:unstructured"
+                                                            entity="&amp;#165;"/>
+                                                        <euro
+                                                            jcr:primaryType="nt:unstructured"
+                                                            entity="&amp;#8364;"/>
+                                                        <left-pointingdoubleanglequotationmark
+                                                            jcr:primaryType="nt:unstructured"
+                                                            entity="&amp;#171;"/>
+                                                        <rightanglequote
+                                                            jcr:primaryType="nt:unstructured"
+                                                            entity="&amp;#187;"/>
+                                                        <dagger
+                                                            jcr:primaryType="nt:unstructured"
+                                                            entity="&amp;#8224;"/>
+                                                        <doubledagger
+                                                            jcr:primaryType="nt:unstructured"
+                                                            entity="&amp;#8225;"/>
+                                                        <feminineordinalindicator
+                                                            jcr:primaryType="nt:unstructured"
+                                                            entity="&amp;#170;"/>
+                                                        <registration
+                                                            jcr:primaryType="nt:unstructured"
+                                                            entity="&amp;#174;"/>
+                                                    </chars>
+                                                </specialCharsConfig>
+                                            </misctools>
+                                            <fullscreen
+                                                jcr:primaryType="nt:unstructured"
+                                                features="*"/>
+                                            <edit
+                                                jcr:primaryType="nt:unstructured"
+                                                features="*"/>
+                                            <findreplace
+                                                jcr:primaryType="nt:unstructured"
+                                                features="*"/>
+                                            <spellcheck
+                                                jcr:primaryType="nt:unstructured"
+                                                features="*"/>
+                                            <subsuperscript
+                                                jcr:primaryType="nt:unstructured"
+                                                features="*"/>
+                                            <styles
+                                                jcr:primaryType="nt:unstructured"
+                                                features="*">
+                                                <styles jcr:primaryType="cq:WidgetCollection">
+                                                    <catbtn
+                                                        jcr:primaryType="nt:unstructured"
+                                                        cssName="suntrust-promo-cta-button"
+                                                        text="Promo CTA Button"/>
+                                                    <catbtnwhite
+                                                        jcr:primaryType="nt:unstructured"
+                                                        cssName="suntrust-promo-cta-button-white"
+                                                        text="Promo CTA Button White"/>
+                                                    <catbtnblue
+                                                        jcr:primaryType="nt:unstructured"
+                                                        cssName="suntrust-promo-cta-button-blue"
+                                                        text="Promo CTA Button Blue"/>
+                                                    <secbtn
+                                                        jcr:primaryType="nt:unstructured"
+                                                        cssName="suntrust-promo-cta-button-blue"
+                                                        text="Secondary Button"/>
+                                                    <cardcopy
+                                                        jcr:primaryType="nt:unstructured"
+                                                        cssName="card-copy strong.highlight"
+                                                        text="Card Copy Strong Highlight"/>
+                                                    <ctalink
+                                                        jcr:primaryType="nt:unstructured"
+                                                        cssName="suntrust-openanaccount-CTA-link"
+                                                        text="Open AC CTA Link"/>
+                                                    <formheading
+                                                        jcr:primaryType="nt:unstructured"
+                                                        cssName="suntrust-form-heading suntrust-lookup-form-heading"
+                                                        text="Form Heading"/>
+                                                </styles>
+                                            </styles>
+                                            <table
+                                                jcr:primaryType="nt:unstructured"
+                                                features="*"/>
+                                        </rtePlugins>
+                                    </customMessage>
+                                </items>
+                            </column>
+                        </items>
+                    </people>
+                    <product
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Product"
+                        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <column
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <search-navbar-title
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                        fieldDescription="Sets the Navbar label which is used to navigate between the search results"
+                                        fieldLabel="Navbar Text*"
+                                        name="./productNavbarText"
+                                        required="{Boolean}true"/>
+                                    <number-of-promo-components
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="/libs/granite/ui/components/foundation/form/numberfield"
+                                        fieldDescription="Sets the number of promo components allowed in parsys."
+                                        fieldLabel="Allowed Promo Components*"
+                                        min="{Long}0"
+                                        name="./numberOfPromoComponentsInProducts"
+                                        required="{Boolean}true"/>
+                                    <no-result
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/form/textarea"
+                                        fieldDescription="Set the descriptive text during no match scenario"
+                                        fieldLabel="No Result Text During Search*"
+                                        name="./productNoResultText"
+                                        required="{Boolean}true"/>
+                                    <help-center-label
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                        fieldDescription="Sets the help center link during no result scenario"
+                                        fieldLabel="Help Center Label*"
+                                        name="./productHelpCenterLabel"
+                                        required="{Boolean}true"/>
+                                    <help-center-url
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                        allowBlank="{Boolean}false"
+                                        fieldDescription="Sets the help center link during no result scenario"
+                                        fieldLabel="Help Center URL*"
+                                        name="./productLinkURL"
+                                        required="{Boolean}true"
+                                        rootPath="/content"/>
+                                </items>
+                            </column>
+                        </items>
+                    </product>
+                    <resource
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Resource"
+                        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <column
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <search-navbar-title
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                        fieldDescription="Sets the Navbar label which is used to navigate between the search results"
+                                        fieldLabel="Navbar Text*"
+                                        name="./resourcesNavbarText"
+                                        required="{Boolean}true"/>
+                                    <filter-categories-main-label
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                        fieldDescription="Sets the label for &quot;Search Resources Results&quot; text."
+                                        fieldLabel="Left Rail Headline text*"
+                                        name="./resourcesLeftRailText"
+                                        required="{Boolean}true"/>
+                                    <no-result
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/form/textarea"
+                                        fieldDescription="Set the descriptive text during no match scenario"
+                                        fieldLabel="No Result Text During Search*"
+                                        name="./resourcesNoResultText"
+                                        required="{Boolean}true"/>
+                                    <no-result-during-filter
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/form/textarea"
+                                        fieldDescription="Set the descriptive text during no match scenario while doing filtering"
+                                        fieldLabel="No Result Text During Filter*"
+                                        name="./resourcesNoResultTextForFilter"
+                                        required="{Boolean}true"/>
+                                    <help-center-label
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                        fieldDescription="Sets the help center link during no result scenario"
+                                        fieldLabel="Help Center Label*"
+                                        name="./resourcesHelpCenterLabel"
+                                        required="{Boolean}true"/>
+                                    <help-center-url
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                        allowBlank="{Boolean}false"
+                                        fieldDescription="Sets the help center link during no result scenario"
+                                        fieldLabel="Help Center URL*"
+                                        name="./resourcesLinkURL"
+                                        required="{Boolean}true"
+                                        rootPath="/content"/>
+                                </items>
+                            </column>
+                        </items>
+                    </resource>
+                    <faq
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Faq"
+                        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <column
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <search-navbar-title
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                        fieldDescription="Sets the Navbar label which is used to navigate between the search results"
+                                        fieldLabel="Navbar Text*"
+                                        name="./faqNavbarText"
+                                        required="{Boolean}true"/>
+                                    <number-of-promo-components
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="/libs/granite/ui/components/foundation/form/numberfield"
+                                        fieldDescription="Sets the number of promo components allowed in parsys."
+                                        fieldLabel="Allowed Promo Components*"
+                                        min="{Long}0"
+                                        name="./numberOfPromoComponentsInFaqs"
+                                        required="{Boolean}true"/>
+                                    <no-result
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/form/textarea"
+                                        fieldDescription="Set the descriptive text during no match scenario"
+                                        fieldLabel="No Result Text During Search*"
+                                        name="./faqsNoResultText"
+                                        required="{Boolean}true"/>
+                                    <help-center-label
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                        fieldDescription="Sets the help center link during no result scenario"
+                                        fieldLabel="Help Center Label*"
+                                        name="./faqsHelpCenterLabel"
+                                        required="{Boolean}true"/>
+                                    <help-center-url
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                        allowBlank="{Boolean}false"
+                                        fieldDescription="Sets the help center link during no result scenario"
+                                        fieldLabel="Help Center URL*"
+                                        name="./faqsLinkURL"
+                                        required="{Boolean}true"
+                                        rootPath="/content"/>
+                                </items>
+                            </column>
+                        </items>
+                    </faq>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

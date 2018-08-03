@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:allowedTemplates="/apps/dotcom/templates/genericTemplate"
+        cq:lastModified="{Date}2017-03-28T05:10:37.958-04:00"
+        cq:lastModifiedBy="UIVS75"
+        cq:lastReplicated="{Date}2017-03-24T09:37:35.100-04:00"
+        cq:lastReplicatedBy="UIKS34"
+        cq:lastReplicationAction="Activate"
+        cq:template="/apps/dotcom/templates/baseTemplate"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="dotcom"
+        jcr:uuid="81d61290-e7d8-4b92-b1e6-068c4b2865d1"
+        sling:resourceType="/apps/dotcom/components/page/genericTemplate">
+        <header_par
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="wcm/foundation/components/iparsys">
+            <header
+                jcr:created="{Date}2017-03-23T03:40:12.184-04:00"
+                jcr:createdBy="UIKS77"
+                jcr:lastModified="{Date}2017-03-24T10:05:01.018-04:00"
+                jcr:lastModifiedBy="UGPM135"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="dotcom/components/content/header"
+                logo="https://www.suntrust.com/resourcecenter"
+                search="Search SunTrust"
+                signon="SIGN-ON"/>
+        </header_par>
+        <footer_ipar
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="wcm/foundation/components/iparsys">
+            <footer
+                jcr:created="{Date}2017-03-24T07:49:55.891-04:00"
+                jcr:createdBy="UIKS77"
+                jcr:lastModified="{Date}2017-03-28T05:10:37.955-04:00"
+                jcr:lastModifiedBy="UIVS75"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="dotcom/components/content/footer"
+                iItems="[{&quot;jcr:title&quot;:&quot;Find a Branch&quot;\,&quot;linkURL&quot;:&quot;#&quot;\,&quot;urlParams&quot;:&quot;&quot;\,&quot;target&quot;:&quot;_self&quot;\,&quot;anchorTag&quot;:&quot;&quot;},{&quot;jcr:title&quot;:&quot;Find an ATM&quot;\,&quot;linkURL&quot;:&quot;#&quot;\,&quot;urlParams&quot;:&quot;&quot;\,&quot;target&quot;:&quot;_self&quot;\,&quot;anchorTag&quot;:&quot;&quot;},{&quot;jcr:title&quot;:&quot;About Us&quot;\,&quot;linkURL&quot;:&quot;#&quot;\,&quot;urlParams&quot;:&quot;&quot;\,&quot;target&quot;:&quot;_self&quot;\,&quot;anchorTag&quot;:&quot;&quot;},{&quot;jcr:title&quot;:&quot;Carrers&quot;\,&quot;linkURL&quot;:&quot;#&quot;\,&quot;urlParams&quot;:&quot;&quot;\,&quot;target&quot;:&quot;_self&quot;\,&quot;anchorTag&quot;:&quot;&quot;},{&quot;jcr:title&quot;:&quot;Privacy&quot;\,&quot;linkURL&quot;:&quot;#&quot;\,&quot;urlParams&quot;:&quot;&quot;\,&quot;target&quot;:&quot;_self&quot;\,&quot;anchorTag&quot;:&quot;&quot;},{&quot;jcr:title&quot;:&quot;Fraud &amp; Security&quot;\,&quot;linkURL&quot;:&quot;#&quot;\,&quot;urlParams&quot;:&quot;&quot;\,&quot;target&quot;:&quot;_self&quot;\,&quot;anchorTag&quot;:&quot;&quot;},{&quot;jcr:title&quot;:&quot;Terms &amp; Conditions&quot;\,&quot;linkURL&quot;:&quot;#&quot;\,&quot;urlParams&quot;:&quot;&quot;\,&quot;target&quot;:&quot;_self&quot;\,&quot;anchorTag&quot;:&quot;&quot;},{&quot;jcr:title&quot;:&quot;DOL Fiduciary Rule&quot;\,&quot;linkURL&quot;:&quot;#&quot;\,&quot;urlParams&quot;:&quot;&quot;\,&quot;target&quot;:&quot;_self&quot;\,&quot;anchorTag&quot;:&quot;&quot;},{&quot;jcr:title&quot;:&quot;Investor Relations&quot;\,&quot;linkURL&quot;:&quot;#&quot;\,&quot;urlParams&quot;:&quot;&quot;\,&quot;target&quot;:&quot;_self&quot;\,&quot;anchorTag&quot;:&quot;&quot;},{&quot;jcr:title&quot;:&quot;Site Map&quot;\,&quot;linkURL&quot;:&quot;#&quot;\,&quot;urlParams&quot;:&quot;&quot;\,&quot;target&quot;:&quot;_self&quot;\,&quot;anchorTag&quot;:&quot;&quot;}]"
+                text="&lt;div class=&quot;suntrust-footer-disclaimers&quot;>&lt;p>Investment and Insurance Products:&lt;/p>&#xa;&lt;p>&lt;span class=&quot;investment-disclaimerProd col-xs-12 col-sm-6 col-md-6&quot;>Are Not FDIC or any other Government Agency Insured&lt;/span> &lt;span class=&quot;investment-disclaimerProd col-xs-12 col-sm-4 col-md-4&quot;>Are Not Bank Guaranteed&lt;/span> &lt;span class=&quot;investment-disclaimerProd col-xs-12 col-sm-2 col-md-2&quot;>May Lose Value&lt;/span>&lt;/p>&#xa;&lt;/div>&#xa;&lt;div class=&quot;suntrust-footer-disclaimerCont&quot;>&lt;p class=&quot;suntrust-discGroup&quot;>© 2017 SunTrust Banks, Inc.&lt;/p>&#xa;&lt;p class=&quot;suntrust-discGroup&quot;>&lt;img src=&quot;/content/dam/suntrustdemoproject/img/EqualHousingOpportunity_Logo.jpg&quot; border=&quot;5&quot; alt=&quot;Equal Housing&quot;>SunTrust Bank is an Equal Housing Lender. Member FDIC.&lt;/p>&#xa;&lt;p class=&quot;suntrust-discGroup&quot;>&lt;img src=&quot;/content/dam/suntrustdemoproject/img/EqualHousingOpportunity_Logo.jpg&quot; border=&quot;5&quot; alt=&quot;Equal Housing&quot;>Equal Housing Lender. SunTrust Mortgage, Inc.&lt;/p>&#xa;&lt;p>SunTrust, SunTrust Mortgage, SunTrust PortfolioView, SunTrust Robinson Humphrey, SunTrust Premier Program, AMC Pinnacle, AMC Premier, Access 3, Signature Advantage Brokerage, Custom Choice Loan and SunTrust SummitView are federally registered service marks of SunTrust Banks, Inc. All other trademarks are the property of their respective owners.&lt;/p>&#xa;&lt;p>Services provided by the following affiliates of SunTrust Banks, Inc.: Banking products and services are provided by SunTrust Bank, Member FDIC. Trust and investment management services are provided by SunTrust Bank, SunTrust Delaware Trust Company and SunTrust Banks Trust Company (Cayman) Limited. Securities, brokerage accounts and insurance (including annuities) are offered by SunTrust Investment Services, Inc., a SEC registered broker-dealer, member FINRA, SIPC, and a licensed insurance agency. Investment advisory services are offered by SunTrust Advisory Services, Inc., and GenSpring Family Offices, LLC, each of which is registered as an investment adviser with the U.S. Securities and Exchange Commission. Mortgage products and services are provided by SunTrust Mortgage, Inc.&lt;/p>&#xa;&lt;p>SunTrust Mortgage, Inc. - &lt;img src=&quot;/libs/cq/linkchecker/resources/linkcheck_o.gif&quot; alt=&quot;invalid link: /External?url=http%3A%2F%2Fwww.nmlsconsumeraccess.org%2FEntityDetails.aspx%2FCOMPANY%2F2915&quot; title=&quot;invalid link: /External?url=http%3A%2F%2Fwww.nmlsconsumeraccess.org%2FEntityDetails.aspx%2FCOMPANY%2F2915&quot; border=&quot;0&quot;>NMLS #2915&lt;span class=&quot;suntrust-accessible-text&quot;>Link opens a new window&lt;/span>&lt;img src=&quot;/libs/cq/linkchecker/resources/linkcheck_c.gif&quot; border=&quot;0&quot;>, 901 Semmes Avenue, Richmond, VA 23224, 1-800-634-7928. CA: licensed by the Department of Business Oversight under the California Residential Mortgage Lending Act, IL: Illinois Residential Mortgage Licensee #MB-989, Department of Financial and Professional Regulation, 100 W. Randolph, Suite 900, Chicago, IL 60601, 1-888-473-4858, MA: Mortgage Lender license #-ML-2915, NJ: Mortgage Banker License - New Jersey Department of Banking and Insurance, NY: Licensed Mortgage Banker-NYS Department of Financial Services, and RI: Rhode Island Licensed Lender.&lt;/p>&#xa;&lt;p>&amp;quot;SunTrust Advisors&amp;quot; may be officers and/or associated persons of the following affiliates of SunTrust Banks, Inc.: SunTrust Bank, our commercial bank, which provides banking, trust and asset management services; SunTrust Investment Services, Inc., a registered broker-dealer, which is a member of &lt;img src=&quot;/libs/cq/linkchecker/resources/linkcheck_o.gif&quot; alt=&quot;invalid link: /External?url=http%3A%2F%2Ffinra.org%2F&quot; title=&quot;invalid link: /External?url=http%3A%2F%2Ffinra.org%2F&quot; border=&quot;0&quot;>FINRA&lt;span class=&quot;suntrust-accessible-text&quot;>Link opens a new window&lt;/span>&lt;img src=&quot;/libs/cq/linkchecker/resources/linkcheck_c.gif&quot; border=&quot;0&quot;> and &lt;img src=&quot;/libs/cq/linkchecker/resources/linkcheck_o.gif&quot; alt=&quot;invalid link: /External?url=http%3A%2F%2Fsipc.org%2F&quot; title=&quot;invalid link: /External?url=http%3A%2F%2Fsipc.org%2F&quot; border=&quot;0&quot;>SIPC&lt;span class=&quot;suntrust-accessible-text&quot;>Link opens a new window&lt;/span>&lt;img src=&quot;/libs/cq/linkchecker/resources/linkcheck_c.gif&quot; border=&quot;0&quot;>, and a licensed insurance agency, and which provides securities, annuities and life insurance products; SunTrust Advisory Services, Inc., a SEC registered investment adviser which provides Investment Advisory services.&lt;/p>&#xa;&lt;p>SunTrust Private Wealth Management, International Wealth Management, Business Owner Specialty Group, Sports and Entertainment Group, and Legal and Medical Specialty Groups are marketing names used by SunTrust Bank, SunTrust Banks Trust Company (Cayman) Limited, SunTrust Delaware Trust Company, SunTrust Investment Services, Inc., and SunTrust Advisory Services, Inc.&lt;/p>&#xa;&lt;p>SunTrust Bank and its affiliates do not accept fiduciary responsibility for all banking and investment account types offered. Please consult with your SunTrust representative to determine whether SunTrust and its affiliates have agreed to accept fiduciary responsibility for your account(s) and if you have completed the documentation necessary to establish a fiduciary relationship with SunTrust Bank or an affiliate. Additional information regarding account types and important disclosures may be found at &lt;img src=&quot;/libs/cq/linkchecker/resources/linkcheck_o.gif&quot; alt=&quot;invalid link: investmentinfo&quot; title=&quot;invalid link: investmentinfo&quot; border=&quot;0&quot;>www.suntrust.cominvestmentinfo&lt;img src=&quot;/libs/cq/linkchecker/resources/linkcheck_c.gif&quot; border=&quot;0&quot;>.&lt;/p>&#xa;&lt;p>SunTrust Robinson Humphrey is the trade name for the corporate and investment banking services of SunTrust Banks, Inc. and its subsidiaries, including SunTrust Robinson Humphrey, Inc., member &lt;img src=&quot;/libs/cq/linkchecker/resources/linkcheck_o.gif&quot; alt=&quot;invalid link: /External?url=http%3A%2F%2Ffinra.org%2F&quot; title=&quot;invalid link: /External?url=http%3A%2F%2Ffinra.org%2F&quot; border=&quot;0&quot;>FINRA&lt;span class=&quot;suntrust-accessible-text&quot;>Link opens a new window&lt;/span>&lt;img src=&quot;/libs/cq/linkchecker/resources/linkcheck_c.gif&quot; border=&quot;0&quot;> and &lt;img src=&quot;/libs/cq/linkchecker/resources/linkcheck_o.gif&quot; alt=&quot;invalid link: /External?url=http%3A%2F%2Fsipc.org%2F&quot; title=&quot;invalid link: /External?url=http%3A%2F%2Fsipc.org%2F&quot; border=&quot;0&quot;>SIPC&lt;span class=&quot;suntrust-accessible-text&quot;>Link opens a new window&lt;/span>&lt;img src=&quot;/libs/cq/linkchecker/resources/linkcheck_c.gif&quot; border=&quot;0&quot;>.&lt;/p>&#xa;&lt;/div>&#xa;"
+                textIsRich="true"
+                uItems="[{&quot;jcr:title&quot;:&quot;Facebook&quot;\,&quot;linkURL&quot;:&quot;#&quot;\,&quot;urlParams&quot;:&quot;&quot;\,&quot;target&quot;:&quot;_self&quot;\,&quot;anchorTag&quot;:&quot;&quot;\,&quot;icon&quot;:&quot;/content/dam/stcom/icon_facebook.png&quot;},{&quot;jcr:title&quot;:&quot;Twitter&quot;\,&quot;linkURL&quot;:&quot;#&quot;\,&quot;urlParams&quot;:&quot;&quot;\,&quot;target&quot;:&quot;_self&quot;\,&quot;anchorTag&quot;:&quot;&quot;\,&quot;icon&quot;:&quot;/content/dam/stcom/icon_twitter.png&quot;},{&quot;jcr:title&quot;:&quot;Linkedln&quot;\,&quot;linkURL&quot;:&quot;#&quot;\,&quot;urlParams&quot;:&quot;&quot;\,&quot;target&quot;:&quot;_self&quot;\,&quot;anchorTag&quot;:&quot;&quot;\,&quot;icon&quot;:&quot;/content/dam/stcom/icon_linkedin.png&quot;},{&quot;jcr:title&quot;:&quot;Youtube&quot;\,&quot;linkURL&quot;:&quot;#&quot;\,&quot;urlParams&quot;:&quot;&quot;\,&quot;target&quot;:&quot;_self&quot;\,&quot;anchorTag&quot;:&quot;&quot;\,&quot;icon&quot;:&quot;/content/dam/stcom/icon_youtube.png&quot;},{&quot;jcr:title&quot;:&quot;Google Plus&quot;\,&quot;linkURL&quot;:&quot;#&quot;\,&quot;urlParams&quot;:&quot;&quot;\,&quot;target&quot;:&quot;_self&quot;\,&quot;anchorTag&quot;:&quot;&quot;\,&quot;icon&quot;:&quot;/content/dam/stcom/icon_googlep.png&quot;}]"/>
+        </footer_ipar>
+    </jcr:content>
+    <VidhyaTest/>
+    <reviewtesting/>
+    <NewTest/>
+    <Test_badal/>
+    <cssTest/>
+    <DemoPage/>
+    <ExamplePage/>
+    <ip-testing/>
+    <test1/>
+    <GenericTempTest/>
+    <newTest/>
+    <_x0031_23/>
+    <VidhyaTest0/>
+    <Campaign1/>
+    <Kaushal-Generic-Template/>
+    <Campaign2/>
+    <TestGP/>
+    <Campaign10/>
+    <Campaign20/>
+    <HelloWorld/>
+    <Up/>
+    <Now/>
+    <test123/>
+    <TuesdayDemo/>
+</jcr:root>

@@ -1,0 +1,186 @@
+/* CTA Standalone Button Component */
+
+.CTAs_SecMargin {
+    margin: 20px 0;
+    overflow: hidden;
+}
+.suntrust-primary-button_CTAs,
+.suntrust-secondary-button_CTAs,
+.suntrust-tertiary-button_CTAs {
+    display: inline-block;
+    text-align: left;
+}
+.suntrust-primary-button_CTAs {
+    -webkit-transition: all .15s ease-in;
+    -moz-transition: all .15s ease-in;
+    -o-transition: all .15s ease-in;
+    -ms-transition: all .15s ease-in;
+    transition: all .15s ease-in;
+    -webkit-border-radius: 3px;
+    -webkit-background-clip: padding-box;
+    -moz-border-radius: 3px;
+    -moz-background-clip: padding;
+    border-radius: 3px;
+    background-clip: padding-box;
+    padding: 16px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    color: #fff;
+    outline: none;
+    background-color: #C94C06;
+}
+.suntrust-primary-button_CTAs:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.suntrust-secondary-button_CTAs {
+    -webkit-transition: all .15s ease-in;
+    -moz-transition: all .15s ease-in;
+    -o-transition: all .15s ease-in;
+    -ms-transition: all .15s ease-in;
+    transition: all .15s ease-in;
+    -webkit-border-radius: 3px;
+    -webkit-background-clip: padding-box;
+    -moz-border-radius: 3px;
+    -moz-background-clip: padding;
+    border-radius: 3px;
+    background-clip: padding-box;
+    padding: 16px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    color: #fff;
+    outline: none;
+    background-color: #003B71;
+}
+.suntrust-secondary-button_CTAs:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.suntrust-tertiary-button_CTAs:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.suntrust-tertiary-button_CTAs {
+    -webkit-transition: all .15s ease-in;
+    -moz-transition: all .15s ease-in;
+    -o-transition: all .15s ease-in;
+    -ms-transition: all .15s ease-in;
+    transition: all .15s ease-in;
+    -webkit-border-radius: 3px;
+    -webkit-background-clip: padding-box;
+    -moz-border-radius: 3px;
+    -moz-background-clip: padding;
+    border-radius: 3px;
+    background-clip: padding-box;
+    padding: 16px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    outline: none;
+    border: 1px solid #e5e5e5;
+    background-color: #fff;
+    background-image: none;
+    color: #003B71;
+}
+.suntrust-primary-button_CTAs:hover,
+.suntrust-primary-button_CTAs:focus {
+    color: #fff;
+    background-color: #963F04;
+	text-decoration: none !important;	
+}
+.suntrust-secondary-button_CTAs:hover,
+.suntrust-secondary-button_CTAs:focus {
+    color: #fff;
+    background-color: #021E30;
+	text-decoration: none !important;
+}
+.suntrust-tertiary-button_CTAs:hover,
+.suntrust-tertiary-button_CTAs:focus {
+    /* color: #C94C06; */
+    color: #C94C06;
+	text-decoration: none !important;
+}
+.cta_alignLeft {
+    float: left;
+}
+.cta_alignRight {
+    float: right;
+}
+.cta_alignCenter {
+    margin: 0 auto;
+    display: table;
+}
+.CTAs_anchorTxt {
+    font-size: 18px;
+    padding-bottom: 5px;
+    color: #003b71;
+    width: 100%;
+    overflow: hidden;
+}
+.CTAs_anchorTxt_alignLeft {
+    padding: 5px 0;
+    text-align: left;
+}
+.CTAs_anchorTxt_alignRight {
+    padding: 5px 0;
+    text-align: right;
+}
+.CTAs_anchorTxt_alignCenter {
+    padding: 5px 0;
+    text-align: center;
+}
+.cta_standalone_padding_leftRight {
+    padding: 0 15px;
+}
+.cta_standalone_paddingLeftOnly {
+    padding-left: 15px;
+}
+.cta_standalone_paddingRightOnly {
+    padding-right: 15px;
+}
+div.cta.aem-GridColumn {
+    position: inherit;
+    right: 0;
+    top: 0;
+    width: auto;
+    height: auto;
+    display: block;
+    z-index: 150;
+}
+.cta.aem-GridColumn:hover, .cta.aem-GridColumn:focus {
+    text-decoration: none !important;
+}
+
+/* Small & Large CTA Styles Added on 25-Oct-2017*/
+.suntrust-Small_standaloneCTA_btns {
+    padding: 10px 30px !important;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.suntrust-Large_standaloneCTA_btns {
+    padding: 19px 30px !important;
+    font-size: 18px;
+    line-height: 22px;
+}
+
+@media screen and (-ms-high-contrast: active),
+(-ms-high-contrast: none) {
+    .suntrust-primary-button_CTAs,
+    .suntrust-secondary-button_CTAs,
+    .suntrust-tertiary-button_CTAs {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+}
+@media screen and (min-color-index: 0) and (-webkit-min-device-pixel-ratio: 0) {
+    @media {
+        .suntrust-primary-button_CTAs, .suntrust-secondary-button_CTAs, .suntrust-tertiary-button_CTAs {
+            /*padding-bottom: 13px !important;*/
+            padding-bottom: 15px;
+            padding-top: 15px;
+        }
+    }
+}

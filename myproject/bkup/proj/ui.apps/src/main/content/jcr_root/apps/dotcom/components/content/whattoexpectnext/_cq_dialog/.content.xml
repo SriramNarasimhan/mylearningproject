@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="What to Expect Next"
+    sling:resourceType="cq/gui/components/authoring/dialog"
+    helpPath="https://www.adobe.com/go/aem6_2_docs_component_en#Text &amp; Image - Sightly">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/foundation/container">
+        <layout
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/foundation/layouts/tabs"
+            type="nav"/>
+        <items jcr:primaryType="nt:unstructured">
+            <design
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Design"
+                sling:resourceType="granite/ui/components/foundation/section">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <title
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Enter the title here"
+                                fieldLabel="Title"
+                                name="./comptitle"
+                                required="{Boolean}true"/>
+                            <description
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textarea"
+                                fieldDescription="Enter the description here"
+                                fieldLabel="Description"
+                                name="./compdesc"
+                                required="{Boolean}true"/>
+                            <bgcolor
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/select"
+                                fieldDescription="Select the Backround Color"
+                                fieldLabel="Background Color"
+                                name="./bgcolor">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <blue
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Blue"
+                                        value="suntrust-what-next-bg-blue"/>
+                                    <orange
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Orange"
+                                        value="suntrust-what-next-bg-orange"/>
+                                </items>
+                            </bgcolor>
+                        </items>
+                    </column>
+                </items>
+            </design>
+            <steps
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Step Details"
+                sling:resourceType="granite/ui/components/foundation/section">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
+                    margin="{Boolean}false"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <fieldset
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/fieldset">
+                                <layout
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <steps
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/multifield"
+                                                fieldDescription="Click 'Add field' to add a new step"
+                                                fieldLabel="Steps"
+                                                maxlinksallowed="{Long}4">
+                                                <field
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/fieldset"
+                                                    acs-commons-nested="JSON_STORE"
+                                                    name="./iItems">
+                                                    <layout
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
+                                                        method="absolute"/>
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <column
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/foundation/container">
+                                                            <items jcr:primaryType="nt:unstructured">
+                                                                <textbody
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                                                    fieldDescription="Enter Text Content Here"
+                                                                    fieldLabel="Text Content"
+                                                                    name="./textbody"
+                                                                    useFixedInlineToolbar="{Boolean}true">
+                                                                    <rtePlugins
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        sling:resourceSuperType="/apps/dotcom/components/content/globalrte/cq:dialog/content/items/column/items/text/rtePlugins"/>
+                                                                    <uiSettings
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        sling:resourceSuperType="/apps/dotcom/components/content/globalrte/cq:dialog/content/items/column/items/text/uiSettings"/>
+                                                                    <htmlRules
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        sling:resourceSuperType="/apps/dotcom/components/content/globalrte/cq:dialog/content/items/column/items/text/htmlRules"/>
+                                                                </textbody>
+                                                                <url
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                                                    allowBlank="{Boolean}true"
+                                                                    fieldDescription="Browse or enter URL"
+                                                                    fieldLabel="Step URL"
+                                                                    name="./stepurl"
+                                                                    required="{Boolean}false"
+                                                                    rootPath="/content"/>
+                                                                <urlparam
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                                    fieldDescription="Enter the URL Param here"
+                                                                    fieldLabel="URL Param"
+                                                                    name="./urlparam"/>
+                                                                <tag
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                                    fieldDescription="Enter the Anchor Tag here"
+                                                                    fieldLabel="Anchor Tag"
+                                                                    name="./anchortag"/>
+                                                                <target
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/foundation/form/select"
+                                                                    class="cq-dialog-dropdown-showhide"
+                                                                    cq-dialog-dropdown-showhide-target=".list-option-listfrom-showhide-target"
+                                                                    fieldDescription="Sets the window target for the link"
+                                                                    fieldLabel="Target"
+                                                                    name="./target">
+                                                                    <items jcr:primaryType="nt:unstructured">
+                                                                        <self
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            text="Self"
+                                                                            value="_self"/>
+                                                                        <blank
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            text="Blank"
+                                                                            value="_blank"/>
+                                                                    </items>
+                                                                </target>
+                                                                <icon
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                                                    allowBlank="{Boolean}false"
+                                                                    fieldDescription="Select the icon path"
+                                                                    fieldLabel="Icon"
+                                                                    name="./icon"
+                                                                    rootPath="/content/dam"/>
+                                                                <alttxt
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                                    fieldDescription="Enter the icon alt text here."
+                                                                    fieldLabel="Alt Text"
+                                                                    name="./alttext"/>
+                                                            </items>
+                                                        </column>
+                                                    </items>
+                                                </field>
+                                            </steps>
+                                        </items>
+                                    </column>
+                                </items>
+                            </fieldset>
+                        </items>
+                    </column>
+                </items>
+            </steps>
+        </items>
+    </content>
+</jcr:root>

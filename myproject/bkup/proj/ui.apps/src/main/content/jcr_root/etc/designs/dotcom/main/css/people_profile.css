@@ -1,0 +1,563 @@
+/* autocomplete starts*/
+/*juery ui autocomplete
+*********************/    
+    .ui-autocomplete { position: absolute;top: 0;left: 0;cursor: default;z-index: 10000 !important; max-height: 200px; overflow-y: auto; overflow-x: hidden; }
+    
+    .ui-autocomplete.ui-menu { list-style:none; padding: 2px; margin: 0; display:block; outline: none; }
+    .ui-autocomplete.ui-menu .ui-menu-item { margin: 0; padding: 0; zoom: 1; width: 100%; }
+    .ui-autocomplete.ui-menu .ui-menu-item a { text-decoration: none; display: block; padding: 2px .4em; line-height: 1.5; zoom: 1; font-weight: normal; }
+    .ui-autocomplete.ui-menu .ui-menu-item a.ui-state-focus,
+    .ui-autocomplete.ui-menu .ui-menu-item a.ui-state-active { font-weight: normal; margin: -1px; }
+    
+    .ui-autocomplete.ui-widget-content a { color: #222222; }
+    .ui-autocomplete.ui-widget-content { border: 1px solid #aaaaaa; background: #ffffff url(images/ui-bg_flat_75_ffffff_40x100.png) 50% 50% repeat-x; color: #222222; }
+    
+    /* Corner radius */
+    .ui-autocomplete.ui-corner-all,
+    .ui-autocomplete .ui-corner-all { -moz-border-radius-topleft: 4px; -webkit-border-top-left-radius: 4px; -khtml-border-top-left-radius: 4px; border-top-left-radius: 4px; }
+    .ui-autocomplete.ui-corner-all,
+    .ui-autocomplete .ui-corner-all { -moz-border-radius-topright: 4px; -webkit-border-top-right-radius: 4px; -khtml-border-top-right-radius: 4px; border-top-right-radius: 4px; }
+    .ui-autocomplete.ui-corner-all,
+    .ui-autocomplete .ui-corner-all { -moz-border-radius-bottomleft: 4px; -webkit-border-bottom-left-radius: 4px; -khtml-border-bottom-left-radius: 4px; border-bottom-left-radius: 4px; }
+    .ui-autocomplete.ui-corner-all,
+    .ui-autocomplete .ui-corner-all { -moz-border-radius-bottomright: 4px; -webkit-border-bottom-right-radius: 4px; -khtml-border-bottom-right-radius: 4px; border-bottom-right-radius: 4px; }
+    
+    /* Interaction states*/
+    .ui-autocomplete .ui-state-default { border: 1px solid #d3d3d3; background: #e6e6e6 url(images/ui-bg_glass_75_e6e6e6_1x400.png) 50% 50% repeat-x; font-weight: normal; color: #555555; }
+    .ui-autocomplete .ui-state-default a, 
+    .ui-autocomplete .ui-state-default a:link, 
+    .ui-autocomplete .ui-state-default a:visited { color: #555555; text-decoration: none; }
+    .ui-autocomplete .ui-state-hover,
+    .ui-autocomplete .ui-state-focus { border: 1px solid #999999; background: #dadada url(images/ui-bg_glass_75_dadada_1x400.png) 50% 50% repeat-x; font-weight: normal; color: #212121; }
+    .ui-autocomplete .ui-state-hover a, 
+    .ui-autocomplete .ui-state-hover a:hover, 
+    .ui-autocomplete .ui-state-hover a:link, 
+    .ui-autocomplete .ui-state-hover a:visited { color: #212121; text-decoration: none; }
+    .ui-autocomplete .ui-state-active { border: 1px solid #aaaaaa; background: #ffffff url(images/ui-bg_glass_65_ffffff_1x400.png) 50% 50% repeat-x; font-weight: normal; color: #212121; }
+    .ui-autocomplete .ui-state-active a, 
+    .ui-autocomplete .ui-state-active a:link, 
+    .ui-autocomplete .ui-state-active a:visited { color: #212121; text-decoration: none; }
+    
+    .ui-helper-hidden-accessible { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
+
+/* autocomplete ends*/
+.addressDirection {
+        cursor: pointer;
+		color: #003b71;
+}
+.addressDirection:hover,.addressDirection:focus{
+	color: #C94C06;
+    cursor: pointer;
+}
+.search_result_heading {
+	max-width: 1170px;
+    margin: 30px auto;
+}
+.search_result_heading h2,
+.search_result_heading h3 {
+	color: #fff;
+}
+.people_profile_img,
+.people_profile_details {
+	display: inline-block;
+}
+.people_profile_img {
+	width: 220px;
+    height: 220px;
+}
+.people_profile_img img,
+.location_phone_icon img,
+.people_location_map img {
+	/*background-color: #fff;*/
+	width: 100%;
+	height: 100%;
+}
+.people_profile_img img[src=""],
+.location_phone_icon img[src=""],
+.people_location_map img[src=""] {
+	background-color: #000;
+}
+.people_profile_details {
+	margin-left: 26px;
+	vertical-align: top;
+	width: 65%;
+}
+.people_profile_details h5,
+.location_phone_details h5,
+.location_distance_details h5,
+.people_right_about h5,
+.people_share h5 {
+	font-size: 15px;
+	font-weight: bold;
+	line-height: 20px;
+	color: #333;
+}
+.people_profile_details h5,
+.people_profile_details p,
+.location_phone_details h5,
+.location_phone_details p,
+.location_addr p,
+.location_distance_details h5,
+.location_distance_details p,
+.people_right_about h5,
+.people_share h5,
+.people_profile_details a.suntrust-promo-cta-button {
+	margin: 0;
+}
+.people_profile_details > div:first-child {
+	margin-bottom: 20px;
+}
+.location_phone {
+	margin-bottom: 10px;
+	display: block;
+}
+.location_phone_icon {
+	float: left;
+    width: 35px;
+    height: 35px;
+	border-radius: 50%;
+    overflow: hidden;
+}
+.location_phone_details,
+.location_distance_details {
+	float: left;
+    margin-left: 5px;
+}
+.people_location_details_individual > div:not(:last-child) {
+	margin-bottom: 13px;
+}
+.location_distance_details p span+span {
+	display: inline-block;
+    padding: 0 5px;
+}
+.people_location_divider {
+    border-bottom: 1px solid #e5e5e5;
+}
+.people_location_details_individual {
+	float: left;
+	width: 49%;
+	margin: 22px 0 16px 0;
+}
+.people_right_details > div:not(:last-child) {
+	border-bottom: 1px solid #e5e5e5;
+	padding-bottom: 30px;
+}
+.people_location_details,
+.people_right_details > div {
+	margin-bottom: 30px;
+}
+.people_location_map {
+	position: relative;
+	height: 450px;
+}
+.people_location_map_direction {
+    position: absolute;
+    top: 0;
+    width: 300px;
+    margin: 10px 0 0 50px;
+    z-index: 400;
+}
+.people_location_map_direction .suntrust-input-location-button {
+    right: 0;
+    top: 5px;
+}
+#uniform-people_map_select {width:100%;margin-top: 5px;}
+.people_location_map_direction .people_select_destination {
+    width: 100%;
+    padding: 11px;
+    border-radius: 3px;
+	margin-top: 5px;
+}
+.people_location_map_direction .submit-button {
+    width: 100%;
+    margin-top: 5px;
+    padding: 12px 0;
+	border: none;
+}
+.people_location_map_direction input.suntrust-input{
+	padding-right:40px;
+} 
+.people_location_destination {
+	/*margin-bottom: 60px;*/
+}
+.people_open_new_account_btn {
+	position: relative;
+}
+.people_open_new_account_btn:before {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #e5e5e5;
+    content: '';
+    z-index: -1;
+}
+.people_open_new_account_btn .suntrust-promo-cta-button {
+    color: #fff;
+    background-color: #C94C06;
+    padding: 15px 30px;
+    margin: 0;
+    width: auto;
+    height: auto;
+	line-height: 20px;
+}
+.people_open_new_account_btn .suntrust-promo-cta-button:hover,
+.people_open_new_account_btn .suntrust-promo-cta-button:focus {
+	outline: none;
+    background-color: #963F04;
+    text-decoration: none;
+}
+.people_social_media img {
+    display: inline-block;
+    max-height: 25px;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+.people_related_links_topic {
+	margin-left: 15px;
+}
+.people_related_links_topic a {
+	margin-top: 5px;
+}
+.people_right_about .suntrust-secondary-button {
+	display: block;
+    text-align: center;
+    border-radius: 5px;
+}
+.people_profile_cdetails {
+	border-bottom: 1px solid #e5e5e5;
+	padding-bottom: 30px;
+}
+.border_bottom {
+	border-bottom: 1px solid #e5e5e5;
+	padding-bottom: 20px;
+}
+
+.margin_top20 {
+	margin-top: 20px;
+}
+.margin_bottom0 {
+	margin-bottom: 0;
+}
+.margin_bottom20 {
+	margin-bottom: 20px;
+}
+.location_tog {
+	margin: 25px 0;
+	display: inline-block;
+}
+.location_tog span {
+    color: #c94c06;
+    font-size: 25px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: -3px;
+	margin-right: 5px;
+	width: 15px;
+    text-align: center;
+}
+.location_tog span.HideLoc {
+    font-size: 27px;
+    margin-top: 0;
+}
+.people_right_about p {
+    margin-bottom: 10px;
+}
+.people_right_about blockquote {
+	padding: 0px 0px;
+	font-size: 14.5px;
+	margin: 0em 0px;
+	border-left: 0px;
+}
+.suntrust-heroHeadline {
+    margin-bottom: 30px;
+}
+.suntrust-heroHeadlineHolder > * {
+    color: #fff;
+    margin: 0;
+}
+.people_right_details .people_right_about {
+    margin: 22px 0 26px 0;
+}
+.people_right_details .people_right_about.border_bottom {
+    border-bottom: 0;
+	padding-bottom: 0;
+}
+.relatedlinks {
+    border-top: 1px solid #e5e5e5;
+    padding-top: 20px;
+}	
+.peopledetails,  .people_right_details {
+	margin-top: 50px;
+}
+.people_right_about.people_right_about_reading {
+	max-height: 100%;
+}
+.people_right_about.people_right_about_reading p.continueReading  {
+	display: none !important;
+}
+.location_map_input {
+	margin-bottom: 15px;
+}
+.location_map_input .location_map_input_div:first-child {
+	margin-right: 0px;
+	position: relative;
+}
+.location_map_input .suntrust-get-directions-route-switch {
+	background-color: #fff;
+    margin: 10px 10px 0;
+    width: 25px;
+    padding: 0;
+}
+.location_map_input .location_map_input_div {
+	position: relative;
+	width: 33%;
+	margin-right: 15px;
+}
+.location_map_input .location_map_input_div input {
+	width: 100%;
+    padding: 8px 35px 8px 10px;
+    line-height: 20px;
+}
+.location_map_input #MyLocationText {
+ 	padding-right: 55px;
+}
+.location_map_input .location_map_input_div button {
+	right: 0;
+    top: 3px;
+}
+.location_map_input_div input {
+	color: #757575;
+}
+.location_map_input .location_map_reverse_trip a {
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 1px;
+    margin: 13px 0 0 10px;
+    display: inline-block;
+    line-height: 10px;
+}
+.location_map_input .pull-right {
+	width: 25%;
+}
+.location_map_input .pull-right input {
+	padding: 10px;
+    line-height: 20px;
+    height: 38px;
+    width: 100%;
+    border: 0;
+    margin-top: 0;
+}
+.location_map_input_div .sun-select-container {
+	width: 100%;
+}
+.people_profile_details p a,
+.location_phone_details p a {
+	color: #003b71;
+}
+.people_profile_details p a:hover,
+.location_phone_details p a:hover,
+.people_profile_details p a:focus,
+.location_phone_details p a:focus {
+	color: #c94c06;
+}
+.people_profile_details {
+	width: 55%;
+}
+.search_result_heading > * {
+	margin-left: 30px;
+}
+.location_map_input_div .sun-select-container {
+	margin-top: 0 !important;
+}
+.noValid input#MyLocationText, .noValid#uniform-people_map_select, .noValid #uniform-people_map_select  {
+    border-color: #eb212e;
+}
+.noValidRemove .noValid {
+	border-color: #ccc !important;
+}
+#source .sun-select-container.fixedWidth > span, 
+#destination .sun-select-container.fixedWidth > span { 
+        height: 38px; 
+    text-overflow: ellipsis; 
+    white-space: nowrap; 
+    overflow: hidden; 
+} 
+#RouteNarration table {
+    border-collapse: separate;
+    border-spacing: 7px;
+}
+.location_phone_details {
+	width: 75%;
+	word-break: break-word;
+}
+@media (max-width: 800px) {
+	.people_profile_details {
+		width: 48%;
+		margin-left: 18px;
+	}
+	.peopledetails,  .people_right_details {
+		margin-top: 30px;
+	}
+}
+@media only screen and (min-width : 768px) and (max-width : 1200px) {
+	.location_map_input .location_map_input_div {
+		position: relative;
+		width: 31%;
+		margin-right: 15px;
+	}
+
+}
+@media only screen and (min-width : 801px) and (max-width : 1024px) {
+	.people_profile_details {
+		width: 55%;
+	}
+	.search_result_heading h2 {
+		margin-left: 30px;
+	}
+}
+@media (max-width: 768px) {
+	.people_profile_img {
+		width: 150px;
+		height: 150px;
+	}
+	.border_bottom {
+		padding-bottom: 20px;
+	}
+
+    .people_right_about p.continueReading {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        margin: 0;
+        padding: 180px 0 30px 0;
+        background-image: -moz-linear-gradient(top, transparent, white);
+        background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, transparent),color-stop(1, white));
+    }
+
+}
+@media (max-width: 732px) {
+	.search_result_heading h2,
+	.search_result_heading h3 {
+		margin: 0 15px;
+	}
+	.people_profile_apply_online {
+		padding-top: 25px;
+		border-top: 1px solid #e5e5e5;
+	}
+	.people_profile_apply_online a.suntrust-promo-cta-button  {
+		max-width: 100%;
+		display: block;
+	}
+	.people_profile_facebook {
+		margin-bottom: 25px;
+	}
+	.people_profile_cdetails {
+		padding-bottom: 15px;
+	}
+	.people_location_details_all {
+		padding: 0 0 15px 0;
+		border-bottom: 0;
+	}
+	.people_location_details_all .people_location_details_individual {
+		margin-bottom: 20px;
+	}
+	.people_location_details_all .people_location_details_individual:last-child {
+		margin-bottom: 0;
+	}
+	.people_location_details .people_location_details_individual:first-child,
+	.people_location_details .people_location_details_individual:nth-child(2) {
+		margin-top: 0;
+	}
+	/*.people_location_details {
+	    border-bottom: 1px solid #e5e5e5;
+	    padding-bottom: 25px;
+	}*/
+}
+@media (max-width: 480px) {
+	.people_profile_img {
+		width: 100px;
+		height: 100px;
+	}
+	.people_profile_details {
+		width: 100%;
+		margin: 20px 0 0 0;
+	}
+	.people_location_details_all {
+		padding-bottom: 0;
+	}
+	.people_location_details_individual {
+		float: none;
+		width: 100%;
+		margin-bottom: 30px;
+	}
+	.people_right_about {
+		border-bottom: 1px solid #e5e5e5;
+		padding-bottom: 30px;
+	}
+	.people_open_new_account_btn:before {
+		display: none;
+	}
+	.people_open_new_account_btn .suntrust-promo-cta-button {
+		width: 100%;
+	}
+}
+
+@media (max-width: 600px) {
+	.people_location_divider {
+		display: none;
+	}
+	.people_location_details {
+		border-bottom: 1px solid #e5e5e5;
+	}
+	.people_location_map_direction {
+		width: 230px;
+	}
+}
+@media (max-width: 767px) {
+	.people_location_map {
+		height: auto;
+	}
+	.people_location_destination {
+		margin-bottom: 0;
+	}
+	.people_right_about {
+		max-height: 260px;
+		position: relative;
+		overflow: hidden;	
+	}
+	.people_right_about p.continueReading {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		margin: 0;
+		padding: 80px 0 0px 0;
+		background-image: -moz-linear-gradient(top, transparent, white);
+		background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, transparent),color-stop(1, white));
+	}
+	.people_right_about .suntrust-secondary-button {
+		margin-bottom: 10px;
+	}
+    .location_map_input > div {
+        width: 100% !important;
+        float: none !important;
+        display: inline-block;
+    }
+    .location_map_input .location_map_reverse_trip {
+        margin: 15px 0;
+        text-align: center;
+    }
+	.marginTop15 {
+		margin-top: 15px;
+	}
+	.people_right_about {
+        max-height: 260px;
+        position: relative;
+        overflow: hidden;	
+    }
+	.location_map_input .location_map_input_div:first-child {
+        margin-right: 25px;
+    }
+}

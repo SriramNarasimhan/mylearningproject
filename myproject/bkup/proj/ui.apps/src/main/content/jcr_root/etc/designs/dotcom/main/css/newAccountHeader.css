@@ -1,0 +1,375 @@
+body{
+	padding-top:0 !important;
+}
+.sun-main-header-content{
+	padding:0;
+	overflow:hidden;
+	float:none;
+}
+.sun-main-header-content.blue-bg {
+    background: #0075C9;
+}
+.sun-main-header-content.orange-bg {
+    background: #c94c06;
+}
+.sun-main-header-holder, .sun-alerts-content {
+    width: 100%;
+}
+.sun-main-header-holder>.sun-container {
+    display: table-cell;
+    vertical-align: middle;
+}
+.hide-search{display:none !important;}
+.sun-main-header-holder>.sun-container.sun-search-and-mobile-menu-container {
+    text-align: right;
+    font-size: 0;
+	position:absolute;
+	right:0;
+	bottom:50%;
+}
+.sun-header-logo-toggle-container{display:block;}
+.sun-header-logo-toggle-container  a {display:inline-block;}
+.logo-align-center {text-align:center;}
+.logo-align-left {text-align:left;}
+
+
+.sun-header-primary-navigation {
+    display: inline-block;
+    vertical-align: middle;
+}
+.sun-header-logo-link .sun-header-logo-centered {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -15px 0 0 -65px;
+}
+.skip-nav {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    -webkit-box-shadow: inset 0 -3px 15px rgba(0, 0, 0, .06);
+    -moz-box-shadow: inset 0 -3px 15px rgba(0, 0, 0, .06);
+    box-shadow: inset 0 -3px 15px rgba(0, 0, 0, .06);
+    color: inset 0 -3px 15px rgba(0, 0, 0, .06);
+    background: #c94c06;
+    z-index: 10000;
+}
+.skip-nav.sun-active {
+    left: 0;
+}
+.skip-nav a {
+    font-size: 13px;
+    display: block;
+    line-height: 32px;
+    height: 32px;
+    padding: 0 15px;
+    color: #fff;
+    border-bottom: 1px solid #f89912;
+}
+.skip-nav a:hover,
+.skip-nav a:focus {
+    text-decoration: underline;
+}
+.sun-header-logo-image {
+    display: block;
+    position: relative;
+    height: 40px;
+	top: -5px;
+}
+.sun-search-and-mobile-menu-container-toggle {
+    display: none;
+    width: 48px;
+    text-align: center;
+}
+.sun-search-and-mobile-menu-container-toggle:before {
+    font-family: "sun-icons-UXd1Fq6";
+    display: inline-block;
+    font-weight: normal;
+    font-style: normal;
+    text-decoration: inherit;
+    content: "";
+    color: #fff;
+    font-size: 25px;
+    line-height: 52px;
+}
+.sun-search-and-mobile-menu-container-toggle:active,
+.sun-search-and-mobile-menu-container-toggle.sun-active {
+    background: #464a50;
+    -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+    -moz-box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+    box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+    color: 0 0 5px rgba(0, 0, 0, .5);
+}
+.sun-header-search-icon {
+    cursor: pointer;
+    font-size: 17px;
+    line-height: 17px;
+}
+.sun-header-search-icon:before {
+    color: #fff;
+    font-family: "sun-icons-UXd1Fq6";
+    display: inline-block;
+    font-weight: normal;
+    font-style: normal;
+    text-decoration: inherit;
+    content: "";
+}
+.sun-header-search-form {
+    width: 18px;
+    height: 18px;
+    line-height: 1;
+    position: relative;
+}
+.sun-header-sign-on-link, .sun-header-search-form, .sun-header-search-field, .sun-header-search-icon, .sun-mortage-header-alerts-icon {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.sun-header-search-form.sun-active {
+    z-index: 6010;
+    position: relative;
+    display: inline-block;
+    width: auto;
+}
+.sun-header-search-form.sun-active .sun-header-search-field {
+    width: auto;
+}
+.sun-header-search-form.sun-active .sun-header-search-icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    margin-top: 3px;
+}
+
+.sun-header-search-form.sun-active .sun-header-search-icon:before {
+    color: #999;
+}
+.sun-header-search-field {
+    top: 0;
+    width: 0;
+    overflow: hidden;
+}
+.sun-header-search-label {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    top: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.sun-header-search-input {
+    width: 200px;
+    padding-left: 35px;
+}
+/*input cross fix*/
+.sun-header-search-form.sun-active .sun-header-search-input{
+  padding-right: 30px;
+}
+.sun-header-search-cancel-button {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    cursor: pointer;
+    height: 40px;
+    padding: 10px;
+    margin-top: -9px;
+}
+.sun-header-search-cancel-button:before {
+    font-family: "sun-icons-UXd1Fq6";
+    display: inline-block;
+    font-weight: normal;
+    font-style: normal;
+    text-decoration: inherit;
+    content: "";
+    color: #aaa;
+    font-size: 17px;
+    line-height: 21px;
+}
+
+.sun-header-search-cancel-button.sun-active {
+    display: block;
+    background: none;
+}
+.sun-header-search-cancel-button>.sun-button-text {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    top: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.sun-header-search-cancel-button>.sun-text {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    top: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+.sun-header-search-submit-button {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    top: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}	
+.sun-main-header-holder {
+	display:table;
+	width:100%;
+    max-width: 1180px;
+	height:80px;
+    margin: 0 auto;
+	position:relative;
+}
+.sun-toggle-overlay.sun-active {
+    display: block;
+}
+.sun-toggle-overlay {
+    z-index: 5000;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+.logo-align-center .sun-header-logo-image {
+    display: inline-block;
+}
+@media(max-width:1169px) {
+    .sun-main-header-holder {
+        width: 100%;
+        padding: 0 25px;
+    }
+	.sun-main-header-holder>.sun-container.sun-search-and-mobile-menu-container{
+		padding: 0 25px 0 0;
+	}
+}
+
+@media screen and (max-width:940px) {
+    .row-full-width .component-featuredtabcarousel .row-container-wrapper,
+    .row-container .row-container-wrapper {
+        padding: 0;
+    }
+}
+@media(max-width:768px) {
+	.sun-header {
+        padding: 0;
+    }
+	.sun-main-header-holder{
+        padding: 0;
+        display: block;
+        height: auto;
+    }
+    .sun-main-header-holder>.sun-container:first-child {
+        display: block;
+        top: 0;
+        height: 65px;
+    }
+    .sun-main-header-holder>.sun-container.sun-search-and-mobile-menu-container {
+        display: none;
+        position: relative;
+    }
+    .sun-main-header-holder>.sun-container.sun-search-and-mobile-menu-container.sun-active {
+        position: relative;
+        display: block;
+    }
+	.sun-main-header-holder>.sun-container.sun-search-and-mobile-menu-container{
+		padding: 0;
+	}
+    .sun-header-logo-link {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin: -23px 0 0 -65px;
+    }
+
+    .sun-header-logo-link .sun-header-logo-centered {
+        margin: 0;
+    }
+
+    .sun-header-primary-navigation {
+        display: none;
+    }
+    .sun-search-and-mobile-menu-container-toggle {
+        display: block;
+        position: absolute;
+        top: 12px;
+        bottom: 0;
+        right: 10px;
+    }
+	.sun-header-logo-toggle-container {
+        display: block;
+        position: relative;
+        height: 65px;
+    }
+    .sun-header-search-icon {
+        position: absolute;
+        left: 0;
+        top: 0;
+        margin-top: 0;
+    }
+    .sun-header-search-icon:before {
+        color: #93989d;
+        position: absolute;
+        z-index: 1;
+        left: 20px;
+        top: 20px;
+        height: 20px;
+        font-size: 16px;
+        line-height: 20px;
+    }
+    .sun-header-search-form.sun-active {
+        display: block;
+    }
+    .sun-header-search-form.sun-active .sun-header-search-icon {
+        left: 0;
+        top: 0;
+        margin-top: 0;
+    }
+    .sun-header-search-form {
+        display: block;
+        padding: 10px;
+        background: #464a50;
+        margin-right: 0;
+        width: auto;
+        height: auto;
+    }
+    .sun-header-search-form .sun-header-search-field {
+        width: 100%;
+        display: block;
+        position: relative;
+    }
+	
+    .sun-header-search-input {
+        width: 100%;
+        padding-left: 30px;
+    }
+	.sun-header-search-cancel-button {
+		 margin-top: -20px;
+	
+	}
+	.sun-header-logo-image {
+		width: 145px;
+		height: auto;
+		left: -6px;
+		top: 3px;
+	}
+	.sun-search-and-mobile-menu-container.sun-active .sun-header-search-form .sun-header-search-input{
+	  padding-right: 30px;
+	}
+}

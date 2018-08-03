@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="CD Rates"
+    sling:resourceType="cq/gui/components/authoring/dialog"
+    helpPath="https://www.adobe.com/go/aem6_2_docs_component_en#Text &amp; Image - Sightly">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/foundation/container">
+        <layout
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/foundation/layouts/tabs"
+            type="nav"/>
+        <items jcr:primaryType="nt:unstructured">
+            <searchscreen
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Search Screen"
+                sling:resourceType="granite/ui/components/foundation/section">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="/libs/granite/ui/components/coral/foundation/fixedcolumns"
+                    margin="{Boolean}false"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="/libs/granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <title
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="/libs/granite/ui/components/coral/foundation/form/textfield"
+                                fieldDescription="Enter Title of the component"
+                                fieldLabel="Title"
+                                name="./searchtitle"/>
+                            <description
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                fieldDescription="Enter Description that displays above Search box"
+                                fieldLabel="Description"
+                                name="./searchdescription"
+                                useFixedInlineToolbar="{Boolean}true">
+                                <rtePlugins
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceSuperType="/apps/dotcom/components/content/globalrte/cq:dialog/content/items/column/items/text/rtePlugins"/>
+                                <uiSettings
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceSuperType="/apps/dotcom/components/content/globalrte/cq:dialog/content/items/column/items/text/uiSettings"/>
+                                <htmlRules
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceSuperType="/apps/dotcom/components/content/globalrte/cq:dialog/content/items/column/items/text/htmlRules"/>
+                            </description>
+                            <zipcode
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="/libs/granite/ui/components/coral/foundation/form/textfield"
+                                emptyText="e.g. Enter Zip Code"
+                                fieldDescription="Enter text that will appear within search box"
+                                fieldLabel="Zip Code Field Display Text"
+                                name="./searchzipcode"/>
+                            <button
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="/libs/granite/ui/components/coral/foundation/form/textfield"
+                                emptyText="e.g. View Rates"
+                                fieldDescription="Enter text that will appear in the Search CTA button"
+                                fieldLabel="Find Rates CTA Button"
+                                name="./searchbutton"
+                                required="{Boolean}true"/>
+                            <invalidzip
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="/libs/granite/ui/components/coral/foundation/form/textfield"
+                                emptyText="e.g. Please enter a valid zip code"
+                                fieldDescription="Enter text for response of an invalid zip code"
+                                fieldLabel="Invalid Zip Code response"
+                                name="./searchinvalid"/>
+                            <unavailzip
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="/libs/granite/ui/components/coral/foundation/form/textfield"
+                                emptyText="e.g. Rates not available for the specified zip code"
+                                fieldDescription="Enter text for an out-of-footprint response"
+                                fieldLabel="Rates Unavailable response"
+                                name="./searchunavail"/>
+                            <restServiceUnavailable
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="/libs/granite/ui/components/coral/foundation/form/textfield"
+                                value="Rates are unavailable now. Please try again in a few minutes."
+                                fieldDescription="Enter text for an unavailable service response"
+                                fieldLabel="Rest Service Unavailable response"
+                                name="./restServiceUnavailable"/>
+                        </items>
+                    </column>
+                </items>
+            </searchscreen>
+            <resultsscreen
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Results Screen"
+                sling:resourceType="granite/ui/components/foundation/section">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="/libs/granite/ui/components/coral/foundation/fixedcolumns"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="/libs/granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <title
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="/libs/granite/ui/components/coral/foundation/form/textfield"
+                                emptyText="e.g. Certificate of Deposit"
+                                fieldDescription="Enter text that will appear as a header for the results table"
+                                fieldLabel="Results Message Title"
+                                name="./resultstitle"/>
+                            <datescript
+		                        jcr:primaryType="nt:unstructured"
+		                        sling:resourceType="granite/ui/components/foundation/form/textarea"
+		                        fieldDescription="Enter script that will display Effective Date"
+                                fieldLabel="Date Script"
+		                        name="./resultsscript"/>
+                            <resultdesc
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                fieldDescription="Enter any description text that should appear below Title or Date Script"
+                                fieldLabel="Results Description"
+                                name="./resultsdescription"
+                                useFixedInlineToolbar="{Boolean}true">
+                                <rtePlugins
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceSuperType="/apps/dotcom/components/content/globalrte/cq:dialog/content/items/column/items/text/rtePlugins"/>
+                                <uiSettings
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceSuperType="/apps/dotcom/components/content/globalrte/cq:dialog/content/items/column/items/text/uiSettings"/>
+                                <htmlRules
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceSuperType="/apps/dotcom/components/content/globalrte/cq:dialog/content/items/column/items/text/htmlRules"/>
+                            </resultdesc>
+                            <terms
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="/libs/granite/ui/components/coral/foundation/form/textfield"
+                                fieldDescription="Enter results table header label for terms"
+                                fieldLabel="Terms Label"
+                                name="./resultsterms"/>
+                            <rateslabel
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="/libs/granite/ui/components/coral/foundation/form/textfield"
+                                fieldDescription="Enter results table header label for Rate"
+                                fieldLabel="Rates Label"
+                                name="./resultsratelabel"/>
+                            <apylabel
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="/libs/granite/ui/components/coral/foundation/form/textfield"
+                                fieldDescription="Enter results table header label for APY"
+                                fieldLabel="APY Label"
+                                name="./resultsaprlabel"/>
+                        </items>
+                    </column>
+                </items>
+            </resultsscreen>
+            <cta
+                jcr:primaryType="nt:unstructured"
+                jcr:title="CTA"
+                sling:resourceType="granite/ui/components/foundation/section">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="/libs/granite/ui/components/coral/foundation/fixedcolumns"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="/libs/granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <setButton
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/container">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <heading
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="/libs/granite/ui/components/coral/foundation/heading"
+                                        class="coral-Heading coral-Heading--4"
+                                        level="{Long}4"
+                                        text="Configure Button Style CTA"/>
+                                    <well
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/container">
+                                        <layout
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="/libs/granite/ui/components/coral/foundation/well"/>
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <title
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="/libs/granite/ui/components/coral/foundation/form/textfield"
+                                                fieldDescription="Set the CTA title"
+                                                fieldLabel=" CTA Button Text"
+                                                name="./jcr:title"/>
+                                            <url
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="/libs/granite/ui/components/coral/foundation/form/pathbrowser"
+                                                allowBlank="{Boolean}false"
+                                                fieldDescription="Select Path to hyperlink Product Name"
+                                                fieldLabel="URL"
+                                                name="./linkURL"
+                                                rootPath="/content"/>
+                                            <urlParams
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="/libs/granite/ui/components/coral/foundation/form/textfield"
+                                                fieldDescription="URL Params provided should be concatenated onto the URL e.g. /path/to/url?param1=value1&amp;param2=value2"
+                                                fieldLabel="URL Parameters"
+                                                name="./urlParams"/>
+                                            <target
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="/libs/granite/ui/components/coral/foundation/form/select"
+                                                fieldDescription="Sets the window target for the navigation"
+                                                fieldLabel="Target"
+                                                name="./target">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <self
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Default"
+                                                        value="_self"/>
+                                                    <blank
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Blank"
+                                                        value="_blank"/>
+                                                </items>
+                                            </target>
+                                            <anchorTag
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="/libs/granite/ui/components/coral/foundation/form/textfield"
+                                                fieldDescription="Sets an anchor tag that’s applied to the URL e.g. /path/to/url#tag"
+                                                fieldLabel="Anchor"
+                                                name="./anchorTag"/>
+                                            <titleTag
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="/libs/granite/ui/components/coral/foundation/form/textfield"
+                                                fieldDescription="Enter the title tag on hover (max 100 chars)"
+                                                fieldLabel="Title Tag"
+                                                maxlength="{Long}100"
+                                                name="./titletag"/>
+                                            <theme
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="/libs/granite/ui/components/coral/foundation/form/select"
+                                                fieldDescription="Set the theme of the CTA button"
+                                                fieldLabel="Theme"
+                                                name="./theme">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <blue
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Blue"
+                                                        value="suntrust-secondary-button_CTAs"/>
+                                                    <orange
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Orange"
+                                                        value="suntrust-primary-button_CTAs"/>
+                                                    <white
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="White"
+                                                        value="suntrust-tertiary-button_CTAs"/>
+                                                </items>
+                                            </theme>
+                                            <alignment
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="/libs/granite/ui/components/coral/foundation/form/select"
+                                                fieldDescription="Set postion of CTA button"
+                                                fieldLabel="Button Alignment"
+                                                name="./allignment">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <left
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Left"
+                                                        value="cta_alignLeft"/>
+                                                    <center
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Center"
+                                                        value="cta_alignCenter"/>
+                                                    <right
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Right"
+                                                        value="cta_alignRight"/>
+                                                </items>
+                                            </alignment>
+                                        </items>
+                                    </well>
+                                </items>
+                            </setButton>
+                            <setText
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/container">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <heading
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/heading"
+                                        class="coral-Heading coral-Heading--4"
+                                        level="{Long}4"
+                                        text="Configure Text Style CTA"/>
+                                    <well
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/container">
+                                        <layout
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/layouts/well"/>
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <pages
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/multifield"
+                                                class="foundation-layout-util-maximized-alt">
+                                                <field
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/fieldset"
+                                                    acs-commons-nested="JSON_STORE"
+                                                    name="./iItems">
+                                                    <layout
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
+                                                        method="absolute"/>
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <column
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/foundation/container">
+                                                            <items jcr:primaryType="nt:unstructured">
+                                                                <title
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                                    fieldDescription="Set the cta title"
+                                                                    fieldLabel="Title"
+                                                                    name="./jcr:title"/>
+                                                                <url
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                                                    allowBlank="{Boolean}false"
+                                                                    fieldDescription="Set the navigation url"
+                                                                    fieldLabel="Url"
+                                                                    name="./linkURL"
+                                                                    rootPath="/content"/>
+                                                                <urlParams
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                                    fieldDescription="Url Params provided should be concatenated onto the url e.g. /path/to/url?param1=value1&amp;param2=value2"
+                                                                    fieldLabel="Url Params"
+                                                                    name="./urlParams"/>
+                                                                <target
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/foundation/form/select"
+                                                                    fieldDescription="Sets the window target for the navigation"
+                                                                    fieldLabel="Target"
+                                                                    name="./target">
+                                                                    <items jcr:primaryType="nt:unstructured">
+                                                                        <self
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            text="Default"
+                                                                            value="_self"/>
+                                                                        <blank
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            text="Blank"
+                                                                            value="_blank"/>
+                                                                    </items>
+                                                                </target>
+                                                                <anchorTag
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                                    fieldDescription="Sets an anchor tag that’s applied to the url e.g. /path/to/url#tag"
+                                                                    fieldLabel="Anchor Tag"
+                                                                    name="./anchorTag"/>
+                                                                <allignment
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/foundation/form/select"
+                                                                    fieldDescription="Set the allignment of the text"
+                                                                    fieldLabel="Link Allignment"
+                                                                    name="./allignment">
+                                                                    <items jcr:primaryType="nt:unstructured">
+                                                                        <left
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            text="Left"
+                                                                            value="CTAs_anchorTxt_alignLeft"/>
+                                                                        <center
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            text="Center"
+                                                                            value="CTAs_anchorTxt_alignCenter"/>
+                                                                        <right
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            text="Right"
+                                                                            value="CTAs_anchorTxt_alignRight"/>
+                                                                    </items>
+                                                                </allignment>
+                                                            </items>
+                                                        </column>
+                                                    </items>
+                                                </field>
+                                            </pages>
+                                        </items>
+                                    </well>
+                                </items>
+                            </setText>
+                        </items>
+                    </column>
+                </items>
+            </cta>
+            <disclaimer
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Disclaimer"
+                sling:resourceType="granite/ui/components/foundation/section">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="/libs/granite/ui/components/coral/foundation/fixedcolumns"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="/libs/granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <disclaimer
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                fieldDescription="Enter disclaimer text"
+                                fieldLabel="Disclaimer Text"
+                                name="./disclaimer"
+                                useFixedInlineToolbar="{Boolean}true">
+                                <rtePlugins
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceSuperType="/apps/dotcom/components/content/globalrte/cq:dialog/content/items/column/items/text/rtePlugins"/>
+                                <uiSettings
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceSuperType="/apps/dotcom/components/content/globalrte/cq:dialog/content/items/column/items/text/uiSettings"/>
+                                <htmlRules
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceSuperType="/apps/dotcom/components/content/globalrte/cq:dialog/content/items/column/items/text/htmlRules"/>
+                            </disclaimer>
+                        </items>
+                    </column>
+                </items>
+            </disclaimer>
+        </items>
+    </content>
+</jcr:root>

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:designPath="/etc/designs/default"
+        cq:lastModified="{Date}2018-03-28T10:12:08.910-04:00"
+        cq:lastModifiedBy="admin"
+        cq:template="/libs/cq/workflow/templates/model"
+        jcr:description="Student Lending Rates Scheduler Workflow(Nightly Job)"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Student Lending Rates Scheduler Workflow(Nightly Job)"
+        sling:resourceType="cq/workflow/components/pages/model"
+        multiResourceSupport="true">
+        <flow
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="foundation/components/parsys">
+            <process_331121408
+                jcr:created="{Date}2017-11-25T23:09:06.506-05:00"
+                jcr:createdBy="admin"
+                jcr:description="RPX Clear Node Properties"
+                jcr:lastModified="{Date}2017-11-27T23:06:22.005-05:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="RPX Clear Node Properties"
+                sling:resourceType="cq/workflow/components/model/process">
+                <metaData
+                    jcr:primaryType="nt:unstructured"
+                    PROCESS="com.suntrust.dotcom.workflow.RPXClearNodeProperties"
+                    PROCESS_AUTO_ADVANCE="true"/>
+            </process_331121408>
+            <process_1558661665
+                jcr:created="{Date}2017-11-20T22:47:01.060-05:00"
+                jcr:createdBy="admin"
+                jcr:description="RPX Sync Scheduler Process"
+                jcr:lastModified="{Date}2017-11-28T16:54:36.991-05:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="RPX Sync Scheduler Process"
+                sling:resourceType="cq/workflow/components/model/process">
+                <metaData
+                    jcr:primaryType="nt:unstructured"
+                    PROCESS="com.suntrust.dotcom.workflow.RPXSyncSchedulerProcess"
+                    PROCESS_AUTO_ADVANCE="true"/>
+            </process_1558661665>
+            <goto
+                jcr:created="{Date}2017-11-24T11:18:02.816-05:00"
+                jcr:createdBy="admin"
+                jcr:description="RPX Sync Status Check"
+                jcr:lastModified="{Date}2017-12-18T11:03:21.559-05:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="RPX Sync Status Check"
+                sling:resourceType="cq/workflow/components/model/goto"
+                PROCESS="com.adobe.granite.workflow.core.process.GotoProcess"
+                PROCESS_AUTO_ADVANCE="false">
+                <metaData
+                    jcr:primaryType="nt:unstructured"
+                    PROCESS="com.adobe.granite.workflow.core.process.GotoProcess"
+                    PROCESS_AUTO_ADVANCE="false"
+                    scriptPath="/etc/workflow/scripts/dotcom/stel-prod-rpx-sync-check.ecma"
+                    TARGET_NODE_PATH="/etc/workflow/models/dotcom/student-lending-rates-scheduler-workflow/jcr:content/flow/process_775256578"
+                    timeoutHandler="com.adobe.granite.workflow.console.timeout.autoadvance.AbsoluteTimeAutoAdvancer"
+                    timeoutMillis="0"/>
+            </goto>
+            <process
+                jcr:created="{Date}2017-11-26T10:26:26.817-05:00"
+                jcr:createdBy="admin"
+                jcr:description="RPX Sync Wait Timer"
+                jcr:lastModified="{Date}2017-11-28T16:55:14.628-05:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="RPX Sync Wait Timer"
+                sling:resourceType="cq/workflow/components/model/process">
+                <metaData
+                    jcr:primaryType="nt:unstructured"
+                    PROCESS="com.suntrust.dotcom.workflow.RPXSyncWaitTimer"
+                    PROCESS_AUTO_ADVANCE="true"/>
+            </process>
+            <goto_757317576
+                jcr:created="{Date}2017-11-25T22:40:10.539-05:00"
+                jcr:createdBy="admin"
+                jcr:description="Retry Again"
+                jcr:lastModified="{Date}2017-12-18T11:04:13.723-05:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Retry Again"
+                sling:resourceType="cq/workflow/components/model/goto"
+                PROCESS="com.adobe.granite.workflow.core.process.GotoProcess"
+                PROCESS_AUTO_ADVANCE="false">
+                <metaData
+                    jcr:primaryType="nt:unstructured"
+                    PROCESS="com.adobe.granite.workflow.core.process.GotoProcess"
+                    PROCESS_AUTO_ADVANCE="false"
+                    scriptPath="/etc/workflow/scripts/dotcom/stel-prod-rpx-retry.ecma"
+                    TARGET_NODE_PATH="/etc/workflow/models/dotcom/student-lending-rates-scheduler-workflow/jcr:content/flow/process_1558661665"/>
+            </goto_757317576>
+            <process_775256578
+                jcr:created="{Date}2017-11-27T15:21:45.438-05:00"
+                jcr:createdBy="admin"
+                jcr:description="RPX Sync Successful Notification"
+                jcr:lastModified="{Date}2017-11-28T16:55:26.251-05:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="RPX Sync Successful Notification"
+                sling:resourceType="cq/workflow/components/model/process">
+                <metaData
+                    jcr:primaryType="nt:unstructured"
+                    PROCESS="com.suntrust.dotcom.workflow.RPXEmailNotification"
+                    PROCESS_ARGS="rpx.schedule.success"
+                    PROCESS_AUTO_ADVANCE="true"/>
+            </process_775256578>
+            <process_1613071308
+                jcr:created="{Date}2018-02-16T08:05:50.742-05:00"
+                jcr:createdBy="UIAM82"
+                jcr:description="STEL Content Archival"
+                jcr:lastModified="{Date}2018-02-16T08:06:17.804-05:00"
+                jcr:lastModifiedBy="UIAM82"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="STEL Content Archival"
+                sling:resourceType="cq/workflow/components/model/process">
+                <metaData
+                    jcr:primaryType="nt:unstructured"
+                    PROCESS="com.suntrust.dotcom.workflow.ContentArchivalProcess"
+                    PROCESS_ARGS="stelarchival"
+                    PROCESS_AUTO_ADVANCE="true"/>
+            </process_1613071308>
+            <process_535196041
+                jcr:created="{Date}2018-03-28T10:11:53.460-04:00"
+                jcr:createdBy="admin"
+                jcr:description="Suntrust Workflow History/Archival"
+                jcr:lastModified="{Date}2018-03-28T10:12:08.897-04:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Suntrust Workflow History/Archival"
+                sling:resourceType="cq/workflow/components/model/process">
+                <metaData
+                    jcr:primaryType="nt:unstructured"
+                    PROCESS="com.suntrust.dotcom.workflow.WorkflowArchivalProcess"
+                    PROCESS_AUTO_ADVANCE="true"/>
+            </process_535196041>
+        </flow>
+        <model/>
+        <image
+            jcr:lastModified="{Date}2017-08-10T11:33:09.422-04:00"
+            jcr:lastModifiedBy="admin"
+            jcr:primaryType="nt:unstructured"
+            imageRotate="0">
+            <file/>
+        </image>
+    </jcr:content>
+</jcr:root>

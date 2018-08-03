@@ -1,0 +1,511 @@
+﻿.suntrust-rightwrappercontent p {
+	font-family: "suntrustregular";
+}
+.suntrust-mortgageHolder .suntrust-mortgageDescription h4,
+.suntrust-mortgageHolder .suntrust-mortgagetable h4{
+	font-size: 30px;
+	margin-bottom: 10px;
+}
+
+.suntrust-percentageLink{
+	line-height: 24px;
+} 
+
+p.suntrust-percentageLink{
+    color: #003b71 !important;
+    margin-bottom: 25px !important;
+}
+
+.suntrust-mortgageHolder .suntrust-mortgageDescription p,
+.suntrust-mortgageHolder .suntrust-mortgagetable p{
+	margin-bottom: 20px;
+} 
+.suntrust-mortgageHolder .suntrust-mortgagetableheading p,.suntrust-mortgagetable .suntrust-mortgageDisclaimer p{
+	font-size: 15px;
+	margin-bottom: 20px;
+}
+.suntrust-mortgageHolder .suntrust-mortgagetable p span{
+	font-weight: bold;
+}
+.suntrust-mortgageHolder .suntrust-mortgagetable .suntrust-mortgagetablewrapper{
+	overflow: hidden;
+	margin-bottom: 25px;
+	/*display: -webkit-box;
+    display: -moz-box;
+    display: -ms-box;
+    display: -o-box;
+    display: box;
+    display: -webkit-flexbox;
+    display: -moz-flexbox;
+    display: -ms-flexbox;
+    display: -o-flexbox;
+    display: flexbox;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;*/
+}
+.suntrust-mortgageHolder .suntrust-blue{
+	background: #003b71;
+}
+.suntrust-mortgageHolder .suntrust-orange{
+	background: #DG6112;
+}
+.suntrust-mortgageHolder .suntrust-green{
+	background: #02A397;
+}
+.suntrust-mortgageHolder .suntrust-lightblue{
+	background: #0075C9;
+}
+.suntrust-mortgageHolder .suntrust-black{
+	background: #000000;
+}
+.suntrust-mortgageHolder .suntrust-pink{
+	background: #D8797F;
+}
+.suntrust-mortgageHolder .suntrust-darkorange{
+	background: #C94C06;
+}
+.suntrust-mortgageHolder .suntrust-darkgreen{
+	background: #028477;
+}
+.suntrust-mortgageHolder .suntrust-lightblack{
+	background: #888888;
+}
+.suntrust-alignLeft{
+	text-align: left;
+}
+.suntrust-alignCenter{
+	text-align: center;
+}
+.suntrust-alignRight{
+	text-align: right;
+}
+
+.suntrust-mortgageHolder .suntrust-mortgagetable .suntrust-mortgagetablewrapper .suntrust-leftwrapper{
+	padding: 30px;
+    color: #fff;
+	font-size: 27px;
+    line-height: 24px;
+    
+	/*flex: 1;
+    -webkit-flex: 1;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;*/
+}
+.suntrust-mortgageHolder .suntrust-mortgagetable .suntrust-mortgagetablewrapper .suntrust-leftwrapper a{
+	color: #fff;
+	font-size: 22px;
+    line-height: 30px;
+	font-weight: bold;
+}
+.suntrust-mortgageHolder .suntrust-mortgagetable .suntrust-mortgagetablewrapper .suntrust-leftwrapper a:hover,
+.suntrust-mortgageHolder .suntrust-mortgagetable .suntrust-mortgagetablewrapper .suntrust-leftwrapper a:focus{
+	text-decoration: underline;
+}
+.suntrust-mortgageHolder .suntrust-mortgagetable .suntrust-mortgagetablewrapper .suntrust-leftwrapper a:hover:not([href]),
+.suntrust-mortgageHolder .suntrust-mortgagetable .suntrust-mortgagetablewrapper .suntrust-leftwrapper a:focus:not([href]){
+	text-decoration: none;
+}
+.suntrust-mortgageHolder .suntrust-mortgagetable .suntrust-mortgagetablewrapper .suntrust-rightwrapper{
+	border: 1px solid #cfcfcf;
+	/*flex: 1;
+    -webkit-flex: 1;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;*/
+}
+.suntrust-mortgageHolder .suntrust-rightwrappercontent{
+	overflow: hidden;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-box;
+    display: -o-box;
+    display: box;
+    display: -webkit-flexbox;
+    display: -moz-flexbox;
+    display: -ms-flexbox;
+    display: -o-flexbox;
+    display: flexbox;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+}
+.suntrust-mortgageHolder .suntrust-mortgagetable .suntrust-mortgagetablewrapper .suntrust-rightwrapper .suntrust-rightwrappercontent
+.suntrust-rightwrappercontentLeft .suntrust-tableheadingtext{
+	margin-top: 20px;
+	margin-bottom: 5px;
+	font-size: 18px;
+	font-weight: bold;
+	color: #333333;
+}
+.suntrust-mortgageHolder .suntrust-mortgagetable .suntrust-mortgagetablewrapper .suntrust-rightwrapper .suntrust-rightwrappercontent
+.suntrust-rightwrappercontentLeft .suntrust-tablevaluetext{
+	font-size: 28px;
+}
+.suntrust-tablevalueslast{
+	font-weight: bold;
+	font-size: 18px !important;
+	color: #333333;
+    position: relative;
+}
+.suntrust-tablevalueslast span:nth-child(2){
+	font-weight: normal;
+	font-size: 18px;	
+    cursor:auto;
+}
+/*
+.suntrust-tablevalueslast .suntrust-points{
+	margin-left: 42px;
+}
+*/
+.suntrust-origination-value{
+	position: absolute;
+    left: 155px;
+}
+.suntrust-points{
+    position: absolute;
+	left: 155px;    
+}
+.suntrust-rightwrappercontentLeft{
+	border-right: 1px solid #ccc;
+	flex: 1;
+    -webkit-flex: 1;
+    -webkit-box-flex: 1;
+    -ms-flex: 1; 
+}
+.suntrust-rightwrappercontent .suntrust-tablevalueslast .suntrust-whole-text sup:before{
+    content: '?';
+    display: inline-block;
+    font-family: sans-serif;
+    font-weight: bold;
+    text-align: center;
+	width: 15px;
+	height: 15px;
+	font-size: 12px;
+	line-height: 14px;
+    border-radius: 1.2ex;
+    margin-right: 4px;
+    padding: 0px;
+    color: #fff;
+    background: #888;
+    border: 1px solid #888;
+    text-decoration: none;
+}
+.suntrust-textrightRates{
+	margin-top: 15px;
+	font-size: 15px !important;
+	margin-left: 30px;
+	margin-bottom: 20px;
+}
+.suntrust-rightwrapperamount h3{
+    font-size: 20px;
+}
+.suntrust-rightwrapperamount{
+	margin-left: 30px;
+}
+.suntrust-rightwrapperamount table{
+	width: 100%;
+}
+.suntrust-rightwrapperamount table th{
+	padding: 10px 15px 10px 15px;
+	font-size: 17px;
+	background: #f5f5f5;
+	border-bottom: 1px solid #e5e5e5;
+}
+.suntrust-rightwrapperamount table td{
+	padding: 10px 15px 10px 15px;
+	font-size: 17px;
+	word-break: break-word;
+}
+
+.suntrust-mortgageDisclaimer{
+	border-top: 1px solid #e5e5e5;
+	padding-top: 20px;
+	margin-left: 15px;
+}
+.suntrust-mortgageDisclaimer .suntrust-disclaimerHeading{
+	font-size: 15px !important;
+	font-weight: bold;
+	margin-bottom: 0px !important;
+}
+.suntrust-learnMoremortgage{
+	border: 1px solid #00b6ae;
+	margin-left: 16.6%;
+	margin-bottom: 20px;
+}
+.suntrust-learnMoremortgage .suntrust-calltoactionmortage{
+	font-size: 18px;
+}
+.suntrust-learnMoremortgage h4{
+	font-size: 32px;
+	margin-bottom: 15px;
+	margin-top: 20px;
+	text-align: center;
+}
+.suntrust-learnMoremortgage .suntrust-calltoactionmortage{
+	text-align: center;
+	font-size: 17px;
+}
+.suntrust-learnMoremortgage .suntrust-color-border-green{
+	display: inline-block;
+    top: 6px;
+    border: 4px solid #00b6ae;
+    position: relative;
+    width: 100%;
+    margin-bottom: 0px;
+    padding-bottom: 0 !important;
+}
+.suntrust-learnMoremortgage .suntrust-mortageButton{
+	text-align: center;
+	margin-bottom: 20px;
+	margin-top: 10px;
+	position: relative;
+}
+.suntrust-learnMoremortgage .suntrust-mortageButton:before {
+	position: absolute;
+    top: 60%;
+    left: 25px;
+    width: 94%;
+    height: 1px;
+    background-color: #e5e5e5;
+    content: '';
+    z-index: -1;
+}
+.suntrust-mortgagetablewrapper .suntrust-promo-cta-button-white{
+    font-size: 16px !important;
+    line-height: 2px !important;
+    margin-left: 10px !important;
+    color: #003B71 !important;
+    text-decoration: none !important;
+    width: auto !important
+}
+.suntrust-mortgagetablewrapper .suntrust-promo-cta-button-white:hover,
+.suntrust-mortgagetablewrapper .suntrust-promo-cta-button-white:focus{
+    color: #C94C06 !important;
+}
+.suntrust-tablevalueslast a{
+	color: #333 !important;
+}
+.suntrust-tablevalueslast a:hover,.suntrust-tablevalueslast a:focus{
+	color: #c94c06 !important;
+}
+.suntrust-tablevalueslast[data-anchor] sup:before{
+	cursor: pointer;
+}
+.suntrust-tablevalueslast[data-anchor]{
+	cursor: auto;
+}
+.suntrust-tablevalueslast .suntrust-leftLabel{
+	color: #333;
+    font-size: 18px;
+    font-weight: bold;
+}
+.suntrust-origination-value, .suntrust-points{
+	font-weight: normal !important;
+}
+.suntrust-rightwrappercontent .suntrust-tablevalueslast .suntrust-whole-text sup{
+	top: -15px;
+}
+.headeranddate +.imagetext {
+	padding: 0;
+}
+.suntrust-whole-text:hover .suntrust-leftLabel{
+	color: #c94c06;
+    cursor: pointer;
+}
+.suntrust-rightwrappercontent .suntrust-tablevalueslast[data-anchor] .suntrust-whole-text:hover sup:before,
+.suntrust-rightwrappercontent .suntrust-tablevalueslast[data-anchor] .suntrust-whole-text:focus sup:before{
+	color: #fff;
+    background: #c94c06;
+    border: 1px solid #c94c06;
+    cursor: pointer;
+}
+.suntrust-rightwrappercontent .suntrust-tablevalueslast .suntrust-whole-text:hover sup:before,
+.suntrust-rightwrappercontent .suntrust-tablevalueslast .suntrust-whole-text:focus sup:before{
+	color: #fff;
+    background: #888;
+    border: 1px solid #888;
+    cursor: auto;
+}
+.suntrust-rightwrappercontent .suntrust-tablevalueslast[data-anchor] .suntrust-whole-text:hover .suntrust-leftLabel,
+.suntrust-rightwrappercontent .suntrust-tablevalueslast[data-anchor] .suntrust-whole-text:focus .suntrust-leftLabel{
+	color: #c94c06 !important;
+    cursor: pointer;
+}
+.suntrust-rightwrappercontent .suntrust-tablevalueslast .suntrust-whole-text:hover .suntrust-leftLabel,
+.suntrust-rightwrappercontent .suntrust-tablevalueslast .suntrust-whole-text:focus .suntrust-leftLabel{
+	color: #333 !important;
+    cursor: auto;
+}
+.suntrust-rightwrappercontent .suntrust-tablevalueslast .suntrust-whole-text a:not([href]) {
+	color: #333 !important;
+}
+.suntrust-rightwrappercontent .suntrust-tablevalueslast .suntrust-whole-text a:not([href]) sup:before{
+	color: #fff;
+    background: #888;
+    border: 1px solid #888;
+   	cursor: auto;
+}
+.suntrust-rightwrappercontent .suntrust-tablevalueslast .suntrust-whole-text a[href]:hover,
+.suntrust-rightwrappercontent .suntrust-tablevalueslast .suntrust-whole-text a[href]:hover{
+	color: #c94c06 !important;
+}
+.suntrust-rightwrappercontent .suntrust-tablevalueslast .suntrust-whole-text a[href]:hover sup:before,
+.suntrust-rightwrappercontent .suntrust-tablevalueslast .suntrust-whole-text a[href]:focus sup:before{
+	color: #fff;
+    background: #c94c06;
+    border: 1px solid #c94c06;
+   	cursor: pointer;
+}
+.mortgagerates .suntrust-rightwrappercontent .col-lg-3{
+	width: 30% !important;
+}
+.mortgagerates .suntrust-rightwrappercontent .col-lg-9{
+	width: 70% !important;
+}
+* {
+	outline: none !important;
+}
+@media screen and (-ms-high-contrast:active),
+    (-ms-high-contrast:none) {
+    .suntrust-rightwrappercontent .suntrust-tablevalueslast .suntrust-whole-text sup:before {
+		font-size: 11px;
+		border-radius: 2.2ex;
+    }
+	.suntrust-rightwrappercontent [data-anchor].suntrust-tablevalueslast .suntrust-origination-value{
+		cursor: text !important;
+	}
+	.suntrust-rightwrappercontent .suntrust-tablevalueslast[data-anchor] sup:hover,
+	.suntrust-rightwrappercontent .suntrust-tablevalueslast[data-anchor] sup:focus{
+		cursor: pointer;
+    }
+}
+
+/*Media queries */
+
+@media only screen and (min-width : 768px) and (max-width : 1024px){
+	.suntrust-learnMoremortgage{
+		margin-left: 0px;
+	}
+   	.suntrust-rightwrappercontent .suntrust-tablevalueslast .suntrust-whole-text sup{
+		top: -15px;
+	}
+	.suntrust-mortgageHolder .suntrust-mortgagetable .suntrust-mortgagetablewrapper .suntrust-leftwrapper{
+		padding: 20px;
+	}
+	.suntrust-mortgageHolder .suntrust-mortgagetable .suntrust-mortgagetablewrapper .suntrust-rightwrapper{
+		padding: 0;
+	}
+	.suntrust-textrightRates, .suntrust-rightwrapperamount {
+		margin-left: 10px;
+	}
+    .mortgagerates .suntrust-rightwrappercontent .col-lg-3{
+        width: 35% !important;
+    }
+    .mortgagerates .suntrust-rightwrappercontent .col-lg-9{
+        width: 65% !important;
+    }
+}
+@media only screen and (min-width : 768px) and (max-width : 1024px) and (orientation: landscape) and
+	(-webkit-min-device-pixel-ratio: 1){
+	.suntrust-origination-value{
+		float: none;
+	}
+	.suntrust-points{
+		float: none;
+    	margin-left: 0px;    
+	}
+}
+@media screen and (max-width: 767px){
+	.suntrust-rightwrappercontentLeft{
+		border-right: 0px;
+	}
+	.suntrust-mortgagetable p .suntrust-date{
+		display: block;
+	}
+	.suntrust-mortgageHolder .suntrust-mortgagetable .suntrust-mortgagetablewrapper .suntrust-leftwrapper {
+		padding: 15px 0;
+	}
+	.suntrust-mortgageHolder .suntrust-mortgagetable .suntrust-mortgagetablewrapper .suntrust-leftwrapper a {
+		font-size: 20px;
+		margin-left: 15px;
+	}
+	.suntrust-textrightRates {
+		margin-left: 0;
+		border-top: 1px solid #ccc;
+		padding-top: 25px;
+	}
+	.suntrust-rightwrapperamount{
+		margin-left: 0px;
+	}
+	.suntrust-rightwrapperamount h3{
+		margin-bottom: 20px;
+	}
+	.suntrust-rightwrapperamount table.visible-xs{
+		margin-bottom: 30px;
+		border: 1px solid #ccc;
+	}
+	.suntrust-rightwrapperamount table.visible-xs td{
+		border: 1px solid #ccc;
+	}
+	.suntrust-learnMoremortgage{
+		margin-left: 0px;
+	}
+	.suntrust-learnMoremortgage h4{
+		font-size: 26px;
+	}
+	.suntrust-learnMoremortgage .suntrust-calltoactionmortage{
+		font-size: 15px;
+	}
+	.suntrust-learnMoremortgage .suntrust-mortageButton:before{
+		display: none;
+	}
+	.suntrust-mortgageHolder .suntrust-rightwrappercontent{
+		display: block;
+	}
+	.suntrust-rightwrappercontent .suntrust-tablevalueslast .suntrust-whole-text sup:before {
+		content: '?';
+		display: inline-block;
+		font-family: sans-serif;
+		font-weight: bold;
+		text-align: center;
+		width: 15px;
+		height: 15px;
+		font-size: 12px;
+		line-height: 14px;
+		border-radius: 1.2ex;
+		margin-right: 4px;
+		color: #fff;
+		background: #888;
+		border: 1px solid #888;
+		text-decoration: none;
+	}
+	.suntrust-rightwrappercontent .suntrust-tablevalueslast .suntrust-whole-text sup{
+		top: -18px;
+	}
+	.suntrust-mortgageDisclaimer {
+		margin: 0 15px;
+	}
+	.suntrust-rightwrapperamount table th{
+		width: 50%;
+	}
+	.suntrust-mortgageHolder .suntrust-mortgagetable .suntrust-mortgagetablewrapper .suntrust-rightwrapper{
+		padding: 0;
+	}
+    .suntrust-origination-value{
+        float: none;
+    }
+    .suntrust-points{
+        float: none;
+        margin-left: 0px;    
+    }
+    .mortgagerates .suntrust-rightwrappercontent .col-lg-3{
+        width: 100% !important;
+    }
+    .mortgagerates .suntrust-rightwrappercontent .col-lg-9{
+        width: 100% !important;
+    }
+}

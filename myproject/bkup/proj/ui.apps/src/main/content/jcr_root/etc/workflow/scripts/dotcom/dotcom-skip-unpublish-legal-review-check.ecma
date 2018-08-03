@@ -1,0 +1,20 @@
+function check(){
+	try{
+
+		var path = workflowData.getPayload().toString();
+		var jcrsession = workflowSession.getSession();
+		var node = jcrsession.getNode(path).getNode("jcr:content");
+		if(null != node && node.hasProperty("legalreviewer")) {
+			if(node.getProperty("legalreviewer").getValue() != "" && node.getProperty("skiplegalreview").getValue() != null){
+				return false;
+			}else{
+				return true;
+			}
+		}else{		
+			return true;
+		}
+	}catch(err) {
+	 log.info(err.message);
+	 return false;
+	}
+}

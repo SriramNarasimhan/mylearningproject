@@ -1,0 +1,438 @@
+<div data-sly-test="${!properties.headline && (wcmmode.edit || wcmmode.design)}">Configure Header Component</div>
+<div data-sly-unwrap data-sly-use.fetchlogo="${'com.suntrust.dotcom.utils.GenericUtil' @linkURL=properties.logoURL,urlParams=properties.logoParams}"></div>
+<div data-sly-unwrap data-sly-use.fetchcta="${'com.suntrust.dotcom.utils.GenericUtil' @linkURL=properties.linkURL,urlParams=properties.urlParams}"></div>
+<div data-sly-unwrap data-sly-use.fetchsearch="${'com.suntrust.dotcom.utils.GenericUtil' @linkURL=properties.searchURL,urlParams=properties.searchurlParams}"></div>
+<div data-sly-unwrap data-sly-use.fetchlanguage="${'com.suntrust.dotcom.utils.GenericUtil' @linkURL=properties.languageURL,urlParams=properties.languageurlParams}"></div>
+<div data-sly-unwrap data-sly-use.fetchlocation="${'com.suntrust.dotcom.utils.GenericUtil' @linkURL=properties.locationURL,urlParams=properties.locationurlParams}"></div>
+<div data-sly-unwrap data-sly-use.fetchsearchmodal="${'com.suntrust.dotcom.utils.GenericUtil' @linkURL=properties.searchmodalURL,urlParams=properties.searchmodalurlParams}"></div>
+<div data-sly-unwrap data-sly-use.fetchlocationmodal="${'com.suntrust.dotcom.utils.GenericUtil' @linkURL=properties.locationmodalURL,urlParams=properties.locationmodalurlParams}"></div>
+
+<sly data-sly-use.genObject="${'com.suntrust.dotcom.utils.GenericUtil'}" />
+<sly data-sly-use.headerObject="${'com.suntrust.dotcom.components.FooterNavigationLinksComponent' @footerLinksInHeader='true'}" />
+
+<sly data-sly-use.utilObject="${'com.suntrust.dotcom.utils.GenericUtil'  @iterativePage=genObject.iterativePage,pagePath=genObject.headerCurrentPage}" />
+<sly data-sly-use.mobObject="${'com.suntrust.dotcom.utils.GenericUtil'  @iterativePage=genObject.mobileIterativePage,pagePath=genObject.mobileHeaderCurrentPage}" />
+<input type="hidden" name="globalsignonconfig" id="globalsignonconfig" value="${utilObject.inheritedSignOnPage}" />
+<input type="hidden" name="globalmaintenancemode" id="globalmaintenancemode" value="${request.requestParameterMap['maintenance-mode-override'][0].toString}" />
+<div id="skip-nav" class="skip-nav hidden-sm hidden-xs">
+    <a class="skip-nav-link" title="SunTrust Home" href="/" tabindex="1">Home</a>
+    <a class="skip-nav-link" title="Skip to main content" href="#main-content" tabindex="2">Skip to main
+            content</a>
+    <a class="skip-nav-link" title="Skip to footer" href="#container-footer" tabindex="3">Skip to footer</a>
+</div>
+<header class="navbar navbar-inverse navbar-fixed-top suntrust-header-alt suntrust-global-nav-element suntrust-globalNav" role="navigation">
+
+    <!-- On hover division for mobile, ipad views starts-->
+    <div class="containers" tabindex="-1" aria-hidden="true">
+        <div class="suntrust-levelHolder">
+
+            <div class="suntrust-levelHeader">
+                <a href="javascript:void(0);" class="pull-left suntrust-onclose" tabindex="-1" aria-hidden="true"><img class="" alt="Close SunTrust mobile menu" title="close" src="${'close_icon' @ i18n}" />
+                </a>
+                <a href="${fetchlogo.modifyURL}" class="pull-left" tabindex="-1" aria-hidden="true"><img class="" alt="${properties.alttext}" title="Suntrust Logo" src="${properties.mobileFileReference}" />
+                </a>
+                <div class="suntrust-levelNaviagtions">
+                    <p class="suntrust-firstLevel">
+                        <a href="#" data-suntrust-class="suntrust-nav-location" tabindex="-1" aria-hidden="true"><img class="" alt="Find ATM and Branch Locations" title="Locations" src="${'location_icon' @ i18n}" /><span>${properties.locationtitle @context='html'}</span>
+                        </a>
+                        <div data-sly-unwrap data-sly-test="${!properties.hidesignon}">
+                            <a href="#" data-suntrust-class="suntrust-user-trigger" tabindex="-1" aria-hidden="true"><img class="" alt="Sign on to Online Banking and Online Cash Manager" title="Sign on" src="${'signon_icon' @ i18n}" /><span>${properties.signonlabel @context='html'}</span>
+                            </a>
+                        </div>
+                    </p>
+                    <p class="suntrust-secondLevel">
+                        <a href="#" data-suntrust-class="suntrust-nav-search" tabindex="-1" aria-hidden="true"><img class="" alt="Search Suntrust.com" title="Search" src="${'search_icon' @ i18n}" /><span>${properties.searchtitle @context='html'}</span>
+                        </a>
+                        <a href="${fetchlanguage.modifyURL}" class="suntrust-espanol" tabindex="-1" aria-hidden="true"><img class="" alt="View SunTrust.com in Spanish" title="Espanol" src="${'espanol_icon' @ i18n}" /><span>${properties.languagetitle @context='html'}</span>
+                        </a>
+                    </p>
+                    <p class="suntrust-thirdLevel">
+                        <a title=${properties.anchortitle} class="suntrust-promo-cta-button" href="${fetchcta.modifyURL}" tabindex="-1" aria-hidden="true">${properties.ctatitle @context='html'}</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="suntrust-levelBodysection">
+                <ul class="suntrust-levelBodyItems suntrust-levelOne">
+                    <p class="suntrust-headingStub">MAIN MENU</p>
+                    <li class="selected" data-sly-test="${utilObject.rootPagePath == utilObject.headerCurrentPage}"><a href="${utilObject.rootPagePath}.html" tabindex="-1" aria-hidden="true">Home</a>
+                    </li>
+                    <li data-sly-test="${utilObject.rootPagePath != utilObject.headerCurrentPage}"><a href="${utilObject.rootPagePath}.html" tabindex="-1" aria-hidden="true">Home</a>
+                    </li>
+                    <div data-sly-list="${utilObject.rootChildPageList}" data-sly-unwrap>
+                        <li class="${genericUtil.hyphenSeperatedValue}" data-sly-use.genericUtil="${'com.suntrust.dotcom.utils.GenericUtil'  @pagePath=item.path,iterativePage=item,linkURL=item.path}">
+                            <p data-sly-test.rightArrowBoolean="${genericUtil.childPagesListCount > 0}" data-sly-unwrap></p>
+                            <a class="hide-mobile-menu" href="${genericUtil.modifyURL}" tabindex="-1" aria-hidden="true">${genericUtil.pageTitle}
+						</a>
+                            <p data-sly-test="${rightArrowBoolean}" data-sly-unwrap><span class="suntrust-rightArrow"> > </span>
+                            </p>
+                        </li>
+                    </div>
+                    <div class="suntrust-levelFooter">
+                    	<div data-sly-test="${headerObject.footerlinks && properties.label}" data-sly-unwrap>
+                            <ul class="suntrust-levelFooterItems">
+	                            <div data-sly-list.items="${headerObject.footerlinks}">
+	                                <div data-sly-unwrap data-sly-use.fetchlabel="${'com.suntrust.dotcom.utils.GenericUtil' @linkURL=items.labelURL,urlParams=items.labelUrlParams}"></div>
+	                                	<li><a href="${fetchlabel.modifyURL}" target="${items.labelTarget}" tabindex="-1" aria-hidden="true">${items.labelName}</a>
+	                                    </li>
+	                            </div>
+                            </ul>
+                        </div>
+                    </div>
+                </ul> 
+                <div data-sly-list="${utilObject.rootChildPageList}" data-sly-unwrap>
+                    <ul class="${genericUtil.hyphenSeperatedValue} suntrust-levelBodyItems suntrust-levelTwo" data-sly-use.genericUtil="${'com.suntrust.dotcom.utils.GenericUtil' @pagePath=item.path}" style="display:none;">
+                        <li class="suntrust-viewBack"><a href="javascript:void(0);" tabindex="-1" aria-hidden="true"><span class="suntrust-leftArrow"> < </span> View Main Menu</a>
+                        </li>
+                        <div data-sly-use.L1Page="${'com.suntrust.dotcom.utils.GenericUtil' @iterativePage=item}" data-sly-unwrap></div>
+                        <p class="suntrust-headingStub">${L1Page.pageTitle} MENU</p>
+                        <div data-sly-use.util4="${'com.suntrust.dotcom.utils.GenericUtil' @iterativePage=item}" data-sly-unwrap>
+                            <div data-sly-list="${util4.childPagesList}" data-sly-unwrap>
+                                <li class="${genericUtil.hyphenSeperatedValue}" data-sly-use.genericUtil="${'com.suntrust.dotcom.utils.GenericUtil'  @pagePath=item.path,iterativePage=item,linkURL=item.path}">
+                                    <p data-sly-test.rightArrowBoolean="${genericUtil.childPagesListCount > 0}" data-sly-unwrap></p>
+                                    <a class="hide-mobile-menu" href="${genericUtil.modifyURL}" tabindex="-1" aria-hidden="true">${genericUtil.pageTitle}</a>
+                                    <p data-sly-test="${rightArrowBoolean}" data-sly-unwrap><span class="suntrust-rightArrow"> > </span>
+                                    </p>
+                                </li>
+                            </div>
+                        </div>
+                    </ul>
+                </div>
+                <div data-sly-list.L1levelPage="${utilObject.rootChildPageList}" data-sly-unwrap>
+                    <!-- L1 loop -->
+                    <div data-sly-use.util5="${'com.suntrust.dotcom.utils.GenericUtil'  @iterativePage=L1levelPage}" data-sly-unwrap>
+                        <div data-sly-list.child="${util5.childPagesList}" data-sly-unwrap>
+                            <!-- L2 loop -->
+                            <div data-sly-use.util6="${'com.suntrust.dotcom.utils.GenericUtil' @iterativePage=child}" data-sly-unwrap>
+                                <ul id="${genericUtil.hyphenSeperatedParentPagePath}" class="${genericUtil.hyphenSeperatedValue} suntrust-levelBodyItems suntrust-levelThree" data-sly-use.genericUtil="${'com.suntrust.dotcom.utils.GenericUtil' @pagePath=child.path,iterativePage=child}" style="display:none;">
+                                    <li class="level3-viewBack suntrust-viewBack"><a href="javascript:void(0);" tabindex="-1" aria-hidden="true"><span class="suntrust-leftArrow"> < </span> View ${util5.pageTitle} Menu</a>
+                                    </li>
+                                    <p class="suntrust-headingStub">${genericUtil.pageTitle} MENU</p>
+                                    <div data-sly-list="${util6.childPagesList}" data-sly-unwrap>
+                                        <!-- L3 loop -->
+                                        <sly data-sly-use.L3Item="${'com.suntrust.dotcom.utils.GenericUtil' @iterativePage=item,linkURL=item.path,pagePath=item.path}" />
+                                        <li class="${L3Item.hyphenSeperatedValue}">
+                                            <p data-sly-test.rightArrowBoolean="${L3Item.childPagesListCount > 0}" data-sly-unwrap></p>
+                                            <a class="hide-mobile-menu" href="${L3Item.modifyURL}" tabindex="-1" aria-hidden="true">${L3Item.pageTitle}</a>
+                                            <p data-sly-test="${rightArrowBoolean}" data-sly-unwrap><span class="suntrust-rightArrow"> > </span>
+                                            </p>
+                                        </li>
+                                    </div>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div data-sly-list.L1levelPage="${utilObject.rootChildPageList}" data-sly-unwrap>
+                    <!-- L1 loop -->
+                    <div data-sly-use.util7="${'com.suntrust.dotcom.utils.GenericUtil'  @iterativePage=L1levelPage}" data-sly-unwrap>
+                        <div data-sly-list.child1="${util7.childPagesList}" data-sly-unwrap>
+                            <!-- L2 loop -->
+                            <div data-sly-use.util8="${'com.suntrust.dotcom.utils.GenericUtil' @iterativePage=child1}" data-sly-unwrap>
+                                <div data-sly-list.child2="${util8.childPagesList}" data-sly-unwrap>
+                                    <!-- L3 loop -->
+                                    <div data-sly-use.util9="${'com.suntrust.dotcom.utils.GenericUtil' @iterativePage=child2}" data-sly-unwrap>
+                                        <ul id="${genericUtil.hyphenSeperatedParentPagePath}" class="${genericUtil.hyphenSeperatedValue} suntrust-levelBodyItems suntrust-levelFour" data-sly-use.genericUtil="${'com.suntrust.dotcom.utils.GenericUtil'  @pagePath=child2.path,iterativePage=child2}" style="display:none;">
+                                            <li class="level4-viewBack suntrust-viewBack"><a href="javascript:void(0);" tabindex="-1" aria-hidden="true"><span class="suntrust-leftArrow"> < </span> View ${util9.pageTitle} Menu</a>
+                                            </li>
+                                            <p class="suntrust-headingStub">${genericUtil.pageTitle} MENU</p>
+                                            <div data-sly-list="${util9.childPagesList}" data-sly-unwrap>
+                                                <!-- L4 loop -->
+                                                <sly data-sly-use.L4Item="${'com.suntrust.dotcom.utils.GenericUtil'  @iterativePage=item,linkURL=item.path,pagePath=item.path}" />
+                                                <li class="${L4Item.hyphenSeperatedValue}">
+                                                    <a class="hide-mobile-menu" href="${L4Item.modifyURL}" tabindex="-1" aria-hidden="true">${L4Item.pageTitle}</a>
+                                                </li>
+                                            </div>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- On hover division for mobile, ipad views ends-->
+
+    <!-- gradient div-->
+    <div class="row suntrust-newHeaderHolder">
+        <div class="suntrust-newheader">
+            <div class="suntrust-holder-link pull-right">
+                <a href="#" data-suntrust-class="suntrust-nav-location" tabindex="4"><span>${properties.locationtitle @context='html'}</span></a>                
+                <a class="langLink" data-href="${fetchlanguage.modifyURL}" href="${fetchlanguage.modifyURL}" tabindex="5" data-lang ="es" mporgnav=""><span>${properties.languagetitle @context='html'}</span></a>
+                <a href="#" data-suntrust-class="suntrust-nav-search" tabindex="6"><span>${properties.searchtitle @context='html'}</span></a>
+            </div>
+        </div>
+    </div>
+    <!-- gradient div-->
+
+    <div class="HeaderNavContainer">
+        <nav class="clearBoth">
+            <div class="container-fluid adjContainerPad">
+                <div class="navbar-header pull-left">
+                    <a href="${fetchlogo.modifyURL}" class="suntrust-header-logo-link with-image" tabindex="7">
+                        <span class="suntrust-accessible-text">SunTrust Bank Home</span>
+                        <img src="${properties.fileReference}" class="suntrust-header-logo-img" alt="${properties.alttext}" />
+                    </a>
+
+                    <button class="suntrust-header-icon-button-container suntrust-menu-icon-container hidden-lg pull-left" data-suntrust-class="suntrust-menu-trigger">
+                        <span class="suntrust-header-icon-button suntrust-menu-icon-button"></span>
+                        <span class="suntrust-header-icon-button-text suntrust-menu-icon-text hidden-lg">Menu</span>
+                        <span class="suntrust-accessible-text">Open Suntrust Banking Menu</span>
+                    </button>
+                </div>
+                <!--- Header Sign On blade Start-->
+                <div data-sly-test="${utilObject.inheritedSignOnPage}" data-sly-unwrap>
+                    <div class="suntrust-header-signon-block"></div>
+                    <sly data-sly-use.signOnScriptPath="${'com.suntrust.dotcom.utils.ConfigServiceUse' @ property='signon.script.path'}">
+						<sly data-sly-use.encryptScriptOlb="${'com.suntrust.dotcom.components.HeroComponent' @scriptFilePath=signOnScriptPath.property}">
+							<script type="text/javascript">${encryptScriptOlb.getScriptContent @ context='unsafe'}</script>
+						</sly>
+					<div id="divReadFlashScript" class="suntrust-accessible-text">
+					</div>
+                </div>
+                <!--- Header Sign On blade End-->
+                <ul class="nav navbar-nav pull-right navbarRight">
+                    <div data-sly-test="${properties.ctatitle}" data-sly-unwrap>
+                        <li>
+                            <a title=${properties.anchortitle} class="suntrust-promo-cta-button" href="${fetchcta.modifyURL}" tabindex="8">${properties.ctatitle @context='html'}</a>
+                        </li>
+                    </div>
+                    <li>
+                        <div data-sly-unwrap data-sly-test="${!properties.hidesignon}">
+                            <div class="suntrust-header-profile-actions">
+                                <button class="suntrust-header-icon-button-container suntrust-user-icon-button" data-suntrust-class="suntrust-user-trigger" data-nojs-url="/support-old-sign-on" tabindex="9">
+
+                                    <span class="suntrust-header-icon-button-text suntrust-header-icon-button-sign-on">${properties.signonlabel @context='html'}</span>
+                                    <span class="suntrust-accessible-text suntrust-default-sign-on-text">Open Suntrust Sign On Menu </span>
+                                    <!-- span class="suntrust-accessible-text suntrust-my-settings-text">Open Suntrust My Settings Menu </span-->
+                                    <span class="suntrust-user-icon">
+										<span class="suntrust-my-settings"> my settings </span>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <ul class="nav navbar-nav suntrust-subMenu hidden-sm" data-sly-list="${utilObject.rootChildPageList}">
+            <div data-sly-use.L1ChildCount="${'com.suntrust.dotcom.utils.GenericUtil'  @iterativePage=item}" data-sly-unwrap></div>
+            <div data-sly-test.L1ChildCountBoolean="${L1ChildCount.childPagesListCount > 0}" data-sly-unwrap></div>
+            <div data-sly-test.L1Count="${itemList.count >= 7}" data-sly-unwrap></div>
+            <div data-sly-test.L1TitleCheck="${item.path == utilObject.headerCurrentPage}" data-sly-unwrap></div>
+            <sly data-sly-use.L1Item="${'com.suntrust.dotcom.utils.GenericUtil'  @iterativePage=item,linkURL=item.path}" />
+            <p data-sly-test="${L1TitleCheck}" data-sly-unwrap>
+                <sly data-sly-test="${itemList.last}">
+                    <li class="suntrust-subMenuList noMarginRt active">
+                </sly>
+                <sly data-sly-test="${!itemList.last}">
+                    <li class="suntrust-subMenuList active">
+                </sly>
+            </p>
+            <p data-sly-test="${!L1TitleCheck}" data-sly-unwrap>
+                <sly data-sly-test="${itemList.last}">
+                    <li class="suntrust-subMenuList noMarginRt">
+                </sly>
+                <sly data-sly-test="${!itemList.last}">
+                    <li class="suntrust-subMenuList">
+                </sly>
+            </p>
+            <a href="${L1Item.modifyURL}" class="suntrust-subMenuanchor">${L1Item.pageTitle}</a>
+            <div data-sly-test="${L1ChildCountBoolean}" data-sly-unwrap>
+                <div class="suntrust-topArrow hide"></div>
+                <div class="container-fluid suntrust-overlayContent hide">
+                    <div class="col-lg-12 suntrust-overlayItem">
+                        <div class="activeState" style="display:none;"></div>
+                        <div class="suntrust-emptydiv clearfix">
+                            <div data-sly-use.topnav2="${'com.suntrust.dotcom.utils.GenericUtil'  @iterativePage=item}" data-sly-unwrap>
+                                <sly data-sly-list.keyName="${topnav2.pagesCollectionInColumnView}">
+                                    <div class="col-lg-3 suntrust-column-width">
+                                        <sly data-sly-list.keyValue="${topnav2.pagesCollectionInColumnView[keyName]}">
+                                            <div data-sly-test.selectBoolean="${keyValue.path == utilObject.headerCurrentPage}" data-sly-unwrap/>
+                                            <div data-sly-use.L2Item="${'com.suntrust.dotcom.utils.GenericUtil'  @iterativePage=keyValue,linkURL=keyValue.path}" data-sly-unwrap>
+                                            </div>
+                                            <h4 class="suntrust-headingText suntrust-selected-commented" data-sly-test="${selectBoolean}"><a href="${L2Item.modifyURL}">${L2Item.pageTitle}</a></h4>
+                                            <h4 class="suntrust-headingText" data-sly-test="${!selectBoolean}"><a href="${L2Item.modifyURL}">${L2Item.pageTitle}</a></h4>
+                                            <ul data-sly-use.util2="${'com.suntrust.dotcom.utils.GenericUtil'  @iterativePage=keyValue}">
+                                                <div data-sly-list="${util2.childPagesList}" data-sly-unwrap>
+                                                    <div data-sly-test.selectBoolean="${item.path == utilObject.headerCurrentPage}" data-sly-unwrap/>
+                                                    <sly data-sly-use.L3Item="${'com.suntrust.dotcom.utils.GenericUtil'  @iterativePage=item,linkURL=item.path}" />
+                                                    <li class="suntrust-selected-commented" data-sly-test="${selectBoolean}"><a href="${L3Item.modifyURL}">${L3Item.pageTitle}</a>
+                                                    </li>
+                                                    <li data-sly-test="${!selectBoolean}"><a href="${L3Item.modifyURL}">${L3Item.pageTitle}</a>
+                                                    </li>
+                                                </div>
+                                            </ul>
+                                        </sly>
+                                    </div>
+                                </sly>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Header Modal Window starts -->
+    <div class="suntrust-modal-window" tabindex="0">
+        <div class="suntrust-nav-search">
+            <div class="suntrust-modal-window-header">
+                <div class="header-title text-center">${properties.searchheadline @context='html'}</div>
+                <a class="suntrust-modal-close user-menu-accessibility-trigger" data-suntrust-class="suntrust-modal-close" href="javascript:void(0);" tabindex="0">
+                    <span class="suntrust-accessible-text">Close Modal Window</span>
+                </a>
+            </div>
+            <div class="suntrust-form-div">
+                <div class="suntrust-search-form-field">
+                    <label for="search" class="suntrust-accessible-text">${properties.searchbutton @context='html'}</label>
+                    <input data-cat="all_results" data-suggestcount="${properties.suggestioncount ? properties.suggestioncount : '5'}" data-searchpath="${properties.dictpath ? properties.dictpath : '/content/suntrust/dotcom/us/en'}" tabindex="0" type="search" title="Search" class="suntrust-login-input suntrust-nav-search-input typeahead" placeholder="${properties.searchdefaulttext}" id="search" autocomplete="off" value="">
+                    <button type="reset" class="sun-header-search-cancel-button" data-sun-type="search-cancel-button" data-sun-class="search-cancel-button">
+                        <span class="sun-button-text suntrust-accessible-text">Clear</span>
+                    </button>
+                </div>
+                <sly data-sly-use.searchPageURL="${'com.suntrust.dotcom.utils.GenericUtil'  @linkURL=properties.searchmodalURL}" />
+                <a class="suntrust-orange-button" href="${searchPageURL.modifyURL}" target="_self" tabindex="0" data-search-tab="${properties.searchmodalsearchtab}">${properties.searchbutton @context='html'}</a>
+            </div>
+        </div>
+        <div class="suntrust-nav-location">
+            <div class="suntrust-modal-window-header">
+                <div class="header-title text-center">${properties.locationheadline @context='html'}</div>
+                <a class="suntrust-modal-close user-menu-accessibility-trigger" data-suntrust-class="suntrust-modal-close" href="javascript:void(0);" tabindex="0">
+                    <span class="suntrust-accessible-text">Close Modal Window</span>
+                </a>
+            </div>
+            <div class="suntrust-form-div">
+                <div class="suntrust-search-form-field">
+                    <label for="locations" class="suntrust-accessible-text">${properties.locationbutton @context='html'}</label>
+                    <input data-cat="locations" data-suggestcount="${properties.suggestioncount ? properties.suggestioncount : '5'}" data-searchpath="${properties.dictpath ? properties.dictpath : '/content/suntrust/dotcom/us/en'}" tabindex="0" type="search" title="Locations" class="suntrust-login-input suntrust-nav-location-input typeahead minThree" placeholder="${properties.locationdefaulttext}" id="locations" autocomplete="off" value="">
+                    <button type="reset" class="sun-header-search-cancel-button" data-sun-type="search-cancel-button" data-sun-class="search-cancel-button">
+                        <span class="sun-button-text suntrust-accessible-text">Clear</span>
+                    </button>
+                    <button class="suntrust-input-location-button" type="button">
+                        <span class="suntrust-accessible-text">Click here to find your locations.</span>
+                    </button>
+                </div>
+                <sly data-sly-use.searchPageURL="${'com.suntrust.dotcom.utils.GenericUtil'  @linkURL=properties.locationmodalURL}" />
+                <a class="suntrust-orange-button" href="${searchPageURL.modifyURL}" target="_self" tabindex="0" data-search-tab="${properties.locationmodalsearchtab}">${properties.locationbutton @context='html'}</a>
+            </div>
+        </div>
+    </div>
+</header>
+<script>
+    $(".suntrust-user-menu").hide();
+    "use strict";
+    var parentPagePath = "${mobObject.hyphenSeperatedParentPagePath @ context='scriptString'}";
+    var currentPagePath = "${mobObject.hyphenSeperatedValue @ context='scriptString'}";
+    var $headerElement = $("header");
+    var $mobNav = $("div.suntrust-levelBodysection");
+    var mobLevelOne = true;
+    if (parentPagePath != "content-suntrust-dotcom-us-en" && parentPagePath != "content-suntrust-dotcom-us-es" && $mobNav.length) {
+        $mobNav.find("ul.suntrust-levelBodyItems.suntrust-levelOne").css("display", "none");
+        $mobNav.find("ul.suntrust-levelBodyItems.suntrust-levelTwo").css("display", "none");
+        $mobNav.find("ul.suntrust-levelBodyItems.suntrust-levelThree").css("display", "none");
+        $mobNav.find("ul.suntrust-levelBodyItems.suntrust-levelFour").css("display", "none");
+        var $levelTwoULElement = $mobNav.find("ul." + parentPagePath + ".suntrust-levelBodyItems.suntrust-levelTwo");
+        var $levelThreeULElement = $mobNav.find("ul." + parentPagePath + ".suntrust-levelBodyItems.suntrust-levelThree");
+        var $levelFourULElement = $mobNav.find("ul." + parentPagePath + ".suntrust-levelBodyItems.suntrust-levelFour");
+        $mobNav.find("ul." + parentPagePath + ".suntrust-levelBodyItems.suntrust-levelTwo").css("display", "block");
+        $mobNav.find("ul." + parentPagePath + ".suntrust-levelBodyItems.suntrust-levelThree").css("display", "block");
+        $mobNav.find("ul." + parentPagePath + ".suntrust-levelBodyItems.suntrust-levelFour").css("display", "block");
+        if ($levelTwoULElement.length) {
+            $levelTwoULElement.find("li." + currentPagePath).addClass("selected");
+            mobLevelOne = false;
+        }
+        if ($levelThreeULElement.length) {
+            $levelThreeULElement.find("li." + currentPagePath).addClass("selected");
+            mobLevelOne = false;
+        }
+        if ($levelFourULElement.length) {
+            $levelFourULElement.find("li." + currentPagePath).addClass("selected");
+            mobLevelOne = false;
+        }
+        if (mobLevelOne) {
+            $mobNav.find("ul.suntrust-levelBodyItems.suntrust-levelOne").css("display", "block");
+        }
+    }
+
+    if (parentPagePath == "content-suntrust-dotcom-us-en" || parentPagePath == "content-suntrust-dotcom-us-es") {
+        var $levelOneULElement = $mobNav.find("ul.suntrust-levelBodyItems.suntrust-levelOne");
+        if ($levelOneULElement.length) {
+            $levelOneULElement.find("li." + currentPagePath).addClass("selected");
+        }
+    }
+    if (parentPagePath == "content-suntrust-dotcom-us") {
+        $mobNav.find("ul.suntrust-levelBodyItems.suntrust-levelOne").css("display", "block");
+    }
+
+    if ($headerElement.length) {
+        var $checkElement = $headerElement.find("div.container-fluid.suntrust-overlayContent.hide li.suntrust-selected-commented");
+        var $checkH4Element = $headerElement.find("div.container-fluid.suntrust-overlayContent.hide h4.suntrust-headingText.suntrust-selected-commented");
+        if ($checkElement.length) {
+            $checkElement.closest("li.suntrust-subMenuList").addClass("active");
+        }
+        if ($checkH4Element.length) {
+            $checkH4Element.closest("li.suntrust-subMenuList").addClass("active");
+        }
+    }
+
+    $("li.level3-viewBack.suntrust-viewBack").on("click", function() {
+        $(this).parent().hide();
+        var $div = $(this).closest("div.suntrust-levelBodysection");
+        var $elementID = $(this).closest("ul").attr('id');
+        $div.find("ul.suntrust-levelBodyItems.suntrust-levelTwo").css("display", "none");
+        $div.find("ul." + $elementID + ".suntrust-levelBodyItems.suntrust-levelTwo").css("display", "block");
+        console.log($elementID);
+    });
+    $("li.level4-viewBack.suntrust-viewBack").on("click", function() {
+        $(this).parent().hide();
+        var $div = $(this).closest("div.suntrust-levelBodysection");
+        var $elementID = $(this).closest("ul").attr('id');
+        $div.find("ul.suntrust-levelBodyItems.suntrust-levelThree").css("display", "none");
+        $div.find("ul." + $elementID + ".suntrust-levelBodyItems.suntrust-levelThree").css("display", "block");
+        console.log($elementID);
+    });
+
+
+    $("a.hide-mobile-menu").on("click", function() {
+        $("div.suntrust-levelHolder").hide();
+    });
+    
+    $(".suntrust-levelFooterItems li a").on("click",function() {
+        $(this).parent().parent().addClass("selectedDivHeader");
+	});
+
+    $("span.suntrust-rightArrow").on("click", function() {
+        var $L1ul = $(this).closest("ul.suntrust-levelBodyItems.suntrust-levelOne");
+        var $L2ul = $(this).closest("ul.suntrust-levelBodyItems.suntrust-levelTwo");
+        var $L3ul = $(this).closest("ul.suntrust-levelBodyItems.suntrust-levelThree");
+        var $div = $(this).closest("div.suntrust-levelBodysection");
+        if ($L1ul.length && $div.length) {
+            var clickedL1 = $(this).closest("li").removeClass("selected");
+            clickedL1 = $(this).closest("li").attr('class');
+            $div.find("ul.suntrust-levelBodyItems.suntrust-levelTwo").css("display", "none");
+            $div.find("ul." + clickedL1 + ".suntrust-levelBodyItems.suntrust-levelTwo").css("display", "block");
+        }
+
+        if ($L2ul.length && $div.length) {
+            var clickedL1 = $(this).closest("li").removeClass("selected");
+            clickedL1 = $(this).closest("li").attr('class');
+            $div.find("ul.suntrust-levelBodyItems.suntrust-levelThree").css("display", "none");
+            $div.find("ul." + clickedL1 + ".suntrust-levelBodyItems.suntrust-levelThree").css("display", "block");
+        }
+        if ($L3ul.length && $div.length) {
+            console.log($(this));
+            $(this).parents(".suntrust-levelThree").hide();
+            var clickedL1 = $(this).closest("li").removeClass("selected");
+            clickedL1 = $(this).closest("li").attr('class');
+            $div.find("ul.suntrust-levelBodyItems.suntrust-levelFour").css("display", "none");
+            $div.find("ul." + clickedL1 + ".suntrust-levelBodyItems.suntrust-levelFour").css("display", "block");
+            console.log(clickedL1);
+        }
+    });
+</script>

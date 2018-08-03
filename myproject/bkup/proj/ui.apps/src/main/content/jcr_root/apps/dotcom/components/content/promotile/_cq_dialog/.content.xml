@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Promo Tile"
+    sling:resourceType="cq/gui/components/authoring/dialog"
+    helpPath="https://www.adobe.com/go/aem6_2_docs_component_en#Text &amp; Image - Sightly">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/foundation/container">
+        <layout
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/foundation/layouts/tabs"
+            type="nav"/>
+        <items jcr:primaryType="nt:unstructured">
+            <image
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Image Tab"
+                sling:resourceType="granite/ui/components/foundation/section">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
+                    margin="{Boolean}false"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <promoimg
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/fileupload"
+                                allowUpload="{Boolean}false"
+                                autoStart="{Boolean}false"
+                                class="cq-droptarget"
+                                fieldDescription="Enter the Promo image"
+                                fieldLabel="Promo Image"
+                                fileNameParameter="./promoimageparameter"
+                                fileReferenceParameter="./promoimage"
+                                mimeTypes="[image]"
+                                multiple="{Boolean}false"
+                                name="./image"
+                                title="Upload Image Asset"
+                                uploadUrl="${suffix.path}"
+                                useHTML5="{Boolean}true"/>
+                            <alttext
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="This is the alt text for promo tile"
+                                fieldLabel="Alt Text"
+                                name="./alttext"/>
+                            <imageurl
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                allowBlank="{Boolean}false"
+                                fieldDescription="Sets the url target for the promo image"
+                                fieldLabel="Promo Url"
+                                name="./promourl"
+                                rootPath="/content"/>
+                            <imagetarget
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/select"
+                                class="cq-dialog-dropdown-showhide"
+                                cq-dialog-dropdown-showhide-target=".list-option-listfrom-showhide-target"
+                                fieldDescription="Sets the window target for the link"
+                                fieldLabel="Image Target"
+                                name="./imagetarget">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <self
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Default"
+                                        value="_self"/>
+                                    <blank
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Blank"
+                                        value="_blank"/>
+                                </items>
+                            </imagetarget>
+                            <imageurlParams
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Sets the link parameters applied to the url. e.g. param1=value1&amp;param2=value2"
+                                fieldLabel="Url Params"
+                                name="./imageurlParams"/>
+                        </items>
+                    </column>
+                </items>
+            </image>
+            <headline
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Headline Tab"
+                sling:resourceType="granite/ui/components/foundation/section">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <title
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Set the title"
+                                fieldLabel="Heading Title"
+                                name="./title"/>
+                            <url
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                allowBlank="{Boolean}false"
+                                fieldDescription="Sets the url target for the headline"
+                                fieldLabel="Url"
+                                name="./url"
+                                rootPath="/content"/>
+                            <urlParams
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Sets the link parameters applied to the url. e.g. param1=value1&amp;param2=value2"
+                                fieldLabel="Url Params"
+                                name="./urlParams"/>
+                            <target
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/select"
+                                class="cq-dialog-dropdown-showhide"
+                                cq-dialog-dropdown-showhide-target=".list-option-listfrom-showhide-target"
+                                fieldDescription="Sets the window target for the link"
+                                fieldLabel="Target"
+                                name="./target">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <self
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Default"
+                                        value="_self"/>
+                                    <blank
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Blank"
+                                        value="_blank"/>
+                                </items>
+                            </target>
+                            <topbordercolor
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/select"
+                                class="cq-dialog-dropdown-showhide"
+                                cq-dialog-dropdown-showhide-target=".list-option-listfrom-showhide-target"
+                                fieldDescription="Sets the thick top border color."
+                                fieldLabel="Top Border Color"
+                                name="./topbordercolor">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <orange
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Orange"
+                                        value="suntrust-color-border-orange"/>
+                                    <green
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Green"
+                                        value="suntrust-color-border-green"/>
+                                    <pink
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Pink"
+                                        value="suntrust-color-border-pink"/>
+                                    <blue
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Blue"
+                                        value="suntrust-color-border-blue"/>
+                                    <yellow
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Yellow"
+                                        value="suntrust-color-border-yellow"/>
+                                    <lightblue
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Light Blue"
+                                        value="suntrust-color-border-skyblue"/>
+                                </items>
+                            </topbordercolor>
+                        </items>
+                    </column>
+                </items>
+            </headline>
+            <description
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Description"
+                sling:resourceType="granite/ui/components/foundation/section"
+                id="id-freeformmode-tab-hide">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
+                    margin="{Boolean}false"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <text
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                name="./text"
+                                useFixedInlineToolbar="{Boolean}true">
+                                <rtePlugins
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceSuperType="/apps/dotcom/components/content/globalrte/cq:dialog/content/items/column/items/text/rtePlugins"/>
+                                <uiSettings
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceSuperType="/apps/dotcom/components/content/globalrte/cq:dialog/content/items/column/items/text/uiSettings"/>
+                                <htmlRules
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceSuperType="/apps/dotcom/components/content/globalrte/cq:dialog/content/items/column/items/text/htmlRules"/>
+                            </text>
+                        </items>
+                    </column>
+                </items>
+            </description>
+            <link
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Link Tab"
+                sling:resourceType="granite/ui/components/foundation/section">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <title
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Set the title"
+                                fieldLabel="Link Title"
+                                name="./linktitle"/>
+                            <url
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                allowBlank="{Boolean}false"
+                                fieldDescription="Sets the url target for the link"
+                                fieldLabel="Link Url"
+                                name="./linkurl"
+                                rootPath="/content"/>
+                            <target
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/select"
+                                class="cq-dialog-dropdown-showhide"
+                                cq-dialog-dropdown-showhide-target=".list-option-listfrom-showhide-target"
+                                fieldDescription="Sets the window target for the link"
+                                fieldLabel="Link Target"
+                                name="./linktarget">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <self
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Default"
+                                        value="_self"/>
+                                    <blank
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Blank"
+                                        value="_blank"/>
+                                    <smallmodal
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Small Modal"
+                                        value="_smallmodal"/>
+                                    <mediummodal
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Medium Modal"
+                                        value="_mediummodal"/>
+                                    <largemodal
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Large Modal"
+                                        value="_largemodal"/>
+                                </items>
+                            </target>
+                            <urlParams
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Sets the link parameters applied to the url. e.g. param1=value1&amp;param2=value2"
+                                fieldLabel="Url Params"
+                                name="./linkurlParams"/>
+                            <anchortitle
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                class="cq-dialog-anchor"
+                                fieldDescription="Set the title for anchor tag"
+                                fieldLabel="Title for anchor tag"
+                                maxlength="{Long}125"
+                                name="./anchortitle"
+                                validation="link-anchor"/>
+                        </items>
+                    </column>
+                </items>
+            </link>
+        </items>
+    </content>
+</jcr:root>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Reviewer Selection V2"
+    sling:resourceType="cq/gui/components/authoring/dialog"
+    helpPath="en/cq/current/wcm/default_components.html#Title"
+    touchUiDialogPath="/apps/dotcom/components/workflow/jobinitiationscreenv2/cq:dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/foundation/container">
+        <layout
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+        <items jcr:primaryType="nt:unstructured">
+            <columns
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/foundation/container">
+                <items jcr:primaryType="nt:unstructured">
+                    <skipqareview
+                        granite:id="qa-skip-review"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                        checked="{Boolean}false"
+                        fieldLabel="Skip QA Review"
+                        id="qa-skip-review"
+                        name="./jcr:content/skipqareview"
+                        text="Skip QA Review"/>
+                    <skipuinuxreview
+                        granite:id="ui-ux-skip-review"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                        checked="{Boolean}false"
+                        fieldLabel="Skip UX/UI Review"
+                        id="ui-ux-skip-review"
+                        name="./jcr:content/skipuiuxreview"
+                        text="Skip UX/UI Review"/>
+                    <qareviewer
+                        granite:id="qa-reviewer-userpicker"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="/apps/dotcom/components/workflow/userpicker/authorizable/autocomplete"
+                        emptyText="Select QA Reviewer"
+                        fieldDescription="Type or press down arrow to select the qa reviewer"
+                        fieldLabel="QA Reviewer"
+                        forceSelection="true"
+                        id="qa-reviewer-userpicker"
+                        name="./jcr:content/qareviewer"
+                        selector="user"
+                        userGroup="dotcom-qa-reviewer"
+                        valueType="id"/>
+                    <uxanduireviewer
+                        granite:id="ui-ux-reviewer-userpicker"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="/apps/dotcom/components/workflow/userpicker/authorizable/autocomplete"
+                        emptyText="Select UX/UI Reviewer"
+                        fieldDescription="Type or press down arrow to select the ux/ui reviewer"
+                        fieldLabel="UX/UI Reviewer"
+                        forceSelection="true"
+                        id="ui-ux-reviewer-userpicker"
+                        name="./jcr:content/uxanduireviewer"
+                        selector="user"
+                        type="string"
+                        userGroup="dotcom-ui-ux-reviewer"
+                        valueType="id"/>
+                    <requesterreviewer
+                        granite:id="requester-reviewer-userpicker"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="/apps/dotcom/components/workflow/userpicker/authorizable/autocomplete"
+                        emptyText="Select Requester Reviewer"
+                        fieldDescription="Type or press down arrow to select the requester reviewer"
+                        fieldLabel="Requester Reviewer"
+                        forceSelection="true"
+                        id="requester-reviewer-userpicker"
+                        name="./jcr:content/requesterreviewer"
+                        required="{Boolean}true"
+                        selector="user"
+                        type="string"
+                        userGroup="dotcom-requester"
+                        valueType="id"/>
+                    <compliancereviewer
+                        granite:id="compliance-reviewer-userpicker"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="/apps/dotcom/components/workflow/userpicker/authorizable/autocomplete"
+                        emptyText="Select Primary Compliance Reviewer"
+                        fieldDescription="Type or press down arrow to select the Primary Compliance Reviewer"
+                        fieldLabel="Primary Compliance Reviewer"
+                        forceSelection="true"
+                        id="compliance-reviewer-userpicker"
+                        name="./jcr:content/compliancereviewer1"
+                        required="{Boolean}true"
+                        selector="user"
+                        type="string"
+                        userGroup="dotcom-compliance-reviewer"
+                        valueType="id"/>
+                    <contentdevelopmentfinalreviewer
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="/apps/dotcom/components/workflow/userpicker/authorizable/autocomplete"
+                        emptyText="Select Content Development Final Reviewer"
+                        fieldDescription="Type or press down arrow to select the content development final reviewer"
+                        fieldLabel="Content Development Final Reviewer"
+                        forceSelection="true"
+                        name="./jcr:content/contentdevelopmentfinalreviewer"
+                        selector="user"
+                        type="string"
+                        userGroup="dotcom-authors"
+                        valueType="id"/>
+                </items>
+            </columns>
+        </items>
+    </content>
+</jcr:root>

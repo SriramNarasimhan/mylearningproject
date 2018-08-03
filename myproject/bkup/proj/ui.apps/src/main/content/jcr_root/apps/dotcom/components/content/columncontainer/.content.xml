@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:description="Container which can be split into 2, 3 or 4 columns"
+    jcr:primaryType="cq:Component"
+    jcr:title="Column Container"
+    componentGroup="dotcom"/>

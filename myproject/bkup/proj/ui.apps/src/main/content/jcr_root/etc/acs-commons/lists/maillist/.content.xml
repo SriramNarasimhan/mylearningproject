@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:designPath="/etc/designs/acs-commons"
+        cq:lastModified="{Date}2017-11-01T05:50:19.703-04:00"
+        cq:lastModifiedBy="admin"
+        cq:template="/apps/acs-commons/templates/utilities/genericlist"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Contact Us Mail List"
+        sling:resourceType="acs-commons/components/utilities/genericlist">
+        <list
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="foundation/components/parsys">
+            <item
+                jcr:created="{Date}2017-10-31T06:45:12.080-04:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2017-11-01T05:50:19.675-04:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="anomitra.mondal@suntrust.com"
+                sling:resourceType="acs-commons/components/utilities/genericlist/item"
+                value="General Inquiry"/>
+            <item_127216057
+                jcr:created="{Date}2017-10-31T06:45:17.222-04:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2017-11-01T03:33:36.978-04:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="customchoice@alternativeloan.com"
+                sling:resourceType="acs-commons/components/utilities/genericlist/item"
+                value="Custom Choice Loan"/>
+            <item_1271393986
+                jcr:created="{Date}2017-10-31T06:45:21.806-04:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2017-11-01T03:33:58.368-04:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="suntrustgraduatebusinessschoolloan@alternativeloan.com"
+                sling:resourceType="acs-commons/components/utilities/genericlist/item"
+                value="Graduate Business School Loan"/>
+            <item_1030225496
+                jcr:created="{Date}2017-10-31T06:45:19.710-04:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2017-11-01T03:34:22.809-04:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="ufpsl@alternativeloan.com"
+                sling:resourceType="acs-commons/components/utilities/genericlist/item"
+                value="Union Federal Private Student Loan"/>
+        </list>
+    </jcr:content>
+</jcr:root>

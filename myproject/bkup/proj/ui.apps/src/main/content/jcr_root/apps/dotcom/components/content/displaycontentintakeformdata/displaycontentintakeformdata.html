@@ -1,0 +1,53 @@
+
+<h1>${pageProperties.uniqueId} - Submitted Form Data</h1>
+
+<div>
+	<label>WorkFlow Type : </label><span>${pageProperties.wfType}</span>
+</div>
+<div>
+	<label>Job Type : </label><span>${pageProperties.jobType}</span>
+</div>
+<div>
+	<label>Form Submitter Name : </label><span>${pageProperties.userName}</span>
+</div>
+<div>
+	<label> Form Submitter Email : </label><span>${pageProperties.userEmailID}</span>
+</div>
+<div>
+	<label>Form Submitter Racf ID : </label><span>${pageProperties.userID}</span>
+</div>
+<div>
+	<label>Compliance Reviewer Name : </label><span>${pageProperties.complianceReviewer}</span>
+</div>
+<div>
+	<label>Legal Reviewer Name : </label><span>${pageProperties.legalReviewer}</span>
+</div>
+<div data-sly-test="${pageProperties.url}">
+	<label>Request Title/Page Name  : </label><span>${pageProperties.pageName}</span>
+</div>
+<div data-sly-test="${pageProperties.url}">
+	<label>URL : </label><span>${pageProperties.url}</span>
+</div>
+<div>
+	<label>Job Description : </label><span>${pageProperties.jobDescription}</span>
+</div>
+<div data-sly-test="${pageProperties.uploadedAssetPath}">
+	<label>Uploaded Asset Path : </label><span>${pageProperties.uploadedAssetPath}</span>
+</div>
+<div data-sly-test="${pageProperties.replaceExistingAsset}">
+	<label>Replace Existing Asset : </label><span>${pageProperties.replaceExistingAsset}</span>
+</div>
+<div data-sly-test="${pageProperties.assetExpirationDate}">
+	<label> Asset(s) Expiration : </label><span>${pageProperties.assetExpirationDate}</span>
+</div>
+<div data-sly-test="${pageProperties.assetComments}">
+	<label> Asset Comments : </label><span>${pageProperties.assetComments}</span>
+</div>
+<div data-sly-test="${pageProperties.publishType}">
+	<label> PublishType : </label><span>${pageProperties.publishType}</span>
+</div>
+<div data-sly-test="${pageProperties.plannedPublishDate}">
+	<label> Planned Published Date : </label><span>${pageProperties.plannedPublishDate}</span>
+</div>
+
+

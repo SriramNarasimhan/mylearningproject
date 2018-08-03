@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0"
+    jcr:mixinTypes="[mix:lockable]"
+    jcr:primaryType="cq:Template"
+    ranking="{Long}1">
+    <jcr:content
+        cq:lastReplicated="{Date}2017-05-16T17:50:39.947-04:00"
+        cq:lastReplicatedBy="UGRR162"
+        cq:lastReplicationAction="Activate"
+        jcr:description="Empty Template"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Empty Template"/>
+</jcr:root>

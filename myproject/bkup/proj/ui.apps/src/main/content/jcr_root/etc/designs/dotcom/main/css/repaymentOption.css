@@ -1,0 +1,364 @@
+.suntrust-repaymentOption .sun-body-component{
+    margin-bottom: 30px;
+    margin-top: 30px;
+    padding-right: 0;
+    padding-left: 0;
+}
+.suntrust-repaymentOption .component-featuredtab .component-bodytext h1, .suntrust-repaymentOption .component-bodytext h2, .suntrust-repaymentOption .component-bodytext h3 {
+    font-size: 30px;
+    line-height: 32px;
+    margin: 0 0 20px 0;
+}
+.suntrust-repaymentOption .suntrust-repaymentOption-main {
+    max-width: none;
+}
+.suntrust-repaymentOption .suntrust-repaymentOption-main {
+    width: 100%;
+}
+/* CSS for right-rail repayment */
+.suntrust-section3A .suntrust-repaymentOption .field {
+	float: left;
+	width: 24%;
+	padding-right: 12px;
+}
+.suntrust-section3A .suntrust-repaymentOption .field .sun-select-container{
+	width: 92% !important;
+}
+.suntrust-section3A .suntrust-repaymentOption .field:nth-last-of-type(2){
+	width: 31%;
+}
+.suntrust-section3A .suntrust-repaymentOption .field:nth-last-of-type(2) .sun-select-container{
+	width: 92% !important;
+}
+.suntrust-section3A .suntrust-repaymentOption .field:last-child {
+	width: 45%;
+	padding-right: 1px;
+}
+.suntrust-section3A .suntrust-repaymentOption .field:last-child .sun-select-container{
+	width: 100% !important;
+}
+.suntrust-section3A .suntrust-repaymentOption .repaymentOptionLabel {
+	padding-right: 7px;
+	padding-left: 0;
+	height: auto;
+}
+/* CSS for right-rail repayment*/
+
+/* CSS for full-column repayment*/ 
+.suntrust-repaymentOption .field {
+	float: left;
+	width: 25%;
+	padding-right: 10px;
+}
+.suntrust-repaymentOption .field .sun-select-container{
+	width: 92% !important;
+}
+.suntrust-repaymentOption .field:nth-last-of-type(2){
+	width: 32%;
+}
+.suntrust-repaymentOption .field:nth-last-of-type(2) .sun-select-container{
+	width: 92% !important;
+}
+.suntrust-repaymentOption .field:last-child {
+	width: 43%;
+}
+.suntrust-repaymentOption .field:last-child .sun-select-container{
+	width: 100% !important;
+}
+.suntrust-repaymentOption .field label{
+	padding: 10px 0px 10px 0px !important;
+}
+/* CSS for full-column repayment*/
+
+.suntrust-repaymentOption .sun-select-container{
+	display: inline-block !important;
+}
+.suntrust-repaymentOption .table-responsive.repaymentOption-table {
+    margin: 10px auto;
+}
+.suntrust-repaymentOption .repaymentOption-table {
+   /* border: 1px solid #eee; */
+    font-size: 16px;
+    color: #333;
+}
+.suntrust-repaymentOption .repaymentOption-table tr:nth-child(1) {
+    background-color: #003b71 !important;
+    font-weight: bold;
+	color: #fff;
+}
+.suntrust-repaymentOption .repaymentOption-table tr:nth-child(1)>th{
+	border-right: 1px solid #eee;
+}
+.suntrust-repaymentOption .table.repaymentOption-table>tbody>tr>td,
+.suntrust-repaymentOption .table.repaymentOption-table>tbody>tr>th,
+.suntrust-repaymentOption .table.repaymentOption-table>tfoot>tr>td,
+.suntrust-repaymentOption .table.repaymentOption-table>tfoot>tr>th,
+.suntrust-repaymentOption .table.repaymentOption-table>thead>tr>td,
+.suntrust-repaymentOption .table.repaymentOption-table>thead>tr>th {
+    border-left: 1px solid #eee;
+	border-right: 1px solid #eee;
+	border-top: 0;
+    padding: 13px;
+    text-align: center;
+}
+.suntrust-repaymentOption .repaymentOption-table tr:nth-child(odd) {
+    background-color: #f5f5f5;
+}
+.suntrust-repaymentOption .repaymentOption-table tr:nth-child(odd) td {
+    border: 0 !important;
+}
+.suntrust-repaymentOption .repaymentOption-table tr:nth-child(odd) td:nth-child(3) {
+    border-right: 1px solid #eee !important;
+}
+.suntrust-repaymentOption .table.repaymentOption-table>tbody>tr>th.headnonBg{
+	background: #fff;
+	border: 0;
+	border-bottom: 1px solid #eee;
+}
+.suntrust-repaymentOption .table.repaymentOption-table>tbody>tr>td:nth-child(1){
+	font-weight: bold;
+}
+.suntrust-repaymentOption .repayment-mobiletable table th{
+	background: #f5f5f5;
+	padding: 12px 10px;
+    text-align: center;
+	width: 100%;
+    display: block;
+	border-bottom: 1px solid #eee;
+}
+.suntrust-repaymentOption .repayment-mobiletable table td{
+	padding: 12px 10px;
+    text-align: center;
+	width: 100%;
+    display: block;
+	border-bottom: 1px solid #eee;
+}
+.suntrust-repaymentOption  .repayment-mobiletable table{
+	width: 100%;
+	border: 1px solid #eee;
+	border-bottom: 0;
+	margin-bottom: 35px;
+}
+.suntrust-repaymentOption .suntrust-disclaimerheading{
+	font-weight: bold;
+}
+
+.suntrust-repaymentOption-main form:before, .suntrust-repaymentOption-main form:after {
+    content: "&nbsp;";
+    display: block;
+    overflow: hidden;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+}
+.suntrust-repaymentOption-main form:after {
+    clear: both;
+}
+.sub-field.btn-search a{
+	display: block;
+    text-align: center;
+    line-height: 18px;
+    border-radius: 3px;
+}
+
+.suntrust-repaymentOption-main .sun-select-container > span {
+	line-height: 14px;
+    padding: 11px 0 11px 5px;
+	height: auto !important;
+}
+.noResultsFound {
+    text-align:center;
+    font-size:24px;
+    font-weight:bold;
+}
+.repaymentOption-table-desktop{
+	padding-right: 0px;
+    margin-bottom: 40px;
+}
+.suntrust-repaymentOption-form .sun-select-container{
+	height: auto; 
+}
+.suntrust-repaymentOption .table.repaymentOption-table>tbody>tr>th.headnonBg{
+	background: #fff;
+	border: 0;
+	border-bottom: 1px solid #eee;
+}
+/*@media screen and (-ms-high-contrast: active),
+(-ms-high-contrast: none) {
+.suntrust-section3A .suntrust-repaymentOption .field{
+	width: 25%;
+}
+.suntrust-section3A .suntrust-repaymentOption :nth-last-of-type(2).field{
+	width: 32%;
+}
+.suntrust-section3A .suntrust-repaymentOption :last-child.field{
+	width: 43%;
+}
+.suntrust-section3A .suntrust-repaymentOption :last-child.field .sun-select-container{
+	width: 53% !important;
+}
+}*/
+
+@media screen and (min-width: 768px) and (max-width: 1200px){
+	.suntrust-repaymentOption .field label,.suntrust-section3A .suntrust-repaymentOption .field label{
+		width: 24%;
+		margin-right: 12px;
+		vertical-align: middle;
+		padding-top:10px;
+		padding-right:0;
+		margin-bottom: 0;
+	}
+	.suntrust-repaymentOption .field,.suntrust-repaymentOption .field:nth-last-of-type(2),
+	.suntrust-repaymentOption .field:last-child,
+	.suntrust-section3A .suntrust-repaymentOption .field,.suntrust-section3A .suntrust-repaymentOption .field:nth-last-of-type(2),
+	.suntrust-section3A .suntrust-repaymentOption .field:last-child{
+		width: 100%;
+		margin: 0px;
+	}
+	.suntrust-section3A .suntrust-repaymentOption .field {
+		padding-right: 0;
+		padding-bottom: 10px;
+	}
+	.suntrust-repaymentOption .field .sun-select-container,
+	.suntrust-section3A .suntrust-repaymentOption .field .sun-select-container,
+	.suntrust-repaymentOption .field:nth-last-of-type(2) .sun-select-container,
+	.suntrust-section3A .suntrust-repaymentOption .field:nth-last-of-type(2) .sun-select-container,
+	.suntrust-repaymentOption .field:last-child .sun-select-container,
+	.suntrust-section3A .suntrust-repaymentOption .field:last-child .sun-select-container {
+		width: 66% !important;
+	}
+}
+@media screen and (min-width: 768px) and (max-width: 1200px) and (orientation: landscape){
+	.suntrust-repaymentOption .field .sun-select-container,
+	.suntrust-section3A .suntrust-repaymentOption .field .sun-select-container,
+	.suntrust-repaymentOption .field:nth-last-of-type(2) .sun-select-container,
+	.suntrust-section3A .suntrust-repaymentOption .field:nth-last-of-type(2) .sun-select-container,
+	.suntrust-repaymentOption .field:last-child .sun-select-container,
+	.suntrust-section3A .suntrust-repaymentOption .field:last-child .sun-select-container {
+		width: 73% !important;
+	}
+}
+@media screen and (min-width: 1300px){
+.suntrust-repaymentOption {
+                padding-right: 30px;
+}
+}
+@media screen and (min-width: 768px) and (max-width: 1299px){
+.suntrust-repaymentOption {
+                padding-right: 15px;
+}
+}
+
+@media screen and (max-width: 767px) {
+	.suntrust-repaymentOption .field,.suntrust-section3A .suntrust-repaymentOption .field  {
+		width:100%;	
+		padding-right:0;
+		padding-bottom: 10px;
+	}
+	.suntrust-repaymentOption .field .sun-select-container,
+	.suntrust-section3A .suntrust-repaymentOption .field .sun-select-container,
+	.suntrust-repaymentOption .field:nth-last-of-type(2) .sun-select-container,
+	.suntrust-section3A .suntrust-repaymentOption .field:nth-last-of-type(2) .sun-select-container,
+	.suntrust-repaymentOption .field:last-child .sun-select-container,
+	.suntrust-section3A .suntrust-repaymentOption .field:last-child .sun-select-container {
+		width: 50% !important;
+	}
+	.suntrust-repaymentOption .field:nth-last-of-type(2),
+	.suntrust-section3A .suntrust-repaymentOption .field:nth-last-of-type(2){
+		width: 100%;
+		padding-right:0;
+	}
+	.suntrust-repaymentOption .field:last-child,
+	.suntrust-section3A .suntrust-repaymentOption .field:last-child{
+		width: 100%;
+		padding-right:0;
+		margin: 0px;
+	}
+	.suntrust-repaymentOption .field label,
+	.suntrust-section3A .suntrust-repaymentOption .field label{
+		width: 24%;
+		margin-right: 12px;
+		vertical-align: middle;
+		padding-top:10px;
+		padding-right:0;
+		margin-bottom: 0;
+	}
+	.suntrust-repaymentOption .suntrust-textrepayment p,
+	.suntrust-section3A .suntrust-repaymentOption .suntrust-textrepayment p{
+		padding-top: 20px;
+	}
+	.suntrust-section3A .suntrust-repaymentOption .field {
+		padding-right: 0;
+	}
+}
+@media screen and (max-width: 600px){
+	.suntrust-repaymentOption .field,
+	.suntrust-section3A .suntrust-repaymentOption .field{
+		width:100%;	
+		padding-right:0;
+	}
+	.suntrust-repaymentOption .field .sun-select-container,
+	.suntrust-section3A .suntrust-repaymentOption .field .sun-select-container	{
+		width: 65% !important;
+	}
+	.suntrust-repaymentOption .field:nth-last-of-type(2),
+	.suntrust-section3A .suntrust-repaymentOption .field:nth-last-of-type(2){
+		width: 100%;
+		padding-right:0;
+		padding-bottom: 0;
+	}
+	.suntrust-repaymentOption .field:nth-last-of-type(2) .sun-select-container,
+	.suntrust-section3A .suntrust-repaymentOption .field:nth-last-of-type(2) .sun-select-container{
+		width: 65% !important;
+	}
+	.suntrust-repaymentOption .field:last-child ,
+	.suntrust-section3A .suntrust-repaymentOption .field:last-child {
+		width: 100%;
+		padding-right:0;
+		margin: 0px;
+	}
+	.suntrust-repaymentOption .field:last-child .sun-select-container,
+	.suntrust-section3A .suntrust-repaymentOption .field:last-child .sun-select-container{
+		width: 65% !important;
+	}
+	.suntrust-repaymentOption .sun-body-component {
+		margin-bottom: 18px;
+	}
+}
+@media screen and (max-width: 767px) and (orientation: landscape){
+	.suntrust-repaymentOption .field .sun-select-container,
+	.suntrust-section3A .suntrust-repaymentOption .field .sun-select-container	{
+		width: 67% !important;
+	}
+    .suntrust-repaymentOption .field:nth-last-of-type(2) .sun-select-container,
+	.suntrust-section3A .suntrust-repaymentOption .field:nth-last-of-type(2) .sun-select-container{
+		width: 67% !important;
+	}
+    .suntrust-repaymentOption .field:last-child .sun-select-container,
+	.suntrust-section3A .suntrust-repaymentOption .field:last-child .sun-select-container{
+		width: 67% !important;
+	}
+}
+@media screen and (max-width: 900px){
+	.suntrust-repaymentOption .table.repaymentOption-table>tbody>tr>th {
+		font-size: 14px;
+		padding: 13px 0;
+	}
+	.repaymentOption-table-desktop {
+		padding-right: 0;
+	}
+	.suntrust-repaymentOption .field label,.suntrust-section3A .suntrust-repaymentOption .field label{
+		width: 30%;
+	}
+}
+/*
+@media screen and (min-width: 1100px) and (max-width: 1300px){
+	.suntrust-section3A .suntrust-repaymentOption .field:last-child .sun-select-container{
+		width: 55% !important;
+	}
+}*/
+
+/*ADA table header fix*/
+thead.table_header_ADA {
+    visibility: hidden;
+}

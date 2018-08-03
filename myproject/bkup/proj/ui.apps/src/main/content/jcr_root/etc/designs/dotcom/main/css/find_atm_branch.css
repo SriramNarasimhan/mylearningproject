@@ -1,0 +1,353 @@
+/* New Footer Links css Start */
+.suntrust-footer-social-links-container {
+	max-width: 1170px;
+	margin:20px auto;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #e5e5e5;
+}
+.suntrust-footer-social-links {
+	width: 900px;
+	margin: 0 auto;
+}
+.suntrust-footer-social-links-content {
+
+}
+.suntrust-footer-social-links-content p {
+	font-weight: 700;
+}
+.suntrust-footer-social-links-content > a {
+	display: block;
+	line-height: 25px;
+}
+.suntrust-footer-social-links-content > div.clearfix:not(:last-child) {
+	margin-bottom: 15px;
+}
+.suntrust-footer-social-links-content .suntrust-footer-social-links-img,
+.suntrust-footer-social-links-content a.suntrust-footer-social-links-title {
+	float: left;
+}
+.suntrust-footer-social-links-content .suntrust-footer-social-links-img {
+	width: 25px;
+    height: 25px;
+}
+.suntrust-footer-social-links-content .suntrust-footer-social-links-img img {
+	width: 100%;
+    height: 100%;
+}
+.suntrust-footer-social-links-content .suntrust-footer-social-links-img img[src=""] {
+    background-color: #aaa;
+}
+.suntrust-footer-social-links-content a.suntrust-footer-social-links-title {
+	margin-left: 15px;
+    margin-top: 3px;
+}
+/* New Footer Links css End */
+
+
+
+
+.search-hero-bg-color {
+	background-color: #003b71;
+}
+
+
+/* Find ATM Branch  State & City Page Css Start*/
+.atm_branch_state_list {
+	width: 950px;
+	padding:0 60px;
+	margin: 0 auto;
+}
+@media (max-width: 990px) {
+	.atm_branch_state_list {
+		width: 100%;
+	}
+}
+.atm_branch_title {
+	text-align: center;
+	font-weight: 700;
+}
+.suntrust-directory-list-container {
+    -ms-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.suntrust-directory-list-container .suntrust-directory-list {
+    padding: 35px 0 60px 0;
+	margin-left:50px;
+    vertical-align: text-top;
+    display: inline-block;
+	width:100%;
+	-webkit-column-count: 4;
+    -moz-column-count: 4;
+    column-count: 4;
+}
+.list-section   {
+	-webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+.suntrust-directory-list-container .suntrust-directory-list-term {
+    font-family: "suntrustregular",sans-serif;
+    color: #333;
+    font-size: 20px;
+    line-height: 50px;
+    padding-top: 5px;
+}
+.suntrust-directory-list-container .suntrust-directory-list-item {
+    font-family: "suntrustregular",sans-serif;
+    font-size: 15px;
+    line-height: 25px;
+    color: #003b71;
+}
+.suntrust-directory-list-container .suntrust-directory-list-item a {
+    color: #003b71;
+}
+.suntrust-directory-list-container .suntrust-directory-list-item a:hover ,
+.suntrust-directory-list-container .suntrust-directory-list-item a:focus{
+    color: #C94C06;
+}
+.atm_branch_city_list {
+    margin: 0 auto;
+    width: 700px;
+}
+.atm_branch_top_navigation {
+	font-size: 18px;
+	margin: 25px 0;
+}
+.suntrust-directory-horizontal-menu {
+    list-style-type: none;
+    padding-left: 0;
+    border-bottom: 1px solid #e5e5e5;
+	border-top: 1px solid #e5e5e5;
+}
+.suntrust-directory-horizontal-menu-item {
+    display: inline-block;
+    font-size: 15px;
+    line-height: 40px;
+    color: #999;
+    font-family: "suntrustregular",sans-serif;
+    padding-right: 2%;
+}
+.suntrust-directory-horizontal-menu-item a {
+    color: #003b71;
+}
+.suntrust-directory-horizontal-menu-item a:hover, .suntrust-directory-horizontal-menu-item a:focus {
+    color: #C94C06;
+    outline: 0;
+}
+
+a.disable_a_href:hover{
+	/*pointer-events: none;*/
+    color: #003b71;
+} 
+
+/* Find ATM Branch  State & City Page Css End*/
+
+
+
+
+
+
+/* Find ATM Branch - City Branches css start */
+.atm_city_branches {
+	margin-bottom: 30px;
+}
+.atm_city_branches .atm_branch_top_navigation {
+	margin-bottom: 30px;
+    border-bottom: 1px solid #d5d5d5;
+    padding: 0 0 20px 20px;
+}
+.atm_city_branches_container .search_result_description_details {
+    margin: 30px 20px;
+	padding: 15px 0;
+}
+
+.atm_schList_divider {
+	border-bottom: 1px solid #d5d5d5;
+}
+
+.atm_city_branches_container .search_result_description_details:first-child {
+    padding-top: 0;
+}
+.atm_city_branches_container .search_result_description_details.lastChild {
+    border-bottom: 0;
+}
+
+.atm_city_branches_container .search_result_location_name {
+    width: 44%;
+}
+.search_result_location_name, .search_result_location_contact, .search_result_location_working_hours {
+    vertical-align: top;
+    display: inline-block;
+}
+.search_result_location_name > div, .search_result_location_working_hours > div:not(:last-child), .search_result_location_contact > div {
+    margin-bottom: 15px;
+}
+.search_result_description_detail_addr h5, .search_result_description_detail_service h5, .search_result_location_branch_hours h5, .search_result_location_drive_thru_hours h5, .search_result_location_teller_connect_hours h5, .search_result_location_phone_details h5, .search_result_location_fax_details h5 {
+	font-size: 15px;
+    margin: 0;
+}
+.search_result_description_detail_addr p, .search_result_location_branch_hours p, .search_result_location_drive_thru_hours p, .search_result_location_teller_connect_hours p, .search_result_location_phone_details p, .search_result_location_fax_details p, .search_result_location_name > div:last-child, .search_result_location_contact > div:last-child {
+	margin: 0;
+}
+.atm_city_branches_container .search_result_location_contact {
+    float: none;
+}
+.atm_city_branches_container .search_result_location_working_hours, .atm_city_branches_container .search_result_location_contact {
+    width: 25%;
+    margin-left: 2%;
+	min-height:5px;
+    min-width: 127px;
+}
+.search_result_location_phone_icon, .search_result_location_fax_icon, .search_result_location_direction_icon, .loction_show_hide_direction_icon {
+    float: left;
+    width: 35px;
+    height: 35px;
+}
+.search_result_location_phone_icon img, .search_result_location_fax_icon img, .search_result_location_direction_icon img {
+    background-color: #fff;
+    width: 100%;
+    height: 100%;
+}
+.atm_city_branches_container .search_result_location_phone_details {
+    width: 65%;
+}
+.search_result_location_phone_details, .search_result_location_fax_details, .search_result_location_direction_details, .loction_show_hide_direction_details {
+    float: left;
+    margin-left: 5px;
+}
+.search_result_location_direction_details p {
+    margin-top: 7px;
+}
+.location_result_show_more_results {
+    position: relative;
+}
+.location_result_show_more_results a {
+    -webkit-transition: all .15s ease-in;
+    -moz-transition: all .15s ease-in;
+    -o-transition: all .15s ease-in;
+    -ms-transition: all .15s ease-in;
+    transition: all .15s ease-in;
+    -webkit-border-radius: 3px;
+    -webkit-background-clip: padding-box;
+    -moz-border-radius: 3px;
+    -moz-background-clip: padding;
+    border-radius: 3px;
+    background-clip: padding-box;
+    padding: 10px 30px;
+    font-size: 18px;
+    line-height: 18px;
+    cursor: pointer;
+    outline: none;
+    background-image: none;
+    display: inline-block;
+    background-color: #003B71;
+    color: #fff;
+}
+.location_result_show_more_results a:hover, .location_result_show_more_results a:focus {
+	background-color: #021E30;
+}
+.location_result_show_more_results a:before {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #cfcfcf;
+    content: '';
+    z-index: -1;
+}
+/* Find ATM Branch - City Branches css end */
+@media (max-width: 1024px) {
+	.atm_branch_state_list {
+		width: 100%;		
+	}
+	.suntrust-directory-list-container {
+		padding: 0 30px 10px 30px;
+	}
+	.suntrust-directory-list-container .suntrust-directory-list {
+		padding-bottom: 0;
+		padding-top: 0;
+		-webkit-column-count: 3;
+		-moz-column-count: 3;
+		column-count: 3;
+	}
+	.atm_branch_city_list {
+		width: 100%;		
+	}
+	.suntrust-directory-horizontal-menu {
+		padding: 0 28px 0 28px;
+	}
+	.atm_city_branches_container .search_result_location_working_hours, .atm_city_branches_container .search_result_location_contact{
+		margin-left:0;
+	}
+}
+@media (max-width: 667px) {
+	.atm_city_branches_container .search_result_description_details {
+		margin: 30px 0;
+		padding: 15px 0;
+	}
+	.atm_city_branches_container .search_result_location_name {
+		width: 100%;
+	}
+	.atm_city_branches_container .search_result_location_working_hours, .atm_city_branches_container .search_result_location_contact {
+		width: auto;
+		margin-left:0;
+	}
+	.search_result_location_working_hours{
+		margin-top:15px;
+	}
+	.atm_city_branches_container .search_result_description_details{
+		padding:0;
+	}
+}
+@media (max-width: 600px) {
+	.suntrust-directory-list-container {
+		display: block;
+		clear: both;
+		padding-bottom: 30px;
+	}
+	.suntrust-directory-list-container .suntrust-directory-list {
+		display: block;
+		clear: both;
+		padding-bottom: 0;
+		padding-top: 0;
+		margin-left:0px;
+		-webkit-column-count: 1;
+		-moz-column-count: 1;
+		column-count: 1;
+	}
+	.suntrust-directory-horizontal-menu {
+		padding: 0 30px 0 30px;
+	}
+}
+
+/*IE*/
+@media screen and (-ms-high-contrast: active),
+    (-ms-high-contrast: none) {
+    .atm_branch_city_list .list-section {
+    	display: inline-block;
+	}
+    .atm_branch_city_list .suntrust-directory-list-container .suntrust-directory-list {
+        column-gap:40px;
+    }        
+}
+/*FireFox*/
+@-moz-document url-prefix() { 
+	.atm_branch_city_list .list-section {
+    	display: inline-block;
+	}
+    .atm_branch_city_list .suntrust-directory-list-container .suntrust-directory-list {
+        -moz-column-gap:45px;
+    }
+}
+/*IE Edge Fix*/
+@supports (-ms-ime-align:auto) {
+                .atm_branch_city_list .list-section {
+                display: inline-block;
+                }
+    .atm_branch_city_list .suntrust-directory-list-container .suntrust-directory-list {
+        column-gap:40px;
+    }
+}

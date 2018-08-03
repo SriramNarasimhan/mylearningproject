@@ -1,0 +1,818 @@
+<!--/* Adds a comparison table component */-->
+<div data-sly-test="${wcmmode.edit || wcmmode.design}" >Configure Comparison Table Component</div>
+<div data-sly-use.mbeanObj="${'com.suntrust.dotcom.components.ComparisonTableComponent'}" data-sly-unwrap></div>
+	<div class="${properties.tablestyle == 'static'?'suntrust_account_find clearfix staticTable':'suntrust_account_find clearfix'}">
+        <input type="hidden" name="compareTableType" value="${properties.tablestyle}"/>
+        <input type="hidden" name="compareTableProductCount" value="${mbeanObj.getTableProductCount}"/>
+		<div data-sly-unwrap data-sly-test="${properties.tableheading}">
+			<h2>${properties.tableheading @ context='html'}</h2>
+		</div>
+		<div class="compare_accounts visible-xs">
+			<div data-sly-unwrap data-sly-test="${properties.mobiletextdesc}">
+				<div class="product_selection_info">${properties.mobiletextdesc @ context='html'}</div>	
+			</div>
+			<div data-sly-test="${properties.tablestyle == 'comparison'}" data-sly-unwrap>
+				<div data-sly-test="${mbeanObj.mBean && properties.productItems}" data-sly-unwrap>
+					<div data-sly-list.products="${mbeanObj.mBean}"data-sly-unwrap>
+						<div data-sly-test="${productsList.index == 0}" data-sly-list.itemsList="${products.items}" data-sly-unwrap>												
+							<div class="product_selection_details">
+								<div class="product_selection_individual clearfix">
+									<div class="sun-checkbox-input-field"> 
+										<div class="sun-checkbox-input-container">
+											<span>
+												<input id="compare_chart" type="checkbox" class="suntrust-checkbox" index="${itemsListList.index}" />
+												<label for="compare_chart" class="suntrust-accessible-text">Compare table</label>
+											</span>
+										</div>
+									</div>
+									<div class="product_selection_checkbox_details">
+										<div data-sly-unwrap data-sly-test="${itemsList.itemheading !=''}">
+											<div data-sly-unwrap data-sly-test="${itemsList.linkurl !=''}">
+												<h3><a title="${itemsList.titletag}" href="${itemsList.linkurl}" target="${itemsList.target}">${itemsList.itemheading @ context='html'}</a></h3>
+											</div>
+											<div data-sly-unwrap data-sly-test="${itemsList.linkurl ==''}">
+												<h3>${itemsList.itemheading @ context='html'}</h3>
+											</div>
+										</div>
+										<div data-sly-unwrap data-sly-test="${itemsList.itemdescription !=''}"><p>${itemsList.itemdescription @ context='html'}</p></div>
+										<div data-sly-unwrap data-sly-test="${itemsList.ctatitle !=''}">
+                                        	<div>
+												<a class="${itemsList.ctatheme}" title="${itemsList.ctatitletag}" href="${itemsList.ctalinkurl}" target="${itemsList.ctatarget}">${itemsList.ctatitle @ context='html'}</a>
+                                            </div>
+										</div>
+										<div data-sly-unwrap data-sly-test="${itemsList.linktitle !=''}">
+                                            <div>
+												<a title="${itemsList.titletag}" href="${itemsList.linkurl}" target="${itemsList.target}">${itemsList.linktitle @ context='html'}</a>
+                                            </div>
+										</div>
+									</div>
+								</div>
+							</div>												
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div data-sly-test="${properties.tablestyle == 'comparison'}" data-sly-unwrap>
+			<div class="table_compare_more hidden-xs clearfix">
+				<div>
+					<a href="javascript:void(0);" class="table_compare_left disabled">
+                    <span> < </span> 
+                    <span>View More</span>
+                    </a>
+					<a href="javascript:void(0);" class="table_compare_right">
+                    	<span>View More</span> 
+                        <span> > </span>
+                    </a>
+				</div>
+			</div>
+		</div>
+		<div style="position:relative;overflow:hidden;">
+			<div class="table_scroller">
+			<!-- Table Comparison Start -->
+			<table class="table_compare hidden-xs">
+				<div data-sly-test="${properties.tablestyle == 'comparison'}" data-sly-unwrap>
+					<tr>
+						<th></th>									
+						 <div data-sly-test="${mbeanObj.mBean && properties.productItems}" data-sly-unwrap>
+							<div data-sly-list.products="${mbeanObj.mBean}"data-sly-unwrap>
+								<div data-sly-test="${productsList.index == 0}" data-sly-list.itemsList="${products.items}" data-sly-unwrap>
+									<td class="account_bg_white">										
+										<div data-sly-unwrap data-sly-test="${itemsList.itemheading !=''}">
+											<div data-sly-unwrap data-sly-test="${itemsList.linkurl !=''}">
+												<h2><a title="${itemsList.titletag}" href="${itemsList.linkurl}" target="${itemsList.target}">${itemsList.itemheading @ context='html'}</a></h2>
+											</div>
+											<div data-sly-unwrap data-sly-test="${itemsList.linkurl ==''}">
+												<h2>${itemsList.itemheading @ context='html'}</h2>
+											</div>
+										</div>
+										<div data-sly-unwrap data-sly-test="${itemsList.itemdescription !=''}"><p>${itemsList.itemdescription @ context='html'}</p></div>
+									</td>												
+								</div>
+							</div>
+						</div>								
+					</tr>
+                <tr class="table_comp_link">
+					<th></th>
+                    <div data-sly-test="${mbeanObj.mBean && properties.productItems}" data-sly-unwrap>
+						<div data-sly-list.products="${mbeanObj.mBean}"data-sly-unwrap>
+							<div data-sly-test="${productsList.index == 0}" data-sly-list.itemsList="${products.items}" data-sly-unwrap>
+								<td class="account_bg_white">
+                    	             <div data-sly-unwrap data-sly-test="${itemsList.ctatitle !=''}">
+                        	             <div class="text-center">
+							  			 	<a class="${itemsList.ctatheme}" title="${itemsList.ctatitletag}" href="${itemsList.ctalinkurl}" target="${itemsList.ctatarget}">${itemsList.ctatitle @ context='html'}</a>
+										 </div>
+                                     </div>
+									 <div data-sly-unwrap data-sly-test="${itemsList.linktitle !=''}">
+                                     	<div class="text-center">
+                                            <a title="${itemsList.titletag}" href="${itemsList.linkurl}" target="${itemsList.target}">${itemsList.linktitle @ context='html'}</a>
+                                        </div>
+                                     </div>
+								</td>
+                			</div>
+                    	</div>
+                	</div>
+                </tr>
+                </div>
+				<div data-sly-test="${properties.sectionheading1}" data-sly-unwrap>
+					<tr>
+						<th class="account_bg_grey"><div class="table_heading_content">${properties.sectionheading1 @ context='html'}</div></th>
+						<!--  sly data-sly-test="${properties.sectionheading1.length > 37}">
+							<th class="account_bg_grey"><div class="table_heading_content">${properties.sectionheading1}</div></th>
+						</sly>
+						<sly data-sly-test="${properties.sectionheading1.length <= 37}">
+							<th class="account_bg_grey">${properties.sectionheading1}</th>
+						</sly-->
+						<td class="account_bg_grey" colspan="2">&nbsp;</td>
+					</tr>
+				</div>
+				<div data-sly-test="${mbeanObj.mBean && properties.sectionItems1}" data-sly-unwrap>								
+					<div data-sly-list.sections="${mbeanObj.mBean}"data-sly-unwrap>
+						<div data-sly-test="${sectionsList.index == 1}" data-sly-list.qaitems="${sections.items}" data-sly-unwrap>
+							<div data-sly-test="${qaitems.rowquestion !='' || qaitems.rowanswer1 !='' || qaitems.rowanswer2 !='' || qaitems.rowanswer3 !='' || qaitems.rowanswer4 !=''|| qaitems.rowanswer5 !='' || qaitems.rowanswer6 !=''|| qaitems.rowanswer7 !='' || qaitems.rowanswer8 !=''}" data-sly-unwrap>						
+							<tr class="${qaitemsList.odd? 'account_odd_row' : 'account_even_row'}">								
+								<th>${qaitems.rowquestion @ context='html'}</th>								
+								<div data-sly-test="${mbeanObj.getTableProductCount>=1 && properties.tablestyle == 'comparison'}" data-sly-unwrap>
+									<td>${qaitems.rowanswer1 @ context='html'}</td>
+								</div>
+								<div data-sly-test="${mbeanObj.getTableProductCount>=2 && properties.tablestyle == 'comparison'}" data-sly-unwrap>
+									<td>${qaitems.rowanswer2 @ context='html'}</td>
+								</div>
+								<div data-sly-test="${properties.tablestyle == 'static'}" data-sly-unwrap>
+									<div data-sly-test="${qaitems.rowanswer1 !='' || qaitems.rowanswer2 !=''}" data-sly-unwrap>
+										<td>${qaitems.rowanswer1 @ context='html'}</td>
+									</div>
+									<div data-sly-test="${qaitems.rowanswer1 !='' || qaitems.rowanswer2 !=''}" data-sly-unwrap>
+										<td>${qaitems.rowanswer2 @ context='html'}</td>
+									</div>
+								</div>
+								<div data-sly-test="${properties.tablestyle == 'comparison'}" data-sly-unwrap>
+									<div data-sly-test="${mbeanObj.getTableProductCount>=3}" data-sly-unwrap>
+										<td>${qaitems.rowanswer3 @ context='html'}</td>
+									</div>
+									<div data-sly-test="${mbeanObj.getTableProductCount>=4}" data-sly-unwrap>
+										<td>${qaitems.rowanswer4 @ context='html'}</td>
+									</div>
+									<div data-sly-test="${mbeanObj.getTableProductCount>=5}" data-sly-unwrap>
+										<td>${qaitems.rowanswer5 @ context='html'}</td>
+									</div>
+									<div data-sly-test="${mbeanObj.getTableProductCount>=6}" data-sly-unwrap>
+										<td>${qaitems.rowanswer6 @ context='html'}</td>
+									</div>
+									<div data-sly-test="${mbeanObj.getTableProductCount>=7}" data-sly-unwrap>
+										<td>${qaitems.rowanswer7 @ context='html'}</td>
+									</div>
+									<div data-sly-test="${mbeanObj.getTableProductCount>=8}" data-sly-unwrap>
+										<td>${qaitems.rowanswer8 @ context='html'}</td>	
+									</div>
+								</div>							
+							</tr>
+						</div>							
+						</div>
+					</div>
+				</div>
+				<div data-sly-test="${properties.sectionheading2}" data-sly-unwrap>
+					<tr>
+						<th class="account_bg_grey"><div class="table_heading_content">${properties.sectionheading2 @ context='html'}</div></th>
+						<!-- sly data-sly-test="${properties.sectionheading2.length > 37}">
+							<th class="account_bg_grey"><div class="table_heading_content">${properties.sectionheading2}</div></th>
+						</sly>
+						<sly data-sly-test="${properties.sectionheading2.length <= 37}">
+							<th class="account_bg_grey">${properties.sectionheading2}</th>
+						</sly-->
+						<td class="account_bg_grey" colspan="2">&nbsp;</td>
+					</tr>
+				</div>
+				<div data-sly-test="${mbeanObj.mBean && properties.sectionItems2}" data-sly-unwrap>								
+					<div data-sly-list.sections="${mbeanObj.mBean}"data-sly-unwrap>
+						<div data-sly-test="${sectionsList.index == 2}" data-sly-list.qaitems="${sections.items}" data-sly-unwrap>
+							<div data-sly-test="${qaitems.rowquestion !='' || qaitems.rowanswer1 !='' || qaitems.rowanswer2 !='' || qaitems.rowanswer3 !='' || qaitems.rowanswer4 !=''|| qaitems.rowanswer5 !='' || qaitems.rowanswer6 !=''|| qaitems.rowanswer7 !='' || qaitems.rowanswer8 !=''}" data-sly-unwrap>
+							<tr class="${qaitemsList.odd? 'account_odd_row' : 'account_even_row'}">								
+								<th>${qaitems.rowquestion @ context='html'}</th>								
+								<div data-sly-test="${mbeanObj.getTableProductCount>=1 && properties.tablestyle == 'comparison'}" data-sly-unwrap>
+									<td>${qaitems.rowanswer1 @ context='html'}</td>
+								</div>
+								<div data-sly-test="${mbeanObj.getTableProductCount>=2 && properties.tablestyle == 'comparison'}" data-sly-unwrap>
+									<td>${qaitems.rowanswer2 @ context='html'}</td>
+								</div>
+								<div data-sly-test="${properties.tablestyle == 'static'}" data-sly-unwrap>
+									<div data-sly-test="${qaitems.rowanswer1 !='' || qaitems.rowanswer2 !=''}" data-sly-unwrap>
+										<td>${qaitems.rowanswer1 @ context='html'}</td>
+									</div>
+									<div data-sly-test="${qaitems.rowanswer1 !='' || qaitems.rowanswer2 !=''}" data-sly-unwrap>
+										<td>${qaitems.rowanswer2 @ context='html'}</td>
+									</div>
+								</div>
+								<div data-sly-test="${properties.tablestyle == 'comparison'}" data-sly-unwrap>
+									<div data-sly-test="${mbeanObj.getTableProductCount>=3}" data-sly-unwrap>
+										<td>${qaitems.rowanswer3 @ context='html'}</td>
+									</div>
+									<div data-sly-test="${mbeanObj.getTableProductCount>=4}" data-sly-unwrap>
+										<td>${qaitems.rowanswer4 @ context='html'}</td>
+									</div>
+									<div data-sly-test="${mbeanObj.getTableProductCount>=5}" data-sly-unwrap>
+										<td>${qaitems.rowanswer5 @ context='html'}</td>
+									</div>
+									<div data-sly-test="${mbeanObj.getTableProductCount>=6}" data-sly-unwrap>
+										<td>${qaitems.rowanswer6 @ context='html'}</td>
+									</div>
+									<div data-sly-test="${mbeanObj.getTableProductCount>=7}" data-sly-unwrap>
+										<td>${qaitems.rowanswer7 @ context='html'}</td>
+									</div>
+									<div data-sly-test="${mbeanObj.getTableProductCount>=8}" data-sly-unwrap>
+										<td>${qaitems.rowanswer8 @ context='html'}</td>	
+									</div>
+								</div>							
+							</tr>
+						</div>							
+						</div>
+					</div>
+				</div>
+				<div data-sly-test="${properties.sectionheading3}" data-sly-unwrap>
+					<tr>
+						<th class="account_bg_grey"><div class="table_heading_content">${properties.sectionheading3 @ context='html'}</div></th>
+						<!-- sly data-sly-test="${properties.sectionheading3.length > 37}">
+							<th class="account_bg_grey"><div class="table_heading_content">${properties.sectionheading3}</div></th>
+						</sly>
+						<sly data-sly-test="${properties.sectionheading3.length <= 37}">
+							<th class="account_bg_grey">${properties.sectionheading3}</th>
+						</sly-->
+						<td class="account_bg_grey" colspan="2">&nbsp;</td>
+					</tr>
+				</div>
+				<div data-sly-test="${mbeanObj.mBean && properties.sectionItems3}" data-sly-unwrap>								
+					<div data-sly-list.sections="${mbeanObj.mBean}"data-sly-unwrap>
+						<div data-sly-test="${sectionsList.index == 3}" data-sly-list.qaitems="${sections.items}" data-sly-unwrap>
+							<div data-sly-test="${qaitems.rowquestion !='' || qaitems.rowanswer1 !='' || qaitems.rowanswer2 !='' || qaitems.rowanswer3 !='' || qaitems.rowanswer4 !=''|| qaitems.rowanswer5 !='' || qaitems.rowanswer6 !=''|| qaitems.rowanswer7 !='' || qaitems.rowanswer8 !=''}" data-sly-unwrap>						
+							<tr class="${qaitemsList.odd? 'account_odd_row' : 'account_even_row'}">
+								<th>${qaitems.rowquestion @ context='html'}</th>								
+								<div data-sly-test="${mbeanObj.getTableProductCount>=1 && properties.tablestyle == 'comparison'}" data-sly-unwrap>
+									<td>${qaitems.rowanswer1 @ context='html'}</td>
+								</div>
+								<div data-sly-test="${mbeanObj.getTableProductCount>=2 && properties.tablestyle == 'comparison'}" data-sly-unwrap>
+									<td>${qaitems.rowanswer2 @ context='html'}</td>
+								</div>
+								<div data-sly-test="${properties.tablestyle == 'static'}" data-sly-unwrap>
+									<div data-sly-test="${qaitems.rowanswer1 !='' || qaitems.rowanswer2 !=''}" data-sly-unwrap>
+										<td>${qaitems.rowanswer1 @ context='html'}</td>
+									</div>
+									<div data-sly-test="${qaitems.rowanswer1 !='' || qaitems.rowanswer2 !=''}" data-sly-unwrap>
+										<td>${qaitems.rowanswer2 @ context='html'}</td>
+									</div>
+								</div>
+								<div data-sly-test="${properties.tablestyle == 'comparison'}" data-sly-unwrap>
+									<div data-sly-test="${mbeanObj.getTableProductCount>=3}" data-sly-unwrap>
+										<td>${qaitems.rowanswer3 @ context='html'}</td>
+									</div>
+									<div data-sly-test="${mbeanObj.getTableProductCount>=4}" data-sly-unwrap>
+										<td>${qaitems.rowanswer4 @ context='html'}</td>
+									</div>
+									<div data-sly-test="${mbeanObj.getTableProductCount>=5}" data-sly-unwrap>
+										<td>${qaitems.rowanswer5 @ context='html'}</td>
+									</div>
+									<div data-sly-test="${mbeanObj.getTableProductCount>=6}" data-sly-unwrap>
+										<td>${qaitems.rowanswer6 @ context='html'}</td>
+									</div>
+									<div data-sly-test="${mbeanObj.getTableProductCount>=7}" data-sly-unwrap>
+										<td>${qaitems.rowanswer7 @ context='html'}</td>
+									</div>
+									<div data-sly-test="${mbeanObj.getTableProductCount>=8}" data-sly-unwrap>
+										<td>${qaitems.rowanswer8 @ context='html'}</td>	
+									</div>
+								</div>							
+							</tr>
+							</div>							
+						</div>
+					</div>
+				</div>
+				<div data-sly-test="${properties.sectionheading4}" data-sly-unwrap>
+					<tr>
+						<th class="account_bg_grey"><div class="table_heading_content">${properties.sectionheading4 @ context='html'}</div></th>
+						<!-- sly data-sly-test="${properties.sectionheading4.length > 37}">
+							<th class="account_bg_grey"><div class="table_heading_content">${properties.sectionheading4}</div></th>
+						</sly>
+						<sly data-sly-test="${properties.sectionheading4.length <= 37}">
+							<th class="account_bg_grey">${properties.sectionheading4}</th>
+						</sly-->
+						<td class="account_bg_grey" colspan="2">&nbsp;</td>
+					</tr>
+				</div>
+				<div data-sly-test="${mbeanObj.mBean && properties.sectionItems4}" data-sly-unwrap>								
+					<div data-sly-list.sections="${mbeanObj.mBean}"data-sly-unwrap>
+						<div data-sly-test="${sectionsList.index == 4}" data-sly-list.qaitems="${sections.items}" data-sly-unwrap>
+							<div data-sly-test="${qaitems.rowquestion !='' || qaitems.rowanswer1 !='' || qaitems.rowanswer2 !='' || qaitems.rowanswer3 !='' || qaitems.rowanswer4 !=''|| qaitems.rowanswer5 !='' || qaitems.rowanswer6 !=''|| qaitems.rowanswer7 !='' || qaitems.rowanswer8 !=''}" data-sly-unwrap>
+								<tr class="${qaitemsList.odd? 'account_odd_row' : 'account_even_row'}">								
+									<th>${qaitems.rowquestion @ context='html'}</th>								
+									<div data-sly-test="${mbeanObj.getTableProductCount>=1 && properties.tablestyle == 'comparison'}" data-sly-unwrap>
+										<td>${qaitems.rowanswer1 @ context='html'}</td>
+									</div>
+									<div data-sly-test="${mbeanObj.getTableProductCount>=2 && properties.tablestyle == 'comparison'}" data-sly-unwrap>
+										<td>${qaitems.rowanswer2 @ context='html'}</td>
+									</div>
+									<div data-sly-test="${properties.tablestyle == 'static'}" data-sly-unwrap>
+										<div data-sly-test="${qaitems.rowanswer1 !='' || qaitems.rowanswer2 !=''}" data-sly-unwrap>
+											<td>${qaitems.rowanswer1 @ context='html'}</td>
+										</div>
+										<div data-sly-test="${qaitems.rowanswer1 !='' || qaitems.rowanswer2 !=''}" data-sly-unwrap>
+											<td>${qaitems.rowanswer2 @ context='html'}</td>
+										</div>
+									</div>
+									<div data-sly-test="${properties.tablestyle == 'comparison'}" data-sly-unwrap>
+										<div data-sly-test="${mbeanObj.getTableProductCount>=3}" data-sly-unwrap>
+											<td>${qaitems.rowanswer3 @ context='html'}</td>
+										</div>
+										<div data-sly-test="${mbeanObj.getTableProductCount>=4}" data-sly-unwrap>
+											<td>${qaitems.rowanswer4 @ context='html'}</td>
+										</div>
+										<div data-sly-test="${mbeanObj.getTableProductCount>=5}" data-sly-unwrap>
+											<td>${qaitems.rowanswer5 @ context='html'}</td>
+										</div>
+										<div data-sly-test="${mbeanObj.getTableProductCount>=6}" data-sly-unwrap>
+											<td>${qaitems.rowanswer6 @ context='html'}</td>
+										</div>
+										<div data-sly-test="${mbeanObj.getTableProductCount>=7}" data-sly-unwrap>
+											<td>${qaitems.rowanswer7 @ context='html'}</td>
+										</div>
+										<div data-sly-test="${mbeanObj.getTableProductCount>=8}" data-sly-unwrap>
+											<td>${qaitems.rowanswer8 @ context='html'}</td>	
+										</div>
+									</div>							
+								</tr>
+							</div>							
+						</div>
+					</div>
+				</div>
+				<div data-sly-test="${properties.sectionheading5}" data-sly-unwrap>
+					<tr>
+						<th class="account_bg_grey"><div class="table_heading_content">${properties.sectionheading5 @ context='html'}</div></th>
+						<!-- sly data-sly-test="${properties.sectionheading5.length > 37}">
+							<th class="account_bg_grey"><div class="table_heading_content">${properties.sectionheading5}</div></th>
+						</sly>
+						<sly data-sly-test="${properties.sectionheading5.length <= 37}">
+							<th class="account_bg_grey">${properties.sectionheading5}</th>
+						</sly-->
+						<td class="account_bg_grey" colspan="2">&nbsp;</td>
+					</tr>
+				</div>
+				<div data-sly-test="${mbeanObj.mBean && properties.sectionItems5}" data-sly-unwrap>								
+					<div data-sly-list.sections="${mbeanObj.mBean}"data-sly-unwrap>
+						<div data-sly-test="${sectionsList.index == 5}" data-sly-list.qaitems="${sections.items}" data-sly-unwrap>
+							<div data-sly-test="${qaitems.rowquestion !='' || qaitems.rowanswer1 !='' || qaitems.rowanswer2 !='' || qaitems.rowanswer3 !='' || qaitems.rowanswer4 !=''|| qaitems.rowanswer5 !='' || qaitems.rowanswer6 !=''|| qaitems.rowanswer7 !='' || qaitems.rowanswer8 !=''}" data-sly-unwrap>
+							<tr class="${qaitemsList.odd? 'account_odd_row' : 'account_even_row'}">								
+								<th>${qaitems.rowquestion @ context='html'}</th>								
+								<div data-sly-test="${mbeanObj.getTableProductCount>=1 && properties.tablestyle == 'comparison'}" data-sly-unwrap>
+									<td>${qaitems.rowanswer1 @ context='html'}</td>
+								</div>
+								<div data-sly-test="${mbeanObj.getTableProductCount>=2 && properties.tablestyle == 'comparison'}" data-sly-unwrap>
+									<td>${qaitems.rowanswer2 @ context='html'}</td>
+								</div>
+								<div data-sly-test="${properties.tablestyle == 'static'}" data-sly-unwrap>
+									<div data-sly-test="${qaitems.rowanswer1 !='' || qaitems.rowanswer2 !=''}" data-sly-unwrap>
+										<td>${qaitems.rowanswer1 @ context='html'}</td>
+									</div>
+									<div data-sly-test="${qaitems.rowanswer1 !='' || qaitems.rowanswer2 !=''}" data-sly-unwrap>
+										<td>${qaitems.rowanswer2 @ context='html'}</td>
+									</div>
+								</div>
+								<div data-sly-test="${properties.tablestyle == 'comparison'}" data-sly-unwrap>
+									<div data-sly-test="${mbeanObj.getTableProductCount>=3}" data-sly-unwrap>
+										<td>${qaitems.rowanswer3 @ context='html'}</td>
+									</div>
+									<div data-sly-test="${mbeanObj.getTableProductCount>=4}" data-sly-unwrap>
+										<td>${qaitems.rowanswer4 @ context='html'}</td>
+									</div>
+									<div data-sly-test="${mbeanObj.getTableProductCount>=5}" data-sly-unwrap>
+										<td>${qaitems.rowanswer5 @ context='html'}</td>
+									</div>
+									<div data-sly-test="${mbeanObj.getTableProductCount>=6}" data-sly-unwrap>
+										<td>${qaitems.rowanswer6 @ context='html'}</td>
+									</div>
+									<div data-sly-test="${mbeanObj.getTableProductCount>=7}" data-sly-unwrap>
+										<td>${qaitems.rowanswer7 @ context='html'}</td>
+									</div>
+									<div data-sly-test="${mbeanObj.getTableProductCount>=8}" data-sly-unwrap>
+										<td>${qaitems.rowanswer8 @ context='html'}</td>	
+									</div>
+								</div>							
+							</tr>
+						</div>							
+						</div>
+					</div>
+				</div>
+				<div data-sly-test="${properties.sectionheading6}" data-sly-unwrap>
+					<tr>
+						<th class="account_bg_grey"><div class="table_heading_content">${properties.sectionheading6 @ context='html'}</div></th>
+						<!-- sly data-sly-test="${properties.sectionheading6.length > 37}">
+							<th class="account_bg_grey"><div class="table_heading_content">${properties.sectionheading6}</div></th>
+						</sly>
+						<sly data-sly-test="${properties.sectionheading6.length <= 37}">
+							<th class="account_bg_grey">${properties.sectionheading6}</th>
+						</sly-->
+						<td class="account_bg_grey" colspan="2">&nbsp;</td>
+					</tr>
+				</div>
+				<div data-sly-test="${mbeanObj.mBean && properties.sectionItems6}" data-sly-unwrap>								
+					<div data-sly-list.sections="${mbeanObj.mBean}"data-sly-unwrap>
+						<div data-sly-test="${sectionsList.index == 6}" data-sly-list.qaitems="${sections.items}" data-sly-unwrap>
+							<div data-sly-test="${qaitems.rowquestion !='' || qaitems.rowanswer1 !='' || qaitems.rowanswer2 !='' || qaitems.rowanswer3 !='' || qaitems.rowanswer4 !=''|| qaitems.rowanswer5 !='' || qaitems.rowanswer6 !=''|| qaitems.rowanswer7 !='' || qaitems.rowanswer8 !=''}" data-sly-unwrap>
+								<tr class="${qaitemsList.odd? 'account_odd_row' : 'account_even_row'}">								
+									<th>${qaitems.rowquestion @ context='html'}</th>
+									<div data-sly-test="${mbeanObj.getTableProductCount>=1 && properties.tablestyle == 'comparison'}" data-sly-unwrap>
+										<td>${qaitems.rowanswer1 @ context='html'}</td>
+									</div>
+									<div data-sly-test="${mbeanObj.getTableProductCount>=2 && properties.tablestyle == 'comparison'}" data-sly-unwrap>
+										<td>${qaitems.rowanswer2 @ context='html'}</td>
+									</div>
+									<div data-sly-test="${properties.tablestyle == 'static'}" data-sly-unwrap>
+										<div data-sly-test="${qaitems.rowanswer1 !='' || qaitems.rowanswer2 !=''}" data-sly-unwrap>
+											<td>${qaitems.rowanswer1 @ context='html'}</td>
+										</div>
+										<div data-sly-test="${qaitems.rowanswer1 !='' || qaitems.rowanswer2 !=''}" data-sly-unwrap>
+											<td>${qaitems.rowanswer2 @ context='html'}</td>
+										</div>
+									</div>
+									<div data-sly-test="${properties.tablestyle == 'comparison'}" data-sly-unwrap>
+										<div data-sly-test="${mbeanObj.getTableProductCount>=3}" data-sly-unwrap>
+											<td>${qaitems.rowanswer3 @ context='html'}</td>
+										</div>
+										<div data-sly-test="${mbeanObj.getTableProductCount>=4}" data-sly-unwrap>
+											<td>${qaitems.rowanswer4 @ context='html'}</td>
+										</div>
+										<div data-sly-test="${mbeanObj.getTableProductCount>=5}" data-sly-unwrap>
+											<td>${qaitems.rowanswer5 @ context='html'}</td>
+										</div>
+										<div data-sly-test="${mbeanObj.getTableProductCount>=6}" data-sly-unwrap>
+											<td>${qaitems.rowanswer6 @ context='html'}</td>
+										</div>
+										<div data-sly-test="${mbeanObj.getTableProductCount>=7}" data-sly-unwrap>
+											<td>${qaitems.rowanswer7 @ context='html'}</td>
+										</div>
+										<div data-sly-test="${mbeanObj.getTableProductCount>=8}" data-sly-unwrap>
+											<td>${qaitems.rowanswer8 @ context='html'}</td>	
+										</div>
+									</div>							
+								</tr>
+							</div>	
+						</div>
+					</div>
+				</div>	
+			</table>
+			</div>
+			<!-- Table Comparison Desktop Screen End -->
+			
+			<!-- Table Comparison Mobile Screen Start -->
+			<table class="table_compare_mobile" style="display:none;">
+				<div data-sly-test="${properties.tablestyle == 'comparison'}" data-sly-unwrap>
+					<tr class="account_even_row">
+						<div data-sly-test="${mbeanObj.mBean && properties.productItems}" data-sly-unwrap>
+					<div data-sly-list.products="${mbeanObj.mBean}"data-sly-unwrap>
+						<div data-sly-test="${productsList.index == 0}" data-sly-list.itemsList="${products.items}" data-sly-unwrap>	
+					<td class="account_bg_white hide">
+                       <div data-sly-unwrap data-sly-test="${itemsList.itemheading !=''}">
+							<div data-sly-unwrap data-sly-test="${itemsList.linkurl !=''}">
+								<h2><a title="${itemsList.titletag}" href="${itemsList.linkurl}" target="${itemsList.target}">${itemsList.itemheading @ context='html'}</a></h2>
+							</div>
+							<div data-sly-unwrap data-sly-test="${itemsList.linkurl ==''}">
+								<h2>${itemsList.itemheading @ context='html'}</h2>
+							</div>
+						</div>
+										<div data-sly-unwrap data-sly-test="${itemsList.itemdescription !=''}"><p>${itemsList.itemdescription @ context='html'}</p></div>
+
+					</td>
+                    </div></div></div>
+				</tr>
+                <tr class="table_comp_link account_even_row">
+					<div data-sly-test="${mbeanObj.mBean && properties.productItems}" data-sly-unwrap>
+					<div data-sly-list.products="${mbeanObj.mBean}"data-sly-unwrap>
+						<div data-sly-test="${productsList.index == 0}" data-sly-list.itemsList="${products.items}" data-sly-unwrap>
+					<td class="account_bg_white hide">
+                        <div data-sly-unwrap data-sly-test="${itemsList.ctatitle !=''}">
+                            <div class="text-center">
+												<a class="${itemsList.ctatheme}" title="${itemsList.ctatitletag}" href="${itemsList.ctalinkurl}" target="${itemsList.ctatarget}">${itemsList.ctatitle @ context='html'}</a>
+											</div>
+						</div>
+                        <div data-sly-unwrap data-sly-test="${itemsList.linktitle !=''}">
+                            <div class="text-center">
+												<a title="${itemsList.titletag}" href="${itemsList.linkurl}" target="${itemsList.target}">${itemsList.linktitle @ context='html'}</a>
+											</div>
+						</div>
+					</td>
+					</div></div></div>
+				</tr>
+                </div>
+				<div data-sly-test="${properties.sectionheading1}" data-sly-unwrap>
+					<tr>
+						<td class="account_bg_grey text-center" colspan="2">${properties.sectionheading1 @ context='html'}</td>
+					</tr>
+				</div>
+				<div data-sly-test="${mbeanObj.mBean && properties.sectionItems1}" data-sly-unwrap>								
+					<div data-sly-list.sections="${mbeanObj.mBean}"data-sly-unwrap>
+						<div data-sly-test="${sectionsList.index == 1}" data-sly-list.qaitems="${sections.items}" data-sly-unwrap>	
+							<div data-sly-test="${qaitems.rowquestion !='' || qaitems.rowanswer1 !='' || qaitems.rowanswer2 !='' || qaitems.rowanswer3 !='' || qaitems.rowanswer4 !=''|| qaitems.rowanswer5 !='' || qaitems.rowanswer6 !=''|| qaitems.rowanswer7 !='' || qaitems.rowanswer8 !=''}" data-sly-unwrap>
+							<tr class="account_odd_row">
+								<td colspan="2" class="text-center">${qaitems.rowquestion @ context='html'}</td>
+							</tr>
+							<tr class="account_even_row">
+								<div data-sly-test="${mbeanObj.getTableProductCount>=1 && properties.tablestyle == 'comparison'}" data-sly-unwrap>
+									<td>${qaitems.rowanswer1 @ context='html'}</td>
+								</div>
+								<div data-sly-test="${mbeanObj.getTableProductCount>=2 && properties.tablestyle == 'comparison'}" data-sly-unwrap>
+									<td>${qaitems.rowanswer2 @ context='html'}</td>
+								</div>
+								<div data-sly-test="${properties.tablestyle == 'static'}" data-sly-unwrap>
+									<div data-sly-test="${qaitems.rowanswer1 !='' || qaitems.rowanswer2 !=''}" data-sly-unwrap>
+										<td>${qaitems.rowanswer1 @ context='html'}</td>
+									</div>
+									<div data-sly-test="${qaitems.rowanswer1 !='' || qaitems.rowanswer2 !=''}" data-sly-unwrap>
+										<td>${qaitems.rowanswer2 @ context='html'}</td>
+									</div>
+								</div>
+								<div data-sly-test="${properties.tablestyle == 'comparison'}" data-sly-unwrap>
+									<div data-sly-test="${mbeanObj.getTableProductCount>=3}" data-sly-unwrap>
+										<td>${qaitems.rowanswer3 @ context='html'}</td>
+									</div>
+									<div data-sly-test="${mbeanObj.getTableProductCount>=4}" data-sly-unwrap>
+										<td>${qaitems.rowanswer4 @ context='html'}</td>
+									</div>
+									<div data-sly-test="${mbeanObj.getTableProductCount>=5}" data-sly-unwrap>
+										<td>${qaitems.rowanswer5 @ context='html'}</td>
+									</div>
+									<div data-sly-test="${mbeanObj.getTableProductCount>=6}" data-sly-unwrap>
+										<td>${qaitems.rowanswer6 @ context='html'}</td>
+									</div>
+									<div data-sly-test="${mbeanObj.getTableProductCount>=7}" data-sly-unwrap>
+										<td>${qaitems.rowanswer7 @ context='html'}</td>
+									</div>
+									<div data-sly-test="${mbeanObj.getTableProductCount>=8}" data-sly-unwrap>
+										<td>${qaitems.rowanswer8 @ context='html'}</td>	
+									</div>
+								</div>									
+							</tr>
+						</div>							
+						</div>
+					</div>
+				</div>
+				<div data-sly-test="${properties.sectionheading2}" data-sly-unwrap>
+					<tr>
+						<td class="account_bg_grey text-center" colspan="2">${properties.sectionheading2 @ context='html'}</td>
+					</tr>
+				</div>
+				<div data-sly-test="${mbeanObj.mBean && properties.sectionItems2}" data-sly-unwrap>								
+					<div data-sly-list.sections="${mbeanObj.mBean}"data-sly-unwrap>
+						<div data-sly-test="${sectionsList.index == 2}" data-sly-list.qaitems="${sections.items}" data-sly-unwrap>
+							<div data-sly-test="${qaitems.rowquestion !='' || qaitems.rowanswer1 !='' || qaitems.rowanswer2 !='' || qaitems.rowanswer3 !='' || qaitems.rowanswer4 !=''|| qaitems.rowanswer5 !='' || qaitems.rowanswer6 !=''|| qaitems.rowanswer7 !='' || qaitems.rowanswer8 !=''}" data-sly-unwrap>
+							<tr class="account_odd_row">
+								<td colspan="2" class="text-center">${qaitems.rowquestion @ context='html'}</th>
+							</tr>
+							<tr class="account_even_row">
+								<div data-sly-test="${mbeanObj.getTableProductCount>=1 && properties.tablestyle == 'comparison'}" data-sly-unwrap>
+									<td>${qaitems.rowanswer1 @ context='html'}</td>
+								</div>
+								<div data-sly-test="${mbeanObj.getTableProductCount>=2 && properties.tablestyle == 'comparison'}" data-sly-unwrap>
+									<td>${qaitems.rowanswer2 @ context='html'}</td>
+								</div>
+								<div data-sly-test="${properties.tablestyle == 'static'}" data-sly-unwrap>
+									<div data-sly-test="${qaitems.rowanswer1 !='' || qaitems.rowanswer2 !=''}" data-sly-unwrap>
+										<td>${qaitems.rowanswer1 @ context='html'}</td>
+									</div>
+									<div data-sly-test="${qaitems.rowanswer1 !='' || qaitems.rowanswer2 !=''}" data-sly-unwrap>
+										<td>${qaitems.rowanswer2 @ context='html'}</td>
+									</div>
+								</div>
+								<div data-sly-test="${properties.tablestyle == 'comparison'}" data-sly-unwrap>
+									<div data-sly-test="${mbeanObj.getTableProductCount>=3}" data-sly-unwrap>
+										<td>${qaitems.rowanswer3 @ context='html'}</td>
+									</div>
+									<div data-sly-test="${mbeanObj.getTableProductCount>=4}" data-sly-unwrap>
+										<td>${qaitems.rowanswer4 @ context='html'}</td>
+									</div>
+									<div data-sly-test="${mbeanObj.getTableProductCount>=5}" data-sly-unwrap>
+										<td>${qaitems.rowanswer5 @ context='html'}</td>
+									</div>
+									<div data-sly-test="${mbeanObj.getTableProductCount>=6}" data-sly-unwrap>
+										<td>${qaitems.rowanswer6 @ context='html'}</td>
+									</div>
+									<div data-sly-test="${mbeanObj.getTableProductCount>=7}" data-sly-unwrap>
+										<td>${qaitems.rowanswer7 @ context='html'}</td>
+									</div>
+									<div data-sly-test="${mbeanObj.getTableProductCount>=8}" data-sly-unwrap>
+										<td>${qaitems.rowanswer8 @ context='html'}</td>	
+									</div>
+								</div>							
+							</tr>
+						</div>							
+						</div>
+					</div>
+				</div>
+				<div data-sly-test="${properties.sectionheading3}" data-sly-unwrap>
+					<tr>
+						<td class="account_bg_grey text-center" colspan="2">${properties.sectionheading3 @ context='html'}</td>
+					</tr>
+				</div>
+				<div data-sly-test="${mbeanObj.mBean && properties.sectionItems3}" data-sly-unwrap>								
+					<div data-sly-list.sections="${mbeanObj.mBean}"data-sly-unwrap>
+						<div data-sly-test="${sectionsList.index == 3}" data-sly-list.qaitems="${sections.items}" data-sly-unwrap>	
+						<div data-sly-test="${qaitems.rowquestion !='' || qaitems.rowanswer1 !='' || qaitems.rowanswer2 !='' || qaitems.rowanswer3 !='' || qaitems.rowanswer4 !=''|| qaitems.rowanswer5 !='' || qaitems.rowanswer6 !=''|| qaitems.rowanswer7 !='' || qaitems.rowanswer8 !=''}" data-sly-unwrap>						
+							<tr class="account_odd_row">
+								<td colspan="2" class="text-center">${qaitems.rowquestion @ context='html'}</td>
+							</tr>
+							<tr class="account_even_row">
+								<div data-sly-test="${mbeanObj.getTableProductCount>=1 && properties.tablestyle == 'comparison'}" data-sly-unwrap>
+									<td>${qaitems.rowanswer1 @ context='html' || qaitems.rowanswer2 !=''}</td>
+								</div>
+								<div data-sly-test="${mbeanObj.getTableProductCount>=2 && properties.tablestyle == 'comparison'}" data-sly-unwrap>
+									<td>${qaitems.rowanswer2 @ context='html'}</td>
+								</div>
+								<div data-sly-test="${properties.tablestyle == 'static'}" data-sly-unwrap>
+									<div data-sly-test="${qaitems.rowanswer1 !=''}" data-sly-unwrap>
+										<td>${qaitems.rowanswer1 @ context='html'}</td>
+									</div>
+									<div data-sly-test="${qaitems.rowanswer1 !='' || qaitems.rowanswer2 !=''}" data-sly-unwrap>
+										<td>${qaitems.rowanswer2 @ context='html'}</td>
+									</div>
+								</div>
+								<div data-sly-test="${properties.tablestyle == 'comparison'}" data-sly-unwrap>
+									<div data-sly-test="${mbeanObj.getTableProductCount>=3}" data-sly-unwrap>
+										<td>${qaitems.rowanswer3 @ context='html'}</td>
+									</div>
+									<div data-sly-test="${mbeanObj.getTableProductCount>=4}" data-sly-unwrap>
+										<td>${qaitems.rowanswer4 @ context='html'}</td>
+									</div>
+									<div data-sly-test="${mbeanObj.getTableProductCount>=5}" data-sly-unwrap>
+										<td>${qaitems.rowanswer5 @ context='html'}</td>
+									</div>
+									<div data-sly-test="${mbeanObj.getTableProductCount>=6}" data-sly-unwrap>
+										<td>${qaitems.rowanswer6 @ context='html'}</td>
+									</div>
+									<div data-sly-test="${mbeanObj.getTableProductCount>=7}" data-sly-unwrap>
+										<td>${qaitems.rowanswer7 @ context='html'}</td>
+									</div>
+									<div data-sly-test="${mbeanObj.getTableProductCount>=8}" data-sly-unwrap>
+										<td>${qaitems.rowanswer8 @ context='html'}</td>	
+									</div>
+								</div>	
+							</tr>
+						</div>							
+						</div>
+					</div>
+				</div>
+				<div data-sly-test="${properties.sectionheading4}" data-sly-unwrap>
+					<tr>
+						<td class="account_bg_grey text-center" colspan="2">${properties.sectionheading4 @ context='html'}</td>
+					</tr>
+				</div>
+				<div data-sly-test="${mbeanObj.mBean && properties.sectionItems4}" data-sly-unwrap>								
+					<div data-sly-list.sections="${mbeanObj.mBean}"data-sly-unwrap>
+						<div data-sly-test="${sectionsList.index == 4}" data-sly-list.qaitems="${sections.items}" data-sly-unwrap>	
+							<div data-sly-test="${qaitems.rowquestion !='' || qaitems.rowanswer1 !='' || qaitems.rowanswer2 !='' || qaitems.rowanswer3 !='' || qaitems.rowanswer4 !=''|| qaitems.rowanswer5 !='' || qaitems.rowanswer6 !=''|| qaitems.rowanswer7 !='' || qaitems.rowanswer8 !=''}" data-sly-unwrap>
+							<tr class="account_odd_row">
+								<td colspan="2" class="text-center">${qaitems.rowquestion @ context='html'}</td>
+							</tr>
+							<tr class="account_even_row">
+								<div data-sly-test="${mbeanObj.getTableProductCount>=1 && properties.tablestyle == 'comparison'}" data-sly-unwrap>
+									<td>${qaitems.rowanswer1 @ context='html'}</td>
+								</div>
+								<div data-sly-test="${mbeanObj.getTableProductCount>=2 && properties.tablestyle == 'comparison'}" data-sly-unwrap>
+									<td>${qaitems.rowanswer2 @ context='html'}</td>
+								</div>
+								<div data-sly-test="${properties.tablestyle == 'static'}" data-sly-unwrap>
+									<div data-sly-test="${qaitems.rowanswer1 !='' || qaitems.rowanswer2 !=''}" data-sly-unwrap>
+										<td>${qaitems.rowanswer1 @ context='html'}</td>
+									</div>
+									<div data-sly-test="${qaitems.rowanswer1 !='' || qaitems.rowanswer2 !=''}" data-sly-unwrap>
+										<td>${qaitems.rowanswer2 @ context='html'}</td>
+									</div>
+								</div>
+								<div data-sly-test="${properties.tablestyle == 'comparison'}" data-sly-unwrap>
+									<div data-sly-test="${mbeanObj.getTableProductCount>=3}" data-sly-unwrap>
+										<td>${qaitems.rowanswer3 @ context='html'}</td>
+									</div>
+									<div data-sly-test="${mbeanObj.getTableProductCount>=4}" data-sly-unwrap>
+										<td>${qaitems.rowanswer4 @ context='html'}</td>
+									</div>
+									<div data-sly-test="${mbeanObj.getTableProductCount>=5}" data-sly-unwrap>
+										<td>${qaitems.rowanswer5 @ context='html'}</td>
+									</div>
+									<div data-sly-test="${mbeanObj.getTableProductCount>=6}" data-sly-unwrap>
+										<td>${qaitems.rowanswer6 @ context='html'}</td>
+									</div>
+									<div data-sly-test="${mbeanObj.getTableProductCount>=7}" data-sly-unwrap>
+										<td>${qaitems.rowanswer7 @ context='html'}</td>
+									</div>
+									<div data-sly-test="${mbeanObj.getTableProductCount>=8}" data-sly-unwrap>
+										<td>${qaitems.rowanswer8 @ context='html'}</td>	
+									</div>
+								</div>	
+							</tr>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div data-sly-test="${properties.sectionheading5}" data-sly-unwrap>
+					<tr>
+						<td class="account_bg_grey text-center" colspan="2">${properties.sectionheading5 @ context='html'}</td>
+					</tr>
+				</div>
+				<div data-sly-test="${mbeanObj.mBean && properties.sectionItems5}" data-sly-unwrap>								
+					<div data-sly-list.sections="${mbeanObj.mBean}"data-sly-unwrap>
+						<div data-sly-test="${sectionsList.index == 5}" data-sly-list.qaitems="${sections.items}" data-sly-unwrap>
+							<div data-sly-test="${qaitems.rowquestion !='' || qaitems.rowanswer1 !='' || qaitems.rowanswer2 !='' || qaitems.rowanswer3 !='' || qaitems.rowanswer4 !=''|| qaitems.rowanswer5 !='' || qaitems.rowanswer6 !=''|| qaitems.rowanswer7 !='' || qaitems.rowanswer8 !=''}" data-sly-unwrap>
+							<tr class="account_odd_row">
+								<td colspan="2" class="text-center">${qaitems.rowquestion @ context='html'}</td>
+							</tr>
+							<tr class="account_even_row">
+								<div data-sly-test="${mbeanObj.getTableProductCount>=1 && properties.tablestyle == 'comparison'}" data-sly-unwrap>
+									<td>${qaitems.rowanswer1 @ context='html'}</td>
+								</div>
+								<div data-sly-test="${mbeanObj.getTableProductCount>=2 && properties.tablestyle == 'comparison'}" data-sly-unwrap>
+									<td>${qaitems.rowanswer2 @ context='html'}</td>
+								</div>
+								<div data-sly-test="${properties.tablestyle == 'static'}" data-sly-unwrap>
+									<div data-sly-test="${qaitems.rowanswer1 !='' || qaitems.rowanswer2 !=''}" data-sly-unwrap>
+										<td>${qaitems.rowanswer1 @ context='html'}</td>
+									</div>
+									<div data-sly-test="${qaitems.rowanswer1 !='' || qaitems.rowanswer2 !=''}" data-sly-unwrap>
+										<td>${qaitems.rowanswer2 @ context='html'}</td>
+									</div>
+								</div>
+								<div data-sly-test="${properties.tablestyle == 'comparison'}" data-sly-unwrap>
+									<div data-sly-test="${mbeanObj.getTableProductCount>=3}" data-sly-unwrap>
+										<td>${qaitems.rowanswer3 @ context='html'}</td>
+									</div>
+									<div data-sly-test="${mbeanObj.getTableProductCount>=4}" data-sly-unwrap>
+										<td>${qaitems.rowanswer4 @ context='html'}</td>
+									</div>
+									<div data-sly-test="${mbeanObj.getTableProductCount>=5}" data-sly-unwrap>
+										<td>${qaitems.rowanswer5 @ context='html'}</td>
+									</div>
+									<div data-sly-test="${mbeanObj.getTableProductCount>=6}" data-sly-unwrap>
+										<td>${qaitems.rowanswer6 @ context='html'}</td>
+									</div>
+									<div data-sly-test="${mbeanObj.getTableProductCount>=7}" data-sly-unwrap>
+										<td>${qaitems.rowanswer7 @ context='html'}</td>
+									</div>
+									<div data-sly-test="${mbeanObj.getTableProductCount>=8}" data-sly-unwrap>
+										<td>${qaitems.rowanswer8 @ context='html'}</td>	
+									</div>
+								</div>	
+							</tr>
+						</div>							
+						</div>
+					</div>
+				</div>
+				<div data-sly-test="${properties.sectionheading6}" data-sly-unwrap>
+					<tr>
+						<td class="account_bg_grey text-center" colspan="2">${properties.sectionheading6 @ context='html'}</td>
+					</tr>
+				</div>
+				<div data-sly-test="${mbeanObj.mBean && properties.sectionItems6}" data-sly-unwrap>								
+					<div data-sly-list.sections="${mbeanObj.mBean}"data-sly-unwrap>
+						<div data-sly-test="${sectionsList.index == 6}" data-sly-list.qaitems="${sections.items}" data-sly-unwrap>
+							<div data-sly-test="${qaitems.rowquestion !='' || qaitems.rowanswer1 !='' || qaitems.rowanswer2 !='' || qaitems.rowanswer3 !='' || qaitems.rowanswer4 !=''|| qaitems.rowanswer5 !='' || qaitems.rowanswer6 !=''|| qaitems.rowanswer7 !='' || qaitems.rowanswer8 !=''}" data-sly-unwrap>
+							<tr class="account_odd_row">
+								<td colspan="2" class="text-center">${qaitems.rowquestion @ context='html'}</td>
+							</tr>
+							<tr class="account_even_row">
+								<div data-sly-test="${mbeanObj.getTableProductCount>=1 && properties.tablestyle == 'comparison'}" data-sly-unwrap>
+									<td>${qaitems.rowanswer1 @ context='html'}</td>
+								</div>
+								<div data-sly-test="${mbeanObj.getTableProductCount>=2 && properties.tablestyle == 'comparison'}" data-sly-unwrap>
+									<td>${qaitems.rowanswer2 @ context='html'}</td>
+								</div>
+								<div data-sly-test="${properties.tablestyle == 'static'}" data-sly-unwrap>
+									<div data-sly-test="${qaitems.rowanswer1 !='' || qaitems.rowanswer2 !=''}" data-sly-unwrap>
+										<td>${qaitems.rowanswer1 @ context='html'}</td>
+									</div>
+									<div data-sly-test="${qaitems.rowanswer1 !='' || qaitems.rowanswer2 !=''}" data-sly-unwrap>
+										<td>${qaitems.rowanswer2 @ context='html'}</td>
+									</div>
+								</div>
+								<div data-sly-test="${properties.tablestyle == 'comparison'}" data-sly-unwrap>
+									<div data-sly-test="${mbeanObj.getTableProductCount>=3}" data-sly-unwrap>
+										<td>${qaitems.rowanswer3 @ context='html'}</td>
+									</div>
+									<div data-sly-test="${mbeanObj.getTableProductCount>=4}" data-sly-unwrap>
+										<td>${qaitems.rowanswer4 @ context='html'}</td>
+									</div>
+									<div data-sly-test="${mbeanObj.getTableProductCount>=5}" data-sly-unwrap>
+										<td>${qaitems.rowanswer5 @ context='html'}</td>
+									</div>
+									<div data-sly-test="${mbeanObj.getTableProductCount>=6}" data-sly-unwrap>
+										<td>${qaitems.rowanswer6 @ context='html'}</td>
+									</div>
+									<div data-sly-test="${mbeanObj.getTableProductCount>=7}" data-sly-unwrap>
+										<td>${qaitems.rowanswer7 @ context='html'}</td>
+									</div>
+									<div data-sly-test="${mbeanObj.getTableProductCount>=8}" data-sly-unwrap>
+										<td>${qaitems.rowanswer8 @ context='html'}</td>	
+									</div>
+								</div>	
+							</tr>
+							</div>
+						</div>
+					</div>
+				</div>	
+			</table>
+			<!-- Table Comparison Mobile Screen End -->
+		</div>	
+	</div>

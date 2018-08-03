@@ -1,0 +1,2 @@
+#base=js
+faq_duplicate_paths.js

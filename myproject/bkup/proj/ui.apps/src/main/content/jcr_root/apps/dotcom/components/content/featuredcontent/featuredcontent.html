@@ -1,0 +1,64 @@
+<!--/* Adds a featured content component */-->
+<div data-sly-test="${!properties.headline && (wcmmode.edit || wcmmode.design)}" >Configure Featured Content Component</div>
+<div data-sly-test="${properties.linkURL}" data-sly-unwrap>
+	<div data-sly-unwrap data-sly-use.fetch="${'com.suntrust.dotcom.utils.GenericUtil' @linkURL=properties.linkURL,urlParams=properties.urlParams,anchorTag=properties.anchorTag}"></div>
+</div>
+<div data-sly-test="${properties.url1}" data-sly-unwrap>
+	<div data-sly-unwrap data-sly-use.fetch1="${'com.suntrust.dotcom.utils.GenericUtil' @linkURL=properties.url1,urlParams=properties.urlParams1}"></div>
+</div>
+<div data-sly-test="${properties.url2}" data-sly-unwrap>
+	<div data-sly-unwrap data-sly-use.fetch2="${'com.suntrust.dotcom.utils.GenericUtil' @linkURL=properties.url2,urlParams=properties.urlParams2}"></div>
+</div>
+
+<p data-sly-test.intialclass="${!properties.image}" data-sly-unwrap>		
+	<div class="${properties.ctatitle ? 'suntrust-single-withCTA' : 'suntrust-single-withoutCTA'}">
+</p>
+<p data-sly-unwrap data-sly-test="${!intialclass}">	
+	<div class="">
+</p> 
+<div class="suntrust-imagetextctapromo-container">
+	<div data-sly-test="${!properties.image && properties.topbordercolor!='select'}" data-sly-unwrap>
+		<div class="clearfix">
+		  <p class="${properties.topbordercolor}"></p>
+		</div>
+	</div>
+       <!--/* Adds the image browsed instead of fallback thumbnail image */-->
+       <div data-sly-test="${properties.image}" data-sly-unwrap>
+          <div class="clearfix">
+             <a href="${fetch.modifyURL}" target="${properties.target}" title="${properties.ctatitletag}">
+             <img class="suntrust-newpromo-image" src="${properties.image}" alt="${properties.imagealttext}" title="${properties.imagetitle}">
+             </a>
+          </div>
+       </div>
+       <div class="suntrust-user-path-container">
+          <div class="suntrust-lob-header">${properties.category @ context='html'}</div>
+          <div class="suntrust-feature-header">
+             ${properties.headline @ context='html'}
+          </div>
+          <div class="suntrust-promo-description"><div class="rteelement">${properties.description @context='html'}</div></div>
+          <div data-sly-test="${fetch.modifyURL || properties.ctatitle}" data-sly-unwrap>
+			<div class="suntrust-cta-featureholder">
+				 <div class="suntrust-imagetextcta-ctabutton">
+					<div data-sly-test="${!properties.invocaFlagCheckbox && properties.ctatitle}" data-sly-unwrap>
+						 <a title="${properties.ctatitletag}" class="${properties.theme} textDecorationnone" href="${fetch.modifyURL}" target="${properties.target}">${properties.ctatitle @ context='html'}</a>
+					</div>
+					<div data-sly-test="${properties.invocaFlagCheckbox && properties.ctatitle}" data-sly-unwrap>
+						 <span class="suntrust-invoca-hide"><a title="${properties.ctatitletag}" class="${properties.theme} textDecorationnone" href="${fetch.modifyURL}" target="${properties.target}">${properties.ctatitle @ context='html'}</a></span>
+					</div>
+				 </div>
+			</div>
+          </div>
+		  <div data-sly-test="${fetch1.modifyURL || properties.linkText1 || fetch2.modifyURL || properties.linkText2}" data-sly-unwrap>
+			  <div class="suntrust-feature-links">
+				  <div data-sly-test="${fetch1.modifyURL || properties.linkText1}" data-sly-unwrap>
+					<a class="displayBlock" href="${fetch1.modifyURL}" target="${properties.target1}" title="${properties.titletag1}">${properties.linkText1}<span> ></span></a>
+				  </div>
+				  <div data-sly-test="${fetch2.modifyURL || properties.linkText2}" data-sly-unwrap>
+					<a class="displayBlock" href="${fetch2.modifyURL}" target="${properties.target2}" title="${properties.titletag2}">${properties.linkText2}<span> ></span></a>
+				  </div>
+			  </div>
+		  </div>
+       </div>
+    </div>   
+</div>
+

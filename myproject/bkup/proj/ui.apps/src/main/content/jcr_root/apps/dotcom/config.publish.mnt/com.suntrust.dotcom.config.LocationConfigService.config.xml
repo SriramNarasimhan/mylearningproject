@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          jcr:primaryType="sling:OsgiConfig"
+          ROOT_PATH="/content/suntrust/dotcom/us/en"
+          BLUEPRINT_PAGE_PATH_BRANCH="/content/suntrust/dotcom/language-masters/en/branchrootblueprint/stateblueprint/cityblueprint/zipblueprint/branchlocationdetails"
+          BLUEPRINT_PAGE_PATH_ATM="/content/suntrust/dotcom/language-masters/en/atmrootblueprint/stateblueprint/cityblueprint/zipblueprint/atmlocationdetails"
+          BLUEPRINT_PAGE_PATH_BRANCH_STATE="/content/suntrust/dotcom/language-masters/en/branchrootblueprint/stateblueprint"
+          BLUEPRINT_PAGE_PATH_ATM_STATE="/content/suntrust/dotcom/language-masters/en/atmrootblueprint/stateblueprint"
+          BLUEPRINT_PAGE_PATH_BRANCH_CITY="/content/suntrust/dotcom/language-masters/en/branchrootblueprint/stateblueprint/cityblueprint"
+          BLUEPRINT_PAGE_PATH_ATM_CITY="/content/suntrust/dotcom/language-masters/en/atmrootblueprint/stateblueprint/cityblueprint"
+          BLUEPRINT_PAGE_PATH_BRANCH_ZIP="/content/suntrust/dotcom/language-masters/en/branchrootblueprint/stateblueprint/cityblueprint/zipblueprint"
+          BLUEPRINT_PAGE_PATH_ATM_ZIP="/content/suntrust/dotcom/language-masters/en/atmrootblueprint/stateblueprint/cityblueprint/zipblueprint"
+          LIVE_COPY_TEMPLATE="/apps/dotcom/templates/locationdetailstemplate"
+          mapquest.url="http://www.mapquestapi.com/datamanager/v2/get-table-data?key=Gmjtd|lu6zn1ua2d,70=o5-l0850"
+          mapquest.clientid="32547"
+          mapquest.password="qFjpKN8t"
+          mapquest.tablename="mqap.32547_SunTrust_Branch_Loc_AEM_NEW"
+/>
+

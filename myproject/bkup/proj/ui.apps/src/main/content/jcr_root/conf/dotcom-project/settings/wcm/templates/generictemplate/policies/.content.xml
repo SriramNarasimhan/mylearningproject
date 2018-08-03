@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastReplicated="{Date}2017-06-06T10:36:46.227-04:00"
+        cq:lastReplicatedBy="UIKS34"
+        cq:lastReplicationAction="Activate"
+        cq:policy="dotcom-project/components/page/default"
+        jcr:mixinTypes="[cq:ReplicationStatus]"
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="wcm/core/components/policies/mappings">
+        <header_iparsys
+            cq:policy="wcm/foundation/components/iparsys/dotcom-project-default"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="wcm/core/components/policies/mapping"/>
+        <root
+            cq:policy="wcm/foundation/components/responsivegrid/dotcom-project-default"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="wcm/core/components/policies/mapping">
+            <responsivegrid
+                cq:policy="wcm/foundation/components/responsivegrid/dotcom-project-default"
+                jcr:lastModified="{Date}2017-04-28T15:40:59.695-04:00"
+                jcr:lastModifiedBy="suntrust-dev"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="wcm/core/components/policies/mapping"/>
+            <header_iparsys
+                cq:policy="wcm/foundation/components/iparsys/dotcom-project-default"
+                jcr:lastModified="{Date}2017-04-28T15:42:10.379-04:00"
+                jcr:lastModifiedBy="suntrust-dev"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="wcm/core/components/policies/mapping"/>
+            <footer_iparsys
+                cq:policy="wcm/foundation/components/iparsys/dotcom-project-default"
+                jcr:lastModified="{Date}2017-04-28T15:42:30.146-04:00"
+                jcr:lastModifiedBy="suntrust-dev"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="wcm/core/components/policies/mapping"/>
+        </root>
+        <footer_iparsys
+            cq:policy="wcm/foundation/components/iparsys/dotcom-project-default"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="wcm/core/components/policies/mapping"/>
+    </jcr:content>
+</jcr:root>

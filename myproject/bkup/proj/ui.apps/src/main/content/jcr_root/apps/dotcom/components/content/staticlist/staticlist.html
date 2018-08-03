@@ -1,0 +1,13 @@
+<div data-sly-use.StbeanObj="com.suntrust.dotcom.components.StaticComponent">
+	<div data-sly-test="${!StbeanObj.mBean && (wcmmode.edit || wcmmode.design)}">Configure Static List Component</div>
+	<div data-sly-test="${StbeanObj.mBean}" data-sly-list.items="${StbeanObj.mBean}">
+		<section class="suntrust-static-list">
+			<div data-sly-test="${items.dashboard}" data-sly-unwrap>
+				<div class="suntrust-static-list-title">${items.dashboard @context='html'}</div>
+			</div>
+			<ul data-sly-list.itemsList="${items.items}">
+				<li><a class="suntrust-static-list-link" title="${itemsList.titletag}" href="${itemsList.path}" target="${itemsList.target}">${itemsList.page @context='html'}</a></li>
+			</ul>
+		</section>
+	</div>
+</div> 

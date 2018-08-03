@@ -1,0 +1,6 @@
+<sly data-sly-use.disclaimerObj="com.suntrust.dotcom.components.MortgageDisclaimer">
+<sly data-sly-test="${wcmmode.edit || wcmmode.design}">Configure Mortgage Disclaimer Text Component</sly>
+</sly>
+<sly data-sly-test="${disclaimerObj.disclaimerText}">
+${disclaimerObj.disclaimerText @context='html'}
+</sly>

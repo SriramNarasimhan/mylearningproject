@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Global Header"
+    sling:resourceType="cq/gui/components/authoring/dialog"
+    helpPath="https://www.adobe.com/go/aem6_2_docs_component_en#Text &amp; Image - Sightly">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/foundation/container">
+        <layout
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/foundation/layouts/tabs"
+            type="nav"/>
+        <items jcr:primaryType="nt:unstructured">
+            <content
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Content"
+                sling:resourceType="granite/ui/components/foundation/section">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
+                    margin="{Boolean}false"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <file
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/fileupload"
+                                allowUpload="{Boolean}false"
+                                autoStart="{Boolean}false"
+                                class="cq-droptarget"
+                                fieldDescription="Sets the logo picture"
+                                fieldLabel="Logo File"
+                                fileNameParameter="./logofile"
+                                fileReferenceParameter="./fileReference"
+                                mimeTypes="[image]"
+                                multiple="{Boolean}false"
+                                name="./logo"
+                                title="Upload Image Asset"
+                                uploadUrl="${suffix.path}"
+                                useHTML5="{Boolean}true"/>
+                            <mobilelogo
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/fileupload"
+                                allowUpload="{Boolean}false"
+                                autoStart="{Boolean}false"
+                                class="cq-droptarget"
+                                fieldDescription="Sets the mobile logo"
+                                fieldLabel="Mobile Logo"
+                                fileNameParameter="./mobilelogofile"
+                                fileReferenceParameter="./mobileFileReference"
+                                mimeTypes="[image]"
+                                multiple="{Boolean}false"
+                                name="./mobilelogo"
+                                title="Upload Image Asset"
+                                uploadUrl="${suffix.path}"
+                                useHTML5="{Boolean}true"/>
+                            <alttext
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="This is the alt text for logo"
+                                fieldLabel="Alttext"
+                                name="./alttext"/>
+                            <url
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                allowBlank="{Boolean}false"
+                                fieldDescription="Sets the url target for the logo"
+                                fieldLabel="Logo Url"
+                                name="./logoURL"
+                                rootPath="/content"/>
+                            <urlParams
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Sets the link parameters applied to the url. e.g. param1=value1&amp;param2=value2"
+                                fieldLabel="Logo Params"
+                                name="./logoParams"/>
+                            <target
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/select"
+                                class="cq-dialog-dropdown-showhide"
+                                cq-dialog-dropdown-showhide-target=".list-option-listfrom-showhide-target"
+                                deleteHint="{Boolean}false"
+                                fieldDescription="Sets the window target for the link"
+                                fieldLabel="Logo Target"
+                                name="./logotarget">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <self
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Default"
+                                        value="_self"/>
+                                    <blank
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Blank"
+                                        value="_blank"/>
+                                </items>
+                            </target>
+                            <hidesignon
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                                defaultChecked="{Boolean}false"
+                                fieldDescription="Checking this box hides the Sign On"
+                                fieldLabel="Hide Sign On?"
+                                name="./hidesignon"
+                                text="Hide Sign On?"
+                                uncheckedValue="false"
+                                value="true"/>
+                            <signonlabel
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Sign On Label"
+                                fieldLabel="signonLabel"
+                                name="./signonlabel"/>
+                        </items>
+                    </column>
+                </items>
+            </content>
+            <cta
+                jcr:primaryType="nt:unstructured"
+                jcr:title="CTA"
+                sling:resourceType="granite/ui/components/foundation/section">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <title
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Sets the title displayed in the button"
+                                fieldLabel="Title"
+                                name="./ctatitle"/>
+                            <titletag
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Sets the function of CTA button on hover"
+                                fieldLabel="Title Tag Field"
+                                name="./titletagfield"/>
+                            <url
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                allowBlank="{Boolean}false"
+                                fieldDescription="Sets the url target for the button "
+                                fieldLabel="Url"
+                                name="./linkURL"
+                                rootPath="/content"/>
+                            <urlParams
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Sets the link parameters applied to the url. e.g. param1=value1&amp;param2=value2"
+                                fieldLabel="Url Params"
+                                name="./urlParams"/>
+                            <anchortitle
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Set the title for anchor tag"
+                                fieldLabel="Title for anchor tag"
+                                id="anchortitle"
+                                maxlength="{Long}125"
+                                name="./anchortitle"
+                                required="{Boolean}true"/>
+                            <target
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/select"
+                                class="cq-dialog-dropdown-showhide"
+                                cq-dialog-dropdown-showhide-target=".list-option-listfrom-showhide-target"
+                                fieldDescription="Sets the window target for the link"
+                                fieldLabel="Target"
+                                name="./target">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <self
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Default"
+                                        value="_self"/>
+                                    <blank
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Blank"
+                                        value="_blank"/>
+                                </items>
+                            </target>
+                        </items>
+                    </column>
+                </items>
+            </cta>
+            <search
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Search"
+                sling:resourceType="granite/ui/components/foundation/section">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <title
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Sets the title displayed in the button"
+                                fieldLabel="Search"
+                                name="./searchtitle"/>
+                            <headline
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="This is the heading for search modal window"
+                                fieldLabel="Modal Window Headline"
+                                name="./searchheadline"/>
+                            <defaulttext
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="This is the default textin the search modal window"
+                                fieldLabel="Modal Window Default Text"
+                                name="./searchdefaulttext"/>
+                            <buttontitle
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Button Title"
+                                fieldLabel="Modal Window Search Button Title"
+                                name="./searchbutton"/>
+                            <url
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                allowBlank="{Boolean}false"
+                                fieldDescription="Sets the url target for the button "
+                                fieldLabel="Url"
+                                name="./searchmodalURL"
+                                rootPath="/content"/>
+                            <searchtab
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/select"
+                                class="cq-dialog-dropdown-showhide"
+                                cq-dialog-dropdown-showhide-target=".list-option-listfrom-showhide-target"
+                                fieldDescription="Sets the search tab name."
+                                fieldLabel="Search Tab Name"
+                                name="./searchmodalsearchtab">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <allResults
+                                        jcr:primaryType="nt:unstructured"
+                                        text="All Results"
+                                        value="all_results"/>
+                                    <locations
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Locations"
+                                        value="locations"/>
+                                    <people
+                                        jcr:primaryType="nt:unstructured"
+                                        text="People"
+                                        value="people"/>
+                                    <products
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Products"
+                                        value="products"/>
+                                    <faqs
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Faqs"
+                                        value="faqs"/>
+                                </items>
+                            </searchtab>
+							<suggestioncount
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="/libs/granite/ui/components/foundation/form/numberfield"
+                                defaultValue="{Long}5"
+                                fieldDescription="Suggestion count for the typeahead"
+                                fieldLabel="Suggestion Count"
+                                min="{Long}1"
+                                name="./suggestioncount"/>
+                            <dictionarysearchpath
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                fieldDescription="Dictionary Lookup Path from DAM file"
+                                fieldLabel="Dictionary Lookup Path"
+                                name="./dictpath"
+                                rootPath="/content/dam"/>
+                        </items>
+                    </column>
+                </items>
+            </search>
+            <location
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Location"
+                sling:resourceType="granite/ui/components/foundation/section">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <title
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Sets the title displayed in the location button"
+                                fieldLabel="Location Title"
+                                name="./locationtitle"/>
+                            <headline
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="This is the heading for location modal window"
+                                fieldLabel="Modal Window Headline"
+                                name="./locationheadline"/>
+                            <defaulttext
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="This is the default textin the location modal window"
+                                fieldLabel="Modal Window Default Text"
+                                name="./locationdefaulttext"/>
+                            <buttontitle
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Modal Window Location Button Title"
+                                fieldLabel="Modal Window Location Button Title"
+                                name="./locationbutton"/>
+                            <url
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                allowBlank="{Boolean}false"
+                                fieldDescription="Sets the url target for the button"
+                                fieldLabel="Url"
+                                name="./locationmodalURL"
+                                rootPath="/content"/>
+                            <searchtab
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/select"
+                                class="cq-dialog-dropdown-showhide"
+                                cq-dialog-dropdown-showhide-target=".list-option-listfrom-showhide-target"
+                                fieldDescription="Sets the search tab name."
+                                fieldLabel="Search Tab Name"
+                                name="./locationmodalsearchtab">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <allResults
+                                        jcr:primaryType="nt:unstructured"
+                                        text="All Results"
+                                        value="all_results"/>
+                                    <locations
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Locations"
+                                        value="locations"/>
+                                    <people
+                                        jcr:primaryType="nt:unstructured"
+                                        text="People"
+                                        value="people"/>
+                                    <products
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Products"
+                                        value="products"/>
+                                    <faqs
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Faqs"
+                                        value="faqs"/>
+                                </items>
+                            </searchtab>
+                        </items>
+                    </column>
+                </items>
+            </location>
+            <language
+                jcr:primaryType="nt:unstructured"
+                jcr:title="language"
+                sling:resourceType="granite/ui/components/foundation/section">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <title
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Sets the title displayed in the language button"
+                                fieldLabel="Language Title"
+                                name="./languagetitle"/>
+                            <url
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                allowBlank="{Boolean}false"
+                                fieldDescription="Sets the url target for the button "
+                                fieldLabel="Language Url"
+                                name="./languageURL"
+                                rootPath="/content"/>
+                            <urlParams
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                fieldDescription="Sets the link parameters applied to the url. e.g. param1=value1&amp;param2=value2"
+                                fieldLabel="Url Language Params"
+                                name="./languageurlParams"/>
+                            <target
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/select"
+                                class="cq-dialog-dropdown-showhide"
+                                cq-dialog-dropdown-showhide-target=".list-option-listfrom-showhide-target"
+                                fieldDescription="Sets the window target for the link"
+                                fieldLabel="Language Target"
+                                name="./languagetarget">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <self
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Default"
+                                        value="_self"/>
+                                    <blank
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Blank"
+                                        value="_blank"/>
+                                </items>
+                            </target>
+                        </items>
+                    </column>
+                </items>
+            </language>
+            <footernavigationlinks
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Footer Navigation Links"
+                sling:resourceType="granite/ui/components/foundation/section">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <footernavlinks
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/multifield"
+                                class="full-width"
+                                fieldDescription="Click 'Add Field' to add a new footer navigation link"
+                                fieldLabel="Footer Nav Links">
+                                <field
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/foundation/form/fieldset"
+                                    acs-commons-nested="JSON_STORE"
+                                    name="./label">
+                                    <layout
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
+                                        method="absolute"/>
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <column
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/container">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <label
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                    fieldDescription="Enter field value"
+                                                    fieldLabel="Label"
+                                                    name="./labelName"
+                                                    required="{Boolean}true"/>
+                                                <url
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                                    allowBlank="{Boolean}false"
+                                                    fieldDescription="Sets the url target for the button "
+                                                    fieldLabel="Url"
+                                                    name="./labelURL"
+                                                    rootPath="/content"/>
+                                                <urlParams
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                    fieldDescription="Sets the link parameters applied to the url. e.g. param1=value1&amp;param2=value2"
+                                                    fieldLabel="Url Params"
+                                                    name="./labelUrlParams"/>
+                                                <target
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/foundation/form/select"
+                                                    defaultValue="_self"
+                                                    fieldDescription="Sets the window target for the link"
+                                                    fieldLabel="Target"
+                                                    name="./labelTarget">
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <self
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="Default"
+                                                            value="_self"/>
+                                                        <blank
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="Blank"
+                                                            value="_blank"/>
+                                                    </items>
+                                                </target>
+                                            </items>
+                                        </column>
+                                    </items>
+                                </field>
+                            </footernavlinks>
+                        </items>
+                    </column>
+                </items>
+            </footernavigationlinks>
+        </items>
+    </content>
+</jcr:root>
