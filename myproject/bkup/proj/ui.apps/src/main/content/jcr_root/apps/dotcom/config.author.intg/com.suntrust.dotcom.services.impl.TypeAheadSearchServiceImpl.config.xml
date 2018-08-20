@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
-    jcr:primaryType="sling:OsgiConfig"
-	typeahead.search.path="/content/suntrust/dotcom/us"
-    typeahead.dam.file.path="/content/dam/suntrust/us/en/internal-applications/typeahead"
-    typeahead.dam.file.name.update="[allresults:allresults_tab_update.txt,location:location_tab_update.txt,people:people_tab_update.txt,faq:faq_tab_update.txt,resource:resource_tab_update.txt,product:product_tab_update.txt]"
-	typeahead.dam.file.name.remove="[allresults:allresults_tab_remove.txt,location:location_tab_remove.txt,people:people_tab_remove.txt,faq:faq_tab_remove.txt,resource:resource_tab_remove.txt,product:product_tab_remove.txt]"/>

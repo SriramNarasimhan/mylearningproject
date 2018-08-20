@@ -1,3 +1,0 @@
-#base=css
-
-inbox.commons.css

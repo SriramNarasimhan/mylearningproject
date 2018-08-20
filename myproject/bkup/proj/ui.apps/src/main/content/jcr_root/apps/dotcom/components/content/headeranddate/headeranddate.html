@@ -1,9 +1,0 @@
-<!--/* Adds a Header and Date component */-->
-<div data-sly-test="${(wcmmode.edit || wcmmode.design)}" >Configure Header and Date Component</div>
-<div class="suntrust-mortgageHolder">
-    <div class="suntrust-mortgagetable suntrust-mortgagetableheading">
-        <h4>${properties.headingtext @ context='html'}</h4>
-        <p><span class="suntrust-date">${properties.effectivedatetext @ context='html'}</span>
-		<div data-sly-test="${properties.datetime}" data-sly-unwrap>${'EEEE, MMMM dd, yyyy' @ format=properties.datetime} at ${'h:mm a' @ format=properties.datetime} ${properties.timezone @ context='html'}</div></p>
-    </div>
-</div>	

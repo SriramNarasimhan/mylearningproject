@@ -1,2 +1,0 @@
-#base=js
-url-mandatory.js

@@ -1,2 +1,0 @@
-#base=js
-waive_multifield_limit.js

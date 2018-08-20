@@ -1,3 +1,0 @@
-#base=js
-add_multifield_limit.js
-tab-hide.js

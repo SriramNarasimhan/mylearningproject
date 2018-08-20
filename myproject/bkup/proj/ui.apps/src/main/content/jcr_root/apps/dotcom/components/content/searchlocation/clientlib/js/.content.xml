@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
-    cq:lastReplicated="{Date}2017-10-23T16:19:29.851-04:00"
-    cq:lastReplicatedBy="UIPK88"
-    cq:lastReplicationAction="Activate"
-    jcr:mixinTypes="[cq:ReplicationStatus]"
-    jcr:primaryType="nt:folder"/>

@@ -1,3 +1,0 @@
-#base=source
-
-S7VideoComponent.js

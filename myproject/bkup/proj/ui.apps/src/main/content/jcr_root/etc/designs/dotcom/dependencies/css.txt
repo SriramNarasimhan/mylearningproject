@@ -1,5 +1,0 @@
-#base=css
-bootstrap/bootstrap.min.css
-bootstrap/jquery.bxslider.custom.min.css
-#bootstrap/animation-styles.min.css
-bootstrap/select2.css

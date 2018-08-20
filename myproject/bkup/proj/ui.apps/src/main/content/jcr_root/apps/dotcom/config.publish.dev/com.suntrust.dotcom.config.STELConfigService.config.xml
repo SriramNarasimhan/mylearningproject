@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
-    jcr:primaryType="sling:OsgiConfig"
-    rpx.payments.rates.tablename="tbl_prod_rpx_rates"
-    rpx.paymentstable.servlet.config.path="/configuration/rpx/_jcr_content.json"
-    rpx.archived.path="/content/dam/suntrust/us/en/internal-applications/student-lending-rates-archival"
-    rpx.rate.prod.import.date.pattern="yyyy-MM-dd"
-    rpx.prod.import.date.pattern="M/d/yyyy"/>

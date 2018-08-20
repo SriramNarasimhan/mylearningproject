@@ -1,8 +1,0 @@
-@media screen and (min-width:0\0) {
-    [data-namespace='s7viewers'].s7container .s7innercontainer[mode='fullscreen']{
-		position: fixed !important;
-    }
-	[data-namespace='s7viewers'].s7container .s7innercontainer[mode='fullscreen'] .s7controlbar{
-		position: fixed !important;
-    }
-}

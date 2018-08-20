@@ -1,2 +1,0 @@
-#base=js
-steps_multifield_limit.js

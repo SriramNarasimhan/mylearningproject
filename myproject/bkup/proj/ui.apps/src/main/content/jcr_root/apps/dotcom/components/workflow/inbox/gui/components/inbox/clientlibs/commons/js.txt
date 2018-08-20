@@ -1,6 +1,0 @@
-#base=js
-
-init.js
-inbox.commons.dialog.js
-inbox.commons.workitem.js
-inbox.commons.task.js

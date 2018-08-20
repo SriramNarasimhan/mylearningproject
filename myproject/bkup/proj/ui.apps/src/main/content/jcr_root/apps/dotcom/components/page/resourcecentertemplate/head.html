@@ -1,8 +1,0 @@
-<sly data-sly-include="/libs/wcm/core/components/init/init.jsp"/>
-<sly data-sly-test="${(wcmmode.edit || wcmmode.design)}">
-    <sly data-sly-use.classObj="${'com.suntrust.dotcom.components.ArticleWrapperComponent'}" />
-    <sly data-sly-test="${classObj.getSuffix == 'nosuffix'}">
-       <title>${properties.jcr:title}</title>
-       <sly data-sly-include="/apps/dotcom/components/page/page/headlibs.html" />
-    </sly>
-</sly>
